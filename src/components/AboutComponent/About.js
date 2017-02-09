@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Menu from '../TopMenuComponent/TopMenu';
+import Header from '../HeaderComponent/Header';
 import {css} from 'aphrodite/no-important';
 import styles from './AboutStyles';
 
@@ -7,7 +7,7 @@ class About extends Component {
     render() {
         return (
             <div>
-                <Menu />
+                <Header />
                 <div className={css(styles.about)}>About</div>
             </div>
         );

@@ -18,19 +18,6 @@ export default StyleSheet.create({
             width: '1170px'
         }
     },
-
-    row: {
-        ':before': {
-            content: '""',
-            display: 'table'
-        },
-        ':after': {
-            content: '""',
-            clear: 'both',
-            display: 'table'
-        }
-    },
-
     clearfix: {
         ':before': {
             content: '""',

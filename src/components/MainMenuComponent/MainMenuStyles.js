@@ -2,14 +2,14 @@ import {StyleSheet} from 'aphrodite/no-important';
 import {colors} from '../GeneralComponents/VariablesStyles';
 
 export default StyleSheet.create({
-    topMenu: {
-        background: [colors.mainColor],
-        borderBottom: '2px solid #e8e8e8'
+    mainMenu: {
+        display: 'block',
     },
-    topMenu__item: {
-        float: 'left'
+    mainMenu__item: {
+        float: 'left',
+        listStyle: 'none'
     },
-    topMenu__link: {
+    mainMenu__link: {
         display: 'block',
         color: '#ffffff',
         fontWeight: 'bold',

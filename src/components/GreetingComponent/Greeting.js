@@ -8,7 +8,7 @@ import styles from './GreetingStyles';
 class Greeting extends Component {
 
     loadText() {
-        $.get('https://fksis-backend.herokuapp.com/content',
+        $.get('https://acm-backend.herokuapp.com/content',
             response => {
                 console.log(response);
             }, "JSON");
