@@ -18,7 +18,7 @@ const initialMenu = [
 ];
 
 export default function menu(state = initialMenu, action) {
-    if(action.type === 'ADD_MENU_ITEM') {
+    if (action.type === 'ADD_MENU_ITEM') {
         return [
             ...state,
             action.payload

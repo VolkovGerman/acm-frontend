@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { css } from 'aphrodite/no-important';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {css} from 'aphrodite/no-important';
 import $ from 'jquery';
 
 import styles from './GreetingStyles';
@@ -9,9 +9,9 @@ class Greeting extends Component {
 
     loadText() {
         $.get('https://fksis-backend.herokuapp.com/content',
-        response => {
-            console.log(response);
-        }, "JSON");
+            response => {
+                console.log(response);
+            }, "JSON");
     }
 
     render() {
@@ -30,8 +30,8 @@ export default connect(
     }),
     dispatch => ({
         asyncGetGeneralInfo: () => {
-            const asyncGetGeneralInfo = () => dispatch =>{
-                setTimeout( () => {
+            const asyncGetGeneralInfo = () => dispatch => {
+                setTimeout(() => {
                     console.log('I get info');
                 }, 2000);
             }

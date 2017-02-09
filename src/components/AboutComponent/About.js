@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Menu from '../MenuComponent/Menu';
-import { css } from 'aphrodite/no-important';
+import React, {Component} from 'react';
+import Menu from '../TopMenuComponent/TopMenu';
+import {css} from 'aphrodite/no-important';
 import styles from './AboutStyles';
 
 class About extends Component {
