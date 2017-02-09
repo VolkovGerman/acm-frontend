@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from '../HeaderComponent/Header';
+import Header from '../Header/Header';
 import {css} from 'aphrodite/no-important';
 import styles from './AboutStyles';
 

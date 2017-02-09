@@ -10,8 +10,8 @@ import {syncHistoryWithStore} from 'react-router-redux';
 import reducer from './reducers'
 import './index.css';
 
-import App from './components/AppComponent/App';
-import About from './components/AboutComponent/About';
+import App from './components/App/App';
+import About from './components/About/About';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);

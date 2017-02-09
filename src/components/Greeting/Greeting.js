@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {css} from 'aphrodite/no-important';
+import $ from 'jquery';
+import styles from './GreetingStyles';
 
-import Greeting from '../GreetingComponent/Greeting';
-import Header from '../HeaderComponent/Header';
-import styles from './AppStyles';
+class Greeting extends Component {
 
-class App extends Component {
+    loadText() {
+        $.get('https://acm-backend.herokuapp.com/content',
+            response => {
+                console.log(response);
+            }, "JSON");
+    }
+
     render() {
         return (
             <div>
-                <Header />
-                <div className={css(styles.app)}>
-                    <button onClick={this.props.asyncGetGeneralInfo}>Get hello!</button>
-                </div>
-                <Greeting />
+                <div className={css(styles.greeting)}>Greeting</div>
+                <button onClick={this.loadText.bind(this)}>getText</button>
             </div>
         );
     }
@@ -30,8 +33,9 @@ export default connect(
                 setTimeout(() => {
                     console.log('I get info');
                 }, 2000);
-            }
-            dispatch(asyncGetGeneralInfo())
+            };
+
+            dispatch(asyncGetGeneralInfo());
         }
     })
-)(App);
+)(Greeting);
