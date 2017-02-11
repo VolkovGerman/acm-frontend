@@ -3,35 +3,30 @@ import {connect} from 'react-redux';
 import $ from 'jquery';
 
 class News extends Component {
-    init() {
-        $.get('https://acm-backend.herokuapp.com/news?lang=ru',
-            response => {
-                this.props.onInit(response);
-                this.props.onLoaded();
-            }
-        )
+
+    constructor(props) {
+        super(props);
+        this.state = {news: {}};
+        this.init();
     }
 
-    componentWillMount() {
-        this.init();
+    init() {
+        $.get(`https://acm-backend.herokuapp.com/news/${this.props.ownProps.params.news_id}?lang=ru`,
+            _ => this.setState({news: _}), 'json'
+        )
     }
 
     render() {
         return (
-            <ul>
-                {this.props.news.map((item, index) =>
-                    <li key={index}>{item.title}</li>
-                )}
-            </ul>
+            <div>
+                <h1>{this.state.news.title}</h1>
+            </div>
         );
     }
 }
 
 export default connect(
-    state => ({
-        news: state.news
-    }),
-    dispatch => ({
-        onInit: _ => dispatch({type: 'INIT_NEWS', payload: _})
+    (stage, ownProps) => ({
+        ownProps: ownProps
     })
 )(News);

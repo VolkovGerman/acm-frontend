@@ -11,7 +11,9 @@ class MainMenu extends Component {
         $.get('https://acm-backend.herokuapp.com/pages',
             response => {
                 this.props.onInit(response.filter(_ => +_.level === 0));
-                this.props.onLoaded();
+                if (typeof(this.props.onLoaded) !== "undefined") {
+                    this.props.onLoaded()
+                }
             },
             'json'
         );
@@ -24,7 +26,7 @@ class MainMenu extends Component {
     render() {
         return (
             <ul className={css(styles.mainMenu)}>
-                {this.props.menuStore.map((item, index) =>
+                {this.props.menu.map((item, index) =>
                     <li className={css(styles.mainMenu__item)} key={index}>
                         <Link to={item.href} className={css(styles.mainMenu__link)}>{item.name}</Link>
                     </li>
@@ -36,7 +38,7 @@ class MainMenu extends Component {
 
 export default connect(
     state => ({
-        menuStore: state.menu
+        menu: state.menu
     }),
     dispatch => ({
         onInit: _ => dispatch({type: 'INIT_MENU', payload: _})
