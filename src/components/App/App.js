@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 
 import Header from '../Header/Header';
-import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 
@@ -10,8 +10,9 @@ class App extends Component {
         super(props);
         this.state = {
             showLoader: true,
-            dependentComponents: 2,
-            loadedComponents: 0
+            dependentComponents: 1,
+            loadedComponents: 0,
+            showNews: false
         }
     }
 
@@ -22,17 +23,31 @@ class App extends Component {
         }
     }
 
+    onInitPage() {
+        if (this.props.ownProps.params.page === 'news') {
+            //this.setState({showNews: true});
+        }
+    }
+
+    componentWillUpdate() {
+        this.onInitPage();
+    }
+
     render() {
         let loader = this.state.showLoader ? <Loader/> : false;
         return (
             <div>
                 {loader}
                 <Header onLoaded={this.onComponentsLoaded.bind(this)}/>
-                <Main onLoaded={this.onComponentsLoaded.bind(this)}/>
+                {this.props.children}
                 <Footer />
             </div>
         );
     }
 }
 
-export default App;
+export default connect(
+    (state, ownProps) => ({
+        ownProps: ownProps
+    })
+)(App);

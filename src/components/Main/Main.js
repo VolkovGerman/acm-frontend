@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import News from '../News/News';
+import News from './News/News';
 
 class Main extends Component {
     render() {
