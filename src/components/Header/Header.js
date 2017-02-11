@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import MainMenu from '../MainMenu/MainMenu';
 import styles from './HeaderStyles';
 import grid from '../General/GridStyles';
@@ -10,7 +11,7 @@ class Header extends Component {
             <div className="header">
                 <div className={css(styles.header__menu)}>
                     <div className={css(grid.container, grid.clearfix)}>
-                        <MainMenu />
+                        <MainMenu onLoaded={this.props.onLoaded}/>
                     </div>
                 </div>
             </div>

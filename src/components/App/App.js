@@ -1,41 +1,38 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import {css} from 'aphrodite/no-important';
 
-import Greeting from '../Greeting/Greeting';
 import Header from '../Header/Header';
+import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
-import styles from './AppStyles';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showLoader: true,
+            dependentComponents: 2,
+            loadedComponents: 0
+        }
+    }
+
+    onComponentsLoaded() {
+        this.setState({loadedComponents: this.state.loadedComponents + 1});
+        if (this.state.loadedComponents === this.state.dependentComponents) {
+            this.setState({showLoader: false});
+        }
+    }
+
     render() {
+        let loader = this.state.showLoader ? <Loader/> : false;
         return (
             <div>
-                <Loader />
-                <Header />
-                <div className={css(styles.app)}>
-                    <button onClick={this.props.asyncGetGeneralInfo}>Get hello!</button>
-                </div>
-                <Greeting />
+                {loader}
+                <Header onLoaded={this.onComponentsLoaded.bind(this)}/>
+                <Main onLoaded={this.onComponentsLoaded.bind(this)}/>
                 <Footer />
             </div>
         );
     }
 }
 
-export default connect(
-    state => ({
-        menuStore: state.menu,
-    }),
-    dispatch => ({
-        asyncGetGeneralInfo: () => {
-            const asyncGetGeneralInfo = () => dispatch => {
-                setTimeout(() => {
-                    console.log('I get info');
-                }, 2000);
-            }
-            dispatch(asyncGetGeneralInfo())
-        }
-    })
-)(App);
+export default App;

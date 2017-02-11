@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {css} from 'aphrodite/no-important';
 import {connect} from 'react-redux'
-import styles from './MainMenuStyles';
 import $ from 'jquery';
+
+import styles from './MainMenuStyles';
 
 class MainMenu extends Component {
     init() {
         $.get('https://acm-backend.herokuapp.com/pages',
-            _ => this.props.onInit(_.filter(_ => +_.level === 0)),
+            response => {
+                this.props.onInit(response.filter(_ => +_.level === 0));
+                this.props.onLoaded();
+            },
             'json'
         );
     }
@@ -35,8 +39,6 @@ export default connect(
         menuStore: state.menu
     }),
     dispatch => ({
-        onInit: (menuItems) => {
-            dispatch({type: 'INIT_MENU', payload: menuItems})
-        }
+        onInit: _ => dispatch({type: 'INIT_MENU', payload: _})
     })
 )(MainMenu);

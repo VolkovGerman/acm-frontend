@@ -11,7 +11,6 @@ import reducer from './reducers'
 import './index.css';
 
 import App from './components/App/App';
-import About from './components/About/About';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
@@ -20,7 +19,6 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={App}/>
-            <Route path="/about" component={About}/>
         </Router>
     </Provider>,
     document.getElementById('root')

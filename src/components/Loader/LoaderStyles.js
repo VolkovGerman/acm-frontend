@@ -1,5 +1,4 @@
 import {StyleSheet} from 'aphrodite/no-important';
-import {colors} from '../General/VariablesStyles';
 
 export default StyleSheet.create({
     loaderWrap: {
@@ -11,6 +10,6 @@ export default StyleSheet.create({
         backgroundColor: '#fafafa',
         backgroundImage: 'url(/images/loader.gif)',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%'
+        backgroundPosition: 'center center'
     }
 });
