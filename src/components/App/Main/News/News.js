@@ -7,15 +7,14 @@ import dateFormat from 'dateformat';
 
 import grid from '../../../General/GridStyles';
 import styles from './NewsStyles';
+import {requests} from '../../../../config/general'
+import localizer from '../../../../config/localizer'
 
 class News extends Component {
     init() {
-        $.get('https://acm-backend.herokuapp.com/news?lang=ru',
-            response => {
-                this.props.onInit(response);
-                if (typeof(this.props.onLoaded) !== "undefined") {
-                    this.props.onLoaded()
-                }
+        $.get(`${requests.news}?lang=${localizer.lang}`,
+            _ => {
+                this.props.onInit(_);
             }
         )
     }

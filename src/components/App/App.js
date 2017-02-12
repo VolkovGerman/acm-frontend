@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
+import $ from 'jquery';
 
+import {requests} from '../../config/general';
+import localizer from '../../config/localizer';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Loader from '../Loader/Loader';
@@ -10,7 +13,7 @@ class App extends Component {
         super(props);
         this.state = {
             showLoader: true,
-            dependentComponents: 1,
+            dependentComponents: 2,
             loadedComponents: 0,
             showNews: false
         }
@@ -23,14 +26,16 @@ class App extends Component {
         }
     }
 
-    onInitPage() {
-        if (this.props.ownProps.params.page === 'news') {
-            //this.setState({showNews: true});
-        }
+    init() {
+        $.get(`${requests.words}?lang=${localizer.lang}`,
+        _ => {
+            console.log(_);
+            this.onComponentsLoaded();
+        }, 'json');
     }
 
-    componentWillUpdate() {
-        this.onInitPage();
+    componentWillMount() {
+        this.init();
     }
 
     render() {

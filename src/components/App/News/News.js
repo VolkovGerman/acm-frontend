@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 
+import {requests} from '../../../config/general'
+import localizer from '../../../config/localizer'
+
 class News extends Component {
 
     constructor(props) {
@@ -11,7 +14,7 @@ class News extends Component {
     }
 
     init() {
-        $.get(`https://acm-backend.herokuapp.com/news/${this.props.ownProps.params.news_id}?lang=ru`,
+        $.get(`${requests.news}/${this.props.ownProps.params.news_id}?lang=${localizer.lang}`,
             _ => this.setState({news: _}), 'json'
         )
     }
