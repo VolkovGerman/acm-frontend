@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import $ from 'jquery';
+import {css} from 'aphrodite/no-important';
+import {Link} from 'react-router';
+import dateFormat from 'dateformat';
+
+import grid from '../../General/GridStyles';
+import styles from './NewsStyles';
 
 class News extends Component {
     init() {
@@ -21,13 +26,35 @@ class News extends Component {
 
     render() {
         return (
-            <ul>
-                {this.props.news.map((item, index) =>
-                    <li key={index}>
-                        <Link to={`/news/${item.id}`}>{item.title}</Link>
-                    </li>
-                )}
-            </ul>
+            <div className={css(grid.container, grid.clearfix)}>
+                <div className="news">
+                    <h2 className={css(styles.news__header)}>
+                        Новости
+                    </h2>
+
+                    <div className="news__main">
+                        {this.props.news.map((item, index) =>
+                            <div className={css(styles.newsItem)} key={index}>
+                                <div className={css(styles.newsItem__header)}>
+                                    <div className={css(styles.newsItem__date)}>
+                                        {dateFormat(item.date, "longDate")}
+                                    </div>
+                                    <h2 className={css(styles.newsItem__title)}>
+                                        <Link className={css(styles.newsItem__link)} to={`news/${item.id}`}>
+                                            {item.title}
+                                        </Link>
+                                    </h2>
+                                </div>
+                                <div className={css(styles.newsItem__main)}>
+                                    <div className={css(styles.newsItem__description)}>
+                                        {item.descr}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
         );
     }
 }
