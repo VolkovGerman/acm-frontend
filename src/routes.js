@@ -2,8 +2,8 @@ import React from 'react'
 import {Route, IndexRoute} from 'react-router'
 
 import App from './components/App/App';
-import Main from './components/Main/Main';
-import News from './components/News/News';
+import Main from './components/App/Main/Main';
+import News from './components/App/News/News';
 import NotFound from './components/Errors/NotFound/NotFound';
 import Admin from './components/Admin/Admin';
 import AdminMain from './components/Admin/Main/Main';

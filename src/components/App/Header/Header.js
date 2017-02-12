@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import {css} from 'aphrodite/no-important';
 
 import MainMenu from './MainMenu/MainMenu';
 import styles from './HeaderStyles';
-import grid from '../General/GridStyles';
-import {css} from 'aphrodite/no-important';
+import grid from '../../General/GridStyles';
 
 class Header extends Component {
     render() {

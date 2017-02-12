@@ -5,7 +5,7 @@ import {css} from 'aphrodite/no-important';
 import {Link} from 'react-router';
 import dateFormat from 'dateformat';
 
-import grid from '../../General/GridStyles';
+import grid from '../../../General/GridStyles';
 import styles from './NewsStyles';
 
 class News extends Component {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import Loader from '../Loader/Loader';
 
 class App extends Component {
