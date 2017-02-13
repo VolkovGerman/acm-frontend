@@ -17,8 +17,8 @@ export const routes = (
         </Route>
         <Route path='/admin' component={Admin} onEnter={Admin.onEnter}>
             <IndexRoute component={AdminMain}/>
-            <Route path="/login" component={Login}/>
         </Route>
+        <Route path="/login" component={Login}/>
         <Route path="*" component={NotFound}/>
     </div>
 )

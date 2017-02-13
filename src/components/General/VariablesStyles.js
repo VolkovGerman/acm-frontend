@@ -10,7 +10,13 @@ const colors = {
     mainColor: '#7aafc3'
 };
 
+const adminColors = {
+    background: '#F7F7F7',
+    mainColor: '#7B879C'
+};
+
 export {
     media,
-    colors
+    colors,
+    adminColors
 }

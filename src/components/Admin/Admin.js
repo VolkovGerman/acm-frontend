@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class Admin extends Component {
     static onEnter(nextState, replace) {
-        if (false) {
+        if (true) {
             replace('/login');
         }
     }
