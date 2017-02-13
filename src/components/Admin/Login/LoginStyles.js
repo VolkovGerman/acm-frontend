@@ -7,7 +7,7 @@ export default StyleSheet.create({
         background: [adminColors.background],
         width: '100%',
         height: '100vh',
-        padding: '200px 0'
+        padding: '150px 0'
     },
     login: {
         width: '400px',
@@ -22,9 +22,15 @@ export default StyleSheet.create({
     login__main: {
         borderBottom: `1px solid #d8d8d8`,
     },
-    login__footer: {
+    feedback: {
         padding: '15px 0',
         textAlign: 'center'
+    },
+    feedback__link: {
+        color: adminColors.mainColor,
+        ':hover': {
+            textDecoration: 'underline'
+        }
     },
     loginField: {
         width: '100%',
@@ -41,6 +47,9 @@ export default StyleSheet.create({
         outline: 'none',
         borderRadius: '3px',
         fontSize: '14px',
+        ':focus': {
+            borderColor: '#adadad'
+        }
     },
     loginBtnWrap: {
         textAlign: 'right',
@@ -53,6 +62,23 @@ export default StyleSheet.create({
         border: '1px solid #c8c8c8',
         padding: '8px 12px',
         fontSize: '12px',
-        float: 'inline-block'
+        float: 'inline-block',
+        ':hover': {
+            background: '#e6e6e6',
+            borderColor: '#adadad',
+            cursor: 'pointer'
+        }
+    },
+    logo: {
+        textAlign: 'center',
+        margin: '30px 0'
+    },
+    logo__img: {
+        backgroundImage: 'url(/images/bsuir_logo.png)',
+        backgroundSize: 'cover',
+        width: '150px',
+        height: '100px',
+        backgroundPosition: '0 0',
+        display: 'inline-block'
     }
 });

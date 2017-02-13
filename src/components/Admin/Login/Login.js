@@ -24,8 +24,13 @@ class Login extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className={css(styles.login__footer)}>
-                        Any questions? Contact us!
+                    <div className={css(styles.feedback)}>
+                        <a href="#" className={css(styles.feedback__link)}>Any questions? Contact us!</a>
+                    </div>
+                    <div className={css(styles.logo)}>
+                        <a href="/">
+                            <div className={css(styles.logo__img)}></div>
+                        </a>
                     </div>
                 </div>
             </div>
