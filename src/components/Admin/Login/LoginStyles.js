@@ -1,18 +1,24 @@
 import {StyleSheet} from 'aphrodite/no-important';
 
-import {adminColors} from '../../General/VariablesStyles';
+import {adminColors, media} from '../../General/VariablesStyles';
 
 export default StyleSheet.create({
     loginWrap: {
         background: [adminColors.background],
         width: '100%',
         height: '100vh',
-        padding: '150px 0'
+        padding: '150px 0',
+        [media.xs]: {
+            padding: '15px',
+        }
     },
     login: {
         width: '400px',
         margin: '0 auto',
-        color: adminColors.mainColor
+        color: adminColors.mainColor,
+        [media.xs]: {
+            width: '100%',
+        }
     },
     login__title: {
         textAlign: 'center',
@@ -38,8 +44,7 @@ export default StyleSheet.create({
     loginField__input: {
         display: 'block',
         width: '100%',
-        padding: '8px 0px',
-        textIndent: '12px',
+        padding: '8px 12px',
         margin: '20px 0 0 0',
         boxShadow: '0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,.08) inset',
         border: '1px solid #c8c8c8',

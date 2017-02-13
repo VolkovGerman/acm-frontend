@@ -1,8 +1,8 @@
 const media = {
-    'xs': '@media (min-width: 320px)',
-    'sm': '@media (min-width: 768px)',
-    'md': '@media (min-width: 992px)',
-    'lg': '@media (min-width: 1200px)'
+    'xs': '@media (max-width: 425px)',
+    'sm': '@media (max-width: 768px)',
+    'md': '@media (max-width: 992px)',
+    'lg': '@media (max-width: 1200px)'
 };
 
 const colors = {
