@@ -6,7 +6,7 @@ const media = {
 };
 
 const colors = {
-    hoverLink: '#04A1E2',
+    hoverLink: '#fa7252',
     mainColor: '#7aafc3'
 };
 
