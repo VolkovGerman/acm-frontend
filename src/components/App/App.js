@@ -3,10 +3,8 @@ import {connect} from 'react-redux'
 
 import {requests} from '../../config/general';
 import localizer from '../../config/localizer';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
 import Loader from '../Loader/Loader';
-import FirstScreen from './FirstScreen/FirstScreen';
+import FirstScreen from './Main/FirstScreen/FirstScreen';
 
 class App extends Component {
     constructor(props) {
@@ -45,9 +43,6 @@ class App extends Component {
             <div>
                 {/*{loader}*/}
                 <FirstScreen />
-                {/*<Header onLoaded={this.onComponentsLoaded.bind(this)}/>
-                {this.props.children}
-                <Footer />*/}
             </div>
         );
     }
