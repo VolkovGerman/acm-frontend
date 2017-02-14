@@ -22,33 +22,32 @@ class News extends Component {
 
     render() {
         return (
-            <div className={css(grid.container, grid.clearfix)}>
-                <div className="news">
-                    <h2 className={css(styles.news__header)}>
-                        {this.props.dictionary.news}
-                    </h2>
-
-                    <div className="news__main">
-                        {this.props.news.map((item, index) =>
-                            <div className={css(styles.newsItem)} key={index}>
-                                <div className={css(styles.newsItem__header)}>
-                                    <div className={css(styles.newsItem__date)}>
-                                        {dateFormat(item.date, "longDate")}
-                                    </div>
-                                    <h2 className={css(styles.newsItem__title)}>
-                                        <Link className={css(styles.newsItem__link)} to={`news/${item.id}`}>
-                                            {item.title}
-                                        </Link>
-                                    </h2>
-                                </div>
-                                <div className={css(styles.newsItem__main)}>
-                                    <div className={css(styles.newsItem__description)}>
-                                        {item.descr}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+            <div className={css(styles.news)}>
+                <header className={css(news__header)}>
+                    <div className={css(container)}>
+                        <h2 className={css(news__title)}>News</h2>
                     </div>
+                </header>
+                <div className={css(news__main)}>
+                    <ul className={css(news__list)}>
+                        {this.props.news.map((item, index) =>
+                            <li className={css(styles.newsItem, index == 0 ? styles.newsItem_big : null)} key={index}>
+                                <header className={css(styles.newsItem__title)}>
+                                    <Link to={`news/${item.id}`} className={css(styles.newsItem__titleLink)}>
+                                        News Item One
+                                    </Link>
+                                </header>
+                                <div className={css(styles.newsItemMain)}>
+                                    <div className={css(styles.newsItemDescription)}>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae officia voluptate dolorum repellendus perspiciatis debitis laborum eos quos tempora illo.
+                                        <Link to={`news/${item.id}`} className={css(styles.newsItem__descriptionLink)}>
+                                            News Item One
+                                        </Link>
+                                    </div>
+                                </div>
+                            </li>
+                        )}
+                    </ul>
                 </div>
             </div>
         );
