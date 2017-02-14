@@ -5,17 +5,12 @@ export default StyleSheet.create({
     container: {
         margin: '0 auto',
         padding: '0 15px',
-
+        width: '1170px',
         [ media.sm ]: {
             width: '750px'
         },
-
         [ media.md ]: {
             width: '970px'
-        },
-
-        [ media.lg ]: {
-            width: '1170px'
         }
     },
     clearfix: {

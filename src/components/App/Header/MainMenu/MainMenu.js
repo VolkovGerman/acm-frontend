@@ -2,22 +2,21 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {css} from 'aphrodite/no-important';
 import {connect} from 'react-redux'
-import $ from 'jquery';
 
 import {requests} from '../../../../config/general';
 import styles from './MainMenuStyles';
 
 class MainMenu extends Component {
     init() {
-        $.get(requests.menu,
-            response => {
+        fetch(requests.menu)
+            .then(_ => _.json())
+            .then(response => {
                 this.props.onInit(response.filter(_ => +_.level === 0));
                 if (typeof(this.props.onLoaded) !== "undefined") {
                     this.props.onLoaded()
                 }
-            },
-            'json'
-        );
+            });
+
     }
 
     componentWillMount() {

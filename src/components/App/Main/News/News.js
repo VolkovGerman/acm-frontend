@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import $ from 'jquery';
 import {css} from 'aphrodite/no-important';
 import {Link} from 'react-router';
 import dateFormat from 'dateformat';
@@ -12,11 +11,9 @@ import localizer from '../../../../config/localizer'
 
 class News extends Component {
     init() {
-        $.get(`${requests.news}?lang=${localizer.lang}`,
-            _ => {
-                this.props.onInit(_);
-            }
-        )
+        fetch(`${requests.news}?lang=${localizer.lang}`)
+            .then(_ => _.json())
+            .then(_ => this.props.onInit(_));
     }
 
     componentWillMount() {
@@ -28,7 +25,7 @@ class News extends Component {
             <div className={css(grid.container, grid.clearfix)}>
                 <div className="news">
                     <h2 className={css(styles.news__header)}>
-                        Новости
+                        {this.props.dictionary.news}
                     </h2>
 
                     <div className="news__main">
@@ -60,7 +57,8 @@ class News extends Component {
 
 export default connect(
     state => ({
-        news: state.news
+        news: state.news,
+        dictionary: state.dictionary
     }),
     dispatch => ({
         onInit: _ => dispatch({type: 'INIT_NEWS', payload: _})

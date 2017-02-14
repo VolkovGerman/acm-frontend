@@ -17,7 +17,7 @@ export default StyleSheet.create({
         margin: '0 auto',
         color: adminColors.mainColor,
         [media.xs]: {
-            width: '100%',
+            width: '100%'
         }
     },
     login__title: {
@@ -67,7 +67,6 @@ export default StyleSheet.create({
         border: '1px solid #c8c8c8',
         padding: '8px 12px',
         fontSize: '12px',
-        float: 'inline-block',
         ':hover': {
             background: '#e6e6e6',
             borderColor: '#adadad',

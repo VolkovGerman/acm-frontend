@@ -1,37 +1,38 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import $ from 'jquery';
 
 import {requests} from '../../config/general';
 import localizer from '../../config/localizer';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Loader from '../Loader/Loader';
+import FirstScreen from './FirstScreen/FirstScreen';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showLoader: true,
-            dependentComponents: 2,
+            dependentComponents: 0,
             loadedComponents: 0,
             showNews: false
         }
     }
 
     onComponentsLoaded() {
-        this.setState({loadedComponents: this.state.loadedComponents + 1});
+        this.setState(_ => ({loadedComponents: _.loadedComponents + 1}));
         if (this.state.loadedComponents === this.state.dependentComponents) {
             this.setState({showLoader: false});
         }
     }
 
     init() {
-        $.get(`${requests.words}?lang=${localizer.lang}`,
-        _ => {
-            console.log(_);
-            this.onComponentsLoaded();
-        }, 'json');
+        fetch(`${requests.words}?lang=${localizer.lang}`)
+            .then(_ => _.json())
+            .then(_ => {
+                this.props.onInit(_);
+                this.onComponentsLoaded();
+            });
     }
 
     componentWillMount() {
@@ -42,10 +43,11 @@ class App extends Component {
         let loader = this.state.showLoader ? <Loader/> : false;
         return (
             <div>
-                {loader}
-                <Header onLoaded={this.onComponentsLoaded.bind(this)}/>
+                {/*{loader}*/}
+                <FirstScreen />
+                {/*<Header onLoaded={this.onComponentsLoaded.bind(this)}/>
                 {this.props.children}
-                <Footer />
+                <Footer />*/}
             </div>
         );
     }
@@ -53,6 +55,10 @@ class App extends Component {
 
 export default connect(
     (state, ownProps) => ({
-        ownProps: ownProps
+        ownProps: ownProps,
+        dictionary: state.dictionary
+    }),
+    dispatch => ({
+        onInit: _ => dispatch({type: 'INIT_DICTIONARY', payload: _})
     })
 )(App);
