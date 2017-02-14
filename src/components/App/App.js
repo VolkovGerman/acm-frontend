@@ -5,6 +5,7 @@ import {requests} from '../../config/general';
 import localizer from '../../config/localizer';
 import Loader from '../Loader/Loader';
 import FirstScreen from './Main/FirstScreen/FirstScreen';
+import News from './Main/News/News';
 
 class App extends Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class App extends Component {
             <div>
                 {/*{loader}*/}
                 <FirstScreen />
+                <News />
             </div>
         );
     }

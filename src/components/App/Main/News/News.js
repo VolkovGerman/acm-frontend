@@ -16,20 +16,33 @@ class News extends Component {
             .then(_ => this.props.onInit(_));
     }
 
+    constructor(props) {
+        super(props);
+    }
+
     componentWillMount() {
         this.init();
     }
 
+    componentDidMount(el) {
+        //console.log(document.getElementsByClassName('newsq')[0]);
+
+        // document.getElementsByClassName('newsq')[0].addEventListener('mousewheel', (event, delta) => {
+        //     event.target.scrollLeft -= (delta * 30);
+        //     event.preventDefault();
+        // });
+    }
+
     render() {
         return (
-            <div className={css(styles.news)}>
-                <header className={css(news__header)}>
-                    <div className={css(container)}>
-                        <h2 className={css(news__title)}>News</h2>
+            <div className={`${css(styles.news)} newsq`}>
+                <header className={css(styles.news__header)}>
+                    <div className={css(grid.container)}>
+                        <h2 className={css(styles.news__title)}>News</h2>
                     </div>
                 </header>
-                <div className={css(news__main)}>
-                    <ul className={css(news__list)}>
+                <div className={css(styles.news__main)}>
+                    <ul className={css(styles.news__list)}>
                         {this.props.news.map((item, index) =>
                             <li className={css(styles.newsItem, index == 0 ? styles.newsItem_big : null)} key={index}>
                                 <header className={css(styles.newsItem__title)}>
@@ -39,7 +52,7 @@ class News extends Component {
                                 </header>
                                 <div className={css(styles.newsItemMain)}>
                                     <div className={css(styles.newsItemDescription)}>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae officia voluptate dolorum repellendus perspiciatis debitis laborum eos quos tempora illo.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         <Link to={`news/${item.id}`} className={css(styles.newsItem__descriptionLink)}>
                                             News Item One
                                         </Link>
