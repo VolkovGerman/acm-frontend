@@ -4,8 +4,25 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router';
 
 import styles from './MainMenuStyles';
+import {requests} from './../../../../../config/general';
 
 class MainMenu extends Component {
+    init() {
+        fetch(requests.menu)
+            .then(_ => _.json())
+            .then(response => {
+                this.props.onInit(response.filter(_ => +_.level === 0));
+                if (typeof(this.props.onLoaded) !== "undefined") {
+                    this.props.onLoaded()
+                }
+            });
+
+    }
+
+    componentWillMount() {
+        this.init();
+    }
+
     render() {
         return (
             <ul className={css(styles.mainMenu)}>

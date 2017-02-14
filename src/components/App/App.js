@@ -4,15 +4,14 @@ import {connect} from 'react-redux'
 import {requests} from '../../config/general';
 import localizer from '../../config/localizer';
 import Loader from '../Loader/Loader';
-import FirstScreen from './Main/FirstScreen/FirstScreen';
-import News from './Main/News/News';
+import Main from './Main/Main';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showLoader: true,
-            dependentComponents: 0,
+            dependentComponents: 1,
             loadedComponents: 0,
             showNews: false
         }
@@ -42,9 +41,8 @@ class App extends Component {
         let loader = this.state.showLoader ? <Loader/> : false;
         return (
             <div>
-                {/*{loader}*/}
-                <FirstScreen />
-                <News />
+                {loader}
+                <Main onLoad={this.onComponentsLoaded.bind(this)} />
             </div>
         );
     }

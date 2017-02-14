@@ -13,7 +13,7 @@ class FirstScreen extends Component {
                     <div className={css(styles.header)}>
                         <a className={css(styles.logo)} href="/"></a>
                         <button className={css(styles.logIn)}>Log in</button>
-                        <MainMenu />
+                        <MainMenu onLoad={this.props.onLoad} />
                     </div>
                 </div>
             </div>

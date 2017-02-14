@@ -10,6 +10,7 @@ export default StyleSheet.create({
         backgroundColor: '#fafafa',
         backgroundImage: 'url(/images/loader.gif)',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center'
+        backgroundPosition: 'center center',
+        zIndex: '999'
     }
 });

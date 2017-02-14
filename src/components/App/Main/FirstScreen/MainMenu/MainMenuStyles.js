@@ -5,7 +5,7 @@ import {colors} from '../../../../General/VariablesStyles';
 export default StyleSheet.create({
     mainMenu: {
         float: 'right',
-        listStyle: 'none'
+        listStyle: 'none',
     },
     mainMenu__item: {
         float: 'left'
