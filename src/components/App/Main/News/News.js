@@ -30,33 +30,41 @@ class News extends Component {
     render() {
         return (
             <div className={css(styles.news)}>
-                <header className="news__header">
-                    <div className={css(grid.container)}>
-                        <h2 className="styles.news__title">News</h2>
-                    </div>
+                <header className={`${css(styles.news__header)}`}>
+                    <h2 className="styles.news__title">Новости</h2>
                 </header>
                 <div className={`${css(styles.news__main)} news__main_scrollable`}>
                     <div className={css(styles.news__scroller)}>
                         <ul className={css(styles.news__list, grid.clearfix)}>
                             {this.props.news.map((item, index) =>
-                                <li className={css(styles.newsItem, index === 0 ? styles.newsItem_big : null)}
-                                    key={index}>
-                                    <header className={css(styles.newsItem__title)}>
-                                        <Link to={`news/${item.id}`} className={css(styles.newsItem__titleLink)}>
-                                            News Item One
-                                        </Link>
+                                <li className={css(styles.newsItem, index === 0 ? styles.newsItem_big : null)} key={index}>
+                                    <header className={css(styles.newsItem__header)}>
+                                        <h3 className={css(styles.newsItem__title)}>
+                                            <Link to={`news/${item.id}`} className={css(styles.newsItem__titleLink)}>
+                                                {item.title}
+                                            </Link>
+                                        </h3>
+                                        <div className={css(styles.newsItem__date)}>
+                                            07.08.2016
+                                        </div>
                                     </header>
                                     <div className="newsItem__main">
                                         <div className={css(styles.newsItem__description)}>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                            <Link to={`news/${item.id}`}
-                                                  className={css(styles.newsItem__descriptionLink)}>
-                                                News Item One
-                                            </Link>
+                                            {item.descr}
                                         </div>
+                                    </div>
+                                    <div className={css(styles.newsItem__footer)}>
+                                        <Link to={`news/${item.id}`} className={css(styles.newsItem__footerLink)}>
+                                            Подробнее
+                                        </Link>
                                     </div>
                                 </li>
                             )}
+                            <li className={css(styles.newsItem, styles.newsItem_more)}>
+                                <Link to={`news/`} className={css(styles.newsItem_more__link)}>
+                                    Все новости
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
