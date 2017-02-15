@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {css} from 'aphrodite/no-important';
 import {Link} from 'react-router';
+import IScroll from 'iscroll';
 import dateFormat from 'dateformat';
 
 import grid from '../../../General/GridStyles';
@@ -25,42 +26,44 @@ class News extends Component {
     }
 
     componentDidMount(el) {
-        //console.log(document.getElementsByClassName('newsq')[0]);
+    }
 
-        // document.getElementsByClassName('newsq')[0].addEventListener('mousewheel', (event, delta) => {
-        //     event.target.scrollLeft -= (delta * 30);
-        //     event.preventDefault();
-        // });
+    componentDidUpdate() {
+         window.scroll = new IScroll('.news__main_scrollable', {
+            scrollX: true, scrollY: false, mouseWheel: true
+        });
     }
 
     render() {
         return (
-            <div className={`${css(styles.news)} newsq`}>
-                <header className={css(styles.news__header)}>
+            <div className={css(styles.news)}>
+                <header className="news__header">
                     <div className={css(grid.container)}>
-                        <h2 className={css(styles.news__title)}>News</h2>
+                        <h2 className="styles.news__title">News</h2>
                     </div>
                 </header>
-                <div className={css(styles.news__main)}>
-                    <ul className={css(styles.news__list)}>
-                        {this.props.news.map((item, index) =>
-                            <li className={css(styles.newsItem, index == 0 ? styles.newsItem_big : null)} key={index}>
-                                <header className={css(styles.newsItem__title)}>
-                                    <Link to={`news/${item.id}`} className={css(styles.newsItem__titleLink)}>
-                                        News Item One
-                                    </Link>
-                                </header>
-                                <div className={css(styles.newsItemMain)}>
-                                    <div className={css(styles.newsItemDescription)}>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        <Link to={`news/${item.id}`} className={css(styles.newsItem__descriptionLink)}>
+                <div className={`${css(styles.news__main)} news__main_scrollable`}>
+                    <div className={css(styles.news__scroller)}>
+                        <ul className={css(styles.news__list)}>
+                            {this.props.news.map((item, index) =>
+                                <li className={css(styles.newsItem, index == 0 ? styles.newsItem_big : null)} key={index}>
+                                    <header className={css(styles.newsItem__title)}>
+                                        <Link to={`news/${item.id}`} className={css(styles.newsItem__titleLink)}>
                                             News Item One
                                         </Link>
+                                    </header>
+                                    <div className="newsItem__main">
+                                        <div className={css(styles.newsItem__description)}>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            <Link to={`news/${item.id}`} className={css(styles.newsItem__descriptionLink)}>
+                                                News Item One
+                                            </Link>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        )}
-                    </ul>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
                 </div>
             </div>
         );

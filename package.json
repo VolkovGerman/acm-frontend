@@ -4,7 +4,8 @@
   "private": true,
   "devDependencies": {
     "aphrodite": "^1.1.0",
-    "dateformat": "^2.0.0"
+    "dateformat": "^2.0.0",
+    "iscroll": "^5.2.0"
   },
   "dependencies": {
     "react": "^15.4.2",
