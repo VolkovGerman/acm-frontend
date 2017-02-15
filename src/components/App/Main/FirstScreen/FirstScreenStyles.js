@@ -1,6 +1,7 @@
 import {StyleSheet} from 'aphrodite/no-important';
 
 import {colors} from '../../../General/VariablesStyles';
+import fonts from '../../../General/FontsStyles';
 
 export default StyleSheet.create({
     bgSlider: {
@@ -38,5 +39,15 @@ export default StyleSheet.create({
             cursor: 'pointer',
             opacity: '.85'
         }
+    },
+    main: {
+        margin: '150px 250px 0 0'
+    },
+    main__title: {
+        fontSize: '60px',
+        lineHeight: '64px',
+        color: '#ffffff',
+        fontFamily: fonts.RalewayLight,
+
     }
 });

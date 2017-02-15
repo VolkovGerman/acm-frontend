@@ -15,6 +15,10 @@ class FirstScreen extends Component {
                         <button className={css(styles.logIn)}>Log in</button>
                         <MainMenu onLoad={this.props.onLoad} />
                     </div>
+                    <div className={css(grid.clearfix)}></div>
+                    <div className={css(styles.main)}>
+                        <div className={css(styles.main__title)}>Международная студенческая олимпиада по программированию</div>
+                    </div>
                 </div>
             </div>
         );
