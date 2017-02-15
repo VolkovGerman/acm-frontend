@@ -7,7 +7,9 @@ export default StyleSheet.create({
         height: '500px',
 
         overflowX: 'hidden',
-        backgroundColor: 'grey'
+        background: '#ffffff url(/images/bg_news.jpg) no-repeat',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed'
     },
 
     news__main: {
