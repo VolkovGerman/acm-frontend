@@ -25,9 +25,6 @@ class News extends Component {
         this.init();
     }
 
-    componentDidMount(el) {
-    }
-
     componentDidUpdate() {
          window.scroll = new IScroll('.news__main_scrollable', {
             scrollX: true, scrollY: false, mouseWheel: true
@@ -44,7 +41,7 @@ class News extends Component {
                 </header>
                 <div className={`${css(styles.news__main)} news__main_scrollable`}>
                     <div className={css(styles.news__scroller)}>
-                        <ul className={css(styles.news__list)}>
+                        <ul className={css(styles.news__list, grid.clearfix)}>
                             {this.props.news.map((item, index) =>
                                 <li className={css(styles.newsItem, index == 0 ? styles.newsItem_big : null)} key={index}>
                                     <header className={css(styles.newsItem__title)}>

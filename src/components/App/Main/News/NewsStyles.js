@@ -3,50 +3,63 @@ import {StyleSheet} from 'aphrodite/no-important';
 export default StyleSheet.create({
     news: {
         position: 'relative',
-        backgroundColor: 'grey',
+        
+        height: '500px',
+
         overflowX: 'hidden',
-        height: '500px'
+        backgroundColor: 'grey'
     },
 
     news__main: {
         position: 'absolute',
-	    zIndex: '1',
-	    top: '45px',
-	    bottom: '48px',
+	    
+	    top: '80px',
+	    bottom: '80px',
 	    left: '0',
 	    width: '100%',
-	    background: '#ccc',
+
+        zIndex: '1',
 	    overflow: 'hidden'
     },
 
     news__scroller: {
         position: 'absolute',
-	    zIndex: '1',
-	    width: '5000px',
+	    
+	    width: '3330px',
 	    height: '100%',
-	    backgroundColor: '#a00',
+
+        zIndex: '1',
 	    transform: 'translateZ(0)',
-	    userSelect: 'none',
+	    
+        userSelect: 'none',
     	textSizeAdjust: 'none'
     },
 
     news__list: {
-        listStyle: 'none',
-	    padding: '0',
-	    margin: '0',
+        margin: '0',
+        padding: '0',
+	    
 	    width: '100%',
 	    height: '100%',
-	    textAlign: 'center'
+
+        listStyle: 'none',
+
+        ':first-child': {
+            marginLeft: '250px'
+        }
     },
 
     newsItem: {
         display: 'block',
         float: 'left',
+
+        marginRight: '40px',
+        padding: '20px',
+
         width: '400px',
         height: '100%',
-        borderRight: '1px solid #ccc',
-        backgroundColor: '#fafafa',
-        fontSize: '14px'
+
+        backgroundColor: '#ffffff',
     },
 
     newsItem__title: {
