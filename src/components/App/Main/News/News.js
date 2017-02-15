@@ -17,16 +17,12 @@ class News extends Component {
             .then(_ => this.props.onInit(_));
     }
 
-    constructor(props) {
-        super(props);
-    }
-
     componentWillMount() {
         this.init();
     }
 
     componentDidUpdate() {
-         window.scroll = new IScroll('.news__main_scrollable', {
+        window.scroll = new IScroll('.news__main_scrollable', {
             scrollX: true, scrollY: false, mouseWheel: true
         });
     }
@@ -43,7 +39,8 @@ class News extends Component {
                     <div className={css(styles.news__scroller)}>
                         <ul className={css(styles.news__list, grid.clearfix)}>
                             {this.props.news.map((item, index) =>
-                                <li className={css(styles.newsItem, index == 0 ? styles.newsItem_big : null)} key={index}>
+                                <li className={css(styles.newsItem, index === 0 ? styles.newsItem_big : null)}
+                                    key={index}>
                                     <header className={css(styles.newsItem__title)}>
                                         <Link to={`news/${item.id}`} className={css(styles.newsItem__titleLink)}>
                                             News Item One
@@ -52,7 +49,8 @@ class News extends Component {
                                     <div className="newsItem__main">
                                         <div className={css(styles.newsItem__description)}>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                            <Link to={`news/${item.id}`} className={css(styles.newsItem__descriptionLink)}>
+                                            <Link to={`news/${item.id}`}
+                                                  className={css(styles.newsItem__descriptionLink)}>
                                                 News Item One
                                             </Link>
                                         </div>
