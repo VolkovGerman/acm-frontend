@@ -18,6 +18,7 @@ class FirstScreen extends Component {
                     <div className={css(grid.clearfix)}></div>
                     <div className={css(styles.main)}>
                         <div className={css(styles.main__title)}>Международная студенческая олимпиада по программированию</div>
+                        <div className={css(styles.main__description)}>ACM - крупнейшая студенческая командная олимпиада по программированию.</div>
                     </div>
                 </div>
             </div>

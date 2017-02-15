@@ -9,8 +9,9 @@ export default StyleSheet.create({
         backgroundSize: 'cover',
         backgroundPosition: '0 0',
         width: '100%',
-        height: '900px',
-        padding: '65px 0'
+        height: '100vh',
+        padding: '65px 0',
+        fontFamily: fonts.Raleway
     },
     logo: {
         display: 'block',
@@ -24,7 +25,7 @@ export default StyleSheet.create({
         left: '0',
     },
     header: {
-        margin: '0px 0'
+        margin: '0'
     },
     logIn: {
         float: 'right',
@@ -48,6 +49,11 @@ export default StyleSheet.create({
         lineHeight: '64px',
         color: '#ffffff',
         fontFamily: fonts.RalewayLight,
-
+    },
+    main__description: {
+        fontSize: '22px',
+        color: '#ffffff',
+        lineHeight: '22px',
+        margin: '30px 0'
     }
 });
