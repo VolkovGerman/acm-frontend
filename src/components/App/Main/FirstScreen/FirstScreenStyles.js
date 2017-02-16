@@ -11,7 +11,7 @@ export default StyleSheet.create({
         width: '100%',
         height: '980px',
         padding: '65px 0',
-        fontFamily: fonts.Raleway,
+        fontFamily: fonts.Roboto,
         position: 'relative'
     },
     logo: {

@@ -12,7 +12,7 @@ class About extends Component {
                     <div className={css(styles.body)}>
                         <h2 className={css(styles.body__header)}>Белорусский университет N°1</h2>
                         <div className={css(styles.body__content)}>
-                            <img src="https://demo.gavick.com/joomla25/university/images/demo/students.jpg"
+                            <img src="https://demo.gavick.com/joomla25/university/images/demo/students.jpg" alt=""
                                  className={css(styles.body__image)}/>
                             <div className={css(styles.body__description)}>
                                 <p className={css(styles.body__text)}>Lorem Ipsum is simply dummy text of the printing

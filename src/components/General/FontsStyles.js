@@ -16,5 +16,23 @@ export default {
         fontStyle: "normal",
         fontWeight: "bold",
         src: "url('/fonts/raleway/ralewayblack.woff2') format('woff2')"
-    }
+    },
+    'Roboto': {
+        fontFamily: "Roboto",
+        fontStyle: "normal",
+        fontWeight: "normal",
+        src: "url('/fonts/roboto/Roboto.woff2') format('woff2')"
+    },
+    'RobotoLight': {
+        fontFamily: "RobotoLight",
+        fontStyle: "normal",
+        fontWeight: "lighter",
+        src: "url('/fonts/roboto/Robotolight.woff2') format('woff2')"
+    },
+    'RobotoBold': {
+        fontFamily: "RobotoBold",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        src: "url('/fonts/roboto/Robotobold.woff2') format('woff2')"
+    },
 };

@@ -21,7 +21,8 @@ export default StyleSheet.create({
         padding: '15px 0',
         margin: '0 0 0 24px',
         width: '250px',
-        textAlign: 'center'
+        textAlign: 'center',
+        textTransform: 'uppercase'
     },
     event__link: {
         color: '#333333',
@@ -42,7 +43,7 @@ export default StyleSheet.create({
     },
     event__title: {
         fontSize: '14px',
-        margin: '5px 0'
+        margin: '10px 0 5px'
     },
     event__date: {
         fontSize: '12px',
