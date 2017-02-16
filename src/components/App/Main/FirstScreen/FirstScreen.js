@@ -31,6 +31,10 @@ class FirstScreen extends Component {
                         <div className={css(styles.motivationWrap)}>
                             <Motivation />
                         </div>
+                        <div className={css(styles.videoWrap)}>
+                            <div className={css(styles.video__play)}></div>
+                            <img className={css(styles.video)} src="/images/bg_video.jpg"/>
+                        </div>
                         <Events />
                     </div>
                 </div>

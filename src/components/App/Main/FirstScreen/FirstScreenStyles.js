@@ -70,5 +70,39 @@ export default StyleSheet.create({
         position: 'absolute',
         bottom: '0',
         left: '0',
+    },
+    videoWrap: {
+        float: 'right',
+        width: '300px',
+        background: '#ffffff',
+        height: '250px',
+        color: '#ffffff',
+        position: 'relative',
+        ':before': {
+            content: '""',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, .25)'
+        },
+        ':hover': {
+            cursor: 'pointer',
+            ':before': {
+                display: 'none'
+            }
+        }
+    },
+    video: {
+        width: '100%',
+        height: '100%',
+    },
+    video__play: {
+        background: 'url(images/icons/play_icon.png) center center no-repeat',
+        backgroundSize: '242px 168px',
+        width: '100%',
+        height: '100%',
+        position: 'absolute'
     }
 });
