@@ -1,7 +1,7 @@
 import {StyleSheet} from 'aphrodite/no-important';
 
 import fonts from '../../../../General/FontsStyles';
-import {colors} from '../../../../General/VariablesStyles';
+import {colors, media} from '../../../../General/VariablesStyles';
 
 export default StyleSheet.create({
     events: {
@@ -31,15 +31,18 @@ export default StyleSheet.create({
         }
     },
     eventsWrap: {
-        padding: '35px 50px',
+        padding: '35px 0',
         display: 'inline-block',
         textAlign: 'center',
+        [media.md]: {
+            padding: '35px 45px'
+        }
     },
     event: {
         float: 'left',
         width: '300px',
         padding: '15px',
-        textAlign: 'left'
+        textAlign: 'left',
     },
     event__title: {
         fontSize: '14px',

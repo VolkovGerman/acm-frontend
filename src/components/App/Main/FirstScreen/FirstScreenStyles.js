@@ -1,6 +1,6 @@
 import {StyleSheet} from 'aphrodite/no-important';
 
-import {colors} from '../../../General/VariablesStyles';
+import {colors, media} from '../../../General/VariablesStyles';
 import fonts from '../../../General/FontsStyles';
 
 export default StyleSheet.create({
@@ -9,9 +9,8 @@ export default StyleSheet.create({
         backgroundSize: 'cover',
         backgroundPosition: '0 0',
         width: '100%',
-        height: '980px',
-        padding: '65px 0',
-        fontFamily: fonts.Roboto,
+        height: '100vh',
+        padding: '50px 0',
         position: 'relative'
     },
     logo: {
@@ -26,7 +25,7 @@ export default StyleSheet.create({
         left: '0',
     },
     header: {
-        margin: '0'
+        position: 'relative'
     },
     logIn: {
         float: 'right',
@@ -43,9 +42,7 @@ export default StyleSheet.create({
         }
     },
     main: {
-        margin: '150px 0 0 0',
-        height: '700px',
-        paddingBottom: '250px'
+        margin: '100px 0 0 0',
     },
     mainTitle: {
         marginRight: '315px'

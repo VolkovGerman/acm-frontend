@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {css} from 'aphrodite/no-important';
 import {Link} from 'react-router';
 import IScroll from 'iscroll';
-import dateFormat from 'dateformat';
 
 import grid from '../../../General/GridStyles';
 import styles from './NewsStyles';

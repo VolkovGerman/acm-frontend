@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {css} from 'aphrodite/no-important';
 
+import styles from './AppStyles';
 import {requests} from '../../config/general';
 import localizer from '../../config/localizer';
 import Loader from '../Loader/Loader';
@@ -40,9 +42,9 @@ class App extends Component {
     render() {
         let loader = this.state.showLoader ? <Loader/> : false;
         return (
-            <div>
+            <div className={css(styles.app)}>
                 {loader}
-                <Main onLoad={this.onComponentsLoaded.bind(this)} />
+                <Main onLoad={this.onComponentsLoaded.bind(this)}/>
             </div>
         );
     }

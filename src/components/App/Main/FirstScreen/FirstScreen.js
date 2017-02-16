@@ -11,6 +11,7 @@ class FirstScreen extends Component {
     render() {
         return (
             <div className={css(styles.bgSlider)}>
+
                 <div className={css(grid.container)}>
                     <div className={css(styles.header, grid.clearfix)}>
                         <a className={css(styles.logo)} href="/"></a>
@@ -27,13 +28,15 @@ class FirstScreen extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className={css(styles.footer)}>
+                </div>
+                <div className={css(styles.footer)}>
+                    <div className={css(grid.container)}>
                         <div className={css(styles.motivationWrap)}>
                             <Motivation />
                         </div>
                         <div className={css(styles.videoWrap)}>
                             <div className={css(styles.video__play)}></div>
-                            <img className={css(styles.video)} src="/images/bg_video.jpg"/>
+                            <img className={css(styles.video)} src="/images/bg_video.jpg" alt="video"/>
                         </div>
                         <Events />
                     </div>

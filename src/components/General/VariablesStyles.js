@@ -1,8 +1,12 @@
 const media = {
-    'xs': '@media only screen and (max-width: 425px)',
-    'sm': '@media only screen and (max-width: 768px)',
-    'md': '@media only screen and (max-width: 992px)',
-    'lg': '@media only screen and (max-width: 1200px)'
+    'xs': '@media only screen and (min-width: 425px)',
+    'sm': '@media only screen and (min-width: 768px)',
+    'md': '@media only screen and (min-width: 992px)',
+    'lg': '@media only screen and (min-width: 1200px)',
+    'xsMax': '@media only screen and (max-width: 425px)',
+    'smMax': '@media only screen and (max-width: 768px)',
+    'mdMax': '@media only screen and (max-width: 992px)',
+    'lgMax': '@media only screen and (max-width: 1200px)'
 };
 
 const colors = {
