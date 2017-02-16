@@ -6,7 +6,7 @@ export default {
         src: "url('/fonts/raleway/ralewaymedium.woff2') format('woff2')"
     },
     'RalewayLight': {
-        fontFamily: "RalewayBold",
+        fontFamily: "RalewayLight",
         fontStyle: "normal",
         fontWeight: "lighter",
         src: "url('/fonts/raleway/ralewaylight.woff2') format('woff2')"

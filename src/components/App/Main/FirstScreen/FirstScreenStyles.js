@@ -9,9 +9,10 @@ export default StyleSheet.create({
         backgroundSize: 'cover',
         backgroundPosition: '0 0',
         width: '100%',
-        height: '100vh',
+        height: '980px',
         padding: '65px 0',
-        fontFamily: fonts.Raleway
+        fontFamily: fonts.Raleway,
+        position: 'relative'
     },
     logo: {
         display: 'block',
@@ -42,18 +43,32 @@ export default StyleSheet.create({
         }
     },
     main: {
-        margin: '150px 250px 0 0'
+        margin: '150px 0 0 0',
+        height: '700px',
+        paddingBottom: '250px'
     },
-    main__title: {
+    mainTitle: {
+        marginRight: '315px'
+    },
+    mainTitle__title: {
         fontSize: '60px',
         lineHeight: '64px',
         color: '#ffffff',
         fontFamily: fonts.RalewayLight,
     },
-    main__description: {
+    mainTitle__description: {
         fontSize: '22px',
         color: '#ffffff',
-        lineHeight: '22px',
+        lineHeight: '26px',
         margin: '30px 0'
+    },
+    motivationWrap: {
+        textAlign: 'right',
+    },
+    footer: {
+        width: '100%',
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
     }
 });
