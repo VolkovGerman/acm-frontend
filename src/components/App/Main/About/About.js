@@ -16,13 +16,13 @@ class About extends Component {
                                  className={css(styles.body__image)}/>
                             <div className={css(styles.body__description)}>
                                 <p className={css(styles.body__text)}>Lorem Ipsum is simply dummy text of the printing
-                                    and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                    and typesetting industry. Lorem Ipsum has been the industrys standard dummy text
                                     ever since the 1500s, when an unknown printer took a galley of type and scrambled
                                     it to make a type specimen book.</p>
                                 <p className={css(styles.body__text)}>It has survived not only five centuries, but
                                     also the leap into electronic typesetting, remaining essentially unchanged. It was
                                     popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                                    \passages</p>
+                                    passages</p>
                                 <a className={css(styles.about__link)} href="">Читать далее...</a>
                             </div>
                             <ul className={css(styles.list)}>
