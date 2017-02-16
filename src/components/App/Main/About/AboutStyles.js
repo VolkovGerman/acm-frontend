@@ -66,7 +66,7 @@ export default StyleSheet.create({
     sidebar: {
         width: '25%',
         float: 'right',
-        paddingLeft: '45px'
+        paddingLeft: '55px'
     },
     sidebar__content: {
         border: '1px solid #e5e5e5',
