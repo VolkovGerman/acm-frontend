@@ -14,7 +14,7 @@ export default StyleSheet.create({
         }
     },
     body: {
-        width: '75%',
+        width: '74%',
         float: 'left'
     },
     body__header: {
@@ -64,9 +64,9 @@ export default StyleSheet.create({
         }
     },
     sidebar: {
-        width: '25%',
+        width: '26%',
         float: 'right',
-        paddingLeft: '55px'
+        paddingLeft: '45px'
     },
     sidebar__content: {
         border: '1px solid #e5e5e5',
@@ -81,16 +81,26 @@ export default StyleSheet.create({
         listStyle: 'none',
         borderBottom: '1px solid #e5e5e5',
         margin: '0 0 20px',
-        padding: '5px 0 10px'
+        padding: '5px 0 20px'
+    },
+    sidebar__item: {
+        margin: '15px 0'
     },
     sidebar__link: {
+        position: 'relative',
         color: '#000',
-        lineHeight: '1.6',
-        padding: '8px 0',
+        fontSize: '14px',
+        padding: '10px 0 10px 40px',
 
         ':hover': {
             color: '#fa7252',
             transition: 'color 0.2s linear'
         }
+    },
+    sidebar__image: {
+        width: '24px',
+        position: 'absolute',
+        left: '0',
+        top: '5px'
     }
 });

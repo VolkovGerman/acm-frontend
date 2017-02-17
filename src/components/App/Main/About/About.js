@@ -44,16 +44,28 @@ class About extends Component {
                             <div className={css(styles.sidebar__inner)}>
                                 <ul className={css(styles.sidebar__list)}>
                                     <li className={css(styles.sidebar__item)}>
-                                        <a className={css(styles.sidebar__link)} href="">Наталья 1</a>
+                                        <a className={css(styles.sidebar__link)} href="">
+                                            <img className={css(styles.sidebar__image)} src="/images/about/list.svg"/>
+                                            Список олимпиад
+                                        </a>
                                     </li>
                                     <li className={css(styles.sidebar__item)}>
-                                        <a className={css(styles.sidebar__link)} href="">Наталья 2</a>
+                                        <a className={css(styles.sidebar__link)} href="">
+                                            <img className={css(styles.sidebar__image)} src="/images/about/calendar.svg"/>
+                                            Ключевые даты
+                                        </a>
                                     </li>
                                     <li className={css(styles.sidebar__item)}>
-                                        <a className={css(styles.sidebar__link)} href="">Наталья 3</a>
+                                        <a className={css(styles.sidebar__link)} href="">
+                                            <img className={css(styles.sidebar__image)} src="/images/about/teacher.svg"/>
+                                            Преподаватели
+                                        </a>
                                     </li>
                                     <li className={css(styles.sidebar__item)}>
-                                        <a className={css(styles.sidebar__link)} href="">Наталья 4</a>
+                                        <a className={css(styles.sidebar__link)} href="">
+                                            <img className={css(styles.sidebar__image)} src="/images/about/winners.svg"/>
+                                            Призеры олимпиад
+                                        </a>
                                     </li>
                                 </ul>
                                 <a className={css(styles.about__link)} href="">Читать далее...</a>
