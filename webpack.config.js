@@ -26,6 +26,10 @@ module.exports = {
             'react-hot-loader/patch',
             './src/client/index.jsx',
             './src/client/styles/index.scss'
+        ],
+        core: [
+            'react-hot-loader/patch',
+            './src/core/styles/index.scss'
         ]
     },
     devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',

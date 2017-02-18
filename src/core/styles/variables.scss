@@ -1,0 +1,25 @@
+
+// Media sizes
+$xs: 425px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+@mixin respond-to($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $xs) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (min-width: $sm + 1) and (max-width: $md - 1) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (min-width: $md + 1) and (max-width: $lg - 1) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (min-width: $lg) { @content; }
+  }
+}
+
+// Admin colors
+$admin__mainColor: #7B879C;
+$admin__background: #F7F7F7;
