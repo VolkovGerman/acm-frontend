@@ -12,31 +12,31 @@ module.exports = [
 	{
 		test: /\.(woff|woff2)$/,
 		exclude: /(node_modules|bower_components)/,
-		loader: "url?prefix=font/&limit=5000"
+		loader: "url?name=[1]&regExp=static/(.*)&prefix=font/&limit=5000"
 	},
 	{
 		test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
 		exclude: /(node_modules|bower_components)/,
-		loader: "url?limit=10000&mimetype=application/octet-stream"
+		loader: "url?name=[1]&regExp=static/(.*)&limit=10000&mimetype=application/octet-stream"
 	},
 	{
 		test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 		exclude: /(node_modules|bower_components)/,
-		loader: "url?name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml"
+		loader: "url?name=[1]&regExp=static/(.*)&limit=10000&mimetype=image/svg+xml"
 	},
 	{
 		test: /\.gif/,
 		exclude: /(node_modules|bower_components)/,
-		loader: "url-loader?name=[path][name].[ext]&limit=10000&mimetype=image/gif"
+		loader: "url-loader?name=[1]&regExp=static/(.*)&limit=10000&mimetype=image/gif"
 	},
 	{
 		test: /\.jpg/,
 		exclude: /(node_modules|bower_components)/,
-		loader: "url-loader?name=[path][name].[ext]&limit=10000&mimetype=image/jpg"
+		loader: "url-loader?name=[1]&regExp=static/(.*)&limit=10000&mimetype=image/jpg"
 	},
 	{
 		test: /\.png/,
 		exclude: /(node_modules|bower_components)/,
-		loader: "url-loader?name=[path][name].[ext]&limit=10000&mimetype=image/png"
+		loader: "url-loader?name=[1]&regExp=static/(.*)&limit=10000&mimetype=image/png"
 	}
 ];

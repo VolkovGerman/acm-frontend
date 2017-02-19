@@ -5,4 +5,22 @@
   width: 230px;
   background-color: $admin__mainBackground;
   height: 100vh;
+  color: $admin__textColor;
+
+  .logo {
+    padding: 15px;
+    
+    &__img {
+      background: url('../../../../static/image/logo/bsuir_logo_white.png') no-repeat;
+      background-size: 100% auto;
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+    
+    &__title {
+      line-height: 30px;
+      text-transform: uppercase;
+    }
+  }
 }
