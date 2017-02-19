@@ -7,11 +7,11 @@ var DashboardPlugin = require('webpack-dashboard/plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
-const PORT = process.env.PORT || "3000";
+const PORT = process.env.PORT || "8888";
 
 loaders.push({
     test: /\.scss$/,
-    loader: ExtractTextPlugin.extract('style', 'css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded'),
+    loader: ExtractTextPlugin.extract('css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded'),
     exclude: ['node_modules']
 });
 

@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 
+import MainMenu from './MainMenu/MainMenu';
+import LoginMenu from './LoginMenu/LoginMenu';
+
+require('./Admin.scss');
+
 class Admin extends Component {
     static onEnter(nextState, replace) {
         // if (true) {
@@ -9,8 +14,16 @@ class Admin extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.children}
+            <div className="Admin">
+                <div className="mainWrap">
+                    <MainMenu />
+                    <div className="main">
+                        <div className="main__login">
+                            <LoginMenu />
+                        </div>
+                        {this.props.children}
+                    </div>
+                </div>
             </div>
         )
     }
