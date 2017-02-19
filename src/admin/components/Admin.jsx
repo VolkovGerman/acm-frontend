@@ -21,7 +21,9 @@ class Admin extends Component {
                         <div className="main__login">
                             <LoginMenu />
                         </div>
-                        {this.props.children}
+                        <div className="main__content">
+                            {this.props.children}
+                        </div>
                     </div>
                 </div>
             </div>

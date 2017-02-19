@@ -6,3 +6,18 @@
 body {
   font-family: Roboto, sans-serif;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  &:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}

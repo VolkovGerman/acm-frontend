@@ -1,26 +1,62 @@
 @import '../../../core/styles/variables';
 
 .MainMenu {
-  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 230px;
   background-color: $admin__mainBackground;
-  height: 100vh;
+  height: 100%;
   color: $admin__textColor;
+  padding: 15px;
 
   .logo {
-    padding: 15px;
-    
+    margin: 15px 0;
+
     &__img {
-      background: url('../../../../static/image/logo/bsuir_logo_white.png') no-repeat;
+      background: url('../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
       background-size: 100% auto;
       width: 50px;
       height: 50px;
       float: left;
     }
-    
+
     &__title {
       line-height: 30px;
       text-transform: uppercase;
+      padding-left: 65px;
+      font-size: 20px;
+    }
+  }
+
+  .profile {
+    position: relative;
+    margin-top: 50px;
+
+    &__img {
+      background-image: url('../../../../static/images/users/durov.png');
+      background-size: 100% auto;
+      width: 45px;
+      height: 45px;
+      border-radius: 10em;
+      border: 2px solid $admin__textColor;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &__nameWrap {
+      margin-left: 65px;
+      padding-top: 8px;
+    }
+
+    &__rang {
+      font-size: 14px;
+      opacity: .75;
+    }
+
+    &__name {
+      line-height: 30px;
     }
   }
 }
