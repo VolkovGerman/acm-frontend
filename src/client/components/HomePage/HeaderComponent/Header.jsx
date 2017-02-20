@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 
-import MainMenu from './MainMenu/MainMenu';
+import MainMenu from './MainMenuComponent/MainMenu';
 
-require('./FirstScreen.scss');
+require('./Header.scss');
 
 class FirstScreen extends Component {
     render() {
+        let images = {
+            welcome_video: require('../../../../../static/images/backgrounds/bg_video.jpg')
+        };
         return (
             <div className="FirstScreen">
                 <div className="bgSlider">
@@ -13,7 +16,7 @@ class FirstScreen extends Component {
                         <div className="header clearfix">
                             <a className="logo" href="/"></a>
                             <button className="logIn">Log in</button>
-                            {/*<MainMenu onLoad={this.props.onLoad}/>*/}
+                            <MainMenu />
                         </div>
                         <div className="main">
                             <div className="mainTitle">
@@ -30,10 +33,6 @@ class FirstScreen extends Component {
                         <div className="container">
                             <div className="motivationWrap">
                                 {/*<Motivation />*/}
-                            </div>
-                            <div className="videoWrap">
-                                <div className="video__play"></div>
-                                <img className="video" src="/static/images/backgrounds/bg_video.jpg" alt="video"/>
                             </div>
                             {/*<Events />*/}
                         </div>

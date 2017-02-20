@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-import FirstScreen from './FirstScreen/FirstScreen';
+import Header from './HeaderComponent/Header';
 
 class Main extends Component {
     render() {
         return (
             <div className="Main">
-                <FirstScreen />
+                <Header />
             </div>
         );
     }

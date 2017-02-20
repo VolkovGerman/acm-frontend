@@ -1,0 +1,26 @@
+@import '../../../../../core/styles/variables';
+
+.MainMenu {
+    .mainMenu {
+        float: right;
+        list-style: none;
+
+        &__item {
+            float: left;
+        }
+
+        &__link {
+            display: block;
+            text-transform: uppercase;
+            color: #fff;
+            margin-right: 30px;
+            line-height: 65px;
+            transition: all 0.3s ease-out;
+            font-size: 14px;
+
+            &:hover {
+                color: $hoverLink
+            }
+        }
+    }
+}
