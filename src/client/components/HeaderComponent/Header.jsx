@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 import MainMenu from './MainMenuComponent/MainMenu';
 
@@ -14,7 +15,7 @@ class FirstScreen extends Component {
                 <div className="bgSlider">
                     <div className="container">
                         <div className="header clearfix">
-                            <a className="logo" href="/"></a>
+                            <Link className="logo" to="/"></Link>
                             <button className="logIn">Log in</button>
                             <MainMenu />
                         </div>

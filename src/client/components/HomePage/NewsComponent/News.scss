@@ -2,8 +2,8 @@
 
 .News {
     .news {
-        padding-bottom: 50px;
-        margin: 25px 0 50px;
+        padding-bottom: 25px;
+        margin-bottom: 50px;
         border-bottom: 1px solid #e5e5e5;
 
         &:last-child {
@@ -29,6 +29,10 @@
             }
         }
 
+        &__header {
+            min-height: 66px;
+        }
+
         &__title {
             text-decoration: none;
             color: $textColor;
@@ -36,6 +40,7 @@
             margin-left: 90px;
             display: block;
             padding-top: 3px;
+            transition: all 0.3s ease-out;
 
             &:hover {
                 color: $hoverLink;
@@ -76,8 +81,9 @@
         }
 
         .buttons {
+            float: right;
             &__button {
-                float: right;
+                text-decoration: none;
                 padding: 10px 15px;
                 color: #fff;
                 background-color: $hoverLink;
@@ -86,6 +92,41 @@
 
                 &:hover {
                     background-color: #000;
+                }
+            }
+        }
+
+        .info {
+            display: inline-block;
+            opacity: .5;
+
+            &__item {
+                display: inline-block;
+                position: relative;
+                margin-right: 15px;
+            }
+
+            &__value {
+                display: inline-block;
+                margin-left: 32px;
+                line-height: 40px;
+            }
+
+            &__image {
+                position: absolute;
+                left: 0;
+                top: 7px;
+                background-size: 100% auto;
+                background-repeat: no-repeat;
+                width: 25px;
+                height: 25px;
+
+                &_views {
+                    background-image: url('../../../../../static/images/icons/eye_000000.svg');
+                }
+
+                &_messages {
+                    background-image: url('../../../../../static/images/icons/message_000000.svg');
                 }
             }
         }

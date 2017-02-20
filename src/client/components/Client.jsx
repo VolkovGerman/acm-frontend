@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import Header from './HeaderComponent/Header';
-import Home from './HomePage/Home';
 import Breadcrumbs from './BreadcrumbsComponent/Breadcrumbs';
 
 require('./Client.scss');
@@ -25,6 +24,20 @@ let pageParams = {
             {
                 id: 3
             }
+        ],
+        events: [
+            {
+                id: 1,
+                rang: 'hot'
+            },
+            {
+                id: 2,
+                rang: 'open'
+            },
+            {
+                id: 3,
+                rang: 'close'
+            }
         ]
     }
 
@@ -46,9 +59,9 @@ class Client extends Component {
                         <div className="content">
                             <div className="content__header">{pageParams.title}</div>
                             <div className="content__main">
-                                <div className="breadcrumbsWrap">
-                                    <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
-                                </div>
+                                {/*<div className="breadcrumbsWrap">*/}
+                                {/*<Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>*/}
+                                {/*</div>*/}
                                 {childrenWithProps}
                             </div>
                         </div>

@@ -11,10 +11,10 @@ class Home extends Component {
             <div className="Home">
                 <div className="content">
                     <div className="eventsWrap">
-                        <Events />
+                        <Events events={this.props.pageParams.items.events}/>
                     </div>
                     <div className="newsWrap">
-                        <News news={this.props.pageParams.items.news} />
+                        <News news={this.props.pageParams.items.news}/>
                     </div>
                 </div>
             </div>
