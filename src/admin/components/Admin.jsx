@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import MainMenu from './MainMenu/MainMenu';
-import LoginMenu from './LoginMenu/LoginMenu';
+import MainMenu from './MainMenuComponent/MainMenu';
+import LoginMenu from './LoginMenuComponent/LoginMenu';
 
 require('./Admin.scss');
 

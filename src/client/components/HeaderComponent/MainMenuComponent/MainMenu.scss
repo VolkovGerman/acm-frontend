@@ -1,4 +1,4 @@
-@import '../../../../../core/styles/variables';
+@import '../../../../core/styles/variables';
 
 .MainMenu {
     .mainMenu {
@@ -14,9 +14,10 @@
             text-transform: uppercase;
             color: #fff;
             margin-right: 30px;
-            line-height: 65px;
+            line-height: 37px;
             transition: all 0.3s ease-out;
             font-size: 14px;
+            text-decoration: none;
 
             &:hover {
                 color: $hoverLink

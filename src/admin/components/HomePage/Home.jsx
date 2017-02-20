@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 
-require('./Main.scss');
+require('./Home.scss');
 
-class Main extends Component {
+class Home extends Component {
     render() {
         return (
             <div>
-                Main
+                Home
             </div>
         )
     }
 }
 
-export default Main;
+export default Home;

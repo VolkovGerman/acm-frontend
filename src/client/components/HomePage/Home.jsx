@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
 
-import Header from './HeaderComponent/Header';
+import News from './NewsComponent/News';
+import Events from './EventsComponent/Events';
 
-class Main extends Component {
+require('./Home.scss');
+
+class Home extends Component {
     render() {
         return (
-            <div className="Main">
-                <Header />
+            <div className="Home">
+                <div className="content">
+                    <div className="eventsWrap">
+                        <Events />
+                    </div>
+                    <div className="newsWrap">
+                        <News news={this.props.pageParams.items.news} />
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
-export default Main;
+export default Home;
