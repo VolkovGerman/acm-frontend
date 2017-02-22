@@ -1,0 +1,72 @@
+@import '../../../../core/styles/variables';
+
+.Header {
+    .header {
+        &__date {
+            float: left;
+            padding: 10px;
+            border: 1px solid $minorColor;
+        }
+
+        &__title {
+            text-decoration: none;
+            color: $textColor;
+            font-size: 28px;
+            margin-left: 90px;
+            display: block;
+            padding-top: 3px;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                color: $hoverLink;
+                opacity: 1;
+            }
+        }
+
+        &__author {
+            margin-left: 90px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+
+    .author {
+        &__written {
+            opacity: .50;
+        }
+
+        &__authors {
+            display: inline-block;
+            list-style: none;
+        }
+    }
+
+    .authors {
+        &__item {
+            margin: 0 5px;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: #000;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                color: $hoverLink;
+            }
+        }
+    }
+
+    .date {
+        text-align: center;
+
+        &__day {
+            font-size: 22px;
+        }
+
+        &__month {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+}

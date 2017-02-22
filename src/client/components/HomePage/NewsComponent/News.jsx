@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 
+import ArticleHeader from '../../ArticleComponents/HeaderComponent/Header';
+
 require('./News.scss');
 
 let img = require('../../../../../static/images/backgrounds/bg_slider_2.jpg');
@@ -12,14 +14,7 @@ class News extends Component {
                 {this.props.news.map((item, index) =>
                     <div className="news" key={index}>
                         <div className="news__header">
-                            <div className="news__date date">
-                                <div className="date__day">14</div>
-                                <div className="date__month">Апр 2016</div>
-                            </div>
-                            <Link className="news__title" to={`news/${item.id}`}>БГУИР - в финале ACM ICPC</Link>
-                            <div className="news__author author">Тема:
-                                <span className="author__name"> Соревнования</span>
-                            </div>
+                            <ArticleHeader item={item}/>
                         </div>
                         <div className="news__main">
                             <Link to={`news/${item.id}`} className="news__image-link">

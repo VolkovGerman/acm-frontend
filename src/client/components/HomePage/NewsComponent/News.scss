@@ -10,49 +10,8 @@
             border-bottom: none;
         }
 
-        &__date {
-            float: left;
-            padding: 10px;
-            border: 1px solid $minorColor;
-        }
-
-        .date {
-            text-align: center;
-
-            &__day {
-                font-size: 22px;
-            }
-
-            &__month {
-                font-size: 12px;
-                margin-top: 5px;
-            }
-        }
-
         &__header {
             min-height: 66px;
-        }
-
-        &__title {
-            text-decoration: none;
-            color: $textColor;
-            font-size: 28px;
-            margin-left: 90px;
-            display: block;
-            padding-top: 3px;
-            transition: all 0.3s ease-out;
-
-            &:hover {
-                color: $hoverLink;
-                opacity: 1;
-            }
-        }
-
-        &__author {
-            margin-left: 90px;
-            font-size: 12px;
-            opacity: .50;
-            margin-top: 5px;
         }
 
         &__main {
@@ -78,6 +37,7 @@
             margin-top: 25px;
             font-family: Roboto;
             line-height: 26px;
+            text-align: justify;
         }
 
         .buttons {

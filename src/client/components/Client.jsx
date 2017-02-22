@@ -39,7 +39,20 @@ let pageParams = {
                 rang: 'close'
             }
         ]
-    }
+    },
+    news: {
+        id: 1
+    },
+    breadcrumbs: [
+        {
+            link: '/',
+            name: 'Главная'
+        },
+        {
+            link: '/news',
+            name: 'Новость'
+        }
+    ]
 
 }
 
@@ -59,9 +72,9 @@ class Client extends Component {
                         <div className="content">
                             <div className="content__header">{pageParams.title}</div>
                             <div className="content__main">
-                                {/*<div className="breadcrumbsWrap">*/}
-                                {/*<Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>*/}
-                                {/*</div>*/}
+                                <div className="breadcrumbsWrap">
+                                <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
+                                </div>
                                 {childrenWithProps}
                             </div>
                         </div>
