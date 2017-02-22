@@ -1,0 +1,17 @@
+@import '../../../core/styles/variables';
+
+.Footer {
+    .bgSlider {
+        text-align: center;
+        background: url('../../../../static/images/backgrounds/bg_slider_1.jpg') no-repeat;
+        background-size: cover;
+        background-position: 0 100%;
+        width: 100%;
+        padding-bottom: 75px;
+        margin-top: 150px;
+    }
+    
+    .footer {
+        background: #fff;
+    }
+}

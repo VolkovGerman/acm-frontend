@@ -1,9 +1,9 @@
 @import '../../core/styles/variables';
 
 .Client {
-    .contentWrap {
-        position: relative;
+    .containerWrap {
         margin-top: -350px;
+        margin-bottom: -150px;
     }
 
     .content {
@@ -21,6 +21,11 @@
             background-color: #fff;
             min-height: 250px;
             padding: 25px 50px;
+        }
+
+        &__footer {
+            background-color: #fff;
+            padding: 0 25px;
         }
     }
 

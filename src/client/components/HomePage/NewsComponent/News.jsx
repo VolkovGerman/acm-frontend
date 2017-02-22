@@ -34,8 +34,8 @@ class News extends Component {
                                     <div className="info__value">33</div>
                                 </div>
                                 <div className="info__item">
-                                    <div className="info__image info__image_messages"/>
-                                    <div className="info__value">12</div>
+                                    <div className="info__image info__image_langs"/>
+                                    <div className="info__value">рус</div>
                                 </div>
                             </div>
                             <div className="news__buttons buttons">

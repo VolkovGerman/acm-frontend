@@ -16,25 +16,25 @@ class LatestNews extends Component {
                             <div className="newsItem__title">
                                 <Link className="newsItem__link" to="#">University theme for education website</Link>
                             </div>
-                            <p className="newsItem__date">Mon, 02 Jun 2014</p>
-                            <p className="newsItem__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Phasellus rutrum...</p>
+                            <div className="newsItem__date">Mon, 02 Jun 2014</div>
+                            <div className="newsItem__description">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit. Phasellus rutrum...</div>
                         </div>
                         <div className="newsList__item newsItem">
                             <div className="newsItem__title">
                                 <Link className="newsItem__link" to="#">University theme for education website</Link>
                             </div>
-                            <p className="newsItem__date">Mon, 02 Jun 2014</p>
-                            <p className="newsItem__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Phasellus rutrum...</p>
+                            <div className="newsItem__date">Mon, 02 Jun 2014</div>
+                            <div className="newsItem__description">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit. Phasellus rutrum...</div>
                         </div>
                         <div className="newsList__item newsItem">
                             <div className="newsItem__title">
                                 <Link className="newsItem__link" to="#">University theme for education website</Link>
                             </div>
-                            <p className="newsItem__date">Mon, 02 Jun 2014</p>
-                            <p className="newsItem__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Phasellus rutrum...</p>
+                            <div className="newsItem__date">Mon, 02 Jun 2014</div>
+                            <div className="newsItem__description">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit. Phasellus rutrum...</div>
                         </div>
                     </div>
                     <Link className="latestNews__link" to="#">Все новости</Link>

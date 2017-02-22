@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 import Header from './HeaderComponent/Header';
+import Footer from './FooterComponent/Footer';
 import Breadcrumbs from './BreadcrumbsComponent/Breadcrumbs';
+import Navigation from './NavigationComponent/Navigation';
 
 require('./Client.scss');
 
@@ -17,6 +19,12 @@ let pageParams = {
         news: [
             {
                 id: 1
+            },
+            {
+                id: 2
+            },
+            {
+                id: 3
             },
             {
                 id: 2
@@ -52,8 +60,89 @@ let pageParams = {
             link: '/news',
             name: 'Новость'
         }
+    ],
+    navigation: [
+        {
+            title: 'Чемпионат БГУИР 2016',
+            items: [
+                {
+                    link: '#',
+                    name: 'Подробнее о чемпионате'
+                },
+                {
+                    link: '#',
+                    name: 'Регистрация'
+                },
+                {
+                    link: '#',
+                    name: 'Зарегистрированные команды'
+                },
+            ]
+        },
+        {
+            title: 'Чемпионат БГУИР',
+            items: [
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                }
+            ]
+        },
+        {
+            title: 'Чемпионат БГУИР',
+            items: [
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                }
+            ]
+        },
+        {
+            title: 'Чемпионат БГУИР',
+            items: [
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                },
+                {
+                    link: '#',
+                    name: 'Чемпионат БГУИР 2016'
+                }
+            ]
+        }
     ]
-
 }
 
 class Client extends Component {
@@ -67,19 +156,23 @@ class Client extends Component {
         return (
             <div className="Client">
                 <Header />
-                <div className="contentWrap">
+                <div className="containerWrap">
                     <div className="container">
                         <div className="content">
                             <div className="content__header">{pageParams.title}</div>
                             <div className="content__main">
                                 <div className="breadcrumbsWrap">
-                                <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
+                                    <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
                                 </div>
                                 {childrenWithProps}
+                            </div>
+                            <div className="content__footer">
+                                <Navigation navigation={pageParams.navigation}/>
                             </div>
                         </div>
                     </div>
                 </div>
+                <Footer content={pageParams.footer}/>
             </div>
         );
     }

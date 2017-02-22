@@ -9,8 +9,7 @@
     }
 
     .event {
-        padding: 15px 0;
-        margin-bottom: 15px;
+        padding: 30px 0;
         border-bottom: 1px solid $minorColor;
         position: relative;
 
@@ -38,7 +37,7 @@
         &__status {
             position: absolute;
             right: 0;
-            top: 10px;
+            top: 25px;
             font-size: 12px;
             color: #fff;
             padding: 5px;
@@ -53,7 +52,7 @@
             }
 
             &_hot {
-                background-color: $hoverLink;
+                background-color: $mainOrange;
             }
         }
     }
