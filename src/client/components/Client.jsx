@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Header from './HeaderComponent/Header';
 import Footer from './FooterComponent/Footer';
 import Breadcrumbs from './BreadcrumbsComponent/Breadcrumbs';
-import Navigation from './NavigationComponent/Navigation';
+import Navigation from './FooterComponent/NavigationComponent/Navigation';
 
 require('./Client.scss');
 
@@ -117,6 +117,10 @@ let pageParams = {
                 },
                 {
                     link: '#',
+                    name: 'Список лекций'
+                },
+                {
+                    link: '#',
                     name: 'Архив'
                 }
             ]
@@ -145,13 +149,10 @@ class Client extends Component {
                                 </div>
                                 {childrenWithProps}
                             </div>
-                            <div className="content__footer">
-                                <Navigation navigation={pageParams.navigation}/>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <Footer content={pageParams.footer}/>
+                <Footer navigation={pageParams.navigation}/>
             </div>
         );
     }

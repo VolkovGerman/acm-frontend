@@ -1,9 +1,7 @@
-@import '../../../core/styles/variables';
+@import '../../../../core/styles/variables';
 
 .Navigation {
     .navigation {
-        padding: 50px 25px;
-        border-top: 1px solid $minorColor;
 
         &__item{
             float: left;

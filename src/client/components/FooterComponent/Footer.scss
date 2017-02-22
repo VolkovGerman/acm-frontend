@@ -2,16 +2,29 @@
 
 .Footer {
     .bgSlider {
-        text-align: center;
-        background: url('../../../../static/images/backgrounds/bg_slider_1.jpg') no-repeat;
+        background: url('../../../../static/images/backgrounds/pexels-photo-40120111.jpg') no-repeat;
+        background-attachment: fixed;
         background-size: cover;
         background-position: 0 100%;
         width: 100%;
         padding-bottom: 75px;
-        margin-top: 150px;
     }
-    
+
     .footer {
         background: #fff;
+        position: relative;
+        padding: 50px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 50%;
+            height: 1px;
+            background-color: $minorColor;
+        }
     }
 }
