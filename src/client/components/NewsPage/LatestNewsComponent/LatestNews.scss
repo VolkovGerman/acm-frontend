@@ -1,5 +1,43 @@
 @import '../../../../core/styles/variables';
 
-.Sidebar {
+.LatestNews {
+    .latestNews {
+        &__header {
+            text-transform: uppercase;
+            font-family: RobotoBold;
+        }
 
+        &__link {
+            text-decoration: none;
+            color: $hoverLink;
+
+            &:hover {
+                color: $textColor;
+            }
+        }
+    }
+
+    .newsItem {
+        padding: 15px 0;
+        margin-bottom: 15px;
+        border-bottom: 1px solid $minorColor;
+        position: relative;
+
+        &__link {
+            text-decoration: none;
+            color: $textColor;
+            font-size: 14px;
+            display: block;
+
+            &:hover {
+                color: $hoverLink
+            }
+        }
+
+        &__date {
+            font-size: 12px;
+            margin: 10px 0 0 0;
+            opacity: .75;
+        }
+    }
 }
