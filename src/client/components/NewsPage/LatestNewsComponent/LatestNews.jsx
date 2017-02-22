@@ -37,7 +37,7 @@ class LatestNews extends Component {
                                 elit. Phasellus rutrum...</div>
                         </div>
                     </div>
-                    <Link className="latestNews__link" to="#">Все новости</Link>
+                    <Link className="latestNews__link" to="/news">Все новости</Link>
                 </div>
             </div>
 

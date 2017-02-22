@@ -46,12 +46,13 @@
 
         &__tagsList {
             list-style: none;
+            display: block;
         }
 
         &__tagsListItem {
             float: left;
             padding: 3px 12px;
-            margin: 3px;
+            margin-right: 6px;
             background: #F1F2F3;
         }
 

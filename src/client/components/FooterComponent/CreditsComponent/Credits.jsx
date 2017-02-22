@@ -8,7 +8,8 @@ class Credits extends Component {
         return (
             <div className="Credits">
                 <div className="credits">
-                    БГУИР / ул. Петруся Бровки 4, Минск, РБ / +375 (29) 758-55-11
+                    <span>Международная студенческая олимпиада по программированию &#169; </span>
+                    <Link className="credits__link" to="/">БГУИР 2017</Link>
                 </div>
             </div>
         );

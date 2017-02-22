@@ -47,8 +47,8 @@ class Article extends Component {
 
                 <div className="article__footer">
                     <div className="article__tags">
-                        <div className="article__taggedUnder">Теги</div>
-                        <ul className="article__tagsList">
+                        <div className="article__taggedUnder">Теги:</div>
+                        <ul className="article__tagsList clearfix">
                             <li className="article__tagsListItem">
                                 <a className="article__tagsLink" href="#">Университет</a>
                             </li>
