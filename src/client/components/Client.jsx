@@ -2,23 +2,11 @@ import React, {Component} from 'react';
 
 import Header from './HeaderComponent/Header';
 import Footer from './FooterComponent/Footer';
-import Breadcrumbs from './BreadcrumbsComponent/Breadcrumbs';
-import Navigation from './FooterComponent/NavigationComponent/Navigation';
 
 require('./Client.scss');
 
 let pageParams = {
     title: 'ACM BSUIR',
-    breadcrumbs: [
-        {
-            link: '/',
-            name: 'Главная'
-        },
-        {
-            link: '/news',
-            name: 'Новость'
-        }
-    ],
     items: {
         news: [
             {
@@ -138,7 +126,6 @@ class Client extends Component {
                         <div className="content">
                             <div className="content__header">{pageParams.title}</div>
                             <div className="content__main">
-                                <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
                                 {childrenWithProps}
                             </div>
                         </div>
