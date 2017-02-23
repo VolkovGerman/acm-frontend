@@ -1,10 +1,16 @@
 @import '../../../core/styles/variables';
 
 .Breadcrumbs {
+    .breadcrumbsWrap {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 15px;
+    }
+
     .breadcrumbs {
         list-style: none;
         display: block;
-        font-size: 12px;
+        font-size: $font_size_xs;
 
         &__item {
             float: left;

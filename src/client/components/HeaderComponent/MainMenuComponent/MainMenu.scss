@@ -13,11 +13,11 @@
             font-family: Roboto;
             display: block;
             text-transform: uppercase;
-            color: #fff;
-            margin-right: 30px;
+            color: $white;
+            margin-left: 30px;
             line-height: 37px;
             transition: all 0.3s ease-out;
-            font-size: 14px;
+            font-size: $font_size_s;
             text-decoration: none;
 
             &:hover {

@@ -13,6 +13,10 @@ let pageParams = {
         {
             link: '/',
             name: 'Главная'
+        },
+        {
+            link: '/news',
+            name: 'Новость'
         }
     ],
     items: {
@@ -51,16 +55,6 @@ let pageParams = {
     news: {
         id: 1
     },
-    breadcrumbs: [
-        {
-            link: '/',
-            name: 'Главная'
-        },
-        {
-            link: '/news',
-            name: 'Новость'
-        }
-    ],
     navigation: [
         {
             title: 'Чемпионат БГУИР',
@@ -144,9 +138,7 @@ class Client extends Component {
                         <div className="content">
                             <div className="content__header">{pageParams.title}</div>
                             <div className="content__main">
-                                <div className="breadcrumbsWrap">
-                                    <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
-                                </div>
+                                <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
                                 {childrenWithProps}
                             </div>
                         </div>

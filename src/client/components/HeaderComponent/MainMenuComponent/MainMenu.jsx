@@ -26,7 +26,7 @@ class MainMenu extends Component {
     render() {
         return (
             <div className="MainMenu">
-                <ul className="mainMenu">
+                <ul className="mainMenu clearfix">
                     {this.props.menu.map((item, index) =>
                         <li className="mainMenu__item" key={index}>
                             <Link className="mainMenu__link" to={item.href}>{item.name}</Link>
