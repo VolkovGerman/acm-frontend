@@ -7,6 +7,9 @@ require('./Header.scss');
 
 class FirstScreen extends Component {
     render() {
+        let images = {
+            welcome_video: require('../../../../static/images/backgrounds/bg_video.jpg')
+        };
         return (
             <div className="Header">
                 <div className="bgSlider">

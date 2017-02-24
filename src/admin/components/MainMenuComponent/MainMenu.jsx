@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import menuConfig from '../../config/menu.config';
+import MenuItem from './MenuItemComponent/MenuItem';
+
 require('./MainMenu.scss');
 
 class MainMenu extends Component {
@@ -16,6 +19,11 @@ class MainMenu extends Component {
                         <div className="profile__rang">Администратор</div>
                         <div className="profile__name">Павел Дуров</div>
                     </div>
+                </div>
+                <div className="menu">
+                    {menuConfig.ru.map((item, index) =>
+                        <MenuItem key={index} menu={item} />
+                    )}
                 </div>
             </div>
         )
