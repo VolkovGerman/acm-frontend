@@ -1,0 +1,93 @@
+@import '../../../core/styles/variables';
+
+.Champs {
+    .champsList {
+        margin: 0;
+        padding: 40px 0;
+        list-style: none;
+
+        &__item {
+            display: block;
+            margin-bottom: 40px;
+
+            transition: padding 0.3s;
+
+            text-align: left;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .champsList__itemStatus {
+                float: right;
+            }
+
+            &:nth-child(2n + 1) {
+                width: 90%;
+            }
+
+            &:nth-child(2n) {
+                width: 85%;
+            }
+
+        }
+
+        &__itemLink {
+            position: relative;
+            display: block;
+            padding: 40px 40px 40px 72px;
+
+            font-family: Roboto;
+            font-size: $font_size_l;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $white;
+
+            background-color: $mainBlue;
+            background-image: url('../../../../static/images/logo/acm_logo.png'),
+                url('../../../../static/images/backgrounds/bg_grey_pattern.png');
+            background-size: 36px, 200px;
+            background-position: 20px 50%, 0 0;
+            background-repeat: no-repeat, repeat;
+            background-attachment: scroll, fixed;
+
+            transition: 0.5s;
+            box-shadow: 0 17px 9px -7px rgba(0,0,0,0.35);
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                transition: background-color 0.3s;
+
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            &:hover {
+                background-color: #2e465f;
+
+                &:before {
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+
+            &--opened .champsList__itemStatus {
+                color: $brightGreen;
+            }
+
+            &--closed .champsList__itemStatus {
+                color: $brightRed;
+            }
+        }
+
+        &__itemStatus {
+            color: $grey;
+        }
+
+    }   
+}

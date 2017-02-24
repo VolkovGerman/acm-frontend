@@ -9,6 +9,10 @@ class MainMenu extends Component {
     componentWillMount() {
         this.props.onInit([
             {
+                href: '/',
+                name: 'Главная'
+            },
+            {
                 href: '/champs',
                 name: 'Чемпионат БГУИР'
             },
