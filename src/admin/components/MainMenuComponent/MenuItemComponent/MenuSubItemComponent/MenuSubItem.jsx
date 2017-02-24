@@ -9,7 +9,8 @@ class MenuSubItem extends Component {
             <div className="MenuSubItem">
                 <ul className="menuSubItem">
                     <li className="menuSubItem__item">
-                        <Link className="menuSubItem__link" to={this.props.subMenu.link}>{this.props.subMenu.title}</Link>
+                        <Link className="menuSubItem__link"
+                              to={this.props.subMenu.link}>{this.props.subMenu.title}</Link>
                     </li>
                 </ul>
             </div>

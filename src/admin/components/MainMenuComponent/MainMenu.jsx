@@ -22,7 +22,7 @@ class MainMenu extends Component {
                 </div>
                 <div className="menu">
                     {menuConfig.ru.map((item, index) =>
-                        <MenuItem key={index} menu={item} />
+                        <MenuItem key={index} menu={item}/>
                     )}
                 </div>
             </div>

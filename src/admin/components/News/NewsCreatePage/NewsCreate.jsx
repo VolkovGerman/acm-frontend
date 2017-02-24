@@ -7,14 +7,17 @@ require('./NewsCreate.scss');
 
 class NewsCreate extends Component {
     render() {
-        
-        let test = (
-            <WidgetInput />
+
+        let widgets = (
+            <div className="widgets">
+                <WidgetInput params={{type: 'text', title: 'Название', name: 'news_title'}}/>
+                <WidgetInput params={{type: 'text', title: 'Url страницы', name: 'news_url'}}/>
+            </div>
         );
-        
+
         return (
             <div className="NewsCreate">
-                <Block block={{title: 'Основная информация', widgets: test}} />
+                <Block block={{title: 'Основная информация', widgets: widgets}}/>
             </div>
         )
     }
