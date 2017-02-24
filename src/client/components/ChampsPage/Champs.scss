@@ -24,8 +24,12 @@
         margin-bottom: 25px;        
         width: 50%;
 
+        &:nth-child(2n) {
+            padding-left: 12px; 
+        }
+
         &:nth-child(2n + 1) {
-            padding-right: 25px; 
+            padding-right: 13px; 
         }
 
         &__link {
