@@ -6,6 +6,7 @@ import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 require('./Champs.scss');
 
 const pageParams = {
+    champLogo: require('../../../../static/images/backgrounds/bsuir_acm.jpg'),
     breadcrumbs: [
         {
             link: '/',
@@ -19,15 +20,15 @@ const pageParams = {
 }
 
 const champsList = [
-    {id: 1, name: 'Чемпионат БГУИР 2017', status: 'opened', statusText: 'Открыт'},
-    {id: 2, name: 'Чемпионат БГУИР 2016', status: 'closed', statusText: 'Завершен'},
-    {id: 3, name: 'Чемпионат БГУИР 2015', status: 'closed', statusText: 'Завершен'},
-    {id: 4, name: 'Чемпионат БГУИР 2014', status: 'closed', statusText: 'Завершен'},
-    {id: 5, name: 'Чемпионат БГУИР 2013', status: 'closed', statusText: 'Завершен'},
-    {id: 6, name: 'Чемпионат БГУИР 2012', status: 'closed', statusText: 'Завершен'},
-    {id: 7, name: 'Чемпионат БГУИР 2011', status: 'closed', statusText: 'Завершен'},
-    {id: 8, name: 'Чемпионат БГУИР 2010', status: 'closed', statusText: 'Завершен'},
-    {id: 9, name: 'Чемпионат БГУИР 2009', status: 'closed', statusText: 'Завершен'}
+    {id: 1, name: 'Чемпионат БГУИР', year: '2017', status: 'active', statusText: 'Открыт'},
+    {id: 2, name: 'Чемпионат БГУИР', year: '2016', status: 'closed', statusText: 'Завершен'},
+    {id: 3, name: 'Чемпионат БГУИР', year: '2015', status: 'closed', statusText: 'Завершен'},
+    {id: 4, name: 'Чемпионат БГУИР', year: '2014', status: 'closed', statusText: 'Завершен'},
+    {id: 5, name: 'Чемпионат БГУИР', year: '2013', status: 'closed', statusText: 'Завершен'},
+    {id: 6, name: 'Чемпионат БГУИР', year: '2012', status: 'closed', statusText: 'Завершен'},
+    {id: 7, name: 'Чемпионат БГУИР', year: '2011', status: 'closed', statusText: 'Завершен'},
+    {id: 8, name: 'Чемпионат БГУИР', year: '2010', status: 'closed', statusText: 'Завершен'},
+    {id: 9, name: 'Чемпионат БГУИР', year: '2009', status: 'closed', statusText: 'Завершен'}
 ];
 
 class ChampsPage extends Component {
@@ -35,12 +36,20 @@ class ChampsPage extends Component {
         return (
             <div className="Champs">
                 <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
-                <ul className="champsList">
+                <div className="champLogo">
+                    <img src={pageParams.champLogo} alt="ACM Logo"/>
+                </div>
+                <ul className="champsList clearfix">
                     {champsList.map((item, index) =>
-                        <li className="champsList__item" key={index}>
-                            <Link className={`champsList__itemLink champsList__itemLink--${item.status} clearfix`} to={`/champs/${item.id}`}>
-                                <span className="champsList__itemStatus">{item.statusText}</span>
-                                {item.name}
+                        <li className="champItem" key={index}>
+                            <Link className='champItem__link' to={`/champs/${item.id}`}>
+                                <div className="champItem__header">
+                                    <div className="champItem__name">{item.name}</div>
+                                    <div className="champItem__year">{item.year}</div>
+                                </div>
+                                <div className={`champItem__status champItem__status--${item.status}`}>
+                                    {item.statusText}
+                                </div>
                             </Link>
                         </li>
                     )}
