@@ -1,0 +1,28 @@
+@import '../../../../core/styles/variables';
+
+.MainMenu {
+    .mainMenu {
+        float: right;
+        list-style: none;
+
+        &__item {
+            float: left;
+        }
+
+        &__link {
+            font-family: Roboto;
+            display: block;
+            text-transform: uppercase;
+            color: $white;
+            margin-left: 30px;
+            line-height: 37px;
+            transition: all 0.3s ease-out;
+            font-size: 14px;
+            text-decoration: none;
+
+            &:hover {
+                color: $hoverLink
+            }
+        }
+    }
+}

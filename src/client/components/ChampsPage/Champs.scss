@@ -1,0 +1,104 @@
+@import '../../../core/styles/variables';
+
+.Champs {
+
+    .champLogo {
+        padding-top: 25px;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .champsList {
+        margin: 0;
+        padding: 40px 0 0;
+        list-style: none;
+    }
+
+    .champItem {
+        box-sizing: border-box;
+        display: block;
+        float: left;
+        margin-bottom: 25px;        
+        width: 50%;
+
+        &:nth-child(2n) {
+            padding-left: 12px; 
+        }
+
+        &:nth-child(2n + 1) {
+            padding-right: 13px; 
+        }
+
+        &__link {
+            display: block;
+            background-color: $mainBlueDark;
+
+            text-decoration: none;
+
+            transition: background-color 0.4s;
+
+            &:hover {
+                background-color: darken($mainBlueDark, 8%);
+
+                .champItem__status {
+                    background-color: rgba(255, 255, 255, 0.6);
+
+                    &--closed {
+                        color: $red;
+                    }
+
+                    &--active {
+                        color: $green;
+                    }
+                }
+            }
+        }
+
+        &__header {
+            padding: 100px 20px 20px;
+
+            font-size: $font_size_l;
+            color: $white;
+            text-align: center;
+            text-transform: uppercase;
+
+            background-image: url('../../../../static/images/logo/acm_logo.png');
+            background-repeat: no-repeat;
+            background-position-x: 50%;
+            background-position-y: 20px;
+            background-size: 60px;
+        }
+
+        &__name {
+            margin-bottom: 6px;
+        }
+
+        &__year {
+            font-family: Roboto;
+        }
+
+        &__status {
+            padding: 15px 15px;
+
+            font-family: Roboto;
+            text-align: center;
+            text-transform: uppercase;
+
+            background-color: rgba(255, 255, 255, 0.2);
+
+            transition: background-color 0.4s;
+
+            &--active {
+                color: $brightGreen;
+            }
+
+            &--closed {
+                color: $lightRed;
+            }
+        }
+    }
+   
+}

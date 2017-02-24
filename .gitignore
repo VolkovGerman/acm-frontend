@@ -1,20 +1,15 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# inv folders
+.idea/
 
-# assets
-_assets
-
-# dependencies
+# lib folders
 node_modules
 
-# testing
-coverage
+# build folders
+public
 
-# production
-build
-
-# misc
-.DS_Store
+# config files
 .env
-/.idea
-/.vscode
+
+# log files
 npm-debug.log
+

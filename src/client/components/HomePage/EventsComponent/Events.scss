@@ -1,0 +1,59 @@
+@import '../../../../core/styles/variables';
+
+.Events {
+    .events {
+        &__title {
+            text-transform: uppercase;
+            font-family: RobotoBold;
+        }
+    }
+
+    .event {
+        padding: 30px 0;
+        border-bottom: 1px solid $minorColor;
+        position: relative;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &__title {
+            text-decoration: none;
+            color: $textColor;
+            font-size: 14px;
+            display: block;
+
+            &:hover {
+                color: $hoverLink
+            }
+        }
+
+        &__date {
+            font-size: 12px;
+            margin: 10px 0 0 0;
+            opacity: .75;
+        }
+
+        &__status {
+            position: absolute;
+            right: 0;
+            top: 25px;
+            font-size: 12px;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+
+            &_open {
+                background-color: $mainBlue;
+            }
+
+            &_close {
+                background-color: $textColor;
+            }
+
+            &_hot {
+                background-color: $mainOrange;
+            }
+        }
+    }
+}

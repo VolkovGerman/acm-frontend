@@ -1,0 +1,16 @@
+@import '../../../../core/styles/variables';
+
+.TwoColumns {
+    .content {
+        padding-top: 15px;
+    }
+
+    .subWrap {
+        float: right;
+        width: 300px;
+    }
+
+    .generalWrap {
+        margin-right: 350px;
+    }
+}

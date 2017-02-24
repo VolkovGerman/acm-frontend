@@ -1,0 +1,19 @@
+@import '../../../../core/styles/variables';
+
+.MenuItem {
+    .menuItem {
+        &__link {
+            padding: 15px;
+            display: block;
+            text-decoration: none;
+            font-family: Roboto;
+            color: rgba(255, 255, 255, .85);
+
+            &:hover, &.active {
+                background: linear-gradient(#334556, #2C4257), #2A3F54;
+                box-shadow: rgba(0, 0, 0, .25) 0 1px 0, inset rgba(255, 255, 255, .16) 0 1px 0;
+                color: #fff;
+            }
+        }
+    }
+}

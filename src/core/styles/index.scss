@@ -1,0 +1,41 @@
+@import '~normalize.css';
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+body {
+    font-family: RobotoLight, sans-serif;
+    font-size: 16px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix {
+    &:after {
+        content: " ";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    @include respond-to(xs) {
+        width: 100%;
+    }
+    @include respond-to(sm) {
+        width: 750px;
+    }
+    @include respond-to(md) {
+        width: 970px;
+    }
+    @include respond-to(lg) {
+        width: 1170px;
+    }
+}

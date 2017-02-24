@@ -1,0 +1,11 @@
+@import '../../../../core/styles/variables';
+
+.Navigation {
+    .navigation {
+
+        &__item{
+            float: left;
+            width: 33%;
+        }
+    }
+}

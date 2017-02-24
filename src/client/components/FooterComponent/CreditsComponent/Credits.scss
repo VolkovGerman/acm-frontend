@@ -1,0 +1,17 @@
+@import '../../../../core/styles/variables';
+
+.Credits {
+    .credits {
+        padding-top: 50px;
+        text-align: center;
+        font-size: 14px;
+        
+        &__link {
+            opacity: 1;
+            
+            &:hover {
+                color: $hoverLink;
+            }
+        }
+    }
+}

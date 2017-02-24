@@ -1,0 +1,69 @@
+@import '../../../core/styles/variables';
+
+.MainMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  background-color: $admin__mainBackground;
+  height: 100%;
+  color: $admin__textColor;
+  padding: 15px 0;
+
+  .logo {
+    margin: 15px 0;
+    padding: 0 15px;
+
+    &__img {
+      background: url('../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
+      background-size: 100% auto;
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+
+    &__title {
+      line-height: 30px;
+      text-transform: uppercase;
+      padding-left: 65px;
+      font-size: 20px;
+    }
+  }
+
+  .profile {
+    padding: 0 15px;
+    position: relative;
+    margin-top: 50px;
+
+    &__img {
+      background-image: url('../../../../static/images/users/durov.png');
+      background-size: 100% auto;
+      width: 45px;
+      height: 45px;
+      border-radius: 10em;
+      border: 2px solid $admin__textColor;
+      position: absolute;
+      left: 15px;
+      top: 0;
+    }
+
+    &__nameWrap {
+      margin-left: 65px;
+      padding-top: 8px;
+    }
+
+    &__rang {
+      font-size: 14px;
+      opacity: .75;
+    }
+
+    &__name {
+      line-height: 30px;
+    }
+  }
+
+  .menu {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
