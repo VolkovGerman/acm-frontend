@@ -1,0 +1,17 @@
+@import '../../../../core/styles/variables';
+
+.WidgetInput {
+    .widgetInput {
+        &__label {
+            display: block;
+        }
+        &__title {
+            float: left;
+            width: 300px;
+        }
+        &__input{
+            margin-left: 315px;
+            width: 100%;
+        }
+    }
+}
