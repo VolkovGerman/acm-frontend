@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import {Router, hashHistory} from 'react-router';
+import {Router, hashHistory, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
 import reducer from './reducers'
