@@ -8,7 +8,6 @@ import WidgetRow from '../../Layouts/WidgetRowComponent/WidgetRow';
 require('./NewsCreate.scss');
 
 class NewsCreate extends Component {
-
     handleForm(e) {
         let formItems = [];
         for (let i = 0; i < e.currentTarget.elements.length; i++) {
@@ -25,13 +24,17 @@ class NewsCreate extends Component {
         e.preventDefault();
     }
 
+    componentWillMount() {
+        this.props.updateBlockTitle('Добавление новости');
+    }
+
     render() {
 
         let widgets = (
             <div className="widgets">
-                <WidgetRow title={'Название'} name={'news_title'}
+                <WidgetRow title={'Название'} name={'news_title'} isRequired={true}
                            widget={<WidgetInput name={'news_title'}/>}/>
-                <WidgetRow title={'Url страницы'} name={'news_url'}
+                <WidgetRow title={'Url страницы'} name={'news_url'} isRequired={true}
                            widget={<WidgetInput name={'news_url'}/>}/>
                 <WidgetRow title={'Публиковать'} name={'news_isActive'}
                            widget={<WidgetSwitch name={'news_isActive'}/>}/>
