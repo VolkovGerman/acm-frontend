@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Block from '../../Layouts/BlockComponent/Block';
 import WidgetInput from '../../Widgets/WidgetInputComponent/WidgetInput';
 import WidgetSwitch from '../../Widgets/WidgetSwitchComponent/WidgetSwitch';
+import WidgetHtmlEditor from '../../Widgets/WidgetHtmlEditorComponent/WidgetHtmlEditor';
 import WidgetRow from '../../Layouts/WidgetRowComponent/WidgetRow';
 
 require('./NewsCreate.scss');
@@ -36,6 +37,8 @@ class NewsCreate extends Component {
                            widget={<WidgetInput name={'news_title'}/>}/>
                 <WidgetRow title={'Url страницы'} name={'news_url'} isRequired={true}
                            widget={<WidgetInput name={'news_url'}/>}/>
+                <WidgetRow title={'Контент'} name={'news_content'}
+                           widget={<WidgetHtmlEditor/>}/>
                 <WidgetRow title={'Публиковать'} name={'news_isActive'}
                            widget={<WidgetSwitch name={'news_isActive'}/>}/>
             </div>

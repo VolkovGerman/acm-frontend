@@ -1,0 +1,9 @@
+@import '../../../../core/styles/variables';
+
+.WidgetHtmlEditor {
+    table {
+        td {
+            border: 1px solid $admin__lightBackground;
+        }
+    }
+}

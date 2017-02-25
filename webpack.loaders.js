@@ -6,22 +6,22 @@ module.exports = [
 	},
 	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-		exclude: /(node_modules|bower_components)/,
+		exclude: /(bower_components)/,
 		loader: "file"
 	},
 	{
-		test: /\.(woff|woff2)$/,
-		exclude: /(node_modules|bower_components)/,
+		test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+		exclude: /(bower_components)/,
 		loader: "url?name=[1]&regExp=static/(.*)&prefix=font/&limit=5000"
 	},
 	{
 		test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-		exclude: /(node_modules|bower_components)/,
+		exclude: /(bower_components)/,
 		loader: "url?name=[1]&regExp=static/(.*)&limit=10000&mimetype=application/octet-stream"
 	},
 	{
 		test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-		exclude: /(node_modules|bower_components)/,
+		exclude: /(bower_components)/,
 		loader: "url?name=[1]&regExp=static/(.*)limit=10000&mimetype=image/svg+xml"
 	},
 	{
@@ -38,5 +38,9 @@ module.exports = [
 		test: /\.png/,
 		exclude: /(node_modules|bower_components)/,
 		loader: "url-loader?name=[1]&regExp=static/(.*)&limit=10000&mimetype=images/png"
-	}
+	},
+    {
+        test: /\.css/,
+        loader: "style-loader!css-loader?root=."
+    },
 ];

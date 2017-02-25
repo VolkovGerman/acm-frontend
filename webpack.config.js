@@ -40,7 +40,8 @@ module.exports = {
         library: '[name]'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.scss']
+        extensions: ['', '.js', '.jsx', '.scss'],
+        modulesDirectories: ['node_modules']
     },
     module: {
         loaders
@@ -77,5 +78,9 @@ module.exports = {
             hash: true,
             chunks: ['core', 'client']
         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };
