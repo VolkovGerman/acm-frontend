@@ -2,35 +2,12 @@
 
 .WidgetInput {
     .widgetInput {
-        padding: 5px 0;
-
-        &__label {
-            display: block;
-            float: left;
-            width: 250px;
-        }
-
-        &__title {
-            font-size: 14px;
-            line-height: 30px;
-        }
-
-        &__input {
-            display: block;
-            margin-left: 265px;
-        }
-    }
-
-    .inputRow {
-
-        &__input {
-            padding: 6px 12px;
-            font-size: 14px;
-            color: $admin__mainColor;
-            background-color: $white;
-            border: 1px solid $admin__lightBackground;
-            outline: none;
-            width: 100%;
-        }
+        padding: 6px 12px;
+        font-size: 14px;
+        color: $admin__mainColor;
+        background-color: $white;
+        border: 1px solid $admin__lightBackground;
+        outline: none;
+        width: 100%;
     }
 }
