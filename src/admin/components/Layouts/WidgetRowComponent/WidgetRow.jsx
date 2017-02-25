@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 
-import WidgetInput from '../../Widgets/WidgetInputComponent/WidgetInput';
-import WidgetSwitch from '../../Widgets/WidgetSwitchComponent/WidgetSwitch';
-
 require('./WidgetRow.scss');
 
 class WidgetRow extends Component {

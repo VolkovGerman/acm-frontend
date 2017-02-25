@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import DefaultButton from '../../Buttons/DefaultButtonComponent/DefaultButton';
+
 require('./Block.scss');
 
 class Block extends Component {
@@ -9,6 +11,9 @@ class Block extends Component {
                 <div className="block">
                     <div className="block__title">{this.props.block.title}</div>
                     <div className="block__widgets">{this.props.block.widgets}</div>
+                    <div className="block__buttons">
+                        <DefaultButton type="submit" />
+                    </div>
                 </div>
             </div>
         )
