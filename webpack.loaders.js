@@ -7,7 +7,7 @@ module.exports = [
 	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
 		exclude: /(bower_components)/,
-		loader: "file"
+		loader: "file?name=[1]&regExp=static/(.*)"
 	},
 	{
 		test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
