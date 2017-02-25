@@ -39,3 +39,11 @@ ul {
         width: 1170px;
     }
 }
+
+input, div {
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}

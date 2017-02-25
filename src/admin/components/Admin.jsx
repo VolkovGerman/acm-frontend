@@ -9,9 +9,11 @@ class Admin extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            contentBlockTitle: 'Добавление новости'
-        }
+        this.updateBlockTitle = this.updateBlockTitle.bind(this);
+    }
+
+    state = {
+        blockTitle: 'Панель управления'
     }
 
     static onEnter(nextState, replace) {
@@ -20,7 +22,19 @@ class Admin extends Component {
         // }
     }
 
+    updateBlockTitle(title) {
+        this.setState({
+            blockTitle: title
+        });
+    }
+
     render() {
+        const childrenWithProps = React.Children.map(this.props.children,
+            (child) => React.cloneElement(child, {
+                updateBlockTitle: this.updateBlockTitle
+            })
+        );
+
         return (
             <div className="Admin">
                 <div className="mainWrap">
@@ -30,8 +44,8 @@ class Admin extends Component {
                             <LoginMenu />
                         </div>
                         <div className="main__content">
-                            <div className="main__title">{this.state.contentBlockTitle}</div>
-                            <div className="main__blocks">{this.props.children}</div>
+                            <div className="main__title">{this.state.blockTitle}</div>
+                            <div className="main__blocks">{childrenWithProps}</div>
                         </div>
                     </div>
                 </div>

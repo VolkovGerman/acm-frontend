@@ -1,0 +1,28 @@
+@import '../../../../core/styles/variables';
+
+.WidgetRow {
+    .widgetRow {
+        padding: 5px 0;
+
+        &__label {
+            display: block;
+            float: left;
+            width: 250px;
+        }
+
+        &__title {
+            font-size: 14px;
+            line-height: 30px;
+        }
+        
+        &__required {
+            color: $admin__red;
+            margin-left: 2px;
+        }
+
+        &__input {
+            display: block;
+            margin-left: 265px;
+        }
+    }
+}

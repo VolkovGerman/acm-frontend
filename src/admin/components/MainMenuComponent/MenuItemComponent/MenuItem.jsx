@@ -28,9 +28,12 @@ class MenuItem extends Component {
         return (
             <div className="MenuItem">
                 <div className="menuItem">
-                    <a className={this.state.isOpen ? 'menuItem__link active' : 'menuItem__link'}
+                    <a className={this.state.isOpen ? 'menuItem__link menuItem__link_active' : 'menuItem__link'}
                        href="#"
-                       onClick={_ => this.toggleSubMenu(_)}>{this.props.menu.title}</a>
+                       onClick={_ => this.toggleSubMenu(_)}>
+                        {this.props.menu.title}
+                        <div className="menuItem__icon"></div>
+                    </a>
                     {this.state.isOpen === true &&
                     <div className="menuItem__submenu" href="#">
                         {this.props.menu.items.map((item, index) =>
