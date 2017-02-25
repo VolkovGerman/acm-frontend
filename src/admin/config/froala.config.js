@@ -14,7 +14,7 @@ export default {
         'fontSize',
         '|',
         'color',
-        'emoticons',
+        // 'emoticons',
         // 'inlineStyle',
         // 'paragraphStyle',
         '|',
