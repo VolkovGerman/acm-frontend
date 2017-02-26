@@ -77,5 +77,9 @@ module.exports = {
             hash: true,
             chunks: ['core', 'client']
         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };

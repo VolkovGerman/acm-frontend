@@ -11,12 +11,11 @@ class News extends Component {
     }
 
     render() {
-        let widgets = (
-            <WidgetTable />
-        );
         return (
             <div className="News">
-                <Block block={{title: 'Список новостей', widgets: widgets}} />
+                <Block title="Список новостей">
+                    <WidgetTable />
+                </Block>
             </div>
         )
     }

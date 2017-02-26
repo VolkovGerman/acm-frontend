@@ -40,7 +40,7 @@ class NewsCreate extends Component {
                         <WidgetRow title="Url страницы" name="news_url" isRequired>
                             <WidgetInput name="ews_url"/>
                         </WidgetRow>
-                        <WidgetRow title="Контент"" name="news_content"">
+                        <WidgetRow title="Контент" name="news_content">
                             <WidgetHtmlEditor/>
                         </WidgetRow>
                         <WidgetRow title="Публиковать" name="news_isActive">
