@@ -23,16 +23,20 @@ class WidgetTable extends Component {
                         записей
                     </div>
 
+                    <div className="bar__search">
+                        <div className="bar__searchLabel">
+                            Поиск:
+                        </div>
+                        <div className="bar__searchInput">
+                            <WidgetInput name={'search'} type={'search'}/>
+                        </div>
+                    </div>
+
                     <div className="bar__buttons">
                         <Link className="bar__buttonsLink" to="/">Скопировать</Link>
                         <Link className="bar__buttonsLink" to="/">Удалить</Link>
                         <Link className="bar__buttonsLink" to="/">Редактировать</Link>
                         <Link className="bar__buttonsLink" to="/">Кнопка</Link>
-                    </div>
-
-                    <div className="bar__search">
-                        Поиск:
-                        <WidgetInput name={'search'} type={'search'}/>
                     </div>
                 </div>
                 <table className="widgetTable">
