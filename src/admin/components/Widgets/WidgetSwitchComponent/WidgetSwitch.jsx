@@ -8,6 +8,9 @@ class WidgetSwitch extends Component {
         super(props);
 
         this.checkbox = null;
+        this.state = {
+            isActive: props.active
+        };
     }
 
     static propTypes = {
@@ -16,11 +19,7 @@ class WidgetSwitch extends Component {
     };
 
     static defaultProps = {
-        active: true
-    };
-
-    state = {
-        isActive: this.props.active
+        active: false
     };
 
     toggleActive(e) {
@@ -48,9 +47,7 @@ class WidgetSwitch extends Component {
                 <div className="widgetSwitch__input hidden">
                     <input type="checkbox"
                            name={this.props.name}
-                           ref={_ => {
-                               this.checkbox = _;
-                           }}/>
+                           ref={_ => this.checkbox = _}/>
                 </div>
                 <div className={this.state.isActive ?
                     'widgetSwitch__outer widgetSwitch__outer_active' : 'widgetSwitch__outer'}

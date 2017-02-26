@@ -30,24 +30,23 @@ class NewsCreate extends Component {
     }
 
     render() {
-
-        let widgets = (
-            <div className="widgets">
-                <WidgetRow title={'Название'} name={'news_title'} isRequired={true}
-                           widget={<WidgetInput name={'news_title'}/>}/>
-                <WidgetRow title={'Url страницы'} name={'news_url'} isRequired={true}
-                           widget={<WidgetInput name={'news_url'}/>}/>
-                <WidgetRow title={'Контент'} name={'news_content'}
-                           widget={<WidgetHtmlEditor/>}/>
-                <WidgetRow title={'Публиковать'} name={'news_isActive'}
-                           widget={<WidgetSwitch name={'news_isActive'}/>}/>
-            </div>
-        );
-
         return (
             <div className="NewsCreate">
                 <form onSubmit={_ => this.handleForm(_)}>
-                    <Block block={{title: 'Основная информация', widgets: widgets}}/>
+                    <Block title="Основная информация">
+                        <WidgetRow title="Название" name="news_title" isRequired>
+                            <WidgetInput name="news_title"/>
+                        </WidgetRow>
+                        <WidgetRow title="Url страницы" name="news_url" isRequired>
+                            <WidgetInput name="ews_url"/>
+                        </WidgetRow>
+                        <WidgetRow title="Контент"" name="news_content"">
+                            <WidgetHtmlEditor/>
+                        </WidgetRow>
+                        <WidgetRow title="Публиковать" name="news_isActive">
+                            <WidgetSwitch name="news_isActive"/>
+                        </WidgetRow>
+                    </Block>
                 </form>
             </div>
         )

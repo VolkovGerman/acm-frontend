@@ -28,7 +28,7 @@ class WidgetRow extends Component {
                         </div>
                     </label>
                     <div className="widgetRow__input">
-                        {this.props.widget}
+                        {this.props.children}
                     </div>
                 </div>
             </div>

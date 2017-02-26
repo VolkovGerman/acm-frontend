@@ -9,8 +9,8 @@ class Block extends Component {
         return (
             <div className="Block">
                 <div className="block">
-                    <div className="block__title">{this.props.block.title}</div>
-                    <div className="block__widgets">{this.props.block.widgets}</div>
+                    <div className="block__title">{this.props.title}</div>
+                    <div className="block__widgets">{this.props.children}</div>
                     <div className="block__buttons">
                         <DefaultButton type="submit" />
                     </div>
