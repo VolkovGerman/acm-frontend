@@ -13,7 +13,7 @@ class News extends Component {
     render() {
         return (
             <div className="News">
-                <Block title="Список новостей">
+                <Block title="Список новостей" showButtons={false}>
                     <WidgetTable/>
                 </Block>
             </div>
