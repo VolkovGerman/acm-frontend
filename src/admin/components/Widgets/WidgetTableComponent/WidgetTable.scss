@@ -5,14 +5,30 @@
 
     .bar {
         &__amount {
-            width: 30%;
+            width: 200px;
             float: left;
             white-space: nowrap;
         }
 
+        &__search {
+            width: 300px;
+            float: right;
+            text-align: right;
+        }
+
+        &__searchLabel {
+            display: inline-block;
+        }
+
+        &__searchInput {
+            margin-left: 10px;
+            display: inline-block;
+        }
+
         &__buttons {
-            width: 40%;
-            float: left;
+            text-align: center;
+            margin: 0 315px 0 215px;
+            padding-top: 5px;
         }
 
         &__buttonsLink {
@@ -24,10 +40,6 @@
             &:hover {
                 background: $admin__lightBackground;
             }
-        }
-
-        &__search {
-            float: right;
         }
     }
 

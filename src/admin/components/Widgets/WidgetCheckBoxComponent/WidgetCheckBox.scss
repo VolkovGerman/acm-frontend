@@ -1,43 +1,32 @@
 @import '../../../../core/styles/variables';
 
 .WidgetCheckBox {
-    &__label {
-        width: 20px;
-        height: 20px;
-        display: block;
-        position: relative;
-    }
-
-    .widgetInput {
-        &:before {
-            content: "";
-            border-radius: 5px;
-            background: $admin__lightBackground;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        &:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+    .widgetCheckBox {
+        &__outer {
+            width: 20px;
+            height: 20px;
+            display: block;
+            position: relative;
             cursor: pointer;
-        }
+            background: $admin__lightBackground;
+            border-radius: 5px;
 
-        &:checked {
-            &:before {
+            &_active {
                 background: $admin__green;
             }
-            &:after {
-                background: url('./../../../../../static/images/svg/checked_ffffff.svg') no-repeat;
+        }
+
+        &__inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            &_active {
+                background: url('../../../../../static/images/svg/checked_ffffff.svg') no-repeat;
                 background-position: center;
-                background-size: 13px;
+                background-size: 12px;
             }
         }
     }
