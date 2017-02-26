@@ -17,7 +17,7 @@ class WidgetCheckBox extends Component {
 
     static defaultProps = {
         active: false,
-        name: 'checkbox'
+        name: ''
     };
 
     state = {

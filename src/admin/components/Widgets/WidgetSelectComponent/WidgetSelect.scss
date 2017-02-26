@@ -1,0 +1,15 @@
+@import '../../../../core/styles/variables';
+
+.WidgetSelect {
+    .widgetSelect {
+        width: 100%;
+        display: block;
+        padding: 6px 6px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        background-color: $white;
+        border: 1px solid $admin__lightBackground;
+        outline: none;
+        color: $admin__mainColor;
+    }
+}

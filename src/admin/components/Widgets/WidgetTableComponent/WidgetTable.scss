@@ -4,10 +4,18 @@
     font-size: $font_size_s;
 
     .bar {
+        font-size: 12px;
+
         &__amount {
             width: 200px;
             float: left;
             white-space: nowrap;
+        }
+
+        &__select {
+            width: 55px;
+            display: inline-block;
+            margin: 0 5px;
         }
 
         &__search {
@@ -28,7 +36,8 @@
         &__buttons {
             text-align: center;
             margin: 0 315px 0 215px;
-            padding-top: 5px;
+            padding-top: 10px;
+            border-radius: 5px;
         }
 
         &__buttonsLink {
@@ -36,16 +45,22 @@
             padding: 5px 10px;
             text-decoration: none;
             border: 1px solid $admin__tableBorder;
+            border-left: none;
+            font-family: RalewayLight;
 
             &:hover {
                 background: $admin__lightBackground;
+            }
+
+            &:first-child {
+                border-left: 1px solid $admin__tableBorder;
             }
         }
     }
 
     .widgetTable {
         width: 100%;
-        margin-top: 20px;
+        margin-top: 15px;
         border-spacing: 0;
 
         th {
@@ -61,20 +76,15 @@
             border: 1px solid $admin__tableBorder;
 
             &.checkbox {
-                width: 5%;
+                width: 20px;
             }
 
             &.number {
-                width: 5%;
-                font-weight: bold;
-            }
-
-            &.description {
-                width: 60%;
+                width: 50px;
             }
 
             &.date {
-                width: 30%;
+                width: 150px;
             }
         }
 
@@ -83,7 +93,7 @@
         }
     }
 
-    .pagination{
-        margin: 20px 0;
+    .pagination {
+        margin: 15px 0;
     }
 }

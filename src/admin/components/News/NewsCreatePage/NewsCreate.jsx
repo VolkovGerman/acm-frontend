@@ -4,11 +4,20 @@ import Block from '../../Layouts/BlockComponent/Block';
 import WidgetInput from '../../Widgets/WidgetInputComponent/WidgetInput';
 import WidgetSwitch from '../../Widgets/WidgetSwitchComponent/WidgetSwitch';
 import WidgetHtmlEditor from '../../Widgets/WidgetHtmlEditorComponent/WidgetHtmlEditor';
+import WidgetSelect from '../../Widgets/WidgetSelectComponent/WidgetSelect';
 import WidgetRow from '../../Layouts/WidgetRowComponent/WidgetRow';
 
 require('./NewsCreate.scss');
 
 class NewsCreate extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            themes: []
+        }
+    }
+
     handleForm(e) {
         let formItems = [];
         for (let i = 0; i < e.currentTarget.elements.length; i++) {
@@ -25,8 +34,18 @@ class NewsCreate extends Component {
         e.preventDefault();
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.updateBlockTitle('Добавление новости');
+        this.state.themes = [
+            {
+                value: 1,
+                name: 'Чемпионат'
+            },
+            {
+                value: 2,
+                name: 'Университет'
+            }
+        ];
     }
 
     render() {
@@ -36,6 +55,9 @@ class NewsCreate extends Component {
                     <Block title="Основная информация">
                         <WidgetRow title="Название" name="news_title" isRequired>
                             <WidgetInput name="news_title"/>
+                        </WidgetRow>
+                        <WidgetRow title="Тема" name="news_theme" isRequired>
+                            <WidgetSelect options={this.state.themes}/>
                         </WidgetRow>
                         <WidgetRow title="Url страницы" name="news_url" isRequired>
                             <WidgetInput name="ews_url"/>

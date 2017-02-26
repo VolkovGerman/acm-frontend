@@ -26,15 +26,6 @@ class WidgetPagination extends Component {
                             <Link className="WidgetPagination__listLink active" to="/">3</Link>
                         </li>
                         <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">4</Link>
-                        </li>
-                        <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">5</Link>
-                        </li>
-                        <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">6</Link>
-                        </li>
-                        <li className="WidgetPagination__listItem">
                             <Link className="WidgetPagination__listLink" to="/">Next</Link>
                         </li>
                     </ul>

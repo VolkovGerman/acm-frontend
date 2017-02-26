@@ -6,7 +6,7 @@ require('./MainMenu.scss');
 
 class MainMenu extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.onInit([
             {
                 href: '/',

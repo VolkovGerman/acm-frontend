@@ -6,7 +6,7 @@ import WidgetTable from '../../Widgets/WidgetTableComponent/WidgetTable';
 require('./News.scss');
 
 class News extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.updateBlockTitle('Список добавленных новостей');
     }
 
@@ -14,7 +14,7 @@ class News extends Component {
         return (
             <div className="News">
                 <Block title="Список новостей">
-                    <WidgetTable />
+                    <WidgetTable/>
                 </Block>
             </div>
         )

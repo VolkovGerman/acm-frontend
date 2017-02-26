@@ -4,6 +4,7 @@
     &__info {
         width: 50%;
         float: left;
+        line-height: 35px;
     }
 
     &__pagination {
@@ -14,6 +15,8 @@
     &__list {
         float: right;
         list-style: none;
+        background: $admin__lightBackground;
+        border-radius: 5px;
     }
     
     &__listItem {
@@ -24,14 +27,15 @@
         color: $admin__mainColor;
         text-decoration: none;
         padding: 8px 9px;
-        background: #DDD;
+        display: block;
 
         &:hover {
-            color: $black;
+            color: $admin__mainBackground;
         }
     }
 
     .active {
+        background-color: $admin__mainColor;
         color: $white;
     }
 }
