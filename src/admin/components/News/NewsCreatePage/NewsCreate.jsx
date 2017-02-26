@@ -68,7 +68,7 @@ class NewsCreate extends Component {
                             <WidgetInput name="news_title"/>
                         </WidgetRow>
                         <WidgetRow title="Тема" name="news_theme">
-                            <WidgetSelect options={this.state.themes}/>
+                            <WidgetSelect options={this.state.themes} withEmpty withAdding isRequired/>
                         </WidgetRow>
                         <WidgetRow title="Url страницы" name="news_url" isRequired>
                             <WidgetInput name="ews_url"/>
