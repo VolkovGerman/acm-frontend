@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import Block from '../../Layouts/BlockComponent/Block';
+import WidgetTable from '../../Widgets/WidgetTableComponent/WidgetTable';
+
 require('./News.scss');
 
 class News extends Component {
@@ -8,9 +11,12 @@ class News extends Component {
     }
 
     render() {
+        let widgets = (
+            <WidgetTable />
+        );
         return (
-            <div>
-                News
+            <div className="News">
+                <Block block={{title: 'Список новостей', widgets: widgets}} />
             </div>
         )
     }

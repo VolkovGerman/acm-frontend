@@ -1,0 +1,77 @@
+@import '../../../../core/styles/variables';
+
+.WidgetTable {
+    font-size: $font_size_s;
+
+    .bar {
+        &__amount {
+            width: 30%;
+            float: left;
+            white-space: nowrap;
+        }
+
+        &__buttons {
+            width: 40%;
+            float: left;
+        }
+
+        &__buttonsLink {
+            color: $admin__mainColor;
+            padding: 5px 10px;
+            text-decoration: none;
+            border: 1px solid $admin__tableBorder;
+
+            &:hover {
+                background: $admin__lightBackground;
+            }
+        }
+
+        &__search {
+            float: right;
+        }
+    }
+
+    .widgetTable {
+        width: 100%;
+        margin-top: 20px;
+        border-spacing: 0;
+
+        th {
+            padding: $admin__paddingTableCell;
+            text-align: left;
+            border: 1px solid $admin__tableBorder;
+            border-bottom-width: 2px;
+        }
+
+        td {
+            font-family: RobotoLight;
+            padding: $admin__paddingTableCell;
+            border: 1px solid $admin__tableBorder;
+
+            &.checkbox {
+                width: 5%;
+            }
+
+            &.number {
+                width: 5%;
+                font-weight: bold;
+            }
+
+            &.description {
+                width: 60%;
+            }
+
+            &.date {
+                width: 30%;
+            }
+        }
+
+        .odd {
+            background: #F9F9F9;
+        }
+    }
+
+    .pagination{
+        margin: 20px 0;
+    }
+}

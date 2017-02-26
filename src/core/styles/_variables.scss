@@ -10,11 +10,15 @@ $admin__mainColor: #73879C;
 $admin__background: #F7F7F7;
 $admin__lightBackground: #EDEDED;
 $admin__mainBackground: #2A3F54;
+$admin__tableBorder: #DDDDDD;
 $admin__green: #1ABB9C;
 $admin__greenBorder: #169F85;
 $admin__blue: #337ab7;
 $admin__blueBorder: #2e6da4;
 $admin__red: #E95E4F;
+
+// Admin paddings and margins
+$admin__paddingTableCell: 10px;
 
 // Common colors (theme colors)
 $mainBlue: #54779a;
@@ -26,6 +30,7 @@ $minorColor: #e5e5e5;
 
 // Colors
 $white: #fff;
+$black: #000;
 $grey: #e0e0e0;
 $brightGreen: #60de60;
 $green: #1b5d1b;
