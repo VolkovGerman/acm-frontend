@@ -10,12 +10,6 @@
             white-space: nowrap;
         }
 
-        &__amountSelect {
-            margin: 0 10px;
-            padding: 5px 10px;
-            background: inherit;
-        }
-
         &__buttons {
             width: 40%;
             float: left;
@@ -35,13 +29,6 @@
         &__search {
             float: right;
         }
-
-        &__searchInput {
-            margin-left: 10px;
-            padding: 5px 10px;
-            width: auto;
-            display: inline-block;
-        }
     }
 
     .widgetTable {
@@ -57,6 +44,7 @@
         }
 
         td {
+            font-family: RobotoLight;
             padding: $admin__paddingTableCell;
             border: 1px solid $admin__tableBorder;
 
@@ -81,9 +69,9 @@
         .odd {
             background: #F9F9F9;
         }
+    }
 
-        &__checkbox-input {
-            cursor: pointer;
-        }
+    .pagination{
+        margin: 20px 0;
     }
 }
