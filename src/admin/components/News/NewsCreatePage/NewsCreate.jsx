@@ -14,7 +14,8 @@ class NewsCreate extends Component {
         super(props);
 
         this.state = {
-            themes: []
+            themes: [],
+            langs: []
         }
     }
 
@@ -46,6 +47,16 @@ class NewsCreate extends Component {
                 name: 'Университет'
             }
         ];
+        this.state.langs = [
+            {
+                value: 1,
+                name: 'Русский'
+            },
+            {
+                value: 2,
+                name: 'Английский'
+            }
+        ];
     }
 
     render() {
@@ -56,14 +67,20 @@ class NewsCreate extends Component {
                         <WidgetRow title="Название" name="news_title" isRequired>
                             <WidgetInput name="news_title"/>
                         </WidgetRow>
-                        <WidgetRow title="Тема" name="news_theme" isRequired>
+                        <WidgetRow title="Тема" name="news_theme">
                             <WidgetSelect options={this.state.themes}/>
                         </WidgetRow>
                         <WidgetRow title="Url страницы" name="news_url" isRequired>
                             <WidgetInput name="ews_url"/>
                         </WidgetRow>
-                        <WidgetRow title="Контент" name="news_content">
+                        <WidgetRow title="Краткое описание" name="news_short_content">
                             <WidgetHtmlEditor/>
+                        </WidgetRow>
+                        <WidgetRow title="Полное описание" name="news_full_content">
+                            <WidgetHtmlEditor/>
+                        </WidgetRow>
+                        <WidgetRow title="Язык" name="news_lang">
+                            <WidgetSelect options={this.state.langs}/>
                         </WidgetRow>
                         <WidgetRow title="Публиковать" name="news_isActive">
                             <WidgetSwitch name="news_isActive"/>

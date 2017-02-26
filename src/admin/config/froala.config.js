@@ -1,5 +1,5 @@
 export default {
-    placeholderText: 'Контент для новости',
+    placeholderText: '',
     language: 'ru',
     toolbarButtons: [
         'fullscreen',
@@ -54,8 +54,6 @@ export default {
         //     href: 'https://acm.bsuir.by/new',
         //     target: '_blank'
         // },
-    imageResizeWithPercent: true,
-    imageRoundPercent: true,
     // imageUploadURL: '/img/upload'
     // response {link: 'path/to/image.jpg'},
     imageManagerDeleteMethod: 'DELETE',

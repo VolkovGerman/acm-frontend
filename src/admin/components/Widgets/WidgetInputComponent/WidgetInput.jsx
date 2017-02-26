@@ -6,11 +6,13 @@ class WidgetInput extends Component {
 
     static propTypes = {
         type: React.PropTypes.string,
+        placeholder: React.PropTypes.string,
         name: React.PropTypes.string.isRequired
     };
 
     static defaultProps = {
-        type: 'text'
+        type: 'text',
+        placeholder: '',
     };
 
     render() {
@@ -19,7 +21,9 @@ class WidgetInput extends Component {
                 <input className="widgetInput"
                        type={this.props.type}
                        id={this.props.name}
-                       name={this.props.name}/>
+                       name={this.props.name}
+                       placeholder={this.props.placeholder}
+                />
             </div>
         )
     }
