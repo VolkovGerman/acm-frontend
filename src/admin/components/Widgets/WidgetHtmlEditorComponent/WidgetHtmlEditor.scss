@@ -2,8 +2,20 @@
 
 .WidgetHtmlEditor {
     table {
-        td {
+        td, th {
             border: 1px solid $admin__lightBackground;
         }
+    }
+
+    hr {
+        border: none;
+        color: $admin__lightBackground;
+        background-color: $admin__lightBackground;
+        height: 1px;
+    }
+
+    blockquote {
+        border-left: 5px solid $admin__lightBackground;
+        padding-left: 15px;
     }
 }

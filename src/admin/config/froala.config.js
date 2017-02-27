@@ -10,7 +10,7 @@ export default {
         'strikeThrough',
         'subscript',
         'superscript',
-        'fontFamily',
+        // 'fontFamily',
         'fontSize',
         '|',
         'color',
@@ -43,6 +43,14 @@ export default {
     // toolbarButtonsSM:
     // toolbarButtonsXS:
     fontSizeSelection: true,
+    paragraphFormat: {
+        H1: 'Heading 1',
+        H2: 'Heading 2',
+        H3: 'Heading 3',
+        H4: 'Heading 4',
+        N: 'Normal',
+    },
+    linkEditButtons: ['linkOpen', 'linkEdit', 'linkRemove'],
     fontSize: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '30', '36', '48', '60', '72', '96'],
     fontSizeDefaultSelection: '16',
     heightMin: 250,

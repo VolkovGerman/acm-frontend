@@ -9,8 +9,27 @@ body {
 }
 
 ul {
+    list-style-type: circle;
     margin: 0;
     padding: 0;
+}
+
+strong, b, th {
+    font-family: RobotoBold;
+    font-style: normal;
+    font-weight: normal;
+}
+
+em, i {
+    font-family: RobotoItalic;
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: normal;
+    font-weight: normal;
+    font-family: RobotoBold;
 }
 
 .clearfix {
