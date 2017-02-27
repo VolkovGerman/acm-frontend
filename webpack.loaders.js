@@ -15,6 +15,11 @@ module.exports = [
 		loader: "url?name=[1]&regExp=static/(.*)&prefix=font/&limit=5000"
 	},
 	{
+		test: /\.json(\?v=\d+\.\d+\.\d+)?$/,
+		exclude: /(node_modules|bower_components)/,
+		loader: "json-loader"
+	},
+	{
 		test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
 		exclude: /(bower_components)/,
 		loader: "url?name=[1]&regExp=static/(.*)&limit=10000&mimetype=application/octet-stream"

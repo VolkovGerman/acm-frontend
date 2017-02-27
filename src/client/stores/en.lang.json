@@ -1,0 +1,29 @@
+{
+  "bsuir": "BSUIR",
+  "title": "ACM BSUIR",
+  "author": "Author",
+  "back": "Back",
+  "acm": "ACM International Collegiate Programming Contest",
+  "events": "Events",
+  "more": "More",
+  "where": "Where",
+  "when": "When",
+  "menu": [
+    {
+      "href": "/",
+      "name": "Home"
+    },
+    {
+      "href": "/champs",
+      "name": "BSUIR Champs"
+    },
+    {
+      "href": "/competitions",
+      "name": "Competitions"
+    },
+    {
+      "href": "/school",
+      "name": "Olympic school"
+    }
+  ]
+}

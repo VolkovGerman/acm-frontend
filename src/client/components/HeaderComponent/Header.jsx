@@ -12,7 +12,7 @@ class FirstScreen extends Component {
                 <div className="bgSlider">
                     <div className="container">
                         <div className="header clearfix">
-                            <Link className="logo" to="/"></Link>
+                            <Link className="logo" to="/" />
                             {/* <button className="logIn">Log in</button> */}
                             <MainMenu />
                         </div>

@@ -5,33 +5,11 @@ import {Link} from 'react-router';
 require('./MainMenu.scss');
 
 class MainMenu extends Component {
-
-    componentDidMount() {
-        this.props.onInit([
-            {
-                href: '/',
-                name: 'Главная'
-            },
-            {
-                href: '/champs',
-                name: 'Чемпионат БГУИР'
-            },
-            {
-                href: '/competitions',
-                name: 'Соревнования'
-            },
-            {
-                href: '/school',
-                name: 'Школа олимпиадника'
-            }
-        ]);
-    }
-
     render() {
         return (
             <div className="MainMenu">
                 <ul className="mainMenu clearfix">
-                    {this.props.menu.map((item, index) =>
+                    {this.props.lang.menu.map((item, index) =>
                         <li className="mainMenu__item" key={index}>
                             <Link className="mainMenu__link" to={item.href}>{item.name}</Link>
                         </li>
@@ -44,9 +22,6 @@ class MainMenu extends Component {
 
 export default connect(
     state => ({
-        menu: state.menu
-    }),
-    dispatch => ({
-        onInit: _ => dispatch({type: 'INIT_MENU', payload: _})
+        lang: state.lang
     })
 )(MainMenu);

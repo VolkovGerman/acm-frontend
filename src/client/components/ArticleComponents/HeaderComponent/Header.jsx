@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 require('./Header.scss');
 
@@ -13,7 +14,7 @@ class Header extends Component {
                 </div>
                 <Link className="header__title" to={`news/${this.props.item.id}`}>БГУИР - в финале ACM ICPC</Link>
                 <div className="header__author author">
-                    <span className="author__written">Автор:</span>
+                    <span className="author__written">{this.props.lang.author}:</span>
                     <ul className="author__authors authors<">
                         <li className="authors__item">
                             <Link className="authors__link" to="#">Георгий Жуков</Link>
@@ -25,4 +26,8 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default connect(
+    state => ({
+        lang: state.lang
+    })
+)(Header);

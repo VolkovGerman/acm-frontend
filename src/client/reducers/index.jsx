@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
 
-import menu from './menu';
+import lang from './lang';
 
 export default combineReducers({
     routing: routerReducer,
-    menu
+    lang
 });

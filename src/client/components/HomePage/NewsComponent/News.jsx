@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 import ArticleHeader from '../../ArticleComponents/HeaderComponent/Header';
 
@@ -39,7 +40,7 @@ class News extends Component {
                                 </div>
                             </div>
                             <div className="news__buttons buttons">
-                                <Link className="buttons__button" to={`news/${item.id}`}>Подробнее...</Link>
+                                <Link className="buttons__button" to={`news/${item.id}`}>{this.props.lang.more}...</Link>
                             </div>
                         </div>
                     </div>
@@ -49,4 +50,8 @@ class News extends Component {
     }
 }
 
-export default News;
+export default connect(
+    state => ({
+        lang: state.lang
+    })
+)(News);

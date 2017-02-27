@@ -6,7 +6,7 @@
     }
 
     .content {
-        &__header {
+        &__title{
             background-color: #000;
             color: #fff;
             text-transform: uppercase;
@@ -14,6 +14,11 @@
             display: inline-block;
             padding: 5px 10px;
             margin-bottom: 30px;
+        }
+
+        &__lang {
+            float: right;
+            padding-top: 7px;
         }
 
         &__main {
@@ -25,6 +30,26 @@
         &__footer {
             background-color: #fff;
             padding: 0 25px;
+        }
+    }
+
+    .lang {
+
+        &__item {
+            background-color: #000;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 18px;
+            display: inline-block;
+            padding: 5px 10px;
+            margin-bottom: 30px;
+            margin-left: 5px;
+            opacity: .65;
+            text-decoration: none;
+
+            &_active {
+                opacity: 1;
+            }
         }
     }
 }

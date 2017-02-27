@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import cookie from 'react-cookie';
 
 import Header from './HeaderComponent/Header';
 import Footer from './FooterComponent/Footer';
@@ -111,6 +113,45 @@ let pageParams = {
 }
 
 class Client extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentLang: {
+                ru: true,
+                en: false
+            }
+        };
+
+        this.toggleLang = this.toggleLang.bind(this);
+    }
+
+    updateCurrentLang(currentLang) {
+        let state = this.state;
+        for (let key in state.currentLang) {
+            state.currentLang[key] = key == currentLang ? true : false;
+        }
+        this.setState(state);
+
+        let loadLang = require(`../stores/${currentLang}.lang.json`);
+        this.props.onInitLang(loadLang)
+    }
+
+    toggleLang(e, currentLang) {
+        e.preventDefault();
+
+        this.updateCurrentLang(currentLang);
+        cookie.save('acm_lang', currentLang, {path: '/', maxAge: 31536000});
+    }
+
+    componentWillMount() {
+        let currentLang = cookie.load('acm_lang');
+        if(!currentLang) {
+            currentLang = 'ru';
+        }
+        this.updateCurrentLang(currentLang) ;
+    }
+
     render() {
         const childrenWithProps = React.Children.map(this.props.children,
             (child) => React.cloneElement(child, {
@@ -124,7 +165,17 @@ class Client extends Component {
                 <div className="containerWrap">
                     <div className="container">
                         <div className="content">
-                            <div className="content__header">{pageParams.title}</div>
+                            <div className="content__header clearfix">
+                                <div className="content__title">
+                                    {this.props.lang.title}
+                                </div>
+                                <div className="content__lang lang">
+                                    <a className={this.state.currentLang.ru ? "lang__item lang__item_active" : "lang__item"}
+                                       href="#" onClick={_ => this.toggleLang(_, 'ru')}>рус</a>
+                                    <a className={this.state.currentLang.en ? "lang__item lang__item_active" : "lang__item"}
+                                       href="#" onClick={_ => this.toggleLang(_, 'en')}>eng</a>
+                                </div>
+                            </div>
                             <div className="content__main">
                                 {childrenWithProps}
                             </div>
@@ -137,4 +188,11 @@ class Client extends Component {
     }
 }
 
-export default Client;
+export default connect(
+    state => ({
+        lang: state.lang
+    }),
+    dispatch => ({
+        onInitLang: _ => dispatch({type: 'INIT_LANG', payload: _})
+    })
+)(Client);

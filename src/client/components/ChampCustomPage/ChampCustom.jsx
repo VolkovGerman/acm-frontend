@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 
@@ -38,7 +39,7 @@ class ChampsCustomPage extends Component {
                         <div className="customPage__header">
                             <div className="customPage__title">Общая информация</div>
                             <div className="historyBack">
-                                <Link className="historyBack__btn" to="/champs/1">назад</Link>
+                                <Link className="historyBack__btn" to="/champs/1">{this.props.lang.back}</Link>
                             </div>
                         </div>
                         <div className="customPage__content" dangerouslySetInnerHTML={{__html: pageParams.customText}}>
@@ -50,4 +51,8 @@ class ChampsCustomPage extends Component {
     }
 }
 
-export default ChampsCustomPage;
+export default connect(
+    state => ({
+        lang: state.lang
+    })
+)(ChampsCustomPage);
