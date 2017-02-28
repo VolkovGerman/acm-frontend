@@ -8,9 +8,18 @@
     .subWrap {
         float: right;
         width: 300px;
+
+        @media screen and (max-width: $md) {
+            float: none;
+            width: 100%;
+        }
     }
 
     .generalWrap {
         margin-right: 350px;
+
+        @media screen and (max-width: $md) {
+            margin-right: 0;
+        }
     }
 }

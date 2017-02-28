@@ -165,14 +165,14 @@ class Client extends Component {
                 <div className="containerWrap">
                     <div className="container">
                         <div className="content">
-                            <div className="content__header clearfix">
+                            <div className="content__header">
                                 <div className="content__title">
                                     {this.props.lang.title}
                                 </div>
-                                <div className="content__lang lang">
-                                    <a className={this.state.currentLang.ru ? "lang__item lang__item_active" : "lang__item"}
+                                <div className="content__langs">
+                                    <a className={this.state.currentLang.ru ? "lang lang--active" : "lang"}
                                        href="#" onClick={_ => this.toggleLang(_, 'ru')}>рус</a>
-                                    <a className={this.state.currentLang.en ? "lang__item lang__item_active" : "lang__item"}
+                                    <a className={this.state.currentLang.en ? "lang lang--active" : "lang"}
                                        href="#" onClick={_ => this.toggleLang(_, 'en')}>eng</a>
                                 </div>
                             </div>
