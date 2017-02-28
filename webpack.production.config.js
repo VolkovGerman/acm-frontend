@@ -57,7 +57,6 @@ module.exports = {
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
-        new webpack.ContextReplacementPlugin('[name]'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'core',
             chunks: ['admin', 'client']
