@@ -47,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
     @include respond-to(xs) {
         width: 100%;
+        padding: 0;
     }
     @include respond-to(sm) {
         width: 750px;

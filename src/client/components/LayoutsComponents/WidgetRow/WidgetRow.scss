@@ -1,0 +1,18 @@
+@import '../../../../core/styles/variables';
+@import '../../../../core/styles/mixins';
+
+.WidgetRow {
+    .widgetRow {
+        margin-bottom: 24px;
+
+        &__label {
+            display: block;
+            margin-bottom: 12px;
+        }
+    }
+
+    .required {
+        color: $red;
+        margin-left: 5px;
+    }
+}

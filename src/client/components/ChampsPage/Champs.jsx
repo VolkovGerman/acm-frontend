@@ -36,9 +36,9 @@ class ChampsPage extends Component {
         return (
             <div className="Champs">
                 <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
-                <div className="champLogo">
-                    <img src={pageParams.champLogo} alt="ACM Logo"/>
-                </div>
+                {/*<div className="champLogo">*/}
+                    {/*<img src={pageParams.champLogo} alt="ACM Logo"/>*/}
+                {/*</div>*/}
                 <ul className="champsList clearfix">
                     {champsList.map((item, index) =>
                         <li className="champItem" key={index}>

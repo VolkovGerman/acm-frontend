@@ -5,8 +5,6 @@ require("froala-editor/css/froala_editor.pkgd.min.css");
 require('font-awesome/css/font-awesome.css');
 require('froala-editor/js/languages/ru.js');
 
-import FroalaEditorImg from 'react-froala-wysiwyg/FroalaEditorImg';
-
 import config from '../../../config/froala.config';
 require('./WidgetHtmlEditor.scss');
 
@@ -15,14 +13,20 @@ class WidgetHtmlEditor extends Component {
         super(props);
 
         this.state = {
-            model: ''
+            model: '',
         };
         this.handleModelChange = this.handleModelChange.bind(this);
     }
 
+    static propTypes = {
+        name: React.PropTypes.string.isRequired
+    };
+
+    static defaultProps = {
+        name: ''
+    };
 
     handleModelChange(model) {
-        console.log(model);
         this.setState({
             model: model
         });
@@ -31,6 +35,7 @@ class WidgetHtmlEditor extends Component {
     render() {
         return (
             <div className="WidgetHtmlEditor">
+                <input type="hidden" name={this.props.name} value={this.state.model}/>
                 <FroalaEditor tag='textarea'
                               config={config}
                               model={this.state.model}

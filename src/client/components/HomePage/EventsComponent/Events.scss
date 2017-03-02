@@ -1,10 +1,15 @@
 @import '../../../../core/styles/variables';
+@import '../../../../core/styles/mixins';
 
 .Events {
     .events {
         &__title {
             text-transform: uppercase;
             font-family: RobotoBold;
+        }
+
+        @include respond-to(xs) {
+            display: none;
         }
     }
 

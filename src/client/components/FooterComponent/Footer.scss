@@ -1,4 +1,5 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .Footer {
     .bgSlider {
@@ -8,12 +9,21 @@
         background-position: 0 100%;
         width: 100%;
         padding-bottom: 75px;
+
+        @include respond-to(xs) {
+            padding-bottom: 0;
+        }
     }
 
     .footer {
         background: #fff;
         position: relative;
         padding: 50px;
+
+        @include respond-to(xs) {
+            padding: 15px;
+            text-align: center;
+        }
 
         &:before {
             content: "";

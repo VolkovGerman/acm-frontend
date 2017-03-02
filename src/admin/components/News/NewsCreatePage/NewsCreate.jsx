@@ -20,18 +20,22 @@ class NewsCreate extends Component {
     }
 
     handleForm(e) {
-        let formItems = [];
+        let formItems = {};
         for (let i = 0; i < e.currentTarget.elements.length; i++) {
             if (e.currentTarget.elements[i].name) {
-                formItems.push({
-                    name: e.currentTarget.elements[i].name,
-                    value: e.currentTarget.elements[i].value !== 'on'
-                        ? e.currentTarget.elements[i].value
-                        : e.currentTarget.elements[i].checked
-                })
+                formItems[e.currentTarget.elements[i].name] = e.currentTarget.elements[i].value !== 'on'
+                    ? e.currentTarget.elements[i].value
+                    : e.currentTarget.elements[i].checked;
             }
         }
-        console.log(formItems);
+
+        // fetch('http://anycomp.by', {
+        //     method: 'post',
+        //     body: JSON.stringify(formItems)
+        // })
+        //     .then(_ => _.json())
+        //     .then(_ => console.log(_));
+
         e.preventDefault();
     }
 
@@ -68,19 +72,20 @@ class NewsCreate extends Component {
                             <WidgetInput name="news_title"/>
                         </WidgetRow>
                         <WidgetRow title="Тема" name="news_theme">
-                            <WidgetSelect options={this.state.themes} withEmpty withAdding isRequired/>
+                            <WidgetSelect options={this.state.themes} name="news_theme" withEmpty withAdding
+                                          isRequired/>
                         </WidgetRow>
                         <WidgetRow title="Url страницы" name="news_url" isRequired>
-                            <WidgetInput name="ews_url"/>
+                            <WidgetInput name="news_url"/>
                         </WidgetRow>
                         <WidgetRow title="Краткое описание" name="news_short_content">
-                            <WidgetHtmlEditor/>
+                            <WidgetHtmlEditor name="news_short_content"/>
                         </WidgetRow>
                         <WidgetRow title="Полное описание" name="news_full_content">
-                            <WidgetHtmlEditor/>
+                            <WidgetHtmlEditor name="news_full_content"/>
                         </WidgetRow>
                         <WidgetRow title="Язык" name="news_lang">
-                            <WidgetSelect options={this.state.langs}/>
+                            <WidgetSelect options={this.state.langs} name="news_lang"/>
                         </WidgetRow>
                         <WidgetRow title="Публиковать" name="news_isActive">
                             <WidgetSwitch name="news_isActive"/>

@@ -11,15 +11,14 @@ class FirstScreen extends Component {
             <div className="Header">
                 <div className="bgSlider">
                     <div className="container">
+                        <div className="headerMobile clearfix">
+                            <Link className="headerMobile__logo" to="/" />
+                            <Link className="headerMobile__menuIco" to="#" />
+                        </div>
                         <div className="header clearfix">
                             <Link className="logo" to="/" />
-                            {/* <button className="logIn">Log in</button> */}
+                             {/*<button className="logIn">Log in</button>*/}
                             <MainMenu />
-                        </div>
-                        <div className="main">
-                            <div className="mainTitle">
-                                <div className="mainTitle__title"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
