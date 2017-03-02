@@ -9,6 +9,11 @@
   "where": "Когда",
   "when": "Где",
   "home": "Главная",
+  "choose": "Выбрать",
+  "team_name": "Название команды",
+  "university_site_address": "Ссылка на сайт университета",
+  "country": "Страна",
+  "email": "Эл. адрес",
   "menu": [
     {
       "href": "/",

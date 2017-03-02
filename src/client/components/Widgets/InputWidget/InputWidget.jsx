@@ -16,7 +16,7 @@ class InputWidget extends React.Component {
 
     render = () => (
         <div className="InputWidget">
-            <div className="inputWidget__inputWrap">
+            <div className="inputWidget">
                 <input className="inputWidget__input"
                        id={this.props.name}
                        name={this.props.name}

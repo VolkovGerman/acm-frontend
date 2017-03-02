@@ -1,9 +1,9 @@
 @import '../../../../core/styles/variables';
 @import '../../../../core/styles/mixins';
 
-.InputWidget {
-    .inputWidget {
-        &__input {
+.SelectWidget {
+    .selectWidget {
+        &__select {
             width: 100%;
             background: $white;
             border-color: #bcbcbc #dadada #e5e5e5;
@@ -12,10 +12,6 @@
             color: $textColor;
             padding: 10px 12px;
             outline: none;
-
-            &:focus {
-                border-color: #000;;
-            }
         }
     }
 }

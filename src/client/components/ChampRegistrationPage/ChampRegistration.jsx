@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 import InputWidget from '../Widgets/InputWidget/InputWidget';
+import SelectWidget from '../Widgets/SelectWidget/SelectWidget';
 import WidgetRow from '../LayoutsComponents/WidgetRow/WidgetRow';
 
 require('./ChampRegistration.scss');
@@ -41,14 +42,17 @@ class ChampRegistration extends React.Component {
     render = () => (
         <div className="ChampRegistration">
             <Breadcrumbs breadcrumbs={this.state.breadcrumbs}/>
-            <WidgetRow label="Email" name="team_email" required>
-                <InputWidget name="team_email"/>
+            <WidgetRow label={this.props.lang.email} name="team_email" required>
+                <InputWidget name="team_email" type="email"/>
             </WidgetRow>
-            <WidgetRow label="Название команды" name="team_name" required>
+            <WidgetRow label={this.props.lang.team_name} name="team_name" required>
                 <InputWidget name="team_name"/>
             </WidgetRow>
-            <WidgetRow label="Ссылка на сайт университета" name="team_site_link" required>
+            <WidgetRow label={this.props.lang.university_site_address} name="team_site_link" required>
                 <InputWidget name="team_site_link"/>
+            </WidgetRow>
+            <WidgetRow label={this.props.lang.country} name="team_country" required>
+                <SelectWidget name="team_country" withEmpty/>
             </WidgetRow>
         </div>
     );

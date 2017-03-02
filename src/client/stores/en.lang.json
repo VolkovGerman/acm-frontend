@@ -9,6 +9,11 @@
   "where": "Where",
   "when": "When",
   "home": "Home",
+  "choose": "Choose",
+  "team_name": "Team name",
+  "university_site_address": "University site address",
+  "country": "Country",
+  "email": "E-mail",
   "menu": [
     {
       "href": "/",

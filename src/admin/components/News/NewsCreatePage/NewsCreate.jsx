@@ -29,12 +29,24 @@ class NewsCreate extends Component {
             }
         }
 
-        // fetch('http://anycomp.by', {
-        //     method: 'post',
-        //     body: JSON.stringify(formItems)
-        // })
-        //     .then(_ => _.json())
-        //     .then(_ => console.log(_));
+        fetch('https://acm-backend.herokuapp.com/news', {
+            method: 'post',
+            dataType: 'json',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: 'title',
+                systemName: 'systemName',
+                content: 'content',
+                views: 1,
+                langId: 2,
+                status: 20
+            })
+        })
+            .then(_ => _.json())
+            .then(_ => console.log(_));
 
         e.preventDefault();
     }
