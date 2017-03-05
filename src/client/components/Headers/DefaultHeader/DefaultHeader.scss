@@ -1,0 +1,9 @@
+@import '../../../../core/styles/variables';
+
+.DefaultHeader {
+    font-size: 28px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $minorColor;
+    margin-bottom: 30px;
+    font-family: Roboto;
+}

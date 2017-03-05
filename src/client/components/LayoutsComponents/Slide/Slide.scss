@@ -1,0 +1,12 @@
+@import '../../../../core/styles/variables';
+
+.Slide {
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        &__button {
+            margin-left: 5px;
+        }
+    }
+}

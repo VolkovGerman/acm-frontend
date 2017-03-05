@@ -2,7 +2,6 @@
   "bsuir": "BSUIR",
   "title": "ACM BSUIR",
   "author": "Author",
-  "back": "Back",
   "acm": "ACM International Collegiate Programming Contest",
   "events": "Events",
   "more": "More",
@@ -10,10 +9,21 @@
   "when": "When",
   "home": "Home",
   "choose": "Choose",
-  "team_name": "Team name",
-  "university_site_address": "University site address",
-  "country": "Country",
-  "email": "E-mail",
+  "registration_email": "Team e-mail address",
+  "registration_team_name": "Team name",
+  "registration_university_site_address": "Link to the institution website",
+  "registration_university_full_name": "Full name of the university",
+  "registration_university_acronym": "Acronym of the university",
+  "registration_the_number_of_members_in_a_team": "Number of participants in the team",
+  "registration_country": "Country",
+  "registration_information_about_team": "Information about team",
+  "registration_information_about_participant": "Information about participant",
+  "bsuir_champ": "BSUIR champ",
+  "registration": "Registration",
+  "next": "Next",
+  "complete": "Complete",
+  "back": "Back",
+  "other": "Other",
   "menu": [
     {
       "href": "/",
@@ -22,6 +32,56 @@
     {
       "href": "/champs",
       "name": "BSUIR Champs"
+    }
+  ],
+  "countries" : [
+    {
+      "value": "1",
+      "name": "Belarus"
+    },
+    {
+      "value": "2",
+      "name": "Russia"
+    },
+    {
+      "value": "3",
+      "name": "Ukraine"
+    },
+    {
+      "value": "4",
+      "name": "Georgia"
+    },
+    {
+      "value": "5",
+      "name": "Kazakhstan"
+    },
+    {
+      "value": "6",
+      "name": "Lithuania"
+    }
+  ],
+  "universities": [
+    {
+      "value": "1",
+      "name": "Belarusian State University of Informatics and Radio Electronics"
+    },
+    {
+      "value": "2",
+      "name": "Presidential Academy of Management"
+    }
+  ],
+  "team_size": [
+    {
+      "value": "1",
+      "name": "3 participants"
+    },
+    {
+      "value": "2",
+      "name": "2 participants"
+    },
+    {
+      "value": "3",
+      "name": "1 participant"
     }
   ]
 }

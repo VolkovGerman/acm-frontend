@@ -3,6 +3,25 @@
 
 .SelectWidget {
     .selectWidget {
+        .adding {
+            &__link {
+                margin: 5px 0 0 10px;
+                display: block;
+                text-decoration: none;
+                font-size: $font_size_xs;
+                opacity: .75;
+
+                &:hover {
+                    text-decoration: underline;
+                    opacity: 1;
+                }
+            }
+
+            &__input {
+                margin-top: 5px;
+            }
+        }
+
         &__select {
             width: 100%;
             background: $white;
