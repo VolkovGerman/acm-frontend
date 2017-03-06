@@ -9,6 +9,7 @@ import ChampsCustomPage from './components/ChampCustomPage/ChampCustom';
 import NewsPage from './components/NewsPage/News';
 import NotFoundPage from './components/NotFound404Page/NotFound404';
 import ChampRegistration from './components/ChampRegistrationPage/ChampRegistration';
+import ChampTeamsPage from './components/ChampTeamsPage/ChampTeamsPage';
 
 export const routes = (
     <div>
@@ -17,6 +18,7 @@ export const routes = (
             <Route path="/champs" component={ChampsPage} />
             <Route path="/champs/:id" component={ChampsItemPage} />
             <Route path="/champs/:id/registration" component={ChampRegistration} />
+            <Route path="/champs/:id/teams" component={ChampTeamsPage} />
             <Route path="/champs/:id/:pageName" component={ChampsCustomPage} />
             <Route path="/news/:news_id" component={NewsPage} />
         </Route>

@@ -89,7 +89,7 @@ class ChampRegistration extends React.Component {
 }
 
 export default connect(
-    state => ({
-        lang: state.lang
-    })
+        state => ({
+            lang: state.lang
+        })
 )(ChampRegistration);

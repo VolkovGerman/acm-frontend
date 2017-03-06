@@ -63,11 +63,23 @@
         margin-top: 15px;
         border-spacing: 0;
 
+        tr.even {
+            background: #F9F9F9;
+        }
+
         th {
             padding: $admin__paddingTableCell;
             text-align: left;
             border: 1px solid $admin__tableBorder;
             border-bottom-width: 2px;
+
+            &.checkbox {
+                width: 20px;
+            }
+
+            &.number {
+                width: 50px;
+            }
         }
 
         td {
@@ -82,14 +94,6 @@
             &.number {
                 width: 50px;
             }
-
-            &.date {
-                width: 150px;
-            }
-        }
-
-        .odd {
-            background: #F9F9F9;
         }
     }
 

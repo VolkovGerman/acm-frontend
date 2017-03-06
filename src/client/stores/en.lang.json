@@ -24,6 +24,9 @@
   "complete": "Complete",
   "back": "Back",
   "other": "Other",
+  "teams": "Teams",
+  "university": "University",
+  "registered_teams": "Registered teams",
   "menu": [
     {
       "href": "/",

@@ -1,0 +1,24 @@
+@import '../../../../core/styles/variables';
+
+.WidgetTag {
+    .tag {
+        padding: 5px 25px 5px 5px;
+        background-color: $admin__green;
+        display: inline-block;
+        color: $white;
+        border-radius: 2px;
+        position: relative;
+
+        &__remove {
+            display: inline-block;
+            background: url('../../../../../static/images/svg/cross_ffffff.svg') no-repeat;
+            background-position: center;
+            background-size: 8px;
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            right: 5px;
+            top: 7px;
+        }
+    }
+}

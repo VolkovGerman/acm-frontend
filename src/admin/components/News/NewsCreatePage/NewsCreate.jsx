@@ -80,9 +80,7 @@ class NewsCreate extends Component {
             <div className="NewsCreate">
                 <form onSubmit={_ => this.handleForm(_)}>
                     <Block title="Основная информация">
-                        <WidgetRow title="Название" name="news_title" isRequired>
-                            <WidgetInput name="news_title"/>
-                        </WidgetRow>
+
                         <WidgetRow title="Тема" name="news_theme">
                             <WidgetSelect options={this.state.themes} name="news_theme" withEmpty withAdding
                                           isRequired/>

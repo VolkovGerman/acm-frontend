@@ -12,6 +12,19 @@ export default {
                     link: '/news'
                 }
             ]
+        },
+        {
+            title: 'Чемпионат БГУИР',
+            items: [
+                {
+                    title: 'Добавить',
+                    link: '/champs/create'
+                },
+                {
+                    title: 'Список',
+                    link: '/champs'
+                }
+            ]
         }
     ]
 }

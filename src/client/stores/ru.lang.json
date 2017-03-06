@@ -24,6 +24,9 @@
   "complete": "Готово",
   "back": "Назад",
   "other": "Другое",
+  "teams": "Команды",
+  "university": "Университет",
+  "registered_teams": "Зарегистрированные команды",
   "menu": [
     {
       "href": "/",

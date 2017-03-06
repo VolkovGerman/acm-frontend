@@ -61,31 +61,25 @@ class WidgetTable extends Component {
                             </div>
                         </th>
                         <th>#</th>
-                        <th>Краткое описание</th>
-                        <th>Дата</th>
+                        {this.props.table.fields.map((item, index) =>
+                            <th key={index}>{item}</th>
+                        )}
                     </tr>
                     </thead>
                     <tbody>
-                    <tr className="odd">
-                        <td className="checkbox">
-                            <div className="widgetTable__checkbox">
-                                <WidgetCheckBox />
-                            </div>
-                        </td>
-                        <td className="number">1</td>
-                        <td className="description">Descr</td>
-                        <td className="date">Monday 23, 2015</td>
-                    </tr>
-                    <tr className="even">
-                        <td className="checkbox">
-                            <div className="widgetTable__checkbox">
-                                <WidgetCheckBox />
-                            </div>
-                        </td>
-                        <td className="number">1</td>
-                        <td className="description">Descr</td>
-                        <td className="date">Monday 23, 2015</td>
-                    </tr>
+                    {this.props.table.data.map((data, dataIndex) =>
+                        <tr className={dataIndex % 2 ? 'ood' : 'even'}  key={dataIndex}>
+                            <td className="checkbox">
+                                <div className="widgetTable__checkbox">
+                                    <WidgetCheckBox />
+                                </div>
+                            </td>
+                            <td className="number">{dataIndex}</td>
+                            {data.map((item, itemIndex) =>
+                                <td key={itemIndex}>{item}</td>
+                            )}
+                        </tr>
+                    )}
                     </tbody>
                 </table>
                 <div className="pagination">
