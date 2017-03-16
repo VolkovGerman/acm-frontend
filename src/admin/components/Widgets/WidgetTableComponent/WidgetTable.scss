@@ -37,7 +37,6 @@
             text-align: center;
             margin: 0 315px 0 215px;
             padding-top: 10px;
-            border-radius: 5px;
         }
 
         &__buttonsLink {
@@ -62,6 +61,7 @@
         width: 100%;
         margin-top: 15px;
         border-spacing: 0;
+        border-collapse: collapse;
 
         tr.even {
             background: #F9F9F9;
@@ -71,7 +71,7 @@
             padding: $admin__paddingTableCell;
             text-align: left;
             border: 1px solid $admin__tableBorder;
-            border-bottom-width: 2px;
+            border-bottom-width: 1px;
 
             &.checkbox {
                 width: 20px;

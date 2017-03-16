@@ -2,15 +2,16 @@
 
 .Breadcrumbs {
     .breadcrumbsWrap {
+        margin-bottom: 30px;
         padding-bottom: 15px;
         border-bottom: 1px solid #e5e5e5;
-        margin-bottom: 15px;
     }
 
     .breadcrumbs {
-        list-style: none;
         display: block;
-        font-size: $font_size_xs;
+
+        font-size: $font_size_s;
+        list-style: none;
 
         &__item {
             float: left;

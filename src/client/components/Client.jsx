@@ -21,24 +21,27 @@ let pageParams = {
                 id: 3
             },
             {
-                id: 2
+                id: 4
             },
             {
-                id: 3
+                id: 5
+            },
+            {
+                id: 6
             }
         ],
         events: [
             {
                 id: 1,
-                rang: 'hot'
+                rang: 'new'
             },
             {
                 id: 2,
-                rang: 'open'
+                rang: 'old'
             },
             {
                 id: 3,
-                rang: 'close'
+                rang: 'old'
             }
         ]
     },
