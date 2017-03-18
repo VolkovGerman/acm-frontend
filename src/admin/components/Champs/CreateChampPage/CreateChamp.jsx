@@ -15,9 +15,6 @@ class CreateChamps extends React.Component {
                 <WidgetRow title="Url" name="news_url" isRequired>
                     <WidgetInput name="news_url"/>
                 </WidgetRow>
-                <WidgetRow title="Этапы" name="news_" isRequired>
-                    <WidgetChosen name="news_"/>
-                </WidgetRow>
             </Block>
         </div>
 }

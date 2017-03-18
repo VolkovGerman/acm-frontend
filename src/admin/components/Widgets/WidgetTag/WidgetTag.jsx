@@ -23,7 +23,6 @@ class WidgetTag extends React.Component {
         this.setState(_ => ({
             isActive: !_.isActive
         }));
-        console.log(this.state.id);
         this.props.callback(this.props.name, this.state.id);
     };
 

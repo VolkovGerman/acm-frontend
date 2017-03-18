@@ -5,7 +5,7 @@ import WidgetTag from '../WidgetTag/WidgetTag';
 
 require('./WidgetChosen.scss');
 
-const ENTER = 13;
+const ENTER_CODE = 13;
 const DEFAULT_ID = 0;
 
 class WidgetChosen extends React.Component {
@@ -13,69 +13,103 @@ class WidgetChosen extends React.Component {
         super(props);
 
         this.state = {
-            tags: [
-                {
-                    id: 1,
-                    name: 'Старый тег'
-                },
-                {
-                    id: 2,
-                    name: 'Новый тег'
-                }
-            ]
+            tags: props.tags,
+            allTags: props.allTags,
+            tagsForSearch: []
         };
 
         this.addTagInput = null;
         this.chosenInput = null;
-        this.selectorInput = null;
     }
 
     static propTypes = {
-        name: React.PropTypes.string.isRequired
+        name: React.PropTypes.string.isRequired,
+        tags: React.PropTypes.array,
+        allTags: React.PropTypes.array
+    };
+
+    static defaultProps = {
+        tags: [],
+        allTags: []
     };
 
     addFocusOnAddTagInput = (e) => {
         e.preventDefault();
         this.addTagInput.focus();
-        this.selectorInput.click();
     };
 
-    addTag = (e) => {
-        if (e.charCode == ENTER && e.target.value != '') {
-            let tags = this.state.tags;
-            tags.push({
-                id: DEFAULT_ID,
-                name: e.target.value
-            });
-            this.setState({
-                tags: tags
-            });
-            e.target.value = '';
+    typingTag = (e) => {
+        let newTagName = e.target.value;
+        if (e.charCode == ENTER_CODE && newTagName) {
+            if (this.state.tags.every(_ => _.name != newTagName)) {
+                let tags = this.state.tags;
+                tags.push({
+                    id: DEFAULT_ID,
+                    name: newTagName
+                });
+                this.setState(_ => ({
+                    tags: tags,
+                    allTags: _.allTags,
+                    tagsForSearch: _.tagsForSearch,
+                }));
+                this.addTagInput.value = '';
+            }
+        } else {
+            this.setState(_ => ({
+                tags: _.tags,
+                allTags: _.allTags,
+                tagsForSearch: _.allTags.filter(_ => _.name.toLowerCase().indexOf(newTagName.toLowerCase()) != -1),
+            }));
         }
     };
 
     addTagFromSelect = (e) => {
-        if (e.target.value != DEFAULT_ID) {
+        let newTagId = e.target.getAttribute('id');
+        let newTagName = e.target.innerText;
+        if (newTagId != DEFAULT_ID) {
             let tags = this.state.tags;
-            tags.push({
-                id: e.target.value,
-                name: e.target.options[e.target.selectedIndex].text
-            });
-            this.setState({
-                tags: tags
-            });
-            e.target.options[e.target.selectedIndex].remove();
+            if (this.state.tags.every(_ => _.name != newTagName)) {
+                tags.push({
+                    id: newTagId,
+                    name: newTagName
+                });
+            } else {
+                tags = tags.map(_ => {
+                    if (_.name == newTagName) {
+                        return {
+                            id: newTagId,
+                            name: newTagName
+                        };
+                    }
+                    return _;
+                });
+            }
+            this.setState(_ => ({
+                tags: tags,
+                allTags: _.allTags.filter(_ => _.id != newTagId),
+                tagsForSearch: [],
+            }));
+            this.addTagInput.value = '';
         }
     };
 
     deleteTag = (name, id = DEFAULT_ID) => {
-        this.setState({
-            tags: this.state.tags.filter(_ => _.id != id && _.name != name)
-        });
+        let allTags = this.state.allTags;
+        if (id != DEFAULT_ID) {
+            allTags.push({
+                id: id,
+                name: name
+            });
+        }
+        this.setState(_ => ({
+            tags: _.tags.filter(_ => _.name != name),
+            allTags: allTags,
+            tagsForSearch: _.tagsForSearch,
+        }));
     };
 
     componentWillUpdate = (nextProps, nextState) => {
-        this.chosenInput = JSON.stringify(nextState.tags);
+        this.chosenInput.value = JSON.stringify(nextState.tags);
     };
 
     render = () =>
@@ -89,16 +123,19 @@ class WidgetChosen extends React.Component {
                 )}
                 <div className="widgetChosen__addTag">
                     <input className="widgetChosen__addTagInput" type="text" placeholder="+Тег"
-                           onKeyPress={this.addTag} ref={_ => this.addTagInput = _}/>
+                           onKeyPress={this.typingTag} onChange={this.typingTag} ref={_ => this.addTagInput = _}/>
                 </div>
             </div>
-            <select className="widgetChosen__selector" ref={_ => this.selectorInput = _}
-                    onChange={this.addTagFromSelect}>
-                <option value="0">Выбор тега</option>
-                <option value="2">sadasdsad</option>
-                <option value="3">sadasdsad</option>
-                <option value="4">sadasdsad</option>
-            </select>
+            {this.state.tagsForSearch.length != 0 &&
+            <div className="widgetChosen__selector selector">
+                {this.state.tagsForSearch.map((tag, index) =>
+                    <div className="selector__item"
+                         key={index}
+                         id={tag.id}
+                         onClick={this.addTagFromSelect}>{tag.name}</div>
+                )}
+            </div>
+            }
         </div>
 }
 
