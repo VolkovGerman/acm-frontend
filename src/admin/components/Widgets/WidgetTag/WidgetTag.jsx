@@ -7,9 +7,15 @@ class WidgetTag extends React.Component {
         super(props);
 
         this.state = {
-            isActive: true
+            isActive: true,
+            id: props.id
         };
     }
+
+    static defaultProps = {
+        id: 0,
+        callback: null
+    };
 
     toggleActive = (e) => {
         e.preventDefault();
@@ -17,6 +23,8 @@ class WidgetTag extends React.Component {
         this.setState(_ => ({
             isActive: !_.isActive
         }));
+        console.log(this.state.id);
+        this.props.callback(this.props.name, this.state.id);
     };
 
     render = () => {
