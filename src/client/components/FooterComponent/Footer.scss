@@ -2,23 +2,21 @@
 @import '../../../core/styles/mixins';
 
 .Footer {
-    .bgSlider {
-        background: url('../../../../static/images/backgrounds/header_bg.jpg') no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: 0 100%;
-        width: 100%;
-        padding-bottom: 75px;
-
-        @include respond-to(xs) {
-            padding-bottom: 0;
-        }
+    padding-bottom: 75px;
+    
+    @include respond-to(xs) {
+        padding-bottom: 0;
     }
 
     .footer {
-        background: #fff;
         position: relative;
         padding: 50px;
+
+        border-left: 1px solid #f1f1f1;
+        border-right: 1px solid #f1f1f1;
+        border-bottom: 1px solid #f1f1f1;
+
+        background: #fff;
 
         @include respond-to(xs) {
             padding: 15px;

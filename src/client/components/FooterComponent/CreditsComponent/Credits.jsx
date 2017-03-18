@@ -9,7 +9,7 @@ class Credits extends Component {
         return (
             <div className="Credits">
                 <div className="credits">
-                    <span>{this.props.lang.acm} &#169; </span>
+                    <div>{this.props.lang.acm}</div>
                     <Link className="credits__link" to="/">{this.props.lang.bsuir} 2017</Link>
                 </div>
             </div>

@@ -2,15 +2,46 @@
 @import '../../../../core/styles/mixins';
 
 .News {
-    .news {
-        padding-bottom: 25px;
-        margin-bottom: 50px;
-        border-bottom: 1px solid #e5e5e5;
+    .newsList {
 
-        &:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+        &__title {
+            margin-bottom: 20px;
+
+            font-family: Roboto;
+            font-size: $font_size_xl;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
+
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+    }
+
+    .actions {
+        text-align: center;
+
+        &__moreBtn {
+            font-size: $font_size_s;
+            font-family: RobotoBold;
+            color: darken($grey, 20%);
+            text-transform: uppercase;
+
+            &:hover {
+                color: darken($grey, 50%);
+            }
+        }
+
+    }
+
+    .news {
+        width: 47.5%;
+
+        margin-bottom: 30px;
 
         &__header {
             min-height: 66px;
@@ -21,7 +52,7 @@
         }
 
         &__main {
-            margin: 25px 0;
+            margin: 20px 0;
         }
 
         &__image-link {
@@ -40,77 +71,20 @@
         }
 
         &__short-content {
-            margin-top: 25px;
-            line-height: 26px;
+            margin-top: 20px;
+
+            font-size: $font_size_m;
+            line-height: 25px;
             text-align: justify;
         }
 
         .buttons {
-            float: right;
+            
             &__button {
                 font-family: Roboto;
-                text-decoration: none;
-                padding: 10px 15px;
-                color: #fff;
-                background-color: $hoverLink;
-                display: inline-block;
-                transition: all 0.3s ease-out;
-
-                @include respond-to(xs) {
-                    display: block;
-                }
 
                 &:hover {
                     background-color: #000;
-                }
-            }
-            @include respond-to(xs) {
-                float: none;
-                text-align: center;
-                margin-top: 10px;
-            }
-        }
-
-        .info {
-            display: inline-block;
-            opacity: .5;
-            @include respond-to(xs) {
-                display: block;
-                text-align: center;
-            }
-
-            &__item {
-                display: inline-block;
-                position: relative;
-                margin-right: 15px;
-            }
-
-            &__value {
-                display: inline-block;
-                margin-left: 32px;
-                line-height: 36px;
-                font-size: 14px;
-            }
-
-            &__image {
-                position: absolute;
-                left: 0;
-                top: 7px;
-                background-size: 100% auto;
-                background-repeat: no-repeat;
-                width: 23px;
-                height: 23px;
-
-                &_views {
-                    background-image: url('../../../../../static/images/svg/eye_000000.svg');
-                }
-
-                &_messages {
-                    background-image: url('../../../../../static/images/svg/message_000000.svg');
-                }
-
-                &_langs {
-                    background-image: url('../../../../../static/images/svg/lang_000000.svg');
                 }
             }
         }

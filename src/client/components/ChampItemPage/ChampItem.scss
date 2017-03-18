@@ -2,10 +2,6 @@
 
 .ChampItem {
 
-    &__content {
-        padding-top: 20px;
-    }
-
     .champHeader {
         $iconWidth: 100px;
         $champHeaderPadding: 40px;
@@ -87,6 +83,7 @@
             margin-bottom: 20px;
             padding: 10px 15px;
 
+            font-size: $font_size_l;
             color: $white;
             text-decoration: none;
             text-align: center;

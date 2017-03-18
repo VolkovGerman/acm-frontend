@@ -13,7 +13,7 @@ class Footer extends Component {
                 <div className="bgSlider">
                     <div className="container">
                         <div className="footer">
-                            <Navigation navigation={this.props.navigation}/>
+                            {/*<Navigation navigation={this.props.navigation}/>*/}
                             <Credits />
                         </div>
                     </div>
