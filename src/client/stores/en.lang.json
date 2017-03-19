@@ -4,6 +4,7 @@
   "author": "Author",
   "acm": "ACM International Collegiate Programming Contest",
   "events": "Events",
+  "all_events": "All events",
   "more": "More",
   "where": "Where",
   "when": "When",
@@ -86,5 +87,20 @@
       "value": "3",
       "name": "1 participant"
     }
+  ],
+  "months": [
+    "",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
   ]
 }

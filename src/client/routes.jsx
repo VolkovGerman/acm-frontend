@@ -10,6 +10,8 @@ import NewsPage from './components/NewsPage/News';
 import NotFoundPage from './components/NotFound404Page/NotFound404';
 import ChampRegistration from './components/ChampRegistrationPage/ChampRegistration';
 import ChampTeamsPage from './components/ChampTeamsPage/ChampTeamsPage';
+import EventsPage from './components/EventsPage/EventsPage';
+import AllNews from './components/AllNewsPage/AllNews';
 
 export const routes = (
     <div>
@@ -21,6 +23,8 @@ export const routes = (
             <Route path="/champs/:id/teams" component={ChampTeamsPage} />
             <Route path="/champs/:id/:pageName" component={ChampsCustomPage} />
             <Route path="/news/:news_id" component={NewsPage} />
+            <Route path="/news" component={AllNews} />
+            <Route path="/events" component={EventsPage} />
         </Route>
         <Route path="*" component={NotFoundPage} />
     </div>

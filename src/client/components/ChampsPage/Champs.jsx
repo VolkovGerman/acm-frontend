@@ -17,7 +17,7 @@ const pageParams = {
             name: 'Чемпионат БГУИР'
         },
     ]
-}
+};
 
 const champsList = [
     {id: 1, name: 'Чемпионат БГУИР', year: '2017', status: 'active', statusText: 'Открыт'},
