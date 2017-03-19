@@ -1,3 +1,5 @@
+import config from '../../core/config/general.config';
+
 export default {
     placeholderText: '',
     language: 'ru',
@@ -62,8 +64,7 @@ export default {
         //     href: 'https://acm.bsuir.by/new',
         //     target: '_blank'
         // },
-    // imageUploadURL: '/img/upload'
-    // response {link: 'path/to/image.jpg'},
+    imageUploadURL: `${config.server}/news/images/upload`,
     imageManagerDeleteMethod: 'DELETE',
     // imageManagerDeleteURL: '/img/remove'
     imageManagerLoadMethod: 'GET',

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import WidgetInput from '../WidgetInputComponent/WidgetInput';
 import WidgetTag from '../WidgetTag/WidgetTag';
 
 require('./WidgetChosen.scss');

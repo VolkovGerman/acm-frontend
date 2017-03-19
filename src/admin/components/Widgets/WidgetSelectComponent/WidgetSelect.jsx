@@ -44,7 +44,7 @@ class WidgetSelect extends Component {
                     <option value="0"></option>
                     }
                     {this.props.options.map((item, index) =>
-                        <option key={index} value={item.value}>{item.name}</option>
+                        <option key={index} value={item.id}>{item.name}</option>
                     )}
                 </select>
                 {this.props.withAdding &&
@@ -53,7 +53,7 @@ class WidgetSelect extends Component {
                             <button className="adding__icon adding__icon_plus" onClick={_ => this.toggleOpenAdding(_)}></button>
                         ) : (
                             <div className="adding__input">
-                                <WidgetInput />
+                                <WidgetInput name={`${this.props.name}_new`} />
                                 <button className="adding__icon adding__icon_cross" onClick={_ => this.toggleOpenAdding(_)}></button>
                             </div>
                         )
