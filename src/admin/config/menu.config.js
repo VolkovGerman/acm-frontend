@@ -14,15 +14,15 @@ export default {
             ]
         },
         {
-            title: 'Чемпионат БГУИР',
+            title: 'Cобытия',
             items: [
                 {
                     title: 'Добавить',
-                    link: '/champs/create'
+                    link: '/topic/create'
                 },
                 {
                     title: 'Список',
-                    link: '/champs'
+                    link: '/topics'
                 }
             ]
         }

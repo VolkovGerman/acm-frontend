@@ -23,7 +23,7 @@ class WidgetTable extends Component {
                     name: '15'
                 }
             ]
-        }
+        };
     }
 
     render() {

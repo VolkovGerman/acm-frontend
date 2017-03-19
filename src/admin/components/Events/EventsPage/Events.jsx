@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import Block from '../../Layouts/BlockComponent/Block';
 import WidgetTable from '../../Widgets/WidgetTableComponent/WidgetTable';
+
 import config from '../../../../core/config/general.config';
 
-require('./News.scss');
-
-class News extends Component {
+class Events extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             table: {}
-        }
+        };
     }
 
     componentDidMount = () => {
-        this.props.updateBlockTitle('Список добавленных новостей');
+        this.props.updateBlockTitle('Список событий');
 
-        fetch(`${config.server}/news`, {
+        fetch(`${config.server}/topics`, {
             method: 'get',
         })
             .then(_ => _.json())
@@ -27,17 +26,13 @@ class News extends Component {
                     table: {
                         fields: [
                             'Название',
-                            'Просмотры',
-                            'Статус',
                             'Добавление'
                         ],
-                        data: _['_embedded']['news'].map(_ => {
+                        data: _['_embedded']['topics'].map(_ => {
                                 let createdAt = new Date(_.createdAt);
                                 createdAt = `${createdAt.toLocaleDateString()}`;
                                 return [
-                                    _.titleRU,
-                                    _.views,
-                                    _.statusRU,
+                                    _.name,
                                     createdAt
                                 ];
                             }
@@ -54,10 +49,9 @@ class News extends Component {
 
     render = () => {
         if (this.props.isLoader()) {
-            console.log('asdasdasd');
             return (
-                <div className="News">
-                    <Block title="Список новостей" showButtons={false}>
+                <div className="Champs">
+                    <Block title="Список событий" showButtons={false}>
                         <WidgetTable table={this.state.table}/>
                     </Block>
                 </div>
@@ -66,6 +60,7 @@ class News extends Component {
             return <div></div>
         }
     }
+
 }
 
-export default News;
+export default Events;

@@ -33,7 +33,7 @@ class NewsCreate extends Component {
                     : e.currentTarget.elements[i].checked;
             }
         }
-        fetch('https://acm-backend.herokuapp.com/news', {
+        fetch(`${config.server}/news`, {
             method: 'post',
             dataType: 'json',
             headers: {
@@ -43,13 +43,31 @@ class NewsCreate extends Component {
             body: JSON.stringify({
                 titleRU: formItems.titleRU,
                 systemName: formItems.systemName,
-                content: formItems.contentRU,
+                contentRU: formItems.contentRU,
                 descriptionRU: formItems.descriptionRU,
-                statusRU: formItems.statusRU ? 1 : 0
+                statusRU: formItems.statusRU ? 1 : 0,
+                titleEN: formItems.titleEN,
+                contentEN: formItems.contentEN,
+                descriptionEN: formItems.descriptionEN,
+                statusEN: formItems.statusEN ? 1 : 0,
             })
         })
             .then(_ => _.json())
-            .then(_ => console.log(_));
+            .then(_ =>
+                fetch(`${config.server}/news/${_.id}/topic`, {
+                    method: 'post',
+                    dataType: 'json',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: formItems.newsTopic
+                    })
+                })
+                    .then(_ => _.json())
+                    .then(_ => console.log(_))
+            );
 
         e.preventDefault();
     }
@@ -118,8 +136,8 @@ class NewsCreate extends Component {
                         <Block title="Основная информация">
                             <TabsLayout>
                                 <Tab name="Русский" id="1">
-                                    <WidgetRow title="Тема" name="news_theme">
-                                        <WidgetSelect options={this.state.themes} name="news_theme" withEmpty withAdding
+                                    <WidgetRow title="Тема" name="newsTopic">
+                                        <WidgetSelect options={this.state.themes} name="newsTopic" withEmpty withAdding
                                                       isRequired/>
                                     </WidgetRow>
                                     <WidgetRow title="Название новости" name="titleRU" isRequired>

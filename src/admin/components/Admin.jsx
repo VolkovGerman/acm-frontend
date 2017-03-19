@@ -30,6 +30,7 @@ class Admin extends Component {
         this.setState(_ => ({
             blockTitle: title,
             isLoaded: _.isLoaded,
+            numberOfLoadedComponents: _.numberOfLoadedComponents
         }));
     }
 
@@ -46,12 +47,15 @@ class Admin extends Component {
     isLoader = () =>
         this.state.isLoaded;
 
-    setLoader = () =>
+    setLoader = () => {
         this.setState(_ => ({
             blockTitle: _.blockTitle,
             isLoaded: false,
             numberOfLoadedComponents: 0
         }));
+        this.state.isLoaded = false;
+    };
+
 
     render() {
         const childrenWithProps = React.Children.map(this.props.children,

@@ -8,16 +8,12 @@ class TabLayout extends React.Component {
         this.props.addTab(this.props.id, this.props.name);
     };
 
-    render = () => {
-        if(this.props.isActiveTab(this.props.id)) {
-            return (
-                <div className="TabLayout">
-                    {this.props.children}
-                </div>
-            );
-        }
-        return <div></div>
-    }
+    render = () =>
+        (
+            <div className={this.props.isActiveTab(this.props.id) ? "TabLayout" : 'TabLayout hidden'}>
+                {this.props.children}
+            </div>
+        )
 }
 
 export default TabLayout;
