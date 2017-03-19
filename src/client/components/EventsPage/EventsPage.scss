@@ -1,0 +1,97 @@
+@import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
+
+.EventsPage {
+    .eventsPage {
+
+        &__title {
+            margin-bottom: 20px;
+
+            font-family: Roboto;
+            font-size: $font_size_xl;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        &__content {
+            border-top: 1px solid $minorColor;
+            padding: 50px 60px;
+
+            .eventInfo {
+                float: left;
+                width: 200px;
+
+                &__date {
+                    font-weight: bold;
+                }
+
+                &__day {
+                    font-size: 72px;
+                    width: 100%;
+                }
+
+                &__month-year {
+                    font-size: $font_size_m;
+                    text-transform: uppercase;
+                }
+
+                &__month {
+                    margin-right: 6px;
+                }
+
+                &__year {
+                    color: lighten($black, 40%);
+                }
+            }
+
+            .eventMain {
+                margin-left: 200px;
+
+                &__header {
+                    margin-bottom: 10px;
+                }
+
+                &__status {
+                    display: inline-block;
+                    background: $mainBlue;
+                    padding: 3px 10px;
+                    font-size: $font_size_s;
+                    text-transform: uppercase;
+                    margin-right: 10px;
+                    font-weight: bold;
+                    color: $white;
+                }
+
+                &__title {
+                    display: inline-block;
+                    font-size: $font_size_xl;
+                    font-weight: bold;
+                    vertical-align: middle;
+                    text-transform: uppercase;
+                }
+
+                &__info {
+                    font-weight: bold;
+                    font-size: $font_size_s;
+                }
+
+                &__time {
+                    display: inline-block;
+                }
+
+                &__place {
+                    display: inline-block;
+                    margin-left: 20px;
+                }
+
+                &__description {
+                    padding-top: 10px;
+                    color: $textColor;
+                    font-size: $font_size_m;
+                    line-height: 1.4;
+                }
+            }
+        }
+    }
+}
