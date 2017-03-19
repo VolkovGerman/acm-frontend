@@ -34,7 +34,6 @@ class Admin extends Component {
     }
 
     updateLoadedStatus = (isLoaded, numberOfComponents) => {
-        console.log(numberOfComponents);
         if (isLoaded) {
             this.setState(_ => ({
                 blockTitle: _.blockTitle,
@@ -47,12 +46,20 @@ class Admin extends Component {
     isLoader = () =>
         this.state.isLoaded;
 
+    setLoader = () =>
+        this.setState(_ => ({
+            blockTitle: _.blockTitle,
+            isLoaded: false,
+            numberOfLoadedComponents: 0
+        }));
+
     render() {
         const childrenWithProps = React.Children.map(this.props.children,
             (child) => React.cloneElement(child, {
                 updateBlockTitle: this.updateBlockTitle,
                 updateLoadedStatus: this.updateLoadedStatus,
-                isLoader: this.isLoader
+                isLoader: this.isLoader,
+                setLoader: this.setLoader
             })
         );
 

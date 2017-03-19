@@ -74,7 +74,7 @@ class WidgetTable extends Component {
                                     <WidgetCheckBox />
                                 </div>
                             </td>
-                            <td className="number">{dataIndex}</td>
+                            <td className="number">{dataIndex + 1}</td>
                             {data.map((item, itemIndex) =>
                                 <td key={itemIndex}>{item}</td>
                             )}

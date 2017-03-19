@@ -45,6 +45,15 @@ class Champs extends React.Component {
         };
     }
 
+    componentDidMount = () => {
+        this.props.updateBlockTitle('Список чемпионатов');
+        this.props.updateLoadedStatus(true, 1);
+    };
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
     render = () =>
         <div className="Champs">
             <Block title="Список новостей" showButtons={false}>

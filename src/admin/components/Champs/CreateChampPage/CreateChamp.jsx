@@ -3,9 +3,17 @@ import React from 'react';
 import Block from '../../Layouts/BlockComponent/Block';
 import WidgetRow from '../../Layouts/WidgetRowComponent/WidgetRow';
 import WidgetInput from '../../Widgets/WidgetInputComponent/WidgetInput';
-import WidgetChosen from '../../Widgets/WidgetChosen/WidgetChosen';
 
 class CreateChamps extends React.Component {
+    componentDidMount = () => {
+        this.props.updateBlockTitle('Добавление чемпионат');
+        this.props.updateLoadedStatus(true, 1);
+    };
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
     render = () =>
         <div className="CreateChamps">
             <Block title="Добавить чемпионат">

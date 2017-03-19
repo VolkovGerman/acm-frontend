@@ -33,27 +33,23 @@ class NewsCreate extends Component {
                     : e.currentTarget.elements[i].checked;
             }
         }
-
-        console.log(formItems);
-
-        // fetch('https://acm-backend.herokuapp.com/news', {
-        //     method: 'post',
-        //     dataType: 'json',
-        //     headers: {
-        //         Accept: 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         title: 'title',
-        //         systemName: 'systemName',
-        //         content: 'content',
-        //         views: 1,
-        //         langId: 2,
-        //         status: 20
-        //     })
-        // })
-        //     .then(_ => _.json())
-        //     .then(_ => console.log(_));
+        fetch('https://acm-backend.herokuapp.com/news', {
+            method: 'post',
+            dataType: 'json',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                titleRU: formItems.titleRU,
+                systemName: formItems.systemName,
+                content: formItems.contentRU,
+                descriptionRU: formItems.descriptionRU,
+                statusRU: formItems.statusRU ? 1 : 0
+            })
+        })
+            .then(_ => _.json())
+            .then(_ => console.log(_));
 
         e.preventDefault();
     }
@@ -110,6 +106,10 @@ class NewsCreate extends Component {
         });
     };
 
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
     render = () => {
         if (this.props.isLoader()) {
             return (
@@ -122,49 +122,41 @@ class NewsCreate extends Component {
                                         <WidgetSelect options={this.state.themes} name="news_theme" withEmpty withAdding
                                                       isRequired/>
                                     </WidgetRow>
-                                    <WidgetRow title="Название новости" name="news_title" isRequired>
-                                        <WidgetInput name="news_title"/>
+                                    <WidgetRow title="Название новости" name="titleRU" isRequired>
+                                        <WidgetInput name="titleRU"/>
                                     </WidgetRow>
-                                    <WidgetRow title="Url страницы" name="news_url" isRequired>
-                                        <WidgetInput name="news_url"/>
+                                    <WidgetRow title="Url страницы" name="systemName" isRequired>
+                                        <WidgetInput name="systemName"/>
                                     </WidgetRow>
 
-                                    <WidgetRow title="Краткое описание" name="news_short_content">
-                                        <WidgetHtmlEditor name="news_short_content"/>
+                                    <WidgetRow title="Краткое описание" name="descriptionRU">
+                                        <WidgetHtmlEditor name="descriptionRU"/>
                                     </WidgetRow>
-                                    <WidgetRow title="Полное описание" name="news_full_content">
-                                        <WidgetHtmlEditor name="news_full_content"/>
+                                    <WidgetRow title="Полное описание" name="contentRU">
+                                        <WidgetHtmlEditor name="contentRU"/>
                                     </WidgetRow>
                                     <WidgetRow title="Теги" name="news_tags">
                                         <WidgetChosen name="news_tags" allTags={this.state.allTags}/>
                                     </WidgetRow>
-                                    <WidgetRow title="Публиковать" name="news_isActive">
-                                        <WidgetSwitch name="news_isActive"/>
+                                    <WidgetRow title="Публиковать" name="statusRU">
+                                        <WidgetSwitch name="statusRU"/>
                                     </WidgetRow>
                                 </Tab>
                                 <Tab name="Английский" id="2">
-                                    <WidgetRow title="Тема" name="news_theme">
-                                        <WidgetSelect options={this.state.themes} name="news_theme" withEmpty withAdding
-                                                      isRequired/>
+                                    <WidgetRow title="Название новости" name="titleEN" isRequired>
+                                        <WidgetInput name="titleEN"/>
                                     </WidgetRow>
-                                    <WidgetRow title="Название новости" name="news_title" isRequired>
-                                        <WidgetInput name="news_title"/>
+                                    <WidgetRow title="Краткое описание" name="descriptionEN">
+                                        <WidgetHtmlEditor name="descriptionEN"/>
                                     </WidgetRow>
-                                    <WidgetRow title="Url страницы" name="news_url" isRequired>
-                                        <WidgetInput name="news_url"/>
-                                    </WidgetRow>
-
-                                    <WidgetRow title="Краткое описание" name="news_short_content">
-                                        <WidgetHtmlEditor name="news_short_content"/>
-                                    </WidgetRow>
-                                    <WidgetRow title="Полное описание" name="news_full_content">
-                                        <WidgetHtmlEditor name="news_full_content"/>
+                                    <WidgetRow title="Полное описание" name="contentEN">
+                                        <WidgetHtmlEditor name="contentEN"/>
                                     </WidgetRow>
                                     <WidgetRow title="Теги" name="news_tags">
                                         <WidgetChosen name="news_tags" allTags={this.state.allTags}/>
                                     </WidgetRow>
-                                    <WidgetRow title="Публиковать" name="news_isActive">
-                                        <WidgetSwitch name="news_isActive"/>
+                                    <WidgetRow title="Публиковать" name="statusEN">
+                                        <WidgetSwitch name="statusEN"/>
                                     </WidgetRow>
                                 </Tab>
                             </TabsLayout>
