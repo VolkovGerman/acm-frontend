@@ -4,6 +4,7 @@ import cookie from 'react-cookie';
 
 import Header from './HeaderComponent/Header';
 import Footer from './FooterComponent/Footer';
+import Loader from '../../core/components/loaders/CssSquareLoader/CssSquareLoader';
 
 require('./Client.scss');
 
@@ -113,7 +114,7 @@ let pageParams = {
             ]
         }
     ]
-}
+};
 
 class Client extends Component {
     constructor(props) {
@@ -123,11 +124,37 @@ class Client extends Component {
             currentLang: {
                 ru: true,
                 en: false
-            }
+            },
+            isLoaded: false,
+            numberOfLoadedComponents: 0
         };
 
         this.toggleLang = this.toggleLang.bind(this);
+        this.updateLoadedStatus = this.updateLoadedStatus.bind(this);
+        this.isLoaded = this.isLoaded.bind(this);
     }
+
+    updateLoadedStatus = (isLoaded, numberOfComponents) => {
+
+        if (isLoaded) {
+            this.setState(_ => ({
+                currentLang: _.currentLang,
+                isLoaded: _.numberOfLoadedComponents + 1 == numberOfComponents,
+                numberOfLoadedComponents: _.numberOfLoadedComponents + 1
+            }));
+        }
+    };
+
+    isLoaded = () =>
+        this.state.isLoaded;
+
+    setLoader = () => {
+        this.setState(_ => ({
+            blockTitle: _.blockTitle,
+            isLoaded: false,
+            numberOfLoadedComponents: 0
+        }));
+    };
 
     updateCurrentLang(currentLang) {
         let state = this.state;
@@ -149,7 +176,7 @@ class Client extends Component {
 
     componentWillMount() {
         let currentLang = cookie.load('acm_lang');
-        if(!currentLang) {
+        if (!currentLang) {
             currentLang = 'ru';
         }
         this.updateCurrentLang(currentLang) ;
@@ -158,7 +185,10 @@ class Client extends Component {
     render() {
         const childrenWithProps = React.Children.map(this.props.children,
             (child) => React.cloneElement(child, {
-                pageParams: pageParams
+                pageParams: pageParams,
+                updateLoadedStatus: this.updateLoadedStatus,
+                isLoaded: this.isLoaded,
+                setLoader: this.setLoader
             })
         );
 
@@ -179,6 +209,9 @@ class Client extends Component {
                                        href="#" onClick={_ => this.toggleLang(_, 'en')}>eng</a>
                                 </div>
                             </div>
+                            {!this.state.isLoaded &&
+                            <Loader/>
+                            }
                             <div className="content__main">
                                 {childrenWithProps}
                             </div>
