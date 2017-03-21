@@ -22,9 +22,18 @@ const pageParams = {
             name: 'Название новости'
         }
     ],
-}
+};
 
 class News extends Component {
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
+    componentWillMount = () => {
+        this.props.updateLoadedStatus(true, 1);
+    };
+
     render() {
         return (
             <div className="News clearfix">

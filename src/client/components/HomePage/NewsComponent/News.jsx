@@ -35,7 +35,6 @@ class News extends Component {
 
     render() {
         if (this.props.isLoaded()) {
-            console.log(this.state.news);
             return (
                 <div className="News">
                     <div className="newsList">

@@ -132,12 +132,10 @@ class Client extends Component {
         this.toggleLang = this.toggleLang.bind(this);
         this.updateLoadedStatus = this.updateLoadedStatus.bind(this);
         this.isLoaded = this.isLoaded.bind(this);
-        this.setLoader = this.setLoader.bind(this);
     }
 
     updateLoadedStatus = (isLoaded, numberOfComponents) => {
 
-        console.log(this.state.numberOfLoadedComponents);
         if (isLoaded) {
             this.setState(_ => ({
                 currentLang: _.currentLang,

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
+import config from '../../../core/config/general.config';
 import ArticleHeader from '../ArticleComponents/HeaderComponent/Header';
 
 require('./AllNews.scss');
@@ -12,23 +13,29 @@ class AllNews extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            news: [
-                {
-                    id: 1,
-                    title: 'Pidory'
-                },
-                {
-                    id: 2,
-                    title: 'ASDASd'
-                }
-            ]
+            news: []
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
 
-    }
+        fetch(`${config.server}/news`, {
+            method: 'get',
+        })
+            .then(_ => _.json())
+            .then(_ => {
+                this.props.updateLoadedStatus(true, 1);
+                this.setState({
+                    news: _['_embedded']['news']
+                });
+            });
+    };
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
 
     render = () =>
         (

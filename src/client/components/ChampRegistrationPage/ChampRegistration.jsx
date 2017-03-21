@@ -41,6 +41,14 @@ class ChampRegistration extends React.Component {
         });
     };
 
+    componentDidMount = () => {
+        this.props.updateLoadedStatus(true, 1);
+    };
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
     render = () => (
         <div className="ChampRegistration">
             <Breadcrumbs breadcrumbs={this.state.breadcrumbs}/>

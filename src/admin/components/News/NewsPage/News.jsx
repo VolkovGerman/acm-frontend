@@ -34,7 +34,7 @@ class News extends Component {
                         data: _['_embedded']['news'].map(_ => {
                                 let createdAt = new Date(_.createdAt);
                                 createdAt = `${createdAt.toLocaleDateString()}`;
-                                return [
+                            return [
                                     _.titleRU,
                                     _.views,
                                     _.statusRU,

@@ -38,6 +38,14 @@ class ChampTeamsPage extends React.Component {
         });
     };
 
+    componentDidMount = () => {
+        this.props.updateLoadedStatus(true, 1);
+    };
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
     render = () =>
         <div className="ChampTeamsPage">
             <Breadcrumbs breadcrumbs={this.state.breadcrumbs}/>
