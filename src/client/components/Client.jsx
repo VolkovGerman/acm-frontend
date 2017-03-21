@@ -154,6 +154,7 @@ class Client extends Component {
             isLoaded: false,
             numberOfLoadedComponents: 0
         }));
+        this.state.isLoaded = false;
     };
 
     updateCurrentLang(currentLang) {

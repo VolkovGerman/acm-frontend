@@ -22,7 +22,7 @@ export const routes = (
             <Route path="/champs/:id/registration" component={ChampRegistration} />
             <Route path="/champs/:id/teams" component={ChampTeamsPage} />
             <Route path="/champs/:id/:pageName" component={ChampsCustomPage} />
-            <Route path="/news/:news_id" component={NewsPage} />
+            <Route path="/news/:systemName" component={NewsPage} />
             <Route path="/news" component={AllNews} />
             <Route path="/events" component={EventsPage} />
         </Route>

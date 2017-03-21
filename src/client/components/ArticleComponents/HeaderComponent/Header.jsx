@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
+import dateformat from 'dateformat';
 require('./Header.scss');
 
 class Header extends Component {
@@ -9,14 +10,14 @@ class Header extends Component {
         return (
             <div className="Header header">
                 <div className="header__date date">
-                    <div className="date__day">14</div>
-                    <div className="date__month">Апр 2016</div>
+                    <div className="date__day">{dateformat(this.props.item.createdAt, "d")}</div>
+                    <div className="date__month">{dateformat(this.props.item.createdAt, "mmm yyyy")}</div>
                 </div>
-                <Link className="header__title" to={`news/${this.props.item.id}`}>БГУИР - в финале ACM ICPC</Link>
+                <Link className="header__title" to={`news/${this.props.item.systemName}`}>{this.props.item.titleRU}</Link>
                 <div className="news__info info">
                     <div className="info__item">
                         <div className="info__image info__image_views"/>
-                        <div className="info__value">33</div>
+                        <div className="info__value">{this.props.item.views}</div>
                     </div>
                     <div className="info__item">
                         <div className="info__image info__image_langs"/>
