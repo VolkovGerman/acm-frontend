@@ -2,24 +2,27 @@ import React, {Component} from 'react';
 
 import News from './NewsComponent/News';
 import Events from './EventsComponent/Events';
+// import TwoColumns from '../LayoutsComponents/TwoColumnsComponent/TwoColumns';
+// import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 
 require('./Home.scss');
 
+// const pageParams = {
+//     breadcrumbs: [
+//         {
+//             link: '/',
+//             name: 'Главная'
+//         }
+//     ],
+// }
+
 class Home extends Component {
-
-    componentWillUnmount = () => {
-        this.props.setLoader();
-    };
-
-    componentWillMount = () => {
-        this.props.updateLoadedStatus(true, 2);
-    };
-
     render() {
         return (
             <div className="Home">
+                {/*<Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>*/}
                 <Events events={this.props.pageParams.items.events}/>
-                <News isLoaded={this.props.isLoaded} updateLoadedStatus={this.props.updateLoadedStatus} />
+                <News news={this.props.pageParams.items.news}/>
             </div>
         );
     }

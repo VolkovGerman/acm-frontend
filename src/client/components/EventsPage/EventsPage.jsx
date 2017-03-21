@@ -9,15 +9,6 @@ require('./EventsPage.scss');
 const month = 10;
 
 class EventsPage extends Component {
-
-    componentDidMount = () => {
-        this.props.updateLoadedStatus(true, 1);
-    };
-
-    componentWillUnmount = () => {
-        this.props.setLoader();
-    };
-
     render = () =>
         (
             <div className="EventsPage">
