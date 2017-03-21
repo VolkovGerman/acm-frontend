@@ -30,15 +30,6 @@ const pageParams = {
 };
 
 class ChampsCustomPage extends Component {
-
-    componentDidMount = () => {
-        this.props.updateLoadedStatus(true, 1);
-    };
-
-    componentWillUnmount = () => {
-        this.props.setLoader();
-    };
-
     render() {
         return (
             <div className="ChampsCustom">
