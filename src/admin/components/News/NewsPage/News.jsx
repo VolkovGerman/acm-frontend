@@ -54,7 +54,6 @@ class News extends Component {
 
     render = () => {
         if (this.props.isLoader()) {
-            console.log('asdasdasd');
             return (
                 <div className="News">
                     <Block title="Список новостей" showButtons={false}>

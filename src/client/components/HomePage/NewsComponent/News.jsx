@@ -49,14 +49,11 @@ class News extends Component {
                                             <ArticleHeader item={item}/>
                                         </div>
                                         <div className="news__main">
-                                            <Link to={`news/${item.id}`} className="news__image-link">
+                                            <Link to={`news/${item.systemName}`} className="news__image-link">
                                                 <img className="news__image" src={img}/>
                                             </Link>
-                                            <div className="news__short-content">Команда БГУИР представит Беларусь в финале престижного
-                                                мирового первенства по программированию среди студентов в США. Это стало известно на
-                                                завершившемся 4 декабря в Санкт-Петербурге 21-ом полуфинале Северо-Восточного
-                                                Европейского
-                                                региона командного чемпионата мира по программирования The ACM ICPC.
+                                            <div className="news__short-content">
+                                                {item.descriptionRU}
                                             </div>
                                         </div>
                                     </div>
