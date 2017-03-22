@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
+    "start-server": "node ./server/bin/www",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
   },
@@ -17,9 +18,16 @@
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
+    "basic-auth-connect": "^1.0.0",
+    "body-parser": "~1.16.0",
     "bourbon": "^4.3.2",
     "input-moment": "^0.3.2",
     "moment": "^2.18.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
     "node-sass": "^4.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -32,7 +40,8 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.0",
     "redux-thunk": "^2.2.0",
-    "sass-loader": "^4.0.2"
+    "sass-loader": "^4.0.2",
+    "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
     "babel-core": "6.22.0",
