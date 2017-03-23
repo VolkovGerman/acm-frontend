@@ -74,16 +74,6 @@ class NewsCreate extends Component {
 
     componentDidMount() {
         this.props.updateBlockTitle('Добавление новости');
-        this.state.langs = [
-            {
-                id: 1,
-                name: 'Русский'
-            },
-            {
-                id: 2,
-                name: 'Английский'
-            }
-        ];
         fetch(`${config.server}/tags`, {
             method: 'get',
         })
@@ -115,10 +105,10 @@ class NewsCreate extends Component {
 
     parseServerResponse = (responseJson, elementsName) => {
         return responseJson['_embedded'][elementsName].map(_ => {
-            if ("id" in _ && "name" in _) {
+            if ("id" in _ && ("name" in _ || "nameRU" in _)) {
                 return {
                     id: _.id,
-                    name: _.name
+                    name: _.name ? _.name : _.nameRU
                 }
             }
         });
@@ -146,7 +136,6 @@ class NewsCreate extends Component {
                                     <WidgetRow title="Url страницы" name="systemName" isRequired>
                                         <WidgetInput name="systemName"/>
                                     </WidgetRow>
-
                                     <WidgetRow title="Краткое описание" name="descriptionRU">
                                         <WidgetHtmlEditor name="descriptionRU"/>
                                     </WidgetRow>
