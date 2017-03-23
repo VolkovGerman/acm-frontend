@@ -78,9 +78,11 @@ class Admin extends Component {
                         <div className="main__content">
                             <div className="main__title">{this.state.blockTitle}</div>
                             {!this.state.isLoaded &&
-                            <Loader/>
+                            <div className="main__loader">
+                                <Loader/>
+                            </div>
                             }
-                            <div className="main__blocks">{childrenWithProps}</div>
+                            <div className={`main__blocks ${!this.state.isLoaded ? 'hidden' : null}`}>{childrenWithProps}</div>
                         </div>
                     </div>
                 </div>

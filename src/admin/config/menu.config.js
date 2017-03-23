@@ -18,11 +18,24 @@ export default {
             items: [
                 {
                     title: 'Добавить',
-                    link: '/topic/create'
+                    link: '/events/create'
                 },
                 {
                     title: 'Список',
+                    link: '/events'
+                }
+            ]
+        },
+        {
+            title: 'База данных',
+            items: [
+                {
+                    title: 'Темы новостей',
                     link: '/topics'
+                },
+                {
+                    title: 'Теги',
+                    link: '/tags'
                 }
             ]
         }

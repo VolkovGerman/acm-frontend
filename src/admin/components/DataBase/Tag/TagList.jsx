@@ -2,46 +2,54 @@ import React from 'react';
 
 import Block from '../../Layouts/BlockComponent/Block';
 import WidgetTable from '../../Widgets/WidgetTableComponent/WidgetTable';
-
 import config from '../../../../core/config/general.config';
 
-class Events extends React.Component {
+class TagList extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            table: {}
-        };
+            table: {},
+            buttons: [
+                {
+                    link: '/tags/create',
+                    name: 'Добавить',
+                }
+            ]
+        }
     }
 
-    componentDidMount = () => {
-        this.props.updateBlockTitle('Список событий');
+    componentDidMount() {
+        this.props.updateBlockTitle('Список тегов');
 
-        fetch(`${config.server}/events`, {
+        fetch(`${config.server}/tags`, {
             method: 'get',
         })
             .then(_ => _.json())
-            .then(_ => {
-                this.setState({
+            .then(data => {
+                this.setState(_ => ({
                     table: {
                         fields: [
-                            'Название',
+                            'Название rus',
+                            'Название eng',
                             'Добавление'
                         ],
-                        data: _['_embedded']['events'].map(_ => {
+                        data: data['_embedded']['tags'].map(_ => {
                                 let createdAt = new Date(_.createdAt);
                                 createdAt = `${createdAt.toLocaleDateString()}`;
                                 return [
-                                    _.name,
+                                    _.nameRU,
+                                    _.nameEN,
                                     createdAt
                                 ];
                             }
                         )
-                    }
-                });
+                    },
+                    buttons: _.buttons
+                }));
                 this.props.updateLoadedStatus(true, 1);
             });
-    };
+    }
 
     componentWillUnmount = () => {
         this.props.setLoader();
@@ -50,8 +58,8 @@ class Events extends React.Component {
     render = () => {
         if (this.props.isLoader()) {
             return (
-                <div className="Champs">
-                    <Block title="Список событий" showButtons={false}>
+                <div className="News">
+                    <Block title="Список тегов" showButtons externalLinks={this.state.buttons}>
                         <WidgetTable table={this.state.table}/>
                     </Block>
                 </div>
@@ -60,7 +68,6 @@ class Events extends React.Component {
             return <div></div>
         }
     }
-
 }
 
-export default Events;
+export default TagList;

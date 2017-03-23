@@ -62,11 +62,9 @@ class NewsCreate extends Component {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: formItems.newsTopic
+                        topic_id: formItems.newsTopic
                     })
                 })
-                    .then(_ => _.json())
-                    .then(_ => console.log(_))
             );
 
         e.preventDefault();
@@ -74,6 +72,7 @@ class NewsCreate extends Component {
 
     componentDidMount() {
         this.props.updateBlockTitle('Добавление новости');
+
         fetch(`${config.server}/tags`, {
             method: 'get',
         })
@@ -127,7 +126,7 @@ class NewsCreate extends Component {
                             <TabsLayout>
                                 <Tab name="Русский" id="1">
                                     <WidgetRow title="Тема" name="newsTopic">
-                                        <WidgetSelect options={this.state.themes} name="newsTopic" withEmpty withAdding
+                                        <WidgetSelect options={this.state.themes} name="newsTopic" withEmpty
                                                       isRequired/>
                                     </WidgetRow>
                                     <WidgetRow title="Название новости" name="titleRU" isRequired>
