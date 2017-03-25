@@ -130,9 +130,6 @@ class NewsCreate extends Component {
                                     <WidgetRow title="Название новости" name="titleRU" isRequired>
                                         <WidgetInput name="titleRU"/>
                                     </WidgetRow>
-                                    <WidgetRow title="Url страницы" name="systemName" isRequired>
-                                        <WidgetInput name="systemName"/>
-                                    </WidgetRow>
                                     <WidgetRow title="Краткое описание" name="descriptionRU">
                                         <WidgetHtmlEditor name="descriptionRU"/>
                                     </WidgetRow>
@@ -155,9 +152,6 @@ class NewsCreate extends Component {
                                     </WidgetRow>
                                     <WidgetRow title="Полное описание" name="contentEN">
                                         <WidgetHtmlEditor name="contentEN"/>
-                                    </WidgetRow>
-                                    <WidgetRow title="Теги" name="news_tags">
-                                        <WidgetChosen name="news_tags" allTags={this.state.allTags}/>
                                     </WidgetRow>
                                     <WidgetRow title="Публиковать" name="statusEN">
                                         <WidgetSwitch name="statusEN"/>

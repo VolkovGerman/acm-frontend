@@ -35,6 +35,7 @@ class WidgetChosen extends React.Component {
     addFocusOnAddTagInput = (e) => {
         e.preventDefault();
         this.addTagInput.focus();
+        this.typingTag(e);
     };
 
     typingTag = (e) => {
