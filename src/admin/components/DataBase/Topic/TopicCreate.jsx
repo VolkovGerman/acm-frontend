@@ -7,6 +7,16 @@ import WidgetInput from '../../Widgets/WidgetInputComponent/WidgetInput';
 import {hashHistory} from 'react-router';
 
 class TopicCreate extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentId: this.props.location.query.id ? this.props.location.query.id : 0,
+            currentItem: {},
+            numberOfComponents: this.props.location.query.id ? 2 : 1,
+        }
+    }
+
     handleForm = (e) => {
         let formItems = {};
         for (let i = 0; i < e.currentTarget.elements.length; i++) {
@@ -16,8 +26,10 @@ class TopicCreate extends React.Component {
                     : e.currentTarget.elements[i].checked;
             }
         }
-        fetch(`${config.server}/topics`, {
-            method: 'post',
+        let method = this.state.currentId ? 'put' : 'post';
+        let link = `${config.server}/topics/${this.state.currentId ? this.state.currentId : ''}`;
+        fetch(link, {
+            method: method,
             dataType: 'json',
             headers: {
                 Accept: 'application/json',
@@ -38,7 +50,19 @@ class TopicCreate extends React.Component {
 
     componentDidMount = () => {
         this.props.updateBlockTitle('Добавление тематики новостей');
-        this.props.updateLoadedStatus(true, 1);
+        this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+        if (this.state.currentId) {
+            fetch(`${config.server}/topics/${this.state.currentId}`, {
+                method: 'get',
+            })
+                .then(_ => _.json())
+                .then(topic => {
+                    this.setState({
+                        currentItem: topic,
+                    });
+                    this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+                });
+        }
     };
 
     componentWillUnmount = () => {
@@ -52,10 +76,10 @@ class TopicCreate extends React.Component {
                     <form onSubmit={_ => this.handleForm(_)}>
                         <Block title="Основная информация">
                             <WidgetRow title="Название (рус.)" name="nameRU">
-                                <WidgetInput name="nameRU"/>
+                                <WidgetInput name="nameRU" value={this.state.currentItem.nameRU}/>
                             </WidgetRow>
                             <WidgetRow title="Название (анг.)" name="nameEN" isRequired>
-                                <WidgetInput name="nameEN"/>
+                                <WidgetInput name="nameEN" value={this.state.currentItem.nameEN}/>
                             </WidgetRow>
                         </Block>
                     </form>

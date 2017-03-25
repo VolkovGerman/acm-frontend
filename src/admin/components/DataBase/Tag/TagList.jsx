@@ -37,11 +37,17 @@ class TagList extends React.Component {
                         data: data['_embedded']['tags'].map(_ => {
                                 let createdAt = new Date(_.createdAt);
                                 createdAt = `${createdAt.toLocaleDateString()}`;
-                                return [
-                                    _.nameRU,
-                                    _.nameEN,
-                                    createdAt
-                                ];
+                                return {
+                                    id: _.id,
+                                    actions: {
+                                        update: '/db/tags/update'
+                                    },
+                                    cells: [
+                                        _.nameRU,
+                                        _.nameEN,
+                                        createdAt
+                                    ]
+                                }
                             }
                         )
                     },

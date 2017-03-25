@@ -33,7 +33,7 @@ class WidgetTable extends Component {
                     <div className="bar__amount">
                         Показать
                         <div className="bar__select">
-                            <WidgetSelect options={this.state.entityPerPage} />
+                            <WidgetSelect options={this.state.entityPerPage}/>
                         </div>
                         записей
                     </div>
@@ -64,20 +64,24 @@ class WidgetTable extends Component {
                         {this.props.table.fields.map((item, index) =>
                             <th key={index}>{item}</th>
                         )}
+                        <th>Действия</th>
                     </tr>
                     </thead>
                     <tbody>
                     {this.props.table.data.map((data, dataIndex) =>
-                        <tr className={dataIndex % 2 ? 'ood' : 'even'}  key={dataIndex}>
+                        <tr className={dataIndex % 2 ? 'ood' : 'even'} key={dataIndex}>
                             <td className="checkbox">
                                 <div className="widgetTable__checkbox">
                                     <WidgetCheckBox />
                                 </div>
                             </td>
                             <td className="number">{dataIndex + 1}</td>
-                            {data.map((item, itemIndex) =>
+                            {data.cells.map((item, itemIndex) =>
                                 <td key={itemIndex}>{item}</td>
                             )}
+                            <td data-id={data.id} className="actions">
+                                <Link to={`${data.actions.update}?id=${data.id}`} className="actions__link">Изменить</Link>
+                            </td>
                         </tr>
                     )}
                     </tbody>

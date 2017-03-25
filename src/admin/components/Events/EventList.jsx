@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Block from '../../Layouts/BlockComponent/Block';
-import WidgetTable from '../../Widgets/WidgetTableComponent/WidgetTable';
+import Block from '../Layouts/BlockComponent/Block';
+import WidgetTable from '../Widgets/WidgetTableComponent/WidgetTable';
 
-import config from '../../../../core/config/general.config';
+import config from '../../../core/config/general.config';
 
-class Events extends React.Component {
+class EventList extends React.Component {
     constructor(props) {
         super(props);
 
@@ -26,15 +26,24 @@ class Events extends React.Component {
                     table: {
                         fields: [
                             'Название',
-                            'Добавление'
+                            'Место проведения',
+                            'Добавление',
                         ],
                         data: _['_embedded']['events'].map(_ => {
                                 let createdAt = new Date(_.createdAt);
                                 createdAt = `${createdAt.toLocaleDateString()}`;
-                                return [
-                                    _.name,
-                                    createdAt
-                                ];
+                                return {
+                                    id: _.id,
+                                    actions: {
+                                        update: '/events/update'
+                                    },
+                                    cells: [
+                                        _.titleRU,
+                                        _.placeRU,
+                                        createdAt
+                                    ]
+                                }
+
                             }
                         )
                     }
@@ -63,4 +72,4 @@ class Events extends React.Component {
 
 }
 
-export default Events;
+export default EventList;

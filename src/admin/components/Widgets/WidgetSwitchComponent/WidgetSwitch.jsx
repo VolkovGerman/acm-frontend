@@ -6,20 +6,18 @@ class WidgetSwitch extends Component {
 
     constructor(props) {
         super(props);
-
         this.checkbox = null;
         this.state = {
-            isActive: props.active
+            isActive: props.value
         };
     }
 
     static propTypes = {
-        active: React.PropTypes.bool,
         name: React.PropTypes.string.isRequired
     };
 
     static defaultProps = {
-        active: false
+        value: 0
     };
 
     toggleActive(e) {

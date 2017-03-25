@@ -18,6 +18,9 @@ class NewsCreate extends Component {
         super(props);
 
         this.state = {
+            currentId: this.props.location.query.id ? this.props.location.query.id : 0,
+            currentItem: {},
+            numberOfComponents: this.props.location.query.id ? 3 : 2,
             themes: [],
             allTags: [],
             langs: []
@@ -33,8 +36,10 @@ class NewsCreate extends Component {
                     : e.currentTarget.elements[i].checked;
             }
         }
-        fetch(`${config.server}/news`, {
-            method: 'post',
+        let method = this.state.currentId ? 'put' : 'post';
+        let link = `${config.server}/news/${this.state.currentId ? this.state.currentId : ''}`;
+        fetch(link, {
+            method: method,
             dataType: 'json',
             headers: {
                 Accept: 'application/json',
@@ -54,7 +59,7 @@ class NewsCreate extends Component {
         })
             .then(_ => _.json())
             .then(_ =>
-                fetch(`${config.server}/news/${_.id}/topic`, {
+                fetch(`${config.server}/news/${_.id}/bind/topic`, {
                     method: 'post',
                     dataType: 'json',
                     headers: {
@@ -62,7 +67,7 @@ class NewsCreate extends Component {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        topic_id: formItems.newsTopic
+                        id: formItems.newsTopic
                     })
                 })
                     .then(_ => _.json())
@@ -81,12 +86,10 @@ class NewsCreate extends Component {
         })
             .then(_ => _.json())
             .then(_ => {
-                this.setState(prevState => ({
-                    themes: prevState.themes,
+                this.setState({
                     allTags: this.parseServerResponse(_, 'tags'),
-                    langs: prevState.langs
-                }));
-                this.props.updateLoadedStatus(true, 2);
+                });
+                this.props.updateLoadedStatus(true, this.state.numberOfComponents);
             });
 
         fetch(`${config.server}/topics`, {
@@ -94,14 +97,30 @@ class NewsCreate extends Component {
         })
             .then(_ => _.json())
             .then(_ => {
-                let allTags =
-                    this.setState(prevState => ({
-                        themes: this.parseServerResponse(_, 'topics'),
-                        allTags: prevState.allTags,
-                        langs: prevState.langs
-                    }));
-                this.props.updateLoadedStatus(true, 2);
+                this.setState({
+                    themes: this.parseServerResponse(_, 'topics'),
+                });
+                this.props.updateLoadedStatus(true, this.state.numberOfComponents);
             });
+        if (this.state.currentId) {
+            fetch(`${config.server}/news/${this.state.currentId}`, {
+                method: 'get',
+            })
+                .then(_ => _.json())
+                .then(news =>
+                    fetch(`${config.server}/news/${news.id}/topic`, {
+                        method: 'get',
+                    })
+                        .then(_ => _.json())
+                        .then(topic => {
+                            news.topic = topic;
+                            this.setState({
+                                currentItem: news,
+                            });
+                            this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+                        })
+                );
+        }
 
     }
 
@@ -128,42 +147,44 @@ class NewsCreate extends Component {
                         <Block title="Основная информация">
                             <TabsLayout>
                                 <Tab name="Русский" id="1">
-                                    <WidgetRow title="Тема" name="newsTopic">
+                                    <WidgetRow title="Тема" name="newsTopic" isRequired>
                                         <WidgetSelect options={this.state.themes} name="newsTopic" withEmpty
-                                                      isRequired/>
+                                                      isRequired
+                                                      value={this.state.currentItem.topic ? this.state.currentItem.topic.id : 0}/>
                                     </WidgetRow>
                                     <WidgetRow title="Название новости" name="titleRU" isRequired>
-                                        <WidgetInput name="titleRU"/>
+                                        <WidgetInput name="titleRU" value={this.state.currentItem.titleRU}/>
                                     </WidgetRow>
                                     <WidgetRow title="Краткое описание" name="descriptionRU">
-                                        <WidgetHtmlEditor name="descriptionRU"/>
+                                        <WidgetHtmlEditor name="descriptionRU"
+                                                          value={this.state.currentItem.descriptionRU}/>
                                     </WidgetRow>
                                     <WidgetRow title="Полное описание" name="contentRU">
-                                        <WidgetHtmlEditor name="contentRU"/>
+                                        <WidgetHtmlEditor name="contentRU" value={this.state.currentItem.contentRU}/>
                                     </WidgetRow>
                                     <WidgetRow title="Теги" name="news_tags">
                                         <WidgetChosen name="news_tags" allTags={this.state.allTags}/>
                                     </WidgetRow>
                                     <WidgetRow title="Публиковать" name="statusRU">
-                                        <WidgetSwitch name="statusRU"/>
+                                        <WidgetSwitch name="statusRU" value={this.state.currentItem.statusRU}/>
                                     </WidgetRow>
                                 </Tab>
                                 <Tab name="Английский" id="2">
                                     <WidgetRow title="Название новости" name="titleEN" isRequired>
-                                        <WidgetInput name="titleEN"/>
+                                        <WidgetInput name="titleEN" value={this.state.currentItem.titleEN}/>
                                     </WidgetRow>
                                     <WidgetRow title="Краткое описание" name="descriptionEN">
-                                        <WidgetHtmlEditor name="descriptionEN"/>
+                                        <WidgetHtmlEditor name="descriptionEN"
+                                                          value={this.state.currentItem.descriptionEN}/>
                                     </WidgetRow>
                                     <WidgetRow title="Полное описание" name="contentEN">
-                                        <WidgetHtmlEditor name="contentEN"/>
+                                        <WidgetHtmlEditor name="contentEN" value={this.state.currentItem.contentEN}/>
                                     </WidgetRow>
                                     <WidgetRow title="Публиковать" name="statusEN">
-                                        <WidgetSwitch name="statusEN"/>
+                                        <WidgetSwitch name="statusEN" value={this.state.currentItem.statusEN}/>
                                     </WidgetRow>
                                 </Tab>
                             </TabsLayout>
-
                         </Block>
                     </form>
                 </div>

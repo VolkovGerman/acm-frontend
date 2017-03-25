@@ -113,6 +113,12 @@
                     }
                 }
             }
+
+            .actions{
+                &__link {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 

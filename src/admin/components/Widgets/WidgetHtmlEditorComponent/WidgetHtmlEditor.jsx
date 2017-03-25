@@ -13,17 +13,19 @@ class WidgetHtmlEditor extends Component {
         super(props);
 
         this.state = {
-            model: '',
+            model: props.value,
         };
         this.handleModelChange = this.handleModelChange.bind(this);
     }
 
     static propTypes = {
-        name: React.PropTypes.string.isRequired
+        name: React.PropTypes.string.isRequired,
+        value: React.PropTypes.string
     };
 
     static defaultProps = {
-        name: ''
+        name: '',
+        value: ''
     };
 
     handleModelChange(model) {

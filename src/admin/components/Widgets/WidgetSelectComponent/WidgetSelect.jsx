@@ -9,22 +9,22 @@ class WidgetSelect extends Component {
         super(props);
 
         this.state = {
-            isOpenAdding: false
+            isOpenAdding: false,
         };
-
         this.toggleOpenAdding = this.toggleOpenAdding.bind(this);
     }
 
     static propTypes = {
         options: React.PropTypes.array.isRequired,
         withEmpty: React.PropTypes.bool,
-        withAdding: React.PropTypes.bool
+        withAdding: React.PropTypes.bool,
     };
 
     static defaultProps = {
         options: [],
         withEmpty: false,
-        withAdding: false
+        withAdding: false,
+        value: 0
     };
 
     toggleOpenAdding(e) {
@@ -39,12 +39,12 @@ class WidgetSelect extends Component {
         return (
             <div className="WidgetSelect">
                 <select className={this.props.withAdding ? 'widgetSelect widgetSelect_adding' : 'widgetSelect'}
-                        name={this.props.name} id={this.props.name}>
+                        name={this.props.name} id={this.props.name} defaultValue={this.props.value}>
                     {this.props.withEmpty === true &&
                     <option value="0"></option>
                     }
                     {this.props.options.map((item, index) =>
-                        <option key={index} value={item.id}>{item.name}</option>
+                            <option key={index} value={item.id} >{item.name}</option>
                     )}
                 </select>
                 {this.props.withAdding &&

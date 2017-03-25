@@ -34,12 +34,18 @@ class NewsList extends Component {
                         data: _['_embedded']['news'].map(_ => {
                                 let createdAt = new Date(_.createdAt);
                                 createdAt = `${createdAt.toLocaleDateString()}`;
-                            return [
-                                    _.titleRU,
-                                    _.views,
-                                    this.convertStatusToCountryFlag(_.statusRU, _.statusEN),
-                                    createdAt
-                                ];
+                                return {
+                                    id: _.id,
+                                    actions: {
+                                      update: '/news/update'
+                                    },
+                                    cells: [
+                                        _.titleRU,
+                                        _.views,
+                                        this.convertStatusToCountryFlag(_.statusRU, _.statusEN),
+                                        createdAt
+                                    ]
+                                }
                             }
                         )
                     }
@@ -52,10 +58,10 @@ class NewsList extends Component {
         return (
             <div className="flagged">
                 {statusRU == PUBLISH_STATUS &&
-                    <div className="flagged__item ru"></div>
+                <div className="flagged__item ru"></div>
                 }
                 {statusEN == PUBLISH_STATUS &&
-                    <div className="flagged__item en"></div>
+                <div className="flagged__item en"></div>
                 }
             </div>
         )
