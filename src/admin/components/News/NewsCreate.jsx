@@ -11,6 +11,7 @@ import TabsLayout from '../Layouts/TabsLayout/TabsLayout';
 import Tab from '../Layouts/TabLayout/TabLayout';
 import config from '../../../core/config/general.config';
 import Transformer from '../../../core/scripts/tranformator';
+import {hashHistory} from 'react-router';
 
 class NewsCreate extends Component {
     constructor(props) {
@@ -64,6 +65,10 @@ class NewsCreate extends Component {
                         topic_id: formItems.newsTopic
                     })
                 })
+                    .then(_ => _.json())
+                    .then(_ => {
+                        hashHistory.push('/news');
+                    })
             );
 
         e.preventDefault();
