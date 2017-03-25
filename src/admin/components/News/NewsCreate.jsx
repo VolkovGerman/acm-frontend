@@ -10,6 +10,7 @@ import WidgetChosen from '../Widgets/WidgetChosen/WidgetChosen';
 import TabsLayout from '../Layouts/TabsLayout/TabsLayout';
 import Tab from '../Layouts/TabLayout/TabLayout';
 import config from '../../../core/config/general.config';
+import Transformer from '../../../core/scripts/tranformator';
 
 class NewsCreate extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class NewsCreate extends Component {
             },
             body: JSON.stringify({
                 titleRU: formItems.titleRU,
-                systemName: formItems.systemName,
+                systemName: Transformer.translit(formItems.titleEN || formItems.titleRU),
                 contentRU: formItems.contentRU,
                 descriptionRU: formItems.descriptionRU,
                 statusRU: formItems.statusRU ? 1 : 0,
@@ -69,8 +70,7 @@ class NewsCreate extends Component {
     }
 
     componentDidMount() {
-        //this.props.updateBlockTitle('Добавление новости');
-
+        this.props.updateBlockTitle('Добавление новости');
         fetch(`${config.server}/tags`, {
             method: 'get',
         })
