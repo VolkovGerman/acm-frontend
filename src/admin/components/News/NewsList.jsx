@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-import Block from '../../Layouts/BlockComponent/Block';
-import WidgetTable from '../../Widgets/WidgetTableComponent/WidgetTable';
-import config from '../../../../core/config/general.config';
+import Block from '../Layouts/BlockComponent/Block';
+import WidgetTable from '../Widgets/WidgetTableComponent/WidgetTable';
+import config from '../../../core/config/general.config';
 
-require('./News.scss');
+const PUBLISH_STATUS = 1;
 
-class News extends Component {
+class NewsList extends Component {
     constructor(props) {
         super(props);
 
@@ -28,7 +28,7 @@ class News extends Component {
                         fields: [
                             'Название',
                             'Просмотры',
-                            'Статус',
+                            'Публикация',
                             'Добавление'
                         ],
                         data: _['_embedded']['news'].map(_ => {
@@ -37,7 +37,7 @@ class News extends Component {
                             return [
                                     _.titleRU,
                                     _.views,
-                                    _.statusRU,
+                                    this.convertStatusToCountryFlag(_.statusRU, _.statusEN),
                                     createdAt
                                 ];
                             }
@@ -46,6 +46,19 @@ class News extends Component {
                 });
                 this.props.updateLoadedStatus(true, 1);
             });
+    };
+
+    convertStatusToCountryFlag = (statusRU, statusEN) => {
+        return (
+            <div className="flagged">
+                {statusRU == PUBLISH_STATUS &&
+                    <div className="flagged__item ru"></div>
+                }
+                {statusEN == PUBLISH_STATUS &&
+                    <div className="flagged__item en"></div>
+                }
+            </div>
+        )
     };
 
     componentWillUnmount = () => {
@@ -67,4 +80,4 @@ class News extends Component {
     }
 }
 
-export default News;
+export default NewsList;

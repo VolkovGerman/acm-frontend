@@ -9,10 +9,13 @@ class TopicList extends React.Component {
         super(props);
 
         this.state = {
-            table: {},
+            table: {
+                fields: [],
+                data: []
+            },
             buttons: [
                 {
-                    link: '/topics/create',
+                    link: '/db/topics/create',
                     name: 'Добавить',
                 }
             ]

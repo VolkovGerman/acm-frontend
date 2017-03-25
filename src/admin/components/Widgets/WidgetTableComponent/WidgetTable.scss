@@ -94,6 +94,25 @@
             &.number {
                 width: 50px;
             }
+
+            .flagged {
+                text-align: center;
+                &__item {
+                    width: 20px;
+                    height: 20px;
+                    display: inline-block;
+                    margin-right: 5px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    &.ru {
+                        background: url('../../../../../static/images/svg/russia.svg') no-repeat;
+                    }
+                    &.en {
+                        background: url('../../../../../static/images/svg/united-states.svg') no-repeat;
+                    }
+                }
+            }
         }
     }
 

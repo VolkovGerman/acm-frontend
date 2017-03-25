@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 
-import Block from '../../Layouts/BlockComponent/Block';
-import WidgetInput from '../../Widgets/WidgetInputComponent/WidgetInput';
-import WidgetSwitch from '../../Widgets/WidgetSwitchComponent/WidgetSwitch';
-import WidgetHtmlEditor from '../../Widgets/WidgetHtmlEditorComponent/WidgetHtmlEditor';
-import WidgetSelect from '../../Widgets/WidgetSelectComponent/WidgetSelect';
-import WidgetRow from '../../Layouts/WidgetRowComponent/WidgetRow';
-import WidgetChosen from '../../Widgets/WidgetChosen/WidgetChosen';
-import TabsLayout from '../../Layouts/TabsLayout/TabsLayout';
-import Tab from '../../Layouts/TabLayout/TabLayout';
-import config from '../../../../core/config/general.config';
-
-require('./NewsCreate.scss');
+import Block from '../Layouts/BlockComponent/Block';
+import WidgetInput from '../Widgets/WidgetInputComponent/WidgetInput';
+import WidgetSwitch from '../Widgets/WidgetSwitchComponent/WidgetSwitch';
+import WidgetHtmlEditor from '../Widgets/WidgetHtmlEditorComponent/WidgetHtmlEditor';
+import WidgetSelect from '../Widgets/WidgetSelectComponent/WidgetSelect';
+import WidgetRow from '../Layouts/WidgetRowComponent/WidgetRow';
+import WidgetChosen from '../Widgets/WidgetChosen/WidgetChosen';
+import TabsLayout from '../Layouts/TabsLayout/TabsLayout';
+import Tab from '../Layouts/TabLayout/TabLayout';
+import config from '../../../core/config/general.config';
 
 class NewsCreate extends Component {
     constructor(props) {
@@ -71,7 +69,7 @@ class NewsCreate extends Component {
     }
 
     componentDidMount() {
-        this.props.updateBlockTitle('Добавление новости');
+        //this.props.updateBlockTitle('Добавление новости');
 
         fetch(`${config.server}/tags`, {
             method: 'get',

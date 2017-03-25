@@ -211,9 +211,11 @@ class Client extends Component {
                                 </div>
                             </div>
                             {!this.state.isLoaded &&
-                            <Loader/>
+                            <div className="content__loader">
+                                <Loader/>
+                            </div>
                             }
-                            <div className="content__main">
+                            <div className={!this.state.isLoaded ? 'hidden' : 'content__main'}>
                                 {childrenWithProps}
                             </div>
                         </div>

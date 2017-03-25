@@ -12,7 +12,7 @@ class TagList extends React.Component {
             table: {},
             buttons: [
                 {
-                    link: '/tags/create',
+                    link: 'db/tags/create',
                     name: 'Добавить',
                 }
             ]

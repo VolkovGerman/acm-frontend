@@ -31,11 +31,11 @@ export default {
             items: [
                 {
                     title: 'Темы новостей',
-                    link: '/topics'
+                    link: '/db/topics'
                 },
                 {
                     title: 'Теги',
-                    link: '/tags'
+                    link: '/db/tags'
                 }
             ]
         }

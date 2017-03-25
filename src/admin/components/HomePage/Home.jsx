@@ -8,6 +8,10 @@ class Home extends Component {
         this.props.updateLoadedStatus(true, 1);
     };
 
+    componentWillUnmount = () => {
+        this.props.setLoader();
+    };
+
     render = () =>
         <div>
             Home
