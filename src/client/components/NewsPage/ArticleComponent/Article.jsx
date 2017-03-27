@@ -22,9 +22,9 @@ class Article extends Component {
                             <img className="article__image" src={img}/>
                         </a>
                     </div>
-                    <div className="article__content">
-                        {this.props.article.content[this.props.lang.currentLangIndex]}
-                    </div>
+
+                    <div className="article__content"
+                         dangerouslySetInnerHTML={{__html: this.props.article.content[this.props.lang.currentLangIndex]}}></div>
                 </div>
 
                 <div className="article__footer">

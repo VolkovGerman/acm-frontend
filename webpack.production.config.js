@@ -64,18 +64,6 @@ module.exports = {
         new ExtractTextPlugin("[name]/index.css", {
             allChunks: true
         }),
-        new HtmlWebpackPlugin({
-            template: './src/admin/index.html',
-            filename: './admin/index.html',
-            hash: true,
-            chunks: ['core', 'admin']
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/client/index.html',
-            filename: './client/index.html',
-            hash: true,
-            chunks: ['core', 'client']
-        }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"

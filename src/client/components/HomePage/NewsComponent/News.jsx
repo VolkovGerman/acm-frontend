@@ -54,8 +54,8 @@ class News extends Component {
                                                 <Link to={`news/${item.systemName}`} className="news__image-link">
                                                     <img className="news__image" src={img}/>
                                                 </Link>
-                                                <div className="news__short-content">
-                                                    {item.description[this.props.lang.currentLangIndex]}
+                                                <div className="news__short-content"
+                                                dangerouslySetInnerHTML={{__html: item.description[this.props.lang.currentLangIndex]}}>
                                                 </div>
                                             </div>
                                         </div>
