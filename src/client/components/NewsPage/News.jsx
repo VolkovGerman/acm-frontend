@@ -17,6 +17,12 @@ class News extends Component {
             article: {},
             numberOfComponents: 2,
             latestNews: [],
+            breadcrumbs: [],
+        }
+    }
+
+    initBreadCrumbs = (breadcrumb) => {
+        this.setState({
             breadcrumbs: [
                 {
                     link: '/',
@@ -25,31 +31,35 @@ class News extends Component {
                 {
                     link: '/news',
                     name: 'Новости'
+                },
+                {
+                    link: breadcrumb.link,
+                    name: breadcrumb.name
                 }
-            ],
-        }
-    }
+            ]
+        })
+    };
 
-    loadingNewsBySystemName = ($systemName) => {
-        fetch(`${config.server}/news/search/findBySystemName?systemName=${$systemName}`, {
+    loadingNewsBySystemName = (systemName, numberOfComponents) => {
+        fetch(`${config.server}/news/search/findBySystemName?systemName=${systemName}`, {
             method: 'get'
         })
             .then(_ => _.json())
             .then(news => {
                 let article = news['_embedded']['news'][0];
                 let breadcrumbs = this.state.breadcrumbs;
-                breadcrumbs.push({
+                this.initBreadCrumbs({
                     link: '/news/' + article.systemName,
                     name: article.systemName
                 });
                 this.setState({
                     breadcrumbs: breadcrumbs
                 });
-                this.loadingTags(article);
+                this.loadingTags(article, numberOfComponents);
             });
     };
 
-    loadingTags = (article) => {
+    loadingTags = (article, numberOfComponents) => {
         fetch(`${article._links.tags.href}`, {
             method: 'get'
         })
@@ -59,11 +69,11 @@ class News extends Component {
                 this.setState({
                     article: article
                 });
-                this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+                this.props.updateLoadedStatus(true, numberOfComponents);
             });
     };
 
-    loadingLatestNews = () => {
+    loadingLatestNews = (numberOfComponents) => {
         fetch(`${config.server}/news`, {
             method: 'get'
         })
@@ -72,12 +82,12 @@ class News extends Component {
                 this.setState({
                     latestNews: latestNews['_embedded']['news']
                 });
-                this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+                this.props.updateLoadedStatus(true, numberOfComponents);
             });
     };
 
     componentDidMount = () => {
-        this.loadingNewsBySystemName(this.props.params.systemName);
+        this.loadingNewsBySystemName(this.props.params.systemName, this.state.numberOfComponents);
         this.loadingLatestNews();
     };
 
@@ -85,9 +95,10 @@ class News extends Component {
         this.props.setLoader();
     };
 
-    componentWillUpdate = (nextProps, nextState) => {
+    componentWillUpdate = (nextProps) => {
         if(this.props.params.systemName != nextProps.params.systemName) {
             this.props.setLoader();
+            this.loadingNewsBySystemName(this.props.params.systemName, this.state.numberOfComponents - 1);
         }
     };
 
