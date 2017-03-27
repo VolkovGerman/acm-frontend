@@ -19,6 +19,13 @@ class EventCreate extends React.Component {
             currentId: this.props.location.query.id ? this.props.location.query.id : 0,
             currentItem: {},
             numberOfComponents: this.props.location.query.id ? 2 : 1,
+            buttons: [
+                {
+                    name: 'Добавить',
+                    type: 'submit',
+                    style: 'green'
+                }
+            ]
         }
     }
 
@@ -84,7 +91,7 @@ class EventCreate extends React.Component {
             return (
                 <div className="CreateChamps">
                     <form onSubmit={_ => this.handleForm(_)}>
-                        <Block title="Добавить событие">
+                        <Block title="Добавить событие" showButtons buttons={this.state.buttons}>
                             <TabsLayout>
                                 <Tab name="Русский" id="1">
                                     <WidgetRow title="Название" name="titleRU" isRequired>

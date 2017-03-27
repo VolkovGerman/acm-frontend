@@ -1,6 +1,8 @@
 @import '../../../../core/styles/variables';
 
 .DefaultButton {
+    display: inline-block;
+    margin: 0 2px;
     .defaultButton {
         &__button {
             color: $white;
@@ -15,7 +17,7 @@
                 background-color: $admin__blueBorder;
             }
 
-            &_submit {
+            &_green {
                 border-color: $admin__greenBorder;
                 background-color: $admin__green;
 

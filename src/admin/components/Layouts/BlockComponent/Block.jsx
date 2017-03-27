@@ -7,17 +7,18 @@ require('./Block.scss');
 class Block extends Component {
     static propTypes = {
         showButtons: React.PropTypes.bool,
-        externalLinks: React.PropTypes.arrayOf(
+        buttons: React.PropTypes.arrayOf(
             React.PropTypes.shape({
-                link: React.PropTypes.string.isRequired,
-                name: React.PropTypes.string.isRequired
+                name: React.PropTypes.string,
+                type: React.PropTypes.oneOf(['submit', 'link', 'callback']),
+                style: React.PropTypes.oneOf(['green'])
             })
         )
     };
 
     static defaultProps = {
         showButtons: true,
-        externalLinks: []
+        buttons: []
     };
 
     render() {
@@ -28,7 +29,9 @@ class Block extends Component {
                     <div className="block__widgets">{this.props.children}</div>
                     {this.props.showButtons &&
                     <div className="block__buttons">
-                        <DefaultButton type="submit" {...this.props}/>
+                        {this.props.buttons.map((item, index) =>
+                            <DefaultButton action={item.action} name={item.name} type={item.type} style={item.style} key={index}/>
+                        )}
                     </div>
                     }
                 </div>

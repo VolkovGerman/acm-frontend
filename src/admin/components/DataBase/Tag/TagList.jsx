@@ -12,12 +12,23 @@ class TagList extends React.Component {
             table: {},
             buttons: [
                 {
-                    link: 'db/tags/create',
+                    action: this.test,
+                    name: 'Удалить',
+                    type: 'callback'
+                },
+                {
+                    action: 'db/tags/create',
                     name: 'Добавить',
+                    type: 'link',
+                    style: 'green'
                 }
             ]
         }
     }
+
+    test = () => {
+        console.log('test');
+    };
 
     componentDidMount() {
         this.props.updateBlockTitle('Список тегов');
@@ -65,7 +76,7 @@ class TagList extends React.Component {
         if (this.props.isLoader()) {
             return (
                 <div className="News">
-                    <Block title="Список тегов" showButtons externalLinks={this.state.buttons}>
+                    <Block title="Список тегов" showButtons buttons={this.state.buttons}>
                         <WidgetTable table={this.state.table}/>
                     </Block>
                 </div>

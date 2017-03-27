@@ -14,6 +14,13 @@ class TagsCreate extends React.Component {
             currentId: this.props.location.query.id ? this.props.location.query.id : 0,
             currentItem: {},
             numberOfComponents: this.props.location.query.id ? 2 : 1,
+            buttons: [
+            {
+                name: 'Добавить',
+                type: 'submit',
+                style: 'green'
+            }
+        ]
         }
     }
 
@@ -74,7 +81,7 @@ class TagsCreate extends React.Component {
             return (
                 <div className="TagsCreate">
                     <form onSubmit={_ => this.handleForm(_)}>
-                        <Block title="Основная информация">
+                        <Block title="Основная информация" showButtons buttons={this.state.buttons}>
                             <WidgetRow title="Название (рус.)" name="nameRU">
                                 <WidgetInput name="nameRU" value={this.state.currentItem.nameRU}/>
                             </WidgetRow>

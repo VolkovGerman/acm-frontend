@@ -4,6 +4,7 @@ import Block from '../Layouts/BlockComponent/Block';
 import WidgetInput from '../Widgets/WidgetInputComponent/WidgetInput';
 import WidgetSwitch from '../Widgets/WidgetSwitchComponent/WidgetSwitch';
 import WidgetHtmlEditor from '../Widgets/WidgetHtmlEditorComponent/WidgetHtmlEditor';
+import WidgetImageEditor from '../Widgets/WidgetImageEditorComponent/WidgetImageEditor';
 import WidgetSelect from '../Widgets/WidgetSelectComponent/WidgetSelect';
 import WidgetRow from '../Layouts/WidgetRowComponent/WidgetRow';
 import WidgetChosen from '../Widgets/WidgetChosen/WidgetChosen';
@@ -23,7 +24,14 @@ class NewsCreate extends Component {
             numberOfComponents: this.props.location.query.id ? 3 : 2,
             themes: [],
             allTags: [],
-            langs: []
+            langs: [],
+            buttons: [
+                {
+                    name: 'Добавить',
+                    type: 'submit',
+                    style: 'green'
+                }
+            ]
         };
     }
 
@@ -144,7 +152,7 @@ class NewsCreate extends Component {
             return (
                 <div className="NewsCreate">
                     <form onSubmit={_ => this.handleForm(_)}>
-                        <Block title="Основная информация">
+                        <Block title="Основная информация" showButtons buttons={this.state.buttons}>
                             <TabsLayout>
                                 <Tab name="Русский" id="1">
                                     <WidgetRow title="Тема" name="newsTopic" isRequired>
@@ -155,6 +163,9 @@ class NewsCreate extends Component {
                                     <WidgetRow title="Название новости" name="titleRU" isRequired>
                                         <WidgetInput name="titleRU" value={this.state.currentItem.titleRU}/>
                                     </WidgetRow>
+                                    {/*<WidgetRow title="Изоображение" name="image" isRequired>*/}
+                                        {/*<WidgetImageEditor name="image"/>*/}
+                                    {/*</WidgetRow>*/}
                                     <WidgetRow title="Краткое описание" name="descriptionRU">
                                         <WidgetHtmlEditor name="descriptionRU"
                                                           value={this.state.currentItem.descriptionRU}/>

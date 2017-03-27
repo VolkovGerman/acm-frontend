@@ -15,8 +15,10 @@ class TopicList extends React.Component {
             },
             buttons: [
                 {
-                    link: '/db/topics/create',
+                    action: 'db/topics/create',
                     name: 'Добавить',
+                    type: 'link',
+                    style: 'green'
                 }
             ]
         }
@@ -81,7 +83,7 @@ class TopicList extends React.Component {
         if (this.props.isLoader()) {
             return (
                 <div className="News">
-                    <Block title="Список тем новостей" showButtons externalLinks={this.state.buttons}>
+                    <Block title="Список тем новостей" showButtons buttons={this.state.buttons}>
                         <WidgetTable table={this.state.table} handleDelete={this.handleDelete}/>
                     </Block>
                 </div>

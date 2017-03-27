@@ -11,7 +11,15 @@ class NewsList extends Component {
         super(props);
 
         this.state = {
-            table: {}
+            table: {},
+            buttons: [
+                {
+                    action: '/news/create',
+                    name: 'Добавить',
+                    type: 'link',
+                    style: 'green'
+                }
+            ]
         }
     }
 
@@ -75,7 +83,7 @@ class NewsList extends Component {
         if (this.props.isLoader()) {
             return (
                 <div className="News">
-                    <Block title="Список новостей" showButtons={false}>
+                    <Block title="Список новостей" showButtons buttons={this.state.buttons}>
                         <WidgetTable table={this.state.table}/>
                     </Block>
                 </div>

@@ -7,31 +7,42 @@ class DefaultButton extends Component {
 
     static propTypes = {
         type: React.PropTypes.oneOf([
-            'default',
-            'submit'
+            'submit',
+            'link',
+            'callback'
         ])
     };
 
     static defaultProps = {
-        type: 'default',
-        value: 'Добавить'
+        type: 'submit',
+        name: 'Добавить',
+        style: ''
+    };
+
+    handleClick = (e) => {
+        e.preventDefault();
+        this.props.action();
     };
 
     render() {
         return (
             <div className="DefaultButton defaultButton">
-                {this.props.externalLinks.length
-                    ?
-                    this.props.externalLinks.map(({link, name}, index) =>
-                        <Link to={link} key={index}
-                              className={`defaultButton__button defaultButton__button_${this.props.type}`}>
-                            {name}
-                        </Link>
-                    )
-                    :
-                    <button className={`defaultButton__button defaultButton__button_${this.props.type}`}
-                            type={this.props.type}>
-                        {this.props.value}
+                {this.props.type == 'link' &&
+                <Link to={this.props.action}
+                      className={`defaultButton__button defaultButton__button_${this.props.style}`}>
+                    {this.props.name}
+                </Link>
+                }
+                {this.props.type == 'callback' &&
+                <Link className={`defaultButton__button defaultButton__button_${this.props.style}`}
+                      onClick={this.handleClick}>
+                    {this.props.name}
+                </Link>
+                }
+                {this.props.type == 'submit' &&
+                    <button className={`defaultButton__button defaultButton__button_${this.props.style}`}
+                            type='submit'>
+                        {this.props.name}
                     </button>
                 }
             </div>

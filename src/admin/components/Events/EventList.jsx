@@ -12,7 +12,15 @@ class EventList extends React.Component {
         super(props);
 
         this.state = {
-            table: {}
+            table: {},
+            buttons: [
+                {
+                    action: '/events/create',
+                    name: 'Добавить',
+                    type: 'link',
+                    style: 'green'
+                }
+            ]
         };
     }
 
@@ -77,7 +85,7 @@ class EventList extends React.Component {
         if (this.props.isLoader()) {
             return (
                 <div className="Champs">
-                    <Block title="Список событий" showButtons={false}>
+                    <Block title="Список событий" showButtons buttons={this.state.buttons}>
                         <WidgetTable table={this.state.table}/>
                     </Block>
                 </div>
