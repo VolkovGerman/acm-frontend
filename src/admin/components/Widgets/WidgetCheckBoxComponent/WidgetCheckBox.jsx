@@ -37,6 +37,7 @@ class WidgetCheckBox extends Component {
     setChecked() {
         this.checkbox.checked = this.state.isActive;
         this.checkbox.click();
+        this.props.checkRow(this.props.id);
     }
 
     componentDidMount() {

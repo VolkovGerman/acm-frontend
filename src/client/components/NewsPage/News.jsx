@@ -5,6 +5,7 @@ import LatestNews from './LatestNewsComponent/LatestNews';
 import TwoColumns from '../LayoutsComponents/TwoColumnsComponent/TwoColumns';
 import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 import config from '../../../core/config/general.config';
+import devideProperties from '../../../core/scripts/devidePropertiesByLanguage';
 
 require('./News.scss');
 
@@ -46,7 +47,7 @@ class News extends Component {
         })
             .then(_ => _.json())
             .then(news => {
-                let article = news['_embedded']['news'][0];
+                let article = devideProperties(news['_embedded']['news'][0])[0];
                 let breadcrumbs = this.state.breadcrumbs;
                 this.initBreadCrumbs({
                     link: '/news/' + article.systemName,
@@ -69,6 +70,7 @@ class News extends Component {
                 this.setState({
                     article: article
                 });
+
                 this.props.updateLoadedStatus(true, numberOfComponents);
             });
     };
@@ -79,8 +81,9 @@ class News extends Component {
         })
             .then(_ => _.json())
             .then(latestNews => {
+                let lNews = devideProperties(latestNews['_embedded']['news']);
                 this.setState({
-                    latestNews: latestNews['_embedded']['news']
+                    latestNews: lNews
                 });
                 this.props.updateLoadedStatus(true, numberOfComponents);
             });

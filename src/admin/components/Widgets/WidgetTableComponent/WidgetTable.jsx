@@ -24,6 +24,23 @@ class WidgetTable extends Component {
                 }
             ]
         };
+
+        this.checked = [];
+        this.checkRow = this.checkRow.bind(this);
+        this.deleteRows = this.deleteRows.bind(this);
+    }
+
+    checkRow(id) {
+        let index = this.checked.indexOf(id);
+        if (index === -1) {
+            this.checked.push(id);
+        } else {
+            this.checked.splice(index, 1);
+        }
+    }
+
+    deleteRows() {
+        console.log(this.checked);
     }
 
     render() {
