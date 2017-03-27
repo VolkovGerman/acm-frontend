@@ -4,6 +4,7 @@ import Block from '../Layouts/BlockComponent/Block';
 import WidgetRow from '../Layouts/WidgetRowComponent/WidgetRow';
 import WidgetInput from '../Widgets/WidgetInputComponent/WidgetInput';
 import WidgetHtmlEditor from '../Widgets/WidgetHtmlEditorComponent/WidgetHtmlEditor';
+import WidgetDatePicker from '../Widgets/WidgetDatePicker/WidgetDatePicker';
 import TabsLayout from '../Layouts/TabsLayout/TabsLayout';
 import Tab from '../Layouts/TabLayout/TabLayout';
 import {hashHistory} from 'react-router';
@@ -45,6 +46,7 @@ class EventCreate extends React.Component {
                 titleEN: formItems.titleEN,
                 descriptionEN: formItems.descriptionEN,
                 placeEN: formItems.placeEN,
+                date: formItems.date
             })
         })
             .then(_ => _.json())
@@ -90,6 +92,9 @@ class EventCreate extends React.Component {
                                     </WidgetRow>
                                     <WidgetRow title="Место проведения" name="placeRU">
                                         <WidgetInput name="placeRU" value={this.state.currentItem.placeRU}/>
+                                    </WidgetRow>
+                                    <WidgetRow title="Дата проведения" name="date">
+                                        <WidgetDatePicker name="date" value={this.state.currentItem.date}/>
                                     </WidgetRow>
                                 </Tab>
                                 <Tab name="Английский" id="2">

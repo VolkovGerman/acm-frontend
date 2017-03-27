@@ -52,15 +52,14 @@ class News extends Component {
                                             <Link to={`news/${item.systemName}`} className="news__image-link">
                                                 <img className="news__image" src={img}/>
                                             </Link>
-                                            <div className="news__short-content">
-                                                {item.descriptionRU}
-                                            </div>
+                                            <div className="news__short-content"
+                                                 dangerouslySetInnerHTML={{__html: item.descriptionRU}}></div>
                                         </div>
                                     </div>
                                 )}
                             </div>
                             <div className="newsList__actions actions">
-                                <Link className="actions__moreBtn"  to={`news`}>больше новостей</Link>
+                                <Link className="actions__moreBtn" to={`news`}>больше новостей</Link>
                             </div>
                         </div>
                     </div>

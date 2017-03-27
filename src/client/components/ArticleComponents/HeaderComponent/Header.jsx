@@ -24,14 +24,14 @@ class Header extends Component {
                         <div className="info__value">рус</div>
                     </div>
                 </div>
-                {/*<div className="header__author author">
-                    <span className="author__written">{this.props.lang.author}:</span>
-                    <ul className="author__authors authors<">
-                        <li className="authors__item">
-                            <Link className="authors__link" to="#">Георгий Жуков</Link>
-                        </li>
-                    </ul>
-                </div>*/}
+                {/*{<div className="header__author author">*/}
+                    {/*<span className="author__written">{this.props.lang.author}:</span>*/}
+                    {/*<ul className="author__authors authors<">*/}
+                        {/*<li className="authors__item">*/}
+                            {/*<Link className="authors__link" to="#">Георгий Жуков</Link>*/}
+                        {/*</li>*/}
+                    {/*</ul>*/}
+                {/*</div>}*/}
             </div>
         );
     }

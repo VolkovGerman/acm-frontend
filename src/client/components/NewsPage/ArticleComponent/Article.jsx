@@ -21,9 +21,8 @@ class Article extends Component {
                             <img className="article__image" src={img}/>
                         </a>
                     </div>
-                    <div className="article__content">
-                        {this.props.article.contentRU}
-                    </div>
+                    <div className="article__content"
+                         dangerouslySetInnerHTML={{__html: this.props.article.contentRU}}></div>
                 </div>
 
                 <div className="article__footer">

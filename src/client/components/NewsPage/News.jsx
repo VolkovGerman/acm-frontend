@@ -5,10 +5,9 @@ import LatestNews from './LatestNewsComponent/LatestNews';
 import TwoColumns from '../LayoutsComponents/TwoColumnsComponent/TwoColumns';
 import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 import config from '../../../core/config/general.config';
+import {hashHistory} from 'react-router';
 
 require('./News.scss');
-
-let pageParams = {};
 
 class News extends Component {
 
@@ -16,46 +15,9 @@ class News extends Component {
         super(props);
 
         this.state = {
-            article: {}
-        }
-    }
-
-    componentWillUnmount = () => {
-        this.props.setLoader();
-    };
-
-    componentDidMount = () => {
-        fetch(`${config.server}/news/search/findBySystemName?systemName=${this.props.params.systemName}`, {
-            method: 'get'
-        })
-            .then(_ => _.json())
-            .then(_ => {
-                let article = _['_embedded']['news'][0];
-                pageParams.breadcrumbs.push({
-                    link: '/news/' + article.systemName,
-                    name: article.systemName
-                });
-
-                this.getTags(article);
-            });
-    };
-
-    getTags = (article) => {
-        fetch(`${article._links.tags.href}`, {
-            method: 'get'
-        })
-            .then(_ => _.json())
-            .then(_ => {
-                article.tags = _['_embedded']['tags'];
-                this.setState({
-                    article: article
-                });
-                this.props.updateLoadedStatus(true, 1);
-            });
-    };
-
-    componentWillMount = () => {
-        pageParams = {
+            article: {},
+            numberOfComponents: 2,
+            latestNews: [],
             breadcrumbs: [
                 {
                     link: '/',
@@ -66,18 +28,72 @@ class News extends Component {
                     name: 'Новости'
                 }
             ],
-        };
+        }
+    }
+
+    loadingNewsBySystemName = ($systemName) => {
+        fetch(`${config.server}/news/search/findBySystemName?systemName=${$systemName}`, {
+            method: 'get'
+        })
+            .then(_ => _.json())
+            .then(news => {
+                let article = news['_embedded']['news'][0];
+                let breadcrumbs = this.state.breadcrumbs;
+                breadcrumbs.push({
+                    link: '/news/' + article.systemName,
+                    name: article.systemName
+                });
+                this.setState({
+                    breadcrumbs: breadcrumbs
+                });
+                this.loadingTags(article);
+            });
+    };
+
+    loadingTags = (article) => {
+        fetch(`${article._links.tags.href}`, {
+            method: 'get'
+        })
+            .then(_ => _.json())
+            .then(_ => {
+                article.tags = _['_embedded']['tags'];
+                this.setState({
+                    article: article
+                });
+                this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+            });
+    };
+
+    loadingLatestNews = () => {
+        fetch(`${config.server}/news`, {
+            method: 'get'
+        })
+            .then(_ => _.json())
+            .then(latestNews => {
+                this.setState({
+                    latestNews: latestNews['_embedded']['news']
+                });
+                this.props.updateLoadedStatus(true, this.state.numberOfComponents);
+            });
+    };
+
+    componentDidMount = () => {
+        this.loadingNewsBySystemName(this.props.params.systemName);
+        this.loadingLatestNews();
+    };
+
+    componentWillUnmount = () => {
+        this.props.setLoader();
     };
 
     render() {
         if (this.props.isLoaded()) {
-            console.log(this.state.article)
             return (
                 <div className="News clearfix">
-                    <Breadcrumbs breadcrumbs={pageParams.breadcrumbs} />
+                    <Breadcrumbs breadcrumbs={this.state.breadcrumbs}/>
                     <TwoColumns layout={{
-                        general: <Article article={this.state.article} />,
-                        sub: <LatestNews />
+                        general: <Article article={this.state.article}/>,
+                        sub: <LatestNews latestNews={this.state.latestNews}/>
                     }}/>
                 </div>
             );
