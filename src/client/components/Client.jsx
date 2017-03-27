@@ -159,12 +159,20 @@ class Client extends Component {
 
     updateCurrentLang(currentLang) {
         let state = this.state;
+        let i = 0;
+        let langIndex = 0;
         for (let key in state.currentLang) {
-            state.currentLang[key] = key == currentLang ? true : false;
+            state.currentLang[key] = key == currentLang;
+            if (state.currentLang[key]) {
+                langIndex = i;
+            }
+            i++;
         }
         this.setState(state);
 
         let loadLang = require(`../stores/${currentLang}.lang.json`);
+        loadLang.currentLangIndex = langIndex;
+        loadLang.currentLang = currentLang;
         this.props.onInitLang(loadLang)
     }
 
@@ -189,7 +197,8 @@ class Client extends Component {
                 pageParams: pageParams,
                 updateLoadedStatus: this.updateLoadedStatus,
                 isLoaded: this.isLoaded,
-                setLoader: this.setLoader
+                setLoader: this.setLoader,
+                finalizeContent: this.finalizeContent
             })
         );
 

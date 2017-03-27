@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import ArticleHeader from '../../ArticleComponents/HeaderComponent/Header';
 import config from '../../../../core/config/general.config';
+import devideProperties from '../../../../core/scripts/devidePropertiesByLanguage';
 
 require('./News.scss');
 
@@ -20,15 +21,15 @@ class News extends Component {
     }
 
     componentDidMount = () => {
-
         fetch(`${config.server}/news`, {
             method: 'get',
         })
             .then(_ => _.json())
             .then(_ => {
-                this.props.updateLoadedStatus(true, 2);
+                this.props.updateLoadedStatus(true, 1);
+                let news = devideProperties(_['_embedded']['news']);
                 this.setState({
-                    news: _['_embedded']['news']
+                    news: news
                 });
             });
     };
@@ -44,23 +45,25 @@ class News extends Component {
                         <div className="newsList__content">
                             <div className="newsList__list">
                                 {this.state.news.map((item, index) =>
-                                    <div className="news" key={index}>
-                                        <div className="news__header">
-                                            <ArticleHeader item={item}/>
-                                        </div>
-                                        <div className="news__main">
-                                            <Link to={`news/${item.systemName}`} className="news__image-link">
-                                                <img className="news__image" src={img}/>
-                                            </Link>
-                                            <div className="news__short-content">
-                                                {item.descriptionRU}
+                                    item.status[this.props.lang.currentLangIndex] ?
+                                        <div className="news" key={index}>
+                                            <div className="news__header">
+                                                <ArticleHeader item={item}/>
+                                            </div>
+                                            <div className="news__main">
+                                                <Link to={`news/${item.systemName}`} className="news__image-link">
+                                                    <img className="news__image" src={img}/>
+                                                </Link>
+                                                <div className="news__short-content">
+                                                    {item.description[this.props.lang.currentLangIndex]}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        : <div key={index}></div>
                                 )}
                             </div>
                             <div className="newsList__actions actions">
-                                <Link className="actions__moreBtn"  to={`news`}>больше новостей</Link>
+                                <Link className="actions__moreBtn" to={`news`}>больше новостей</Link>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 import ArticleHeader from '../../ArticleComponents/HeaderComponent/Header';
 
@@ -22,25 +23,30 @@ class Article extends Component {
                         </a>
                     </div>
                     <div className="article__content">
-                        {this.props.article.contentRU}
+                        {this.props.article.content[this.props.lang.currentLangIndex]}
                     </div>
                 </div>
 
                 <div className="article__footer">
-                    <div className="article__tags">
-                        <div className="article__taggedUnder">Теги:</div>
-                        <ul className="article__tagsList clearfix">
-                            {this.props.article.tags.map((item, index) =>
-                                <li className="article__tagsListItem" key={index}>
-                                    <a className="article__tagsLink" href="#">{item.name}</a>
-                                </li>
-                            )}
-                        </ul>
-                    </div>
+                    {/*<div className="article__tags">*/}
+                        {/*<div className="article__taggedUnder">Теги:</div>*/}
+                        {/*<ul className="article__tagsList clearfix">*/}
+                            {/*{this.props.article.tags.map((item, index) =>*/}
+                                {/*<li className="article__tagsListItem" key={index}>*/}
+                                       {/*<a className="article__tagsLink" href="#">{item.name}</a>*/}
+                                {/*</li>*/}
+                            {/*)}*/}
+                        {/*</ul>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         );
     }
 }
 
-export default Article;
+export default connect(
+    state => ({
+        lang: state.lang
+    })
+)(Article);
+

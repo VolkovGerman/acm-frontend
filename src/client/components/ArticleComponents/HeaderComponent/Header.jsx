@@ -6,6 +6,10 @@ import dateformat from 'dateformat';
 require('./Header.scss');
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="Header header">
@@ -13,7 +17,8 @@ class Header extends Component {
                     <div className="date__day">{dateformat(this.props.item.createdAt, "d")}</div>
                     <div className="date__month">{dateformat(this.props.item.createdAt, "mmm yyyy")}</div>
                 </div>
-                <Link className="header__title" to={`news/${this.props.item.systemName}`}>{this.props.item.titleRU}</Link>
+                <Link className="header__title"
+                      to={`news/${this.props.item.systemName}`}>{this.props.item.title[this.props.lang.currentLangIndex]}</Link>
                 <div className="news__info info">
                     <div className="info__item">
                         <div className="info__image info__image_views"/>
@@ -21,17 +26,17 @@ class Header extends Component {
                     </div>
                     <div className="info__item">
                         <div className="info__image info__image_langs"/>
-                        <div className="info__value">рус</div>
+                        <div className="info__value">{this.props.lang.currentLang}</div>
                     </div>
                 </div>
                 {/*<div className="header__author author">
-                    <span className="author__written">{this.props.lang.author}:</span>
-                    <ul className="author__authors authors<">
-                        <li className="authors__item">
-                            <Link className="authors__link" to="#">Георгий Жуков</Link>
-                        </li>
-                    </ul>
-                </div>*/}
+                 <span className="author__written">{this.props.lang.author}:</span>
+                 <ul className="author__authors authors<">
+                 <li className="authors__item">
+                 <Link className="authors__link" to="#">Георгий Жуков</Link>
+                 </li>
+                 </ul>
+                 </div>*/}
             </div>
         );
     }

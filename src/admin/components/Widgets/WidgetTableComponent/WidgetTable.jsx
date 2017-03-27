@@ -24,6 +24,23 @@ class WidgetTable extends Component {
                 }
             ]
         };
+
+        this.checked = [];
+        this.checkRow = this.checkRow.bind(this);
+        this.deleteRows = this.deleteRows.bind(this);
+    }
+
+    checkRow(id) {
+        let index = this.checked.indexOf(id);
+        if (index === -1) {
+            this.checked.push(id);
+        } else {
+            this.checked.splice(index, 1);
+        }
+    }
+
+    deleteRows() {
+        console.log(this.checked);
     }
 
     render() {
@@ -49,7 +66,7 @@ class WidgetTable extends Component {
 
                     <div className="bar__buttons">
                         <Link className="bar__buttonsLink" to="/">Редактировать</Link>
-                        <Link className="bar__buttonsLink" to="/">Удалить</Link>
+                        <Link className="bar__buttonsLink" to="/" onClick={this.deleteRows}>Удалить</Link>
                     </div>
                 </div>
                 <table className="widgetTable">
@@ -57,7 +74,6 @@ class WidgetTable extends Component {
                     <tr className="widgetTable__head">
                         <th className="checkbox">
                             <div className="widgetTable__checkbox">
-                                <WidgetCheckBox />
                             </div>
                         </th>
                         <th>#</th>
@@ -68,11 +84,12 @@ class WidgetTable extends Component {
                     </tr>
                     </thead>
                     <tbody>
+                    {console.log(this.props.table)}
                     {this.props.table.data.map((data, dataIndex) =>
                         <tr className={dataIndex % 2 ? 'ood' : 'even'} key={dataIndex}>
                             <td className="checkbox">
                                 <div className="widgetTable__checkbox">
-                                    <WidgetCheckBox />
+                                    <WidgetCheckBox checkRow={this.checkRow} id={data.id} />
                                 </div>
                             </td>
                             <td className="number">{dataIndex + 1}</td>

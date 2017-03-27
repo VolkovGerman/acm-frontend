@@ -11,15 +11,11 @@ class Home extends Component {
         this.props.setLoader();
     };
 
-    componentWillMount = () => {
-        this.props.updateLoadedStatus(true, 2);
-    };
-
     render() {
         return (
             <div className="Home">
-                <Events events={this.props.pageParams.items.events}/>
-                <News isLoaded={this.props.isLoaded} updateLoadedStatus={this.props.updateLoadedStatus} />
+                <Events updateLoadedStatus={this.props.updateLoadedStatus} events={this.props.pageParams.items.events}/>
+                <News isLoaded={this.props.isLoaded} updateLoadedStatus={this.props.updateLoadedStatus} finalizeContent={this.props.finalizeContent} />
             </div>
         );
     }
