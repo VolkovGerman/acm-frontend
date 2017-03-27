@@ -17,15 +17,17 @@ class LatestNews extends Component {
                 <div className="latestNews__content">
                     <div className="newsList">
                         {this.props.latestNews.map((item, index) =>
-                            <div className="newsList__item newsItem" key={index}>
-                                <div className="newsItem__title">
-                                    <Link className="newsItem__link"
-                                          to={`/news/${item.systemName}`}>{item.title[this.props.lang.currentLangIndex]}</Link>
+                            item.status[this.props.lang.currentLangIndex] ?
+                                <div className="newsList__item newsItem" key={index}>
+                                    <div className="newsItem__title">
+                                        <Link className="newsItem__link"
+                                              to={`/news/${item.systemName}`}>{item.title[this.props.lang.currentLangIndex]}</Link>
+                                    </div>
+                                    <div className="newsItem__date">{dateformat(item.date, "mmmm d, HH:MM")}</div>
+                                    <div className="newsItem__description"
+                                         dangerouslySetInnerHTML={{__html: item.description[this.props.lang.currentLangIndex]}}></div>
                                 </div>
-                                <div className="newsItem__date">{dateformat(item.date, "mmmm d, HH:MM")}</div>
-                                <div className="newsItem__description"
-                                     dangerouslySetInnerHTML={{__html: item.description[this.props.lang.currentLangIndex]}}></div>
-                            </div>
+                                : <div key={index}></div>
                         )}
                     </div>
                     <Link className="latestNews__link" to="/news">Все новости</Link>
