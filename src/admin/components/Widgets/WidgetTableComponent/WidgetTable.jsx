@@ -47,10 +47,11 @@ class WidgetTable extends Component {
                         </div>
                     </div>
 
-                    <div className="bar__buttons">
-                        <Link className="bar__buttonsLink" to="/">Редактировать</Link>
-                        <Link className="bar__buttonsLink" to="/">Удалить</Link>
-                    </div>
+                    {/*<div className="bar__buttons">*/}
+                        {/*{this.props.table.actions.map((item, index) =>*/}
+                            {/*<Link className="bar__buttonsLink" to={item.link} key={index}>{item.name}</Link>*/}
+                        {/*)}*/}
+                    {/*</div>*/}
                 </div>
                 <table className="widgetTable">
                     <thead>

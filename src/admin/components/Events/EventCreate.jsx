@@ -44,9 +44,11 @@ class EventCreate extends React.Component {
                 titleRU: formItems.titleRU,
                 descriptionRU: formItems.descriptionRU,
                 placeRU: formItems.placeRU,
+                statusRU: formItems.statusRU ? 1 : 0,
                 titleEN: formItems.titleEN,
                 descriptionEN: formItems.descriptionEN,
                 placeEN: formItems.placeEN,
+                statusEN: formItems.statusEN ? 1 : 0,
                 date: formItems.date
             })
         })
@@ -112,7 +114,7 @@ class EventCreate extends React.Component {
                                         <WidgetInput name="placeEN" value={this.state.currentItem.placeEN}/>
                                     </WidgetRow>
                                     <WidgetRow title="Публиковать" name="statusEN">
-                                        <WidgetSwitch name="statusEN" value={this.state.currentItem.statusRU}/>
+                                        <WidgetSwitch name="statusEN" value={this.state.currentItem.statusEN}/>
                                     </WidgetRow>
                                 </Tab>
                             </TabsLayout>
