@@ -17,7 +17,7 @@ import NotFound404 from '../client/components/NotFound404Page/NotFound404';
 export const routes = (
     <div>
         <Route path='/' component={Admin} onEnter={Admin.onEnter}>
-            <IndexRoute component={Main}/>
+            <IndexRoute component={NewsList}/>
             <Route path='/news' component={NewsList} />
             <Route path='/news/create' component={NewsCreate} />
             <Route path='/news/update' component={NewsCreate} />

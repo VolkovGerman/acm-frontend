@@ -8,7 +8,7 @@ class WidgetPagination extends Component {
         return (
             <div className="WidgetPagination clearfix">
                 <div className="WidgetPagination__info">
-                    Показаны 1-10 из 57 записей
+                    Показаны 1-{this.props.data.length} из {this.props.data.length} записей
                 </div>
 
                 <div className="WidgetPagination__pagination">
@@ -17,13 +17,7 @@ class WidgetPagination extends Component {
                             <Link className="WidgetPagination__listLink" to="/">Previous</Link>
                         </li>
                         <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">1</Link>
-                        </li>
-                        <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">2</Link>
-                        </li>
-                        <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink active" to="/">3</Link>
+                            <Link className="WidgetPagination__listLink active" to="/">1</Link>
                         </li>
                         <li className="WidgetPagination__listItem">
                             <Link className="WidgetPagination__listLink" to="/">Next</Link>

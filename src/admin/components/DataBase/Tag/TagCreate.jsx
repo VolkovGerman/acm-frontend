@@ -49,7 +49,7 @@ class TagsCreate extends React.Component {
     };
 
     componentDidMount = () => {
-        this.props.updateBlockTitle('Добавление тегов');
+        this.props.updateBlockTitle(this.state.currentId ? 'Изменение тега' : 'Добавление тега');
         this.props.updateLoadedStatus(true, this.state.numberOfComponents);
         if (this.state.currentId) {
             fetch(`${config.server}/tags/${this.state.currentId}`, {

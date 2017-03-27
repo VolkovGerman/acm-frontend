@@ -105,7 +105,7 @@ class WidgetTable extends Component {
                     </tbody>
                 </table>
                 <div className="pagination">
-                    <WidgetPagination />
+                    <WidgetPagination data={this.props.table.data}/>
                 </div>
             </div>
         )

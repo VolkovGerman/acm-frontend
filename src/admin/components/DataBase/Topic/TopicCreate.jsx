@@ -49,7 +49,7 @@ class TopicCreate extends React.Component {
     };
 
     componentDidMount = () => {
-        this.props.updateBlockTitle('Добавление тематики новостей');
+        this.props.updateBlockTitle(this.state.currentId ? 'Изменение темы новости' : 'Добавление темы новости');
         this.props.updateLoadedStatus(true, this.state.numberOfComponents);
         if (this.state.currentId) {
             fetch(`${config.server}/topics/${this.state.currentId}`, {

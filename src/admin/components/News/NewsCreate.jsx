@@ -80,7 +80,7 @@ class NewsCreate extends Component {
     }
 
     componentDidMount() {
-        this.props.updateBlockTitle('Добавление новости');
+        this.props.updateBlockTitle(this.state.currentId ? 'Изменение новости' : 'Добавление новости');
         fetch(`${config.server}/tags`, {
             method: 'get',
         })

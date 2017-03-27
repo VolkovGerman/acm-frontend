@@ -5,6 +5,8 @@ import WidgetTable from '../Widgets/WidgetTableComponent/WidgetTable';
 
 import config from '../../../core/config/general.config';
 
+const PUBLISH_STATUS = 1;
+
 class EventList extends React.Component {
     constructor(props) {
         super(props);
@@ -27,6 +29,7 @@ class EventList extends React.Component {
                         fields: [
                             'Название',
                             'Место проведения',
+                            'Публикация',
                             'Добавление',
                         ],
                         data: _['_embedded']['events'].map(_ => {
@@ -40,6 +43,7 @@ class EventList extends React.Component {
                                     cells: [
                                         _.titleRU,
                                         _.placeRU,
+                                        this.convertStatusToCountryFlag(_.statusRU, _.statusEN),
                                         createdAt
                                     ]
                                 }
@@ -50,6 +54,19 @@ class EventList extends React.Component {
                 });
                 this.props.updateLoadedStatus(true, 1);
             });
+    };
+
+    convertStatusToCountryFlag = (statusRU, statusEN) => {
+        return (
+            <div className="flagged">
+                {statusRU == PUBLISH_STATUS &&
+                <div className="flagged__item ru"></div>
+                }
+                {statusEN == PUBLISH_STATUS &&
+                <div className="flagged__item en"></div>
+                }
+            </div>
+        )
     };
 
     componentWillUnmount = () => {

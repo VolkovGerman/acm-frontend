@@ -59,7 +59,7 @@ class EventCreate extends React.Component {
     }
 
     componentDidMount = () => {
-        this.props.updateBlockTitle('Добавить событие');
+        this.props.updateBlockTitle(this.state.currentId ? 'Изменение события' : 'Добавление события');
         this.props.updateLoadedStatus(true, this.state.numberOfComponents);
         if (this.state.currentId) {
             fetch(`${config.server}/events/${this.state.currentId}`, {
