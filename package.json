@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
-    "start-server": "node ./server/bin/www",
+    "server": "node ./server/bin/www",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
   },
@@ -18,7 +18,6 @@
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
-    "basic-auth-connect": "^1.0.0",
     "body-parser": "~1.16.0",
     "bourbon": "^4.3.2",
     "input-moment": "^0.3.2",
