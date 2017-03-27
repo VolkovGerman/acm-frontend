@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
+
+import dateformat from 'dateformat';
 
 require('./LatestNews.scss');
 
@@ -17,11 +20,11 @@ class LatestNews extends Component {
                             <div className="newsList__item newsItem" key={index}>
                                 <div className="newsItem__title">
                                     <Link className="newsItem__link"
-                                          to={`/news/${item.systemName}`}>{item.titleRU}</Link>
+                                          to={`/news/${item.systemName}`}>{item.title[this.props.lang.currentLangIndex]}</Link>
                                 </div>
-                                <div className="newsItem__date">Mon, 02 Jun 2014</div>
+                                <div className="newsItem__date">{dateformat(item.date, "mmmm d, HH:MM")}</div>
                                 <div className="newsItem__description"
-                                     dangerouslySetInnerHTML={{__html: item.descriptionRU}}></div>
+                                     dangerouslySetInnerHTML={{__html: item.description[this.props.lang.currentLangIndex]}}></div>
                             </div>
                         )}
                     </div>
@@ -33,4 +36,8 @@ class LatestNews extends Component {
     }
 }
 
-export default LatestNews;
+export default connect(
+    state => ({
+        lang: state.lang
+    })
+)(LatestNews);

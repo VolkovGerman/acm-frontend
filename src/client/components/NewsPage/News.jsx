@@ -81,8 +81,9 @@ class News extends Component {
         })
             .then(_ => _.json())
             .then(latestNews => {
+                let lNews = devideProperties(latestNews['_embedded']['news']);
                 this.setState({
-                    latestNews: latestNews['_embedded']['news']
+                    latestNews: lNews
                 });
                 this.props.updateLoadedStatus(true, numberOfComponents);
             });
