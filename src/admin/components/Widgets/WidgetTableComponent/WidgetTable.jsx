@@ -46,6 +46,7 @@ class WidgetTable extends Component {
     render() {
         return (
             <div className="WidgetTable">
+                {console.log(this.props.table)}
                 <div className="bar clearfix">
                     <div className="bar__amount">
                         Показать
@@ -90,7 +91,7 @@ class WidgetTable extends Component {
                         <tr className={dataIndex % 2 ? 'ood' : 'even'} key={dataIndex}>
                             <td className="checkbox">
                                 <div className="widgetTable__checkbox">
-                                    <WidgetCheckBox />
+                                    <WidgetCheckBox checkRow={this.checkRow} id={data.id} />
                                 </div>
                             </td>
                             <td className="number">{dataIndex + 1}</td>
