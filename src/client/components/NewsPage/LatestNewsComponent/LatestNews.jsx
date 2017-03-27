@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {hashHistory} from 'react-router';
 
 require('./LatestNews.scss');
 
@@ -18,7 +17,7 @@ class LatestNews extends Component {
                             <div className="newsList__item newsItem" key={index}>
                                 <div className="newsItem__title">
                                     <Link className="newsItem__link"
-                                          to={`news/${item.systemName}`}>{item.titleRU}</Link>
+                                          to={`/news/${item.systemName}`}>{item.titleRU}</Link>
                                 </div>
                                 <div className="newsItem__date">Mon, 02 Jun 2014</div>
                                 <div className="newsItem__description"

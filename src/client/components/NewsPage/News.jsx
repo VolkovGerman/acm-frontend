@@ -5,7 +5,6 @@ import LatestNews from './LatestNewsComponent/LatestNews';
 import TwoColumns from '../LayoutsComponents/TwoColumnsComponent/TwoColumns';
 import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 import config from '../../../core/config/general.config';
-import {hashHistory} from 'react-router';
 
 require('./News.scss');
 
@@ -84,6 +83,12 @@ class News extends Component {
 
     componentWillUnmount = () => {
         this.props.setLoader();
+    };
+
+    componentWillUpdate = (nextProps, nextState) => {
+        if(this.props.params.systemName != nextProps.params.systemName) {
+            this.props.setLoader();
+        }
     };
 
     render() {
