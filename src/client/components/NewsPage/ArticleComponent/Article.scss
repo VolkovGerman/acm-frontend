@@ -12,6 +12,10 @@
             margin: 25px 0;
         }
 
+        &__imageBlock {
+            margin-bottom: 20px;
+        }
+
         &__imageLink {
             overflow: hidden;
             display: block;
@@ -28,8 +32,7 @@
         }
 
         &__content {
-            margin-top: 25px;
-            line-height: 26px;
+            line-height: 1.6;
             text-align: justify;
         }
 

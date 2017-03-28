@@ -7,11 +7,11 @@ class TwoColumns extends Component {
         return (
             <div className="TwoColumns">
                 <div className="content clearfix">
-                    <div className="subWrap">
-                        {this.props.layout.sub}
-                    </div>
                     <div className="generalWrap">
                         {this.props.layout.general}
+                    </div>
+                    <div className="subWrap">
+                        {this.props.layout.sub}
                     </div>
                 </div>
             </div>

@@ -5,19 +5,18 @@
     .newsList {
 
         &__title {
+            display: block;
             margin-bottom: 20px;
 
             font-family: Roboto;
             font-size: $font_size_xl;
 
-            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         &__list {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
 
     }
@@ -39,26 +38,49 @@
     }
 
     .news {
-        width: 47.5%;
-
         margin-bottom: 30px;
 
-        &__header {
-            min-height: 66px;
+        &__left {
+            float: left;
+            width: 30%;
 
-            @include respond-to(xs) {
-                min-height: 0;
+            @include respond-to(md) {
+                float: none;
+                width: 0;
+                display: none;
+                visibility: hidden;
             }
         }
 
+        &__right {
+            margin-left: 30%;
+            padding-left: 30px;
+
+            @include respond-to(md) {
+                margin-left: 0;
+                padding-left: 0;
+            }
+        }
+
+        &__header-title {
+            display: block;
+            margin-bottom: 10px;
+            font-family: Roboto;
+            font-size: $font_size_l;
+            color: $mainBlueDark;
+        }
+
+        &__header-date {
+            margin-bottom: 10px;
+        }
+
         &__main {
-            margin: 20px 0;
         }
 
         &__image-link {
-            overflow: hidden;
             display: block;
-            max-height: 350px !important;
+            font-size: 0;
+            overflow: hidden;
         }
 
         &__image {
@@ -71,22 +93,14 @@
         }
 
         &__short-content {
-            margin-top: 20px;
-
             font-size: $font_size_m;
-            line-height: 25px;
+            line-height: 1.4;
             text-align: justify;
-        }
 
-        .buttons {
-            
-            &__button {
-                font-family: Roboto;
-
-                &:hover {
-                    background-color: #000;
-                }
+            p {
+                margin: 0;
             }
         }
+
     }
 }
