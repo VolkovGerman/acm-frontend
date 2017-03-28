@@ -1,4 +1,5 @@
 // import ReactCoreImageUpload  from 'react-core-image-upload';
+import React, {Component} from 'react';
 
 class WidgetImageEditor extends Component {
 

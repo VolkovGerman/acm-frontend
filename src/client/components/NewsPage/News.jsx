@@ -53,9 +53,6 @@ class News extends Component {
                     link: '/news/' + article.systemName,
                     name: article.systemName
                 });
-                this.setState({
-                    breadcrumbs: breadcrumbs
-                });
                 this.loadingTags(article, numberOfComponents);
             });
     };
