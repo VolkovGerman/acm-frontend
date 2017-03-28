@@ -5,6 +5,7 @@ import WidgetInput from '../WidgetInputComponent/WidgetInput';
 import WidgetCheckBox from '../WidgetCheckBoxComponent/WidgetCheckBox';
 import WidgetPagination from '../WidgetPaginationComponent/WidgetPagination';
 import WidgetSelect from '../WidgetSelectComponent/WidgetSelect';
+import AdminApiService from '../../../services/AdminApiService';
 
 require('./WidgetTable.scss');
 
@@ -22,12 +23,13 @@ class WidgetTable extends Component {
                     value: 15,
                     name: '15'
                 }
-            ]
+            ],
+            table: this.props.table
         };
 
         this.checked = [];
         this.checkRow = this.checkRow.bind(this);
-        this.deleteRows = this.deleteRows.bind(this);
+        this.deleteRowsByIds = this.deleteRowsByIds.bind(this);
     }
 
     checkRow(id) {
@@ -39,14 +41,22 @@ class WidgetTable extends Component {
         }
     }
 
-    deleteRows() {
-        console.log(this.checked);
+    deleteRowsByIds() {
+        let checkedIds = this.checked;
+        let state = this.state;
+        AdminApiService.deleteRowsByIds(this.props.actions.delete, checkedIds)
+            .then(_ => _.json())
+            .then(_ => {
+                state.table.data = this.state.table.data.filter(function(dataItem) {
+                    return checkedIds.indexOf(dataItem.id) === -1;
+                });
+                this.setState(state);
+            });
     }
 
     render() {
         return (
             <div className="WidgetTable">
-                {console.log(this.props.table)}
                 <div className="bar clearfix">
                     <div className="bar__amount">
                         Показать
@@ -65,6 +75,12 @@ class WidgetTable extends Component {
                         </div>
                     </div>
 
+                    {this.props.actions.delete ?
+                        <div className="bar__buttons">
+                            <Link className="bar__buttonsLink" onClick={this.deleteRowsByIds}>Удалить</Link>
+                        </div>
+                        : <div></div>
+                    }
                     {/*<div className="bar__buttons">*/}
                         {/*{this.props.table.actions.map((item, index) =>*/}
                             {/*<Link className="bar__buttonsLink" to={item.link} key={index}>{item.name}</Link>*/}
@@ -76,18 +92,18 @@ class WidgetTable extends Component {
                     <tr className="widgetTable__head">
                         <th className="checkbox">
                             <div className="widgetTable__checkbox">
-                                <WidgetCheckBox />
+                                {/*<WidgetCheckBox />*/}
                             </div>
                         </th>
                         <th>#</th>
-                        {this.props.table.fields.map((item, index) =>
+                        {this.state.table.fields.map((item, index) =>
                             <th key={index}>{item}</th>
                         )}
                         <th>Действия</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {this.props.table.data.map((data, dataIndex) =>
+                    {this.state.table.data.map((data, dataIndex) =>
                         <tr className={dataIndex % 2 ? 'ood' : 'even'} key={dataIndex}>
                             <td className="checkbox">
                                 <div className="widgetTable__checkbox">
@@ -106,7 +122,7 @@ class WidgetTable extends Component {
                     </tbody>
                 </table>
                 <div className="pagination">
-                    <WidgetPagination data={this.props.table.data}/>
+                    <WidgetPagination data={this.state.table.data}/>
                 </div>
             </div>
         )

@@ -19,7 +19,10 @@ class NewsList extends Component {
                     type: 'link',
                     style: 'green'
                 }
-            ]
+            ],
+            actions: {
+                delete: config.server + '/news/delete'
+            }
         }
     }
 
@@ -84,7 +87,7 @@ class NewsList extends Component {
             return (
                 <div className="News">
                     <Block title="Список новостей" showButtons buttons={this.state.buttons}>
-                        <WidgetTable table={this.state.table}/>
+                        <WidgetTable table={this.state.table} actions={this.state.actions} />
                     </Block>
                 </div>
             )

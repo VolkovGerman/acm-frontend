@@ -2,7 +2,6 @@ import React from 'react';
 
 import Block from '../Layouts/BlockComponent/Block';
 import WidgetTable from '../Widgets/WidgetTableComponent/WidgetTable';
-
 import config from '../../../core/config/general.config';
 
 const PUBLISH_STATUS = 1;
@@ -20,7 +19,10 @@ class EventList extends React.Component {
                     type: 'link',
                     style: 'green'
                 }
-            ]
+            ],
+            actions: {
+                delete: config.server + '/events/delete'
+            }
         };
     }
 
@@ -86,7 +88,7 @@ class EventList extends React.Component {
             return (
                 <div className="Champs">
                     <Block title="Список событий" showButtons buttons={this.state.buttons}>
-                        <WidgetTable table={this.state.table}/>
+                        <WidgetTable table={this.state.table} actions={this.state.actions} />
                     </Block>
                 </div>
             )

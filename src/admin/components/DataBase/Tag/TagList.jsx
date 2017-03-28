@@ -11,18 +11,19 @@ class TagList extends React.Component {
         this.state = {
             table: {},
             buttons: [
-                {
-                    action: this.test,
-                    name: 'Удалить',
-                    type: 'callback'
-                },
+                // {
+                //     action: this.test,
+                //     name: 'Удалить',
+                //     type: 'callback'
+                // },
                 {
                     action: 'db/tags/create',
                     name: 'Добавить',
                     type: 'link',
                     style: 'green'
                 }
-            ]
+            ],
+            actions: {}
         }
     }
 
@@ -77,7 +78,7 @@ class TagList extends React.Component {
             return (
                 <div className="News">
                     <Block title="Список тегов" showButtons buttons={this.state.buttons}>
-                        <WidgetTable table={this.state.table}/>
+                        <WidgetTable table={this.state.table} actions={this.state.actions} />
                     </Block>
                 </div>
             )

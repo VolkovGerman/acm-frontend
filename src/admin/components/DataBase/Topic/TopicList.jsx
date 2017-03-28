@@ -20,21 +20,11 @@ class TopicList extends React.Component {
                     type: 'link',
                     style: 'green'
                 }
-            ]
+            ],
+            actions: {
+                delete: config.server + '/topics/delete'
+            }
         }
-    }
-
-    handleDelete(e) {
-        let topics_id = 3;
-        fetch(`${config.server}/topics/${topics_id}`, {
-            method: 'delete',
-        })
-            .then(_ => _.json())
-            .then(data => {
-                console.log(data);
-            });
-
-        // e.preventDefault();
     }
 
     componentDidMount() {
@@ -84,7 +74,7 @@ class TopicList extends React.Component {
             return (
                 <div className="News">
                     <Block title="Список тем новостей" showButtons buttons={this.state.buttons}>
-                        <WidgetTable table={this.state.table} handleDelete={this.handleDelete}/>
+                        <WidgetTable table={this.state.table} actions={this.state.actions} />
                     </Block>
                 </div>
             )
