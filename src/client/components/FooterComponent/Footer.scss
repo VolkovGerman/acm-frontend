@@ -2,9 +2,9 @@
 @import '../../../core/styles/mixins';
 
 .Footer {
-    padding-bottom: 75px;
+    padding-bottom: 55px;
     
-    @include respond-to(xs) {
+    @include respond-to(md) {
         padding-bottom: 0;
     }
 
@@ -17,6 +17,10 @@
         border-bottom: 1px solid #f1f1f1;
 
         background: #fff;
+
+        @include respond-to(md) {
+            border: none;
+        }
 
         @include respond-to(xs) {
             padding: 15px;

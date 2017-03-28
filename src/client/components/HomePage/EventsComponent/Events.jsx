@@ -37,7 +37,7 @@ class Events extends Component {
             <div className="Events">
                 <div className="events">
                     <header className="events__header">
-                        <div className="events__title">{this.props.lang.events}</div>
+                        <Link className="events__title" to={'events'}>{this.props.lang.events}</Link>
                     </header>
                     <div className="events__content">
                         <div className="events__list">
@@ -53,7 +53,7 @@ class Events extends Component {
                             )}
                         </div>
                         <div className="events__actions actions">
-                            <Link className="actions__moreBtn"  to={`events`}>больше событий</Link>
+                            <Link className="actions__moreBtn"  to={`events`}>{this.props.lang.more_events}</Link>
                         </div>
                     </div>
                 </div>

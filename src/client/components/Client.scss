@@ -4,10 +4,15 @@
 .Client {
     .containerWrap {
         margin-top: -350px;
+
+        @include respond-to(md) {
+            margin-top: 0;
+        }
     }
 
     .content {
         &__header {
+            margin-top: 20px;
             margin-bottom: 30px;
             vertical-align: bottom;
         }
@@ -20,10 +25,14 @@
             display: inline-block;
             margin-right: 15px;
             padding: 5px 10px;
-            @include respond-to(xs) {
+            
+            @include respond-to(md) {
                 display: block;
+                margin-bottom: 10px;
+                background-color: transparent;
+
                 text-align: center;
-                margin: 0 15px;
+                color: $textColor;
             }
         }
 
@@ -31,10 +40,9 @@
             display: inline-block;
             vertical-align: bottom;
 
-            @include respond-to(xs) {
-                margin-top: 5px;
-                text-align: center;
+            @include respond-to(md) {
                 display: block;
+                text-align: center;
             }
         
             .lang {
@@ -59,7 +67,7 @@
         }
 
         &__main {
-            padding: 50px;
+            padding: 25px 40px 30px;
 
             border-top: 1px solid #f1f1f1;
             border-left: 1px solid #f1f1f1;
@@ -68,8 +76,9 @@
             background-color: #fff;
             min-height: 250px;
 
-            @media screen and (max-width: $sm) {
-                padding: 25px 20px 20px;
+            @include respond-to(md) {
+                padding: 25px 20px;
+                border: none;
             }
         }
 

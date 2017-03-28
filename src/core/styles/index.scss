@@ -6,6 +6,7 @@
 body {
     font-family: RobotoLight, sans-serif;
     font-size: 14px;
+    min-width: 320px;
 }
 
 a {
@@ -48,19 +49,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
     margin: 0 auto;
-    padding: 0 15px;
-    @include respond-to(xs) {
+    padding: 0 25px;
+    
+    max-width: 980px;
+    
+    @include respond-to(md) {
         width: 100%;
         padding: 0;
-    }
-    @include respond-to(sm) {
-        width: 750px;
-    }
-    @include respond-to(md) {
-        width: 970px;
-    }
-    @include respond-to(lg) {
-        width: 1170px;
     }
 }
 

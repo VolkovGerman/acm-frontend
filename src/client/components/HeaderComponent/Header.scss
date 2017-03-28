@@ -10,8 +10,14 @@
         height: 600px;
         padding: 50px 0;
 
-        @include respond-to(xs) {
-            height: 459px;
+        @include respond-to(md) {
+            padding: 20px 40px;
+
+            height: auto;
+
+            background: none;
+            background-size: auto;
+            background-color: $mainBlueDark;
         }
     }
 
@@ -51,37 +57,37 @@
         }
     }
 
-    .headerMobile {
-        display: none;
-        position: fixed;
-        background-color: #000;
-        z-index: 999;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px 15px;
+    // .headerMobile {
+    //     display: none;
+    //     position: fixed;
+    //     background-color: #000;
+    //     z-index: 999;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     padding: 10px 15px;
 
-        @include respond-to(xs) {
-            display: block;
-        }
+    //     @include respond-to(xs) {
+    //         display: block;
+    //     }
 
-        &__logo {
-            display: inline-block;
-            background: url('../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
-            background-position: center;
-            background-size: 45px;
-            width: 45px;
-            height: 25px;
-        }
+    //     &__logo {
+    //         display: inline-block;
+    //         background: url('../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
+    //         background-position: center;
+    //         background-size: 45px;
+    //         width: 45px;
+    //         height: 25px;
+    //     }
 
-        &__menuIco {
-            float: right;
-            display: inline-block;
-            background: url('../../../../static/images/svg/menu_ffffff.svg') no-repeat;
-            background-position: center;
-            background-size: 23px;
-            width: 23px;
-            height: 29px;
-        }
-    }
+    //     &__menuIco {
+    //         float: right;
+    //         display: inline-block;
+    //         background: url('../../../../static/images/svg/menu_ffffff.svg') no-repeat;
+    //         background-position: center;
+    //         background-size: 23px;
+    //         width: 23px;
+    //         height: 29px;
+    //     }
+    // }
 }
