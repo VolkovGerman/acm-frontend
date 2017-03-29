@@ -45,48 +45,48 @@ class EventsPage extends Component {
                     <header className="eventsPage__header">
                         <div className="eventsPage__title">{this.props.lang.all_events}</div>
                     </header>
-                    {this.state.events.map((item, index) =>
-                        <div className="eventsPage__content event clearfix" key={index}>
-                            <div className="event__left eventInfo">
-                                <div className="eventInfo__date">
-                                    <div className="eventInfo__day">
-                                        {dateformat(item.date, "dd")}
+                    <div className="eventsPage__content">
+                        {this.state.events.map((item, index) =>
+                            <div className="event clearfix" key={index}>
+                                <div className="event__left">
+                                    <div className="eventDate">
+                                        <div className="eventDate__day">
+                                            {dateformat(item.date, "dd")}
+                                        </div>
+                                        <div className="eventDate__month-year">
+                                            <div className="eventDate__month">
+                                                {dateformat(item.date, "mmmm")}
+                                            </div>
+                                            <div className="eventDate__year">
+                                                {dateformat(item.date, "yyyy")}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="eventInfo__month-year">
-                                        <span className="eventInfo__month">
-                                            {dateformat(item.date, "mmmm")}
-                                        </span>
-                                        <span className="eventInfo__year">
-                                            {dateformat(item.date, "yyyy")}
-                                        </span>
+                                </div>
+                                <div className="event__right">
+                                    <div className="event__header">
+                                        <div className="event__title">
+                                            {item.title[this.props.lang.currentLangIndex]}
+                                        </div>
+                                    </div>
+                                    <div className="event__content">
+                                        <div className="event__info">
+                                            <div className="event__place">
+                                                <div className="event__place-key">Место</div>
+                                                {item.place[this.props.lang.currentLangIndex]}
+                                            </div>
+                                        </div>
+                                        <div className="event__description">
+                                            {item.description[this.props.lang.currentLangIndex]}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="event__right eventMain">
-                                <div className="eventMain__header">
-                                    <div className="eventMain__status">
-                                        New
-                                    </div>
-                                    <div className="eventMain__title">
-                                        {item.title[this.props.lang.currentLangIndex]}
-                                    </div>
-                                </div>
-                                <div className="eventMain__content">
-                                    <div className="eventMain__info">
-                                        <div className="eventMain__time">
-                                            {dateformat(item.date, "mmmm d, dddd, HH:MM")}
-                                        </div>
-                                        <div className="eventMain__place">
-                                            {item.place[this.props.lang.currentLangIndex]}
-                                        </div>
-                                    </div>
-                                    <div className="eventMain__description">
-                                        {item.description[this.props.lang.currentLangIndex]}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
+                    <div className="eventsPage__actions actions">
+                        <Link className="actions__moreBtn" to={`news`}>{this.props.lang.more_events}</Link>
+                    </div>
                 </div>
             </div>
         )
