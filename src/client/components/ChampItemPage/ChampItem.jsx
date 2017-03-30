@@ -104,7 +104,7 @@ class ChampsItemPage extends Component {
                                 <div className="champSections__itemTitle">
                                     {section.name}
                                 </div>
-                                <div className="champSections__itemList sectionsList clearfix">
+                                <div className="champSections__itemList sectionsList">
                                     {sectionsList[sectionIndex].pages.map((page, pageIndex) =>
                                         <div className="sectionsList__item"  key={pageIndex}>
                                             <Link className="sectionsList__link" to={`/champs/${pageIndex}/${pageIndex}`}>{page.name}</Link>
