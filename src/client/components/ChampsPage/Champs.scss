@@ -1,4 +1,5 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .Champs {
 
@@ -12,26 +13,19 @@
     }
 
     .champsList {
-        margin: 0;
-        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .champItem {
         box-sizing: border-box;
-        display: block;
-        float: left;
+        
         margin-bottom: 25px;        
-        width: 50%;
+        width: 48%;
 
-        &:nth-child(2n) {
-            padding-left: 12px; 
-        }
-
-        &:nth-child(2n + 1) {
-            padding-right: 13px; 
-        }
-
-        @media screen and (max-width: $md) {
+        @include respond-to(sm) {
             float: none;
             width: 100%;
             padding: 0;
@@ -83,6 +77,14 @@
             background-position-x: 50%;
             background-position-y: 20px;
             background-size: 60px;
+
+            @include respond-to(md) {
+                padding: 60px 20px 10px;
+                font-size: $font_size_m;
+
+                background-position-y: 10px;
+                background-size: 40px;
+            }
         }
 
         &__name {
@@ -110,6 +112,10 @@
 
             &--closed {
                 color: $lightRed;
+            }
+
+            @include respond-to(md) {
+                padding: 10px;
             }
         }
     }
