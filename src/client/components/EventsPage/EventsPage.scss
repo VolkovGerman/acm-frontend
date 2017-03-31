@@ -6,15 +6,12 @@
 
         &__title {
             margin-bottom: 20px;
-            padding-bottom: 15px;
 
             font-family: Roboto;
             font-size: $font_size_xl;
 
             letter-spacing: 1px;
             text-transform: uppercase;
-
-            border-bottom: 1px solid $minorColor;
         }
 
         &__content {

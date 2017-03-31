@@ -17,22 +17,41 @@ class News extends Component {
         super(props);
 
         this.state = {
-            news: []
-        }
+            news: [],
+            currentPage: -1,
+            pageSize: 5,
+            isAllNews: false
+        };
+
+        this.handleClickLoadNews = this.handleClickLoadNews.bind(this);
     }
 
     componentDidMount = () => {
-        fetch(`${config.server}/news`, {
+       this.loadNews(this.state.currentPage, this.state.pageSize);
+    };
+
+    loadNews = (currentPage, pageSize) => {
+        console.log(`${config.server}/news?page=${currentPage + 1}&size=${pageSize}`);
+        fetch(`${config.server}/news?page=${currentPage + 1}&size=${pageSize}`, {
             method: 'get',
         })
             .then(_ => _.json())
             .then(_ => {
-                this.props.updateLoadedStatus(true, 1);
+                if(!this.state.news.length) {
+                    this.props.updateLoadedStatus(true, 1);
+                }
                 let news = devideProperties(_['_embedded']['news']);
-                this.setState({
-                    news: news
-                });
+                this.setState(_ => ({
+                    news: _.news.concat(news),
+                    currentPage: currentPage + 1,
+                    isAllNews: !news.length
+                }));
             });
+    };
+
+    handleClickLoadNews = (e) => {
+        this.loadNews(this.state.currentPage, this.state.pageSize);
+        e.preventDefault();
     };
 
     render() {
@@ -71,9 +90,10 @@ class News extends Component {
                                         : <div key={index}></div>
                                 )}
                             </div>
+                            {!this.state.isAllNews &&
                             <div className="newsList__actions actions">
-                                <Link className="actions__moreBtn" to={`news`}>{this.props.lang.more_news}</Link>
-                            </div>
+                                <a className="actions__moreBtn" onClick={this.handleClickLoadNews}>{this.props.lang.more_news}</a>
+                            </div>}
                         </div>
                     </div>
                 </div>

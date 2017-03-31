@@ -26,12 +26,8 @@ class News extends Component {
         this.setState({
             breadcrumbs: [
                 {
-                    link: '/',
-                    name: 'Главная'
-                },
-                {
                     link: '/news',
-                    name: 'Новости'
+                    name: ['Новости', 'News']
                 },
                 {
                     link: breadcrumb.link,
@@ -48,10 +44,9 @@ class News extends Component {
             .then(_ => _.json())
             .then(news => {
                 let article = devideProperties(news['_embedded']['news'][0])[0];
-                let breadcrumbs = this.state.breadcrumbs;
                 this.initBreadCrumbs({
                     link: '/news/' + article.systemName,
-                    name: article.systemName
+                    name: article.title
                 });
                 this.loadingTags(article, numberOfComponents);
             });
@@ -62,18 +57,17 @@ class News extends Component {
             method: 'get'
         })
             .then(_ => _.json())
-            .then(_ => {
-                article.tags = _['_embedded']['tags'];
+            .then(tags => {
+                article.tags = tags['_embedded']['tags'];
                 this.setState({
                     article: article
                 });
-
                 this.props.updateLoadedStatus(true, numberOfComponents);
             });
     };
 
-    loadingLatestNews = (numberOfComponents) => {
-        fetch(`${config.server}/news`, {
+    loadingLatestNews = (numberOfComponents, page, size) => {
+        fetch(`${config.server}/news?page=${page}&size=${size}`, {
             method: 'get'
         })
             .then(_ => _.json())
@@ -88,7 +82,7 @@ class News extends Component {
 
     componentDidMount = () => {
         this.loadingNewsBySystemName(this.props.params.systemName, this.state.numberOfComponents);
-        this.loadingLatestNews();
+        this.loadingLatestNews(this.state.numberOfComponents, 0, 5);
     };
 
     componentWillUnmount = () => {
@@ -96,9 +90,9 @@ class News extends Component {
     };
 
     componentWillUpdate = (nextProps) => {
-        if(this.props.params.systemName != nextProps.params.systemName) {
+        if (this.props.params.systemName != nextProps.params.systemName) {
             this.props.setLoader();
-            this.loadingNewsBySystemName(this.props.params.systemName, this.state.numberOfComponents - 1);
+            this.loadingNewsBySystemName(nextProps.params.systemName, this.state.numberOfComponents - 1);
         }
     };
 

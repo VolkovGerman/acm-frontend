@@ -39,4 +39,11 @@ export default class Transformer {
         originString = originString.replace(/^-/, '');
         return originString.replace(/-$/, '');
     }
+
+    static textEllipsis(text, maxLength) {
+        if(text.length < maxLength) {
+            return text;
+        }
+        return `${text.substr(0, maxLength)}...`;
+    }
 }

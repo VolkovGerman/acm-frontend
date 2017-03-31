@@ -28,7 +28,7 @@ class TagList extends React.Component {
     }
 
     test = () => {
-        console.log('test');
+
     };
 
     componentDidMount() {
