@@ -1,15 +1,22 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .ChampItem {
 
     .champHeader {
         $iconWidth: 100px;
         $champHeaderPadding: 40px;
+        $iconWidthSm: 50px;
+        $champHeaderPaddingSm: 20px;
 
         margin-bottom: 40px;
         padding: 20px $champHeaderPadding;
 
         background-color: $mainBlueDark;
+
+        @include respond-to(md) {
+            padding: 15px $champHeaderPaddingSm;
+        }
 
         &__icon {
             float: left;
@@ -18,12 +25,21 @@
             img {
                 max-width: $iconWidth;
                 height: auto;
+
+                @include respond-to(md) {
+                    max-width: $iconWidthSm;
+                }
             }
         }
 
         &__title {
             margin-left: $iconWidth + $champHeaderPadding;
             padding-top: 10px;
+
+            @include respond-to(md) {
+                margin-left: $iconWidthSm + $champHeaderPaddingSm;
+                padding-top: 5px;
+            }
         }
 
         &__name {
@@ -32,11 +48,19 @@
             font-size: $font_size_xxl;
             text-transform: uppercase;
             color: $white;
+
+            @include respond-to(md) {
+                font-size: $font_size_m;
+            }
         }
 
         &__year {
             font-size: $font_size_xxl;
             color: $white;
+
+            @include respond-to(md) {
+                font-size: $font_size_m;
+            }
         }
     }
 
@@ -57,23 +81,31 @@
             font-size: $font_size_xl;
 
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+            @include respond-to(md) {
+                padding: 8px 0;
+                font-size: $font_size_xm;
+            }
         }
     }
 
     .sectionsList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include respond-to(sm) {
+            flex-direction: column;
+        }
 
         &__item {
             box-sizing: border-box;
             display: block;
-            float: left;
-            width: 50%;
+            width: 48%;
 
-            &:nth-child(2n) {
-                padding-left: 10px;
-            }
-
-            &:nth-child(2n + 1) {
-                padding-right: 10px;
+            @include respond-to(sm) {
+                width: 100%;
             }
         }
 
@@ -94,6 +126,13 @@
 
             &:hover {
                 background-color: $mainBlueDark;
+            }
+
+            @include respond-to(md) {
+                margin-bottom: 12px;
+                padding: 6px 10px;
+
+                font-size: $font_size_m;
             }
         }
 

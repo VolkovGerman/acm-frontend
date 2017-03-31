@@ -48,9 +48,9 @@ class ChampsPage extends Component {
                 {/*<div className="champLogo">*/}
                     {/*<img src={pageParams.champLogo} alt="ACM Logo"/>*/}
                 {/*</div>*/}
-                <ul className="champsList clearfix">
+                <div className="champsList clearfix">
                     {champsList.map((item, index) =>
-                        <li className="champItem" key={index}>
+                        <div className="champItem" key={index}>
                             <Link className='champItem__link' to={`/champs/${item.id}`}>
                                 <div className="champItem__header">
                                     <div className="champItem__name">{item.name}</div>
@@ -60,9 +60,9 @@ class ChampsPage extends Component {
                                     {item.statusText}
                                 </div>
                             </Link>
-                        </li>
+                        </div>
                     )}
-                </ul>
+                </div>
             </div>
         );
     }

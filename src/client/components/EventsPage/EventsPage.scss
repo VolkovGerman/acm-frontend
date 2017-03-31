@@ -6,92 +6,141 @@
 
         &__title {
             margin-bottom: 20px;
+            padding-bottom: 15px;
 
             font-family: Roboto;
             font-size: $font_size_xl;
 
             letter-spacing: 1px;
             text-transform: uppercase;
+
+            border-bottom: 1px solid $minorColor;
         }
 
         &__content {
-            border-top: 1px solid $minorColor;
-            padding: 50px 60px;
+            
+        }
+    }
 
-            .eventInfo {
-                float: left;
-                width: 200px;
+    .actions {
+        text-align: center;
 
-                &__date {
-                    font-weight: bold;
-                }
+        &__moreBtn {
+            font-size: $font_size_s;
+            font-family: RobotoBold;
+            color: darken($grey, 20%);
+            text-transform: uppercase;
 
-                &__day {
-                    font-size: 72px;
-                    width: 100%;
-                }
-
-                &__month-year {
-                    font-size: $font_size_m;
-                    text-transform: uppercase;
-                }
-
-                &__month {
-                    margin-right: 6px;
-                }
-
-                &__year {
-                    color: lighten($black, 40%);
-                }
+            &:hover {
+                color: darken($grey, 50%);
             }
+        }
 
-            .eventMain {
-                margin-left: 200px;
+    }
 
-                &__header {
-                    margin-bottom: 10px;
-                }
+    .event {
+        display: flex;
+        flex-direction: row;
 
-                &__status {
-                    display: inline-block;
-                    background: $mainBlue;
-                    padding: 3px 10px;
-                    font-size: $font_size_s;
-                    text-transform: uppercase;
-                    margin-right: 10px;
-                    font-weight: bold;
-                    color: $white;
-                }
+        margin-bottom: 24px;
 
-                &__title {
-                    display: inline-block;
-                    font-size: $font_size_xl;
-                    font-weight: bold;
-                    vertical-align: middle;
-                    text-transform: uppercase;
-                }
+        width: 80%;
 
-                &__info {
-                    font-weight: bold;
-                    font-size: $font_size_s;
-                }
+        @include respond-to(md) {
+            width: 100%;
+        }
 
-                &__time {
-                    display: inline-block;
-                }
+        @include respond-to(sm) {
+            flex-direction: column;
+        }
 
-                &__place {
-                    display: inline-block;
-                    margin-left: 20px;
-                }
+        &__left {
+            display: flex;
 
-                &__description {
-                    padding-top: 10px;
-                    color: $textColor;
-                    font-size: $font_size_m;
-                    line-height: 1.4;
-                }
+            flex-basis: 30%;
+
+            @include respond-to(sm) {
+                flex-basis: 100%;
             }
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            flex-basis: 70%;
+            margin-left: 40px;
+
+            @include respond-to(sm) {
+                flex-basis: 100%;
+                margin-left: 0;
+            }
+        }
+
+        &__title {
+            margin-bottom: 6px;
+
+            font-family: Roboto;
+            font-size: $font_size_xm;
+            text-transform: uppercase;
+        }
+
+        &__place {
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        &__place-key {
+            display: inline-block;
+            margin-right: 8px;
+            font-family: Roboto;
+            color: $mainBlueDark;
+        }
+
+        &__description {
+            text-align: justify;
+            line-height: 1.4;
+        }
+    }
+
+    .eventDate {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        padding: 20px 0;
+        
+        color: $white;
+        text-align: center;
+
+        background-color: $mainBlue;
+
+        @include respond-to(sm) {
+            flex-direction: row;
+
+            margin-bottom: 10px;
+            padding: 8px 20px;
+        }
+
+        &__day {
+            font-size: $font_size_extra;
+
+            @include respond-to(sm) {
+                font-size: inherit;
+                margin-right: 6px;
+            }
+        }
+
+        &__month {
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        &__year {
+            display: inline-block;
         }
     }
 }
