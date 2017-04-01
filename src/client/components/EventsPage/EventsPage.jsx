@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import config from '../../../core/config/general.config';
 import dateformat from 'dateformat';
 import devideProperties from '../../../core/scripts/devidePropertiesByLanguage';
+import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 
 require('./EventsPage.scss');
 
@@ -16,9 +17,21 @@ class EventsPage extends Component {
         super(props);
 
         this.state = {
-            events: []
+            events: [],
+            breadcrumbs: []
         }
     }
+
+    componentWillMount = () => {
+        this.setState({
+            breadcrumbs: [
+                {
+                    link: '/news',
+                    name: ['События', 'Events']
+                }
+            ]
+        })
+    };
 
     componentDidMount = () => {
         fetch(`${config.server}/events`, {
@@ -41,6 +54,7 @@ class EventsPage extends Component {
     render = () =>
         (
             <div className="EventsPage">
+                <Breadcrumbs breadcrumbs={this.state.breadcrumbs}/>
                 <div className="eventsPage">
                     <header className="eventsPage__header">
                         <div className="eventsPage__title">{this.props.lang.all_events}</div>
@@ -76,16 +90,14 @@ class EventsPage extends Component {
                                                 {item.place[this.props.lang.currentLangIndex]}
                                             </div>
                                         </div>
-                                        <div className="event__description">
-                                            {item.description[this.props.lang.currentLangIndex]}
-                                        </div>
+                                        <div className="event__description" dangerouslySetInnerHTML={{__html: item.description[this.props.lang.currentLangIndex]}}></div>
                                     </div>
                                 </div>
                             </div>
                         )}
                     </div>
                     <div className="eventsPage__actions actions">
-                        <Link className="actions__moreBtn" to={`news`}>{this.props.lang.more_events}</Link>
+                        <Link className="actions__moreBtn" to={`events`}>{this.props.lang.more_events}</Link>
                     </div>
                 </div>
             </div>

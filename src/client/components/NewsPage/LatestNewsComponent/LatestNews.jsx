@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-
 import dateformat from 'dateformat';
+import Transformer from '../../../../core/scripts/transformer';
 
 require('./LatestNews.scss');
 
@@ -25,7 +25,7 @@ class LatestNews extends Component {
                                     </div>
                                     <div className="newsItem__date">{dateformat(item.date, "mmmm d, HH:MM")}</div>
                                     <div className="newsItem__description"
-                                         dangerouslySetInnerHTML={{__html: item.description[this.props.lang.currentLangIndex]}}></div>
+                                         dangerouslySetInnerHTML={{__html: Transformer.textEllipsis(item.description[this.props.lang.currentLangIndex], 128)}}/>
                                 </div>
                                 : <div key={index}></div>
                         )}

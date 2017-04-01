@@ -6,6 +6,7 @@
         &__header {
             text-transform: uppercase;
             font-family: RobotoBold;
+            opacity: .5;
 
             @include respond-to(md) {
                 text-align: center;

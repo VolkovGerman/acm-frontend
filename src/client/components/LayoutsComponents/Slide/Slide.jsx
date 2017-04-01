@@ -27,8 +27,6 @@ class Slide extends React.Component {
 
     slideHandlerComplete = (e) => {
         e.preventDefault();
-
-        console.log('Complete!');
     };
 
     render = () =>

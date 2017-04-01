@@ -1,9 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
-import {connect} from 'react-redux';
-
-import config from '../../../core/config/general.config';
-import ArticleHeader from '../ArticleComponents/HeaderComponent/Header';
 import News from '../HomePage/NewsComponent/News';
 import Breadcrumbs from '../BreadcrumbsComponent/Breadcrumbs';
 
@@ -18,7 +13,8 @@ class AllNews extends Component {
         super(props);
 
         this.state = {
-            article: {}
+            article: {},
+            breadcrumbs: []
         }
     }
 
@@ -27,24 +23,20 @@ class AllNews extends Component {
     };
 
     componentWillMount = () => {
-        pageParams = {
+        this.setState({
             breadcrumbs: [
                 {
-                    link: '/',
-                    name: 'Главная'
-                },
-                {
                     link: '/news',
-                    name: 'Новости'
+                    name: ['Новости', 'News']
                 }
-            ],
-        };
+            ]
+        })
     };
 
     render = () =>
         (
             <div className="AllNews">
-                <Breadcrumbs breadcrumbs={pageParams.breadcrumbs} />
+                <Breadcrumbs breadcrumbs={this.state.breadcrumbs}/>
                 <News isLoaded={this.props.isLoaded} updateLoadedStatus={this.props.updateLoadedStatus}></News>
             </div>
         )

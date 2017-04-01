@@ -11,7 +11,7 @@ import WidgetChosen from '../Widgets/WidgetChosen/WidgetChosen';
 import TabsLayout from '../Layouts/TabsLayout/TabsLayout';
 import Tab from '../Layouts/TabLayout/TabLayout';
 import config from '../../../core/config/general.config';
-import Transformer from '../../../core/scripts/tranformator';
+import Transformer from '../../../core/scripts/transformer';
 import {hashHistory} from 'react-router';
 
 class NewsCreate extends Component {

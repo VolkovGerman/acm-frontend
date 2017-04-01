@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 class WidgetImageEditor extends Component {
 
     handleRes(res) {
-        console.log(res);
     }
 
     render() {

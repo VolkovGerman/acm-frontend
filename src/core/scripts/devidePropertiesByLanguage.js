@@ -33,8 +33,6 @@ export default function devideProperties(data) {
         }
     });
 
-    console.log(result);
-
     return result;
 }
 
