@@ -24,33 +24,72 @@ class WidgetTable extends Component {
                     name: '15'
                 }
             ],
-            table: this.props.table
+            table: this.props.table,
+            checkBoxes: {
+                isActiveMain: false,
+                itemsIds: [],
+                isActive: []
+            }
         };
 
-        this.checked = [];
-        this.checkRow = this.checkRow.bind(this);
+        this.checkSingleRow = this.checkSingleRow.bind(this);
+        this.checkAllRows = this.checkAllRows.bind(this);
         this.deleteRowsByIds = this.deleteRowsByIds.bind(this);
     }
 
-    checkRow(id) {
-        let index = this.checked.indexOf(id);
-        if (index === -1) {
-            this.checked.push(id);
+    checkSingleRow(index) {
+        let state = this.state;
+        let itemId = state.table.data[index].id;
+        let itemIdIndex = state.checkBoxes.itemsIds.indexOf(itemId);
+
+        itemIdIndex === -1 ? state.checkBoxes.itemsIds.push(itemId) : state.checkBoxes.itemsIds.splice(itemIdIndex, 1);
+        state.checkBoxes.isActive[index] = !state.checkBoxes.isActive[index];
+        state.checkBoxes.isActiveMain = state.checkBoxes.itemsIds.length === state.table.data.length;
+
+        this.setState(state);
+    }
+
+    checkAllRows() {
+        let state = this.state;
+
+        if (state.checkBoxes.isActiveMain) {
+            state.checkBoxes = {
+                isActiveMain: false,
+                itemsIds: [],
+                isActive: []
+            };
         } else {
-            this.checked.splice(index, 1);
+            state.checkBoxes = {
+                isActiveMain: true,
+                itemsIds: state.table.data.map(function(item) {
+                    return item.id;
+                }),
+                isActive: state.table.data.map(function() {
+                    return true;
+                })
+            }
         }
+
+        this.setState(state);
     }
 
     deleteRowsByIds() {
-        let checkedIds = this.checked;
         let state = this.state;
-        AdminApiService.deleteRowsByIds(this.props.actions.delete, checkedIds)
+        let itemsIds = state.checkBoxes.itemsIds;
+        AdminApiService.deleteRowsByIds(this.props.actions.delete, itemsIds)
             .then(_ => _.json())
             .then(_ => {
-                state.table.data = this.state.table.data.filter(function(dataItem) {
-                    return checkedIds.indexOf(dataItem.id) === -1;
+                state.table.data = state.table.data.filter(function(dataItem) {
+                    return itemsIds.indexOf(dataItem.id) === -1;
                 });
+                state.checkBoxes = {
+                    isActiveMain: false,
+                    itemsIds: [],
+                    isActive: []
+                };
                 this.setState(state);
+            }, _ => {
+                console.log(_);
             });
     }
 
@@ -82,9 +121,9 @@ class WidgetTable extends Component {
                         : <div></div>
                     }
                     {/*<div className="bar__buttons">*/}
-                        {/*{this.props.table.actions.map((item, index) =>*/}
-                            {/*<Link className="bar__buttonsLink" to={item.link} key={index}>{item.name}</Link>*/}
-                        {/*)}*/}
+                    {/*{this.props.table.actions.map((item, index) =>*/}
+                    {/*<Link className="bar__buttonsLink" to={item.link} key={index}>{item.name}</Link>*/}
+                    {/*)}*/}
                     {/*</div>*/}
                 </div>
                 <table className="widgetTable">
@@ -92,7 +131,8 @@ class WidgetTable extends Component {
                     <tr className="widgetTable__head">
                         <th className="checkbox">
                             <div className="widgetTable__checkbox">
-                                {/*<WidgetCheckBox />*/}
+                                <WidgetCheckBox check={this.checkAllRows}
+                                                isActive={this.state.checkBoxes.isActiveMain}/>
                             </div>
                         </th>
                         <th>#</th>
@@ -107,7 +147,8 @@ class WidgetTable extends Component {
                         <tr className={dataIndex % 2 ? 'ood' : 'even'} key={dataIndex}>
                             <td className="checkbox">
                                 <div className="widgetTable__checkbox">
-                                    <WidgetCheckBox checkRow={this.checkRow} id={data.id} />
+                                    <WidgetCheckBox check={this.checkSingleRow} index={dataIndex}
+                                                    isActive={this.state.checkBoxes.isActive[dataIndex]}/>
                                 </div>
                             </td>
                             <td className="number">{dataIndex + 1}</td>
@@ -115,7 +156,8 @@ class WidgetTable extends Component {
                                 <td key={itemIndex}>{item}</td>
                             )}
                             <td data-id={data.id} className="actions">
-                                <Link to={`${data.actions.update}?id=${data.id}`} className="actions__link">Изменить</Link>
+                                <Link to={`${data.actions.update}?id=${data.id}`}
+                                      className="actions__link">Изменить</Link>
                             </td>
                         </tr>
                     )}

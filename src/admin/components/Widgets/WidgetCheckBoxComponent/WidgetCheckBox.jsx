@@ -16,32 +16,12 @@ class WidgetCheckBox extends Component {
     };
 
     static defaultProps = {
-        active: false,
+        isActive: false,
         name: ''
     };
 
-    state = {
-        isActive: this.props.active
-    };
-
     toggleActive(e) {
-        e.preventDefault();
-
-        this.setState(_ => ({
-            isActive: !_.isActive
-        }));
-
-        this.setChecked();
-    }
-
-    setChecked() {
-        this.checkbox.checked = this.state.isActive;
-        this.checkbox.click();
-        this.props.checkRow(this.props.id);
-    }
-
-    componentDidMount() {
-        this.checkbox.checked = this.state.isActive;
+        this.props.check(this.props.index);
     }
 
     render() {
@@ -54,10 +34,10 @@ class WidgetCheckBox extends Component {
                                this.checkbox = _;
                            }}/>
                 </div>
-                <div className={this.state.isActive ?
+                <div className={this.props.isActive ?
                     'widgetCheckBox__outer widgetCheckBox__outer_active' : 'widgetCheckBox__outer'}
                      onClick={_ => this.toggleActive(_)}>
-                    <div className={this.state.isActive ?
+                    <div className={this.props.isActive ?
                         'widgetCheckBox__inner widgetCheckBox__inner_active' : 'widgetCheckBox__inner'}></div>
                 </div>
             </div>

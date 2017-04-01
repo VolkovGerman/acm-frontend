@@ -2,7 +2,7 @@ export default class AdminApiService {
 
     static deleteRowsByIds(link, ids) {
         if (ids.length === 0) {
-            return;
+            return Promise.reject('Delete error: no selected items');
         }
 
         return fetch(link, {
