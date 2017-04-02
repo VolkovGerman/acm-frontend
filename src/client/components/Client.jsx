@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import cookie from 'react-cookie';
 
-import Header from './HeaderComponent/Header';
-import Footer from './FooterComponent/Footer';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import Loader from '../../core/components/loaders/CssSquareLoader/CssSquareLoader';
 
 require('./Client.scss');

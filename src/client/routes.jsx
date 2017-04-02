@@ -2,16 +2,16 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
 import Client from './components/Client';
-import HomePage from './components/HomePage/Home';
-import ChampsPage from './components/ChampsPage/Champs';
-import ChampsItemPage from './components/ChampItemPage/ChampItem';
-import ChampsCustomPage from './components/ChampCustomPage/ChampCustom';
-import NewsPage from './components/NewsPage/News';
-import NotFoundPage from './components/NotFound404Page/NotFound404';
-import ChampRegistration from './components/ChampRegistrationPage/ChampRegistration';
-import ChampTeamsPage from './components/ChampTeamsPage/ChampTeamsPage';
-import EventsPage from './components/EventsPage/EventsPage';
-import AllNews from './components/AllNewsPage/AllNews';
+import HomePage from './components/PageHome/Home';
+import ChampsPage from './components/PageChamps/Champs';
+import ChampsItemPage from './components/PageChampItem/ChampItem';
+import ChampsCustomPage from './components/PageChampCustom/ChampCustom';
+import NewsPage from './components/PageNews/News';
+import NotFoundPage from './components/PageNotFound/NotFound404';
+import ChampRegistration from './components/PageChampRegistration/ChampRegistration';
+import ChampTeamsPage from './components/PageChampTeams/ChampTeams';
+import EventsPage from './components/PageEventsList/EventsList';
+import AllNews from './components/PageNewsFeed/NewsFeed';
 
 export const routes = (
     <div>
