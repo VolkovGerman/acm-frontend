@@ -2,16 +2,14 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
 import Client from './components/Client';
-import HomePage from './components/PageHome/Home';
-import ChampsPage from './components/PageChamps/Champs';
-import ChampsItemPage from './components/PageChampItem/ChampItem';
-import ChampsCustomPage from './components/PageChampCustom/ChampCustom';
-import NewsPage from './components/PageNews/News';
-import NotFoundPage from './components/PageNotFound/NotFound404';
-import ChampRegistration from './components/PageChampRegistration/ChampRegistration';
-import ChampTeamsPage from './components/PageChampTeams/ChampTeams';
-import EventsPage from './components/PageEventsList/EventsList';
-import AllNews from './components/PageNewsFeed/NewsFeed';
+import HomePage from './components/_pages/Home/Home';
+import ChampsPage from './components/_pages/Champs/Champs';
+import ChampsItemPage from './components/_pages/ChampItem/ChampItem';
+import ChampsCustomPage from './components/_pages/ChampCustom/ChampCustom';
+import NewsPage from './components/_pages/News/News';
+import NotFoundPage from './components/_pages/NotFound/NotFound404';
+import EventsPage from './components/_pages/Events/EventsList';
+import AllNews from './components/_pages/NewsFeed/NewsFeed';
 
 export const routes = (
     <div>
@@ -19,8 +17,6 @@ export const routes = (
             <IndexRoute component={HomePage} />
             <Route path="/champs" component={ChampsPage} />
             <Route path="/champs/:id" component={ChampsItemPage} />
-            <Route path="/champs/:id/registration" component={ChampRegistration} />
-            <Route path="/champs/:id/teams" component={ChampTeamsPage} />
             <Route path="/champs/:id/:pageName" component={ChampsCustomPage} />
             <Route path="/news/:systemName" component={NewsPage} />
             <Route path="/news" component={AllNews} />

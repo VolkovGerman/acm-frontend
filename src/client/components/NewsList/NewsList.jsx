@@ -2,14 +2,13 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
-import ArticleHeader from '../../ArticleComponents/Header/Header';
-import config from '../../../../core/config/general.config';
-import devideProperties from '../../../../core/scripts/devidePropertiesByLanguage';
+import config from '../../../core/config/general.config';
+import devideProperties from '../../../core/scripts/devidePropertiesByLanguage';
 import dateformat from 'dateformat';
 
 require('./News.scss');
 
-let img = require('../../../../../static/images/backgrounds/bg_slider_2.jpg');
+let img = require('../../../../static/images/backgrounds/bg_slider_2.jpg');
 
 class News extends Component {
 

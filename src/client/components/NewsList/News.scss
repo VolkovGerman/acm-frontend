@@ -1,9 +1,8 @@
-@import '../../../../core/styles/variables';
-@import '../../../../core/styles/mixins';
+@import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .News {
     .newsList {
-
         &__title {
             display: block;
             margin-bottom: 20px;

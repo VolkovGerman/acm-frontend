@@ -1,0 +1,122 @@
+@import '../../../../core/styles/variables';
+@import '../../../../core/styles/mixins';
+
+.Champs {
+
+    .champLogo {
+        padding-top: 25px;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .champsList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .champItem {
+        box-sizing: border-box;
+        
+        margin-bottom: 25px;        
+        width: 48%;
+
+        @include respond-to(sm) {
+            float: none;
+            width: 100%;
+            padding: 0;
+
+            &:nth-child(2n) {
+                padding-left: 0px; 
+            }
+
+            &:nth-child(2n + 1) {
+                padding-right: 0px; 
+            }
+        }
+
+        &__link {
+            display: block;
+            background-color: $mainBlueDark;
+
+            text-decoration: none;
+
+            transition: background-color 0.4s;
+
+            &:hover {
+                background-color: darken($mainBlueDark, 8%);
+
+                .champItem__status {
+                    background-color: rgba(255, 255, 255, 0.6);
+
+                    &--closed {
+                        color: $red;
+                    }
+
+                    &--active {
+                        color: $green;
+                    }
+                }
+            }
+        }
+
+        &__header {
+            padding: 100px 20px 20px;
+
+            font-size: $font_size_l;
+            color: $white;
+            text-align: center;
+            text-transform: uppercase;
+
+            background: url('../../../../../static/images/logo/acm_logo.png') no-repeat;
+            background-position-x: 50%;
+            background-position-y: 20px;
+            background-size: 60px;
+
+            @include respond-to(md) {
+                padding: 60px 20px 10px;
+                font-size: $font_size_m;
+
+                background-position-y: 10px;
+                background-size: 40px;
+            }
+        }
+
+        &__name {
+            margin-bottom: 6px;
+        }
+
+        &__year {
+            font-family: Roboto;
+        }
+
+        &__status {
+            padding: 15px 15px;
+
+            font-family: Roboto;
+            text-align: center;
+            text-transform: uppercase;
+
+            background-color: rgba(255, 255, 255, 0.2);
+
+            transition: background-color 0.4s;
+
+            &--active {
+                color: $brightGreen;
+            }
+
+            &--closed {
+                color: $lightRed;
+            }
+
+            @include respond-to(md) {
+                padding: 10px;
+            }
+        }
+    }
+   
+}

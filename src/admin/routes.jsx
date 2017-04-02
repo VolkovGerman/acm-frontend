@@ -12,7 +12,7 @@ import TopicList from './components/DataBase/Topic/TopicList';
 import TopicCreate from './components/DataBase/Topic/TopicCreate';
 import TagList from './components/DataBase/Tag/TagList';
 import TagCreate from './components/DataBase/Tag/TagCreate';
-import NotFound404 from '../client/components/PageNotFound/NotFound404';
+import NotFound404 from '../client/components/_pages/NotFound/NotFound404';
 
 export const routes = (
     <div>
