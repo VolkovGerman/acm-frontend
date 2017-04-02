@@ -82,7 +82,7 @@ class News extends Component {
 
     componentDidMount = () => {
         this.loadingNewsBySystemName(this.props.params.systemName, this.state.numberOfComponents);
-        this.loadingLatestNews(this.state.numberOfComponents, 0, 5);
+        this.loadingLatestNews(this.state.numberOfComponents, 0, 3);
     };
 
     componentWillUnmount = () => {
