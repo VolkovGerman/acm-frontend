@@ -3,7 +3,6 @@ import {Route, IndexRoute} from 'react-router';
 
 import Admin from './components/Admin';
 import Main from './components/HomePage/Home';
-import Login from './components/LoginPage/Login';
 import NewsList from './components/News/NewsList';
 import NewsCreate from './components/News/NewsCreate';
 import EventList from './components/Events/EventList';
@@ -31,7 +30,6 @@ export const routes = (
             <Route path='/db/tags/create' component={TagCreate} />
             <Route path='/db/tags/update' component={TagCreate} />
         </Route>
-        <Route path='/login' component={Login} />
         <Route path='*' component={NotFound404} />
     </div>
 );

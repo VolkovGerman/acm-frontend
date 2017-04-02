@@ -2,26 +2,28 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
 import Client from './components/Client';
-import HomePage from './components/_pages/Home/Home';
-import ChampsPage from './components/_pages/Champs/Champs';
-import ChampsItemPage from './components/_pages/ChampItem/ChampItem';
-import ChampsCustomPage from './components/_pages/ChampCustom/ChampCustom';
-import NewsPage from './components/_pages/News/News';
-import NotFoundPage from './components/_pages/NotFound/NotFound404';
-import EventsPage from './components/_pages/Events/EventsList';
+import Home from './components/_pages/Home/Home';
+import Champs from './components/_pages/Champs/Champs';
+import ChampsItem from './components/_pages/ChampItem/ChampItem';
+import ChampsCustom from './components/_pages/ChampCustom/ChampCustom';
+import News from './components/_pages/News/News';
+import NotFound from './components/_pages/NotFound/NotFound404';
+import Events from './components/_pages/Events/EventsList';
 import AllNews from './components/_pages/NewsFeed/NewsFeed';
+import Login from './components/_pages/Login/Login';
 
 export const routes = (
     <div>
         <Route path='/' component={Client}>
-            <IndexRoute component={HomePage} />
-            <Route path="/champs" component={ChampsPage} />
-            <Route path="/champs/:id" component={ChampsItemPage} />
-            <Route path="/champs/:id/:pageName" component={ChampsCustomPage} />
-            <Route path="/news/:systemName" component={NewsPage} />
+            <IndexRoute component={Home} />
+            <Route path="/champs" component={Champs} />
+            <Route path="/champs/:id" component={ChampsItem} />
+            <Route path="/champs/:id/:pageName" component={ChampsCustom} />
+            <Route path="/news/:systemName" component={News} />
             <Route path="/news" component={AllNews} />
-            <Route path="/events" component={EventsPage} />
+            <Route path="/events" component={Events} />
         </Route>
-        <Route path="*" component={NotFoundPage} />
+        <Route path='/login' component={Login} />
+        <Route path="*" component={NotFound} />
     </div>
 )
