@@ -9,19 +9,15 @@ const pageParams = {
     champLogo: require('../../../../../static/images/logo/acm_logo.png'),
     breadcrumbs: [
         {
-            link: '/',
-            name: 'Главная'
-        },
-        {
             link: '/champs',
-            name: 'Чемпионат БГУИР'
+            name: ['Чемпионат БГУИР', 'BSUIR Championship']
         },
         {
             link: '/champs/1',
-            name: 'Чемпионат БГУИР 2016'
+            name: ['Чемпионат БГУИР 2016', 'BSUIR Championship 2016']
         },
     ]
-}
+};
 
 const sectionsList = [
     {

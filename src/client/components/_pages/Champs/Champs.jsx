@@ -9,12 +9,8 @@ const pageParams = {
     champLogo: require('../../../../../static/images/backgrounds/bsuir_acm.jpg'),
     breadcrumbs: [
         {
-            link: '/',
-            name: 'Главная'
-        },
-        {
             link: '/champs',
-            name: 'Чемпионат БГУИР'
+            name: ['Чемпионат БГУИР', 'BSUIR Championship']
         },
     ]
 };
