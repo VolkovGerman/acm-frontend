@@ -47,9 +47,12 @@ class NewsList extends Component {
                                 createdAt = `${createdAt.toLocaleDateString()}`;
                                 return {
                                     id: _.id,
-                                    actions: {
-                                      update: '/news/update'
-                                    },
+                                    actions: [
+                                        {
+                                            name: 'Изменить',
+                                            link: `/news/update?id=${_.id}`
+                                        }
+                                    ],
                                     cells: [
                                         _.titleRU,
                                         _.views,

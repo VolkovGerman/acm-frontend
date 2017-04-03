@@ -51,9 +51,12 @@ class TagList extends React.Component {
                                 createdAt = `${createdAt.toLocaleDateString()}`;
                                 return {
                                     id: _.id,
-                                    actions: {
-                                        update: '/db/tags/update'
-                                    },
+                                    actions: [
+                                        {
+                                            name: 'Изменить',
+                                            link: `/db/tags/update?id=${_.id}`
+                                        }
+                                    ],
                                     cells: [
                                         _.nameRU,
                                         _.nameEN,

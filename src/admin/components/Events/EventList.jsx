@@ -47,9 +47,12 @@ class EventList extends React.Component {
                                 createdAt = `${createdAt.toLocaleDateString()}`;
                                 return {
                                     id: _.id,
-                                    actions: {
-                                        update: '/events/update'
-                                    },
+                                    actions: [
+                                        {
+                                            name: 'Изменить',
+                                            link: `/events/update?id=${_.id}`
+                                        }
+                                    ],
                                     cells: [
                                         _.titleRU,
                                         _.placeRU,

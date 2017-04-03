@@ -47,9 +47,12 @@ class TopicList extends React.Component {
                                 createdAt = `${createdAt.toLocaleDateString()}`;
                                 return {
                                     id: _.id,
-                                    actions: {
-                                        update: '/db/topics/update'
-                                    },
+                                    actions: [
+                                        {
+                                            name: 'Изменить',
+                                            link: `/db/topics/update?id=${_.id}`
+                                        }
+                                    ],
                                     cells: [
                                         _.nameRU,
                                         _.nameEN,
