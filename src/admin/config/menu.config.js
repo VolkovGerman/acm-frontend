@@ -27,6 +27,19 @@ export default {
             ]
         },
         {
+            title: 'Чемпионаты',
+            items: [
+                {
+                    title: 'Добавить',
+                    link: '/champs/create'
+                },
+                {
+                    title: 'Список',
+                    link: '/champs'
+                }
+            ]
+        },
+        {
             title: 'База данных',
             items: [
                 {

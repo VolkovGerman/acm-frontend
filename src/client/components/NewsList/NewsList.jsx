@@ -30,7 +30,6 @@ class News extends Component {
     };
 
     loadNews = (currentPage, pageSize) => {
-        console.log(`${config.server}/news?page=${currentPage + 1}&size=${pageSize}`);
         fetch(`${config.server}/news?page=${currentPage + 1}&size=${pageSize}`, {
             method: 'get',
         })

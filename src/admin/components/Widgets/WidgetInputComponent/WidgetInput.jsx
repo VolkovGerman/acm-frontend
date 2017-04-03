@@ -7,8 +7,7 @@ class WidgetInput extends Component {
     static propTypes = {
         type: React.PropTypes.string,
         placeholder: React.PropTypes.string,
-        name: React.PropTypes.string.isRequired,
-        value: React.PropTypes.string
+        name: React.PropTypes.string.isRequired
     };
 
     static defaultProps = {

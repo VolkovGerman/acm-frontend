@@ -6,6 +6,7 @@ import WidgetCheckBox from '../WidgetCheckBoxComponent/WidgetCheckBox';
 import WidgetPagination from '../WidgetPaginationComponent/WidgetPagination';
 import WidgetSelect from '../WidgetSelectComponent/WidgetSelect';
 import AdminApiService from '../../../services/AdminApiService';
+import DropDownCell from './DropDownCell/DropDownCell';
 
 require('./WidgetTable.scss');
 
@@ -31,7 +32,6 @@ class WidgetTable extends Component {
                 isActive: []
             }
         };
-
         this.checkSingleRow = this.checkSingleRow.bind(this);
         this.checkAllRows = this.checkAllRows.bind(this);
         this.deleteRowsByIds = this.deleteRowsByIds.bind(this);
@@ -61,10 +61,10 @@ class WidgetTable extends Component {
         } else {
             state.checkBoxes = {
                 isActiveMain: true,
-                itemsIds: state.table.data.map(function(item) {
+                itemsIds: state.table.data.map(function (item) {
                     return item.id;
                 }),
-                isActive: state.table.data.map(function() {
+                isActive: state.table.data.map(function () {
                     return true;
                 })
             }
@@ -79,7 +79,7 @@ class WidgetTable extends Component {
         AdminApiService.deleteRowsByIds(this.props.actions.delete, itemsIds)
             .then(_ => _.json())
             .then(_ => {
-                state.table.data = state.table.data.filter(function(dataItem) {
+                state.table.data = state.table.data.filter(function (dataItem) {
                     return itemsIds.indexOf(dataItem.id) === -1;
                 });
                 state.checkBoxes = {
@@ -116,7 +116,7 @@ class WidgetTable extends Component {
 
                     {this.props.actions.delete ?
                         <div className="bar__buttons">
-                            <Link className="bar__buttonsLink" onClick={this.deleteRowsByIds}>Удалить</Link>
+                            <Link className="bar__buttonsLink" onClick={this.deleteRowsByIds} href="#">Удалить</Link>
                         </div>
                         : <div></div>
                     }
@@ -155,10 +155,12 @@ class WidgetTable extends Component {
                             {data.cells.map((item, itemIndex) =>
                                 <td key={itemIndex}>{item}</td>
                             )}
-                            <td data-id={data.id} className="actions">
-                                <Link to={`${data.actions.update}?id=${data.id}`}
-                                      className="actions__link">Изменить</Link>
-                            </td>
+                            {/*<td data-id={data.id} className="actions">*/}
+                            {/*/!*<Link to={`${data.actions.update}?id=${data.id}`}*!/*/}
+                            {/*/!*className="actions__link">Изменить</Link>*!/*/}
+                            {/*<DropDownCell/>*/}
+                            {/*</td>*/}
+                            <DropDownCell items={data.actions}/>
                         </tr>
                     )}
                     </tbody>
