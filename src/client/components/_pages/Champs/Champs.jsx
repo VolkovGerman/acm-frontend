@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 import Breadcrumbs from '../../Breadcrumbs/Breadcrumbs';
+import config from '../../../../core/config/general.config';
+import devideProperties from '../../../../core/scripts/devidePropertiesByLanguage';
 
 require('./Champs.scss');
 
@@ -15,22 +18,37 @@ const pageParams = {
     ]
 };
 
-const champsList = [
-    {id: 1, name: 'Чемпионат БГУИР', year: '2017', status: 'active', statusText: 'Открыт'},
-    {id: 2, name: 'Чемпионат БГУИР', year: '2016', status: 'closed', statusText: 'Завершен'},
-    {id: 3, name: 'Чемпионат БГУИР', year: '2015', status: 'closed', statusText: 'Завершен'},
-    {id: 4, name: 'Чемпионат БГУИР', year: '2014', status: 'closed', statusText: 'Завершен'},
-    {id: 5, name: 'Чемпионат БГУИР', year: '2013', status: 'closed', statusText: 'Завершен'},
-    {id: 6, name: 'Чемпионат БГУИР', year: '2012', status: 'closed', statusText: 'Завершен'},
-    {id: 7, name: 'Чемпионат БГУИР', year: '2011', status: 'closed', statusText: 'Завершен'},
-    {id: 8, name: 'Чемпионат БГУИР', year: '2010', status: 'closed', statusText: 'Завершен'},
-    {id: 9, name: 'Чемпионат БГУИР', year: '2009', status: 'closed', statusText: 'Завершен'}
+const statusText = [
+    ['Завершен', 'Открыт'],
+    ['Closed', 'Open']
 ];
 
 class ChampsPage extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            champs: []
+        }
+    }
+
+    loadingChamps = () => {
+        fetch(`${config.server}/champs`, {
+            method: 'get'
+        })
+            .then(_ => _.json())
+            .then(_ => {
+                let champs = devideProperties(_['_embedded']['champs']);
+                this.setState({
+                    champs: champs
+                });
+                this.props.updateLoadedStatus(true, 1);
+            });
+    };
+
     componentDidMount = () => {
-        this.props.updateLoadedStatus(true, 1);
+        this.loadingChamps();
     };
 
     componentWillUnmount = () => {
@@ -42,18 +60,23 @@ class ChampsPage extends Component {
             <div className="Champs">
                 <Breadcrumbs breadcrumbs={pageParams.breadcrumbs}/>
                 <div className="champsList clearfix">
-                    {champsList.map((item, index) =>
-                        <div className="champItem" key={index}>
-                            <Link className='champItem__link' to={`/champs/${item.id}`}>
-                                <div className="champItem__header">
-                                    <div className="champItem__name">{item.name}</div>
-                                    <div className="champItem__year">{item.year}</div>
-                                </div>
-                                <div className={`champItem__status champItem__status--${item.status}`}>
-                                    {item.statusText}
-                                </div>
-                            </Link>
-                        </div>
+                    {this.state.champs.map((item, index) =>
+                        item.status ?
+                            <div className="champItem" key={index}>
+                                <Link className='champItem__link' to={`/champs/${item.id}`}>
+                                    <div className="champItem__header">
+                                        <div
+                                            className="champItem__name">{item.title[this.props.lang.currentLangIndex]}</div>
+                                        <div className="champItem__year">{item.year}</div>
+                                    </div>
+                                    <div
+                                        className={item.isOpen ? `champItem__status champItem__status--active`
+                                            : `champItem__status champItem__status--closed`}>
+                                        {statusText[this.props.lang.currentLangIndex][item.isOpen]}
+                                    </div>
+                                </Link>
+                            </div>
+                            : <div key={index}></div>
                     )}
                 </div>
             </div>
@@ -61,4 +84,8 @@ class ChampsPage extends Component {
     }
 }
 
-export default ChampsPage;
+export default connect(
+    state => ({
+        lang: state.lang
+    })
+)(ChampsPage);
