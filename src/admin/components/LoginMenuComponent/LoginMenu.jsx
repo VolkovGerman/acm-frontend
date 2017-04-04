@@ -9,9 +9,9 @@ class LoginMenu extends Component {
                 <a className="openMenu" href="#"/>
                 <ul className="menu">
                     <li className="menu__item">
-                        <a className="menu__link login-item" href="#">
+                        <a className="menu__link login-item" href="/logout">
                             <div className="login-item__img"/>
-                            <div className="login-item__name">Павел Дуров</div>
+                            <div className="login-item__name">Выйти</div>
                         </a>
                     </li>
                 </ul>

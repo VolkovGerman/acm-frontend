@@ -12,7 +12,7 @@ class Admin {
         const token = new Cookies(req, res).get('access_token');
         jwt.verify(token, config.secret, (err, token) => {
             if (err) {
-                res.json({ auth: false });
+                res.redirect('/');
                 return;
             }
 

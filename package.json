@@ -21,6 +21,7 @@
   "dependencies": {
     "body-parser": "~1.16.0",
     "bourbon": "^4.3.2",
+    "caniuse-db": "^1.0.30000649",
     "cookie-parser": "~1.4.3",
     "cookies": "^0.7.0",
     "debug": "~2.6.0",

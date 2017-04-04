@@ -15,7 +15,7 @@ class Client {
         };
 
         if (creds.username !== config.auth.username || creds.password !== config.auth.password) {
-            res.json({ auth: false });
+            res.redirect('/#/login');
             return;
         }
 
@@ -29,7 +29,7 @@ class Client {
 
         new Cookies(req, res).set('access_token', token.compact());
 
-        res.json({ auth: true });
+        res.redirect('/admin');
     }
 
     logout(req, res, next) {
