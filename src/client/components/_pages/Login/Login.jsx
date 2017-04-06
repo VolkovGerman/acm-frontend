@@ -62,7 +62,7 @@ class Login extends Component {
                             <footer className="loginForm__footer">
                                 <div className="loginForm__actions">
                                     <button className="loginForm__button">
-                                        <a href={'/login?username=' + this.state.username + '&password=' + this.state.password}>Enter</a>
+                                        <a href={'/api/login?username=' + this.state.username + '&password=' + this.state.password}>Enter</a>
                                     </button>
                                 </div>
                             </footer>

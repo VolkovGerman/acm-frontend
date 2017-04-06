@@ -2,11 +2,16 @@ const jwt = require('njwt');
 const Cookies = require('cookies');
 const config = require('../config/source');
 
-class Client {
+module.exports = {
+    
+    checkCookiesToken(req, res, next) {
+        const token = new Cookies(req, res).get('access_token');
 
-    index(req, res, next) {
-        res.render('client');
-    }
+        jwt.verify(token, config.secret, (err) => {
+            if (err) { return res.redirect('/'); }
+            next();
+        });
+    },
 
     login(req, res, next) {
         const creds = {
@@ -30,7 +35,7 @@ class Client {
         new Cookies(req, res).set('access_token', token.compact());
 
         res.redirect('/admin');
-    }
+    },
 
     logout(req, res, next) {
         res.clearCookie('access_token');
@@ -38,5 +43,3 @@ class Client {
     }
 
 }
-
-module.exports = new Client();
