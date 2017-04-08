@@ -19,17 +19,18 @@
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "body-parser": "~1.16.0",
     "bourbon": "^4.3.2",
     "caniuse-db": "^1.0.30000649",
     "cookie-parser": "~1.4.3",
     "cookies": "^0.7.0",
     "debug": "~2.6.0",
-    "es6-promise": "^4.1.0",
     "exports-loader": "^0.6.4",
     "express": "~4.14.1",
     "imports-loader": "^0.7.1",
     "input-moment": "^0.3.2",
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.18.1",
     "morgan": "~1.7.0",
     "njwt": "^0.4.0",
@@ -47,8 +48,7 @@
     "redux-devtools-extension": "^2.13.0",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^4.0.2",
-    "serve-favicon": "~2.3.2",
-    "whatwg-fetch": "^2.0.3"
+    "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
     "babel-core": "6.22.0",

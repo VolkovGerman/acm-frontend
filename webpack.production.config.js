@@ -21,7 +21,7 @@ module.exports = {
         client: [
             'react-hot-loader/patch',
             './src/client/index.jsx',
-            './src/client/styles/index.scss'
+            './src/client/index.scss'
         ],
         core: [
             'react-hot-loader/patch',
@@ -30,7 +30,7 @@ module.exports = {
     },
     output: {
         publicPath: '/',
-        path: path.join(__dirname, 'public'),
+        path: path.resolve('public'),
         filename: './[name]/index.js',
         library: '[name]'
     },
@@ -78,9 +78,7 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
-            jQuery: "jquery",
-            Promise: 'es6-promise',
-            fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+            jQuery: "jquery"
         })
     ]
 };

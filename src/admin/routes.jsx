@@ -16,7 +16,7 @@ import SectionCreate from './components/Champs/Sections/SectionCreate';
 import SectionList from './components/Champs/Sections/SectionList';
 import PageCreate from './components/Champs/Sections/Pages/PageCreate';
 import PagesList from './components/Champs/Sections/Pages/PagesList';
-import NotFound404 from '../client/components/_pages/NotFound/NotFound404';
+import NotFound404 from './components/NotFound/NotFound404';
 
 export const routes = (
     <div>
