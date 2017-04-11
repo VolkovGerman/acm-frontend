@@ -1,40 +1,40 @@
 import config from '../../core/config/general.config';
 import fetch from 'isomorphic-fetch';
+import {
+    FETCH_EVENTS_REQUEST,
+    FETCH_EVENTS_SUCCESS,
+    FETCH_EVENTS_FAILURE
+} from '../actions-types/events';
 
-import { FETCH_NEWS_REQUEST } from '../actions-types/news';
-
-function fetchNewsRequest() {
+function fetchEventsRequest() {
     return {
-        type: FETCH_NEWS_REQUEST
+        type: FETCH_EVENTS_REQUEST
     }
 }
 
-import { FETCH_NEWS_SUCCESS } from '../actions-types/news';
 
-function fetchNewsSuccess(payload) {
+function fetchEventsSuccess(payload) {
     return {
-        type: FETCH_NEWS_SUCCESS,
+        type: FETCH_EVENTS_SUCCESS,
         payload
     }
 }
 
-import { FETCH_NEWS_FAILURE } from '../actions-types/news';
 
-function fetchNewsFailure(payload) {
+function fetchEventsFailure(payload) {
     return {
-        type: FETCH_NEWS_FAILURE,
+        type: FETCH_EVENTS_FAILURE,
         payload
     }
 }
 
-export function handleLoadingNews() {
+export function handleLoadingEvents() {
     return function (dispatch) {
-        dispatch(fetchNewsRequest());
+        dispatch(fetchEventsRequest());
 
-        return fetch(`${config.server}/api/news`)
+        return fetch(`${config.server}/api/events`)
             .then(response => response.json())
-            .then(json => dispatch(fetchNewsSuccess(json)))
-            .catch(err => dispatch(fetchNewsFailure(err)));
+            .then(json => dispatch(fetchEventsSuccess(json)))
+            .catch(err => dispatch(fetchEventsFailure(err)));
     }
 }
-

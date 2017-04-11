@@ -5,6 +5,8 @@ const ApiController = require('../controllers/api');
 const SecureController = require('../controllers/secure');
 
 router.get('/', ApiController.index);
+router.get('/news', ApiController.news);
+router.get('/events', ApiController.events);
 router.get('/login', SecureController.login);
 router.get('/logout', SecureController.logout);
 

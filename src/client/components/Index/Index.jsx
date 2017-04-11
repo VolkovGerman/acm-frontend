@@ -1,15 +1,19 @@
 import React from 'react';
 
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+
 export default class Index extends React.Component {
 
+    componentDidMount() {
+        this.props.handleInitLang('en');
+    }
+
     render() {
-        console.log(this.props.news);
         return (
             <div>
-                <button onClick={this.props.handleLoadingNews}>Hello World!</button>
-                {this.props.news.data.map((newsItem, index) =>
-                    <div key={index}>{newsItem.titleRU}</div>
-                )}
+                <Header langs={this.props.langs}/>
+                <Footer langs={this.props.langs}/>
             </div>
         );
     }

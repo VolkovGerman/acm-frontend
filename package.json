@@ -9,7 +9,7 @@
     "server": "node ./server/bin/www",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
-    "postinstall": "webpack --config webpack.production.config.js --progress --profile --colors"
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,7 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.0",
     "redux-thunk": "^2.2.0",
+    "request": "^2.81.0",
     "sass-loader": "^4.0.2",
     "serve-favicon": "~2.3.2"
   },

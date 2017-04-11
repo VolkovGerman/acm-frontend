@@ -1,0 +1,42 @@
+@import '../../../../core/styles/variables';
+@import '../../../../core/styles/mixins';
+
+.MainMenu {
+    .mainMenu {
+        float: right;
+
+        margin-left: 70px;
+
+        list-style: none;
+
+        &__item {
+            display: inline-block;
+            text-align: right;
+
+            @include respond-to(sm) {
+                display: block;
+            }
+        }
+
+        &__link {
+            font-family: Roboto;
+            display: block;
+            text-transform: uppercase;
+            color: $white;
+            margin-left: 30px;
+            line-height: 37px;
+            transition: all 0.3s ease-out;
+            font-size: 14px;
+            text-decoration: none;
+
+            @include respond-to(sm) {
+                margin-left: 0;
+                line-height: 1.8;
+            }
+
+            &:hover {
+                color: $brightLight;
+            }
+        }
+    }
+}

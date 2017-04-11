@@ -1,0 +1,59 @@
+@import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
+
+.Header {
+    .bgSlider {
+        background: url('../../../../static/images/backgrounds/header_bg.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        width: 100%;
+        height: 600px;
+        padding: 50px 0;
+
+        @include respond-to(md) {
+            padding: 20px 40px;
+
+            height: auto;
+
+            background: none;
+            background-size: auto;
+            background-color: $mainBlueDark;
+        }
+    }
+
+    .logo {
+        display: block;
+        background: url('../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
+        background-position: center;
+        background-size: 60px;
+        width: 60px;
+        height: 33px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .header {
+        position: relative;
+
+        @include respond-to(xs) {
+            display: none;
+        }
+    }
+
+    .logIn {
+        float: right;
+        background: transparent;
+        border: 1px solid $hoverLink;
+        color: #fff;
+        font-size: 14px;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        margin-top: 3px;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .85;
+        }
+    }
+}
