@@ -1,9 +1,9 @@
-@import '../../../core/styles/variables';
-@import '../../../core/styles/mixins';
+@import '../../../../core/styles/variables';
+@import '../../../../core/styles/mixins';
 
 .Header {
     .bgSlider {
-        background: url('../../../../static/images/backgrounds/header_bg.jpg');
+        background: url('../../../../../static/images/backgrounds/header_bg.jpg');
         background-attachment: fixed;
         background-size: cover;
         width: 100%;
@@ -23,7 +23,7 @@
 
     .logo {
         display: block;
-        background: url('../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
+        background: url('../../../../../static/images/logo/bsuir_logo_white.png') no-repeat;
         background-position: center;
         background-size: 60px;
         width: 60px;

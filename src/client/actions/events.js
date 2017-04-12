@@ -28,11 +28,11 @@ function fetchEventsFailure(payload) {
     }
 }
 
-export function handleLoadingEvents() {
+export function handleLoadingEvents(size) {
     return function (dispatch) {
         dispatch(fetchEventsRequest());
 
-        return fetch(`${config.server}/api/events`)
+        return fetch(`${config.server}/api/events?size=${size}`)
             .then(response => response.json())
             .then(json => dispatch(fetchEventsSuccess(json)))
             .catch(err => dispatch(fetchEventsFailure(err)));
