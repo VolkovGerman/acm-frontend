@@ -8,6 +8,19 @@ const cors = require('cors');
 
 const app = express();
 
+if (process.env.NODE_ENV == 'development') {
+  const swaggerJSDoc = require('./libs/swagger');
+
+  // serve swagger on /swagger
+  app.get('/swagger', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerJSDoc);
+  });
+
+  // serve swagger ui
+  app.use(express.static(path.join(__dirname, '../docs')));
+}
+
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

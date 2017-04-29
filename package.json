@@ -1,23 +1,21 @@
 {
-  "name": "react-webpack-babel",
+  "name": "acm-bsuir-website",
   "version": "0.0.3",
-  "description": "React Webpack Babel Starter Kit",
-  "main": "''",
+  "description": "ACM BSUIR Website",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
-    "start": "webpack-dev-server --progress --profile --colors",
-    "server": "node ./server/bin/www",
+    "webpack": "webpack-dev-server --progress --profile --colors",
+    "start": "NODE_ENV=production node ./server/bin/www",
+    "start-dev": "NODE_ENV=development node ./server/bin/www",
     "lint": "eslint --ext js --ext jsx src || exit 0",
-    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
     "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/VolkovGerman/acm-frontend"
   },
-  "author": "Ali Al Dallal",
+  "author": "OWU Solutions",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "body-parser": "~1.16.0",
@@ -36,6 +34,7 @@
     "morgan": "~1.7.0",
     "njwt": "^0.4.0",
     "node-sass": "^4.3.0",
+    "query-string": "^4.3.4",
     "react": "^15.4.2",
     "react-core-image-upload": "^2.0.1",
     "react-dom": "^15.4.2",
@@ -50,7 +49,8 @@
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
     "sass-loader": "^4.0.2",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "swagger-jsdoc": "^1.9.3"
   },
   "devDependencies": {
     "babel-core": "6.22.0",
