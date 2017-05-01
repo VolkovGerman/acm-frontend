@@ -1,0 +1,42 @@
+@import '../../../../core/styles/variables';
+
+.WidgetPagination {
+    font-size: 12px;
+
+    &__info {
+        width: 50%;
+        float: left;
+        line-height: 30px;
+    }
+
+    &__pagination {
+        width: 50%;
+        float: left;
+    }
+    
+    &__list {
+        float: right;
+        list-style: none;
+        background: $admin__lightBackground;
+    }
+    
+    &__listItem {
+        display: inline-block;
+    }
+    
+    &__listLink {
+        color: $admin__mainColor;
+        text-decoration: none;
+        padding: 8px 9px;
+        display: block;
+
+        &:hover {
+            color: $admin__mainBackground;
+        }
+    }
+
+    .active {
+        background-color: $admin__mainColor;
+        color: $white;
+    }
+}

@@ -1,0 +1,13 @@
+@import '../../../../core/styles/variables';
+
+.WidgetInput {
+    .widgetInput {
+        padding: 6px 12px;
+        font-size: 14px;
+        color: $admin__mainColor;
+        background-color: $white;
+        border: 1px solid $admin__lightBackground;
+        outline: none;
+        width: 100%;
+    }
+}
