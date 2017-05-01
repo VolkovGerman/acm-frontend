@@ -1,8 +1,13 @@
-@import '../../core/styles/variables';
+@import '../../../core/styles/variables';
 
-.Admin {
+.Index {
     .main {
         margin-left: 260px;
+        transition: .5s ease all;
+
+        &.inactive {
+            margin-left: 0;
+        }
 
         &__content {
             padding: 30px 80px;

@@ -1,12 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Link} from 'react-router';
 
-require('./LoginMenu.scss');
+import './LoginMenu.scss';
 
-class LoginMenu extends Component {
+export default class LoginMenu extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleOpenMenu = this.handleOpenMenu.bind(this);
+    }
+
+    handleOpenMenu(e) {
+        e.preventDefault();
+        this.props.toggleMenu();
+    };
+
     render() {
         return (
             <div className="LoginMenu">
-                <a className="openMenu" href="#"/>
+                <Link className="openMenu" to="#" onClick={this.handleOpenMenu}/>
                 <ul className="menu">
                     <li className="menu__item">
                         <a className="menu__link login-item" href="/logout">
@@ -19,5 +31,3 @@ class LoginMenu extends Component {
         )
     }
 }
-
-export default LoginMenu;

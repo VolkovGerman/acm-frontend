@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-require('./WidgetCheckBox.scss');
+import './CheckBox.scss';
 
-class WidgetCheckBox extends Component {
+export default class CheckBox extends React.Component {
 
     constructor(props) {
         super(props);
@@ -44,5 +44,3 @@ class WidgetCheckBox extends Component {
         )
     }
 }
-
-export default WidgetCheckBox;

@@ -1,4 +1,4 @@
-@import '../../../../core/styles/variables';
+@import '../../../../../core/styles/variables';
 
 .MenuItem {
     .menuItem {
@@ -24,7 +24,7 @@
             transform: translateY(-50%);
             width: 8px;
             height: 8px;
-            background-image: url(../../../../../static/images/svg/chevron-arrow-down_ffffff.svg);
+            background-image: url(../../../../../../static/images/svg/chevron-arrow-down_ffffff.svg);
             background-size: 100% auto;
             opacity: .85;
         }

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-require('./DropDown.scss');
+import './DropDown.scss';
 
-class DropDownCell extends React.Component {
+export default class DropDownCell extends React.Component {
 
     constructor(props) {
         super(props);
@@ -43,5 +43,3 @@ class DropDownCell extends React.Component {
             }
         </td>
 }
-
-export default DropDownCell;

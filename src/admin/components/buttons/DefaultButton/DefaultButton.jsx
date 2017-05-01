@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router';
 
-require('./DefaultButton.scss');
+import './DefaultButton.scss';
 
-class DefaultButton extends Component {
+export default class DefaultButton extends React.Component {
 
     static propTypes = {
         type: React.PropTypes.oneOf([
@@ -40,14 +40,12 @@ class DefaultButton extends Component {
                 </Link>
                 }
                 {this.props.type == 'submit' &&
-                    <button className={`defaultButton__button defaultButton__button_${this.props.style}`}
-                            type='submit'>
-                        {this.props.name}
-                    </button>
+                <button className={`defaultButton__button defaultButton__button_${this.props.style}`}
+                        type='submit'>
+                    {this.props.name}
+                </button>
                 }
             </div>
         )
     }
 }
-
-export default DefaultButton;

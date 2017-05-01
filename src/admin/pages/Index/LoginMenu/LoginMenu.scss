@@ -1,4 +1,4 @@
-@import '../../../core/styles/variables';
+@import '../../../../core/styles/variables';
 
 .LoginMenu {
     background: $admin__lightBackground;
@@ -7,7 +7,7 @@
     padding: 0 15px;
 
     .openMenu {
-        background: url('../../../../static/images/svg/menu_active.svg') no-repeat;
+        background: url('../../../../../static/images/svg/menu_active.svg') no-repeat;
         background-size: 100% auto;
         width: 25px;
         height: 25px;
@@ -46,7 +46,7 @@
         position: relative;
 
         &__img {
-            background-image: url('../../../../static/images/users/durov.png');
+            background-image: url('../../../../../static/images/users/girl.svg');
             background-size: 100% auto;
             width: 30px;
             height: 30px;

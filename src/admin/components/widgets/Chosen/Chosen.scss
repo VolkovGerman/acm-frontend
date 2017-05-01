@@ -1,0 +1,55 @@
+@import '../../../../core/styles/variables';
+
+.WidgetChosen {
+    padding: 3px 9px 6px 12px;
+    font-size: 14px;
+    color: $admin__mainColor;
+    background-color: $white;
+    border: 1px solid $admin__lightBackground;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    position: relative;
+
+    .widgetChosen {
+        &__tag {
+            display: inline-block;
+            margin: 3px 3px 0 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        &__addTag{
+            display: inline-block;
+        }
+
+        &__addTagInput {
+            height: 100%;
+            border: none;
+            padding: 5px 0;
+            margin: 3px 0 0;
+            font-size: 14px;
+        }
+
+        &__selector {
+            width: calc(100% + 2px);
+            position: absolute;
+            top: 100%;
+            left: -1px;
+            background-color: #fff;
+            border: 1px solid $admin__lightBackground;
+            z-index: 10000;
+        }
+    }
+
+    .selector {
+        &__item {
+            padding: 6px 12px;
+
+            &:hover {
+                background-color: $admin__background;
+            }
+        }
+    }
+}

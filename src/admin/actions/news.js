@@ -1,28 +1,38 @@
 import config from '../../core/config/general.config';
 import fetch from 'isomorphic-fetch';
 
-import {FETCH_NEWS_REQUEST} from '../actions-types/news';
+import * as actionTypes from '../actions-types/news';
+import transform from '../libs/transform';
 
 function fetchNewsRequest() {
     return {
-        type: FETCH_NEWS_REQUEST
+        type: actionTypes.FETCH_NEWS_REQUEST
     }
 }
 
-import {FETCH_NEWS_SUCCESS} from '../actions-types/news';
-
-function fetchNewsSuccess(payload) {
+function fetchNewsSuccess() {
     return {
-        type: FETCH_NEWS_SUCCESS,
+        type: actionTypes.FETCH_NEWS_SUCCESS
+    }
+}
+
+function fetchNewsFailure(payload) {
+    return {
+        type: actionTypes.FETCH_NEWS_FAILURE,
         payload
     }
 }
 
-import {FETCH_NEWS_FAILURE} from '../actions-types/news';
-
-function fetchNewsFailure(payload) {
+function setNewsTableData(payload) {
     return {
-        type: FETCH_NEWS_FAILURE,
+        type: actionTypes.SET_NEWS_TABLE_DATA,
+        payload
+    }
+}
+
+function setNewsTableFields(payload) {
+    return {
+        type: actionTypes.SET_NEWS_TABLE_FIELDS,
         payload
     }
 }
@@ -33,7 +43,32 @@ export function handleLoadingNews() {
 
         return fetch(`${config.server}/api/news`)
             .then(response => response.json())
-            .then(json => dispatch(fetchNewsSuccess(json)))
+            .then(json => {
+                const tableFields = [
+                    'Название',
+                    'Просмотры',
+                    'Публикация'
+                ];
+                dispatch(setNewsTableFields(tableFields));
+                const tableData = json.map(news => {
+                    return {
+                        id: news.id,
+                        actions: [
+                            {
+                                name: 'Изменить',
+                                link: `/news/update?id=${news.id}`
+                            }
+                        ],
+                        cells: [
+                            news.title.ru,
+                            news.views,
+                            transform.convertStatusToCountryFlag(news.status)
+                        ]
+                    }
+                });
+                dispatch(setNewsTableData(tableData));
+                dispatch(fetchNewsSuccess())
+            })
             .catch(err => dispatch(fetchNewsFailure(err)));
     }
 }
