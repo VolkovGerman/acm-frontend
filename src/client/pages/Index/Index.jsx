@@ -15,7 +15,7 @@ export default class Index extends React.Component {
     render() {
         return (
             <div className="Index">
-                <Header langs={this.props.langs}/>s
+                <Header langs={this.props.langs}/>
                 <div className="containerWrap">
                     <div className="container">
                         <div className="content">

@@ -2,12 +2,13 @@ import * as actionTypes from '../actions-types/news';
 
 const initialState = {
     data: [],
+    active: null,
     isLoading: false,
     error: false
 };
 
 export default function news(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case actionTypes.FETCH_NEWS_REQUEST:
             return {
                 ...state,

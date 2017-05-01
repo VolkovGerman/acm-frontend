@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Refactor this after creating News page with filters
 import Events from './Events/Events';
 import News from './News/News';
 
