@@ -1,0 +1,69 @@
+@import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
+
+.newsCard {
+    margin-bottom: 30px;
+
+    &__left {
+        float: left;
+        width: 30%;
+
+        @include respond-to(md) {
+            float: none;
+            width: 0;
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    &__right {
+        margin-left: 30%;
+        padding-left: 30px;
+
+        @include respond-to(md) {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+
+    &__header-title {
+        display: block;
+        margin-bottom: 10px;
+        font-family: Roboto;
+        font-size: $font_size_l;
+        color: $mainBlueDark;
+    }
+
+    &__header-date {
+        margin-bottom: 10px;
+    }
+
+    &__main {
+    }
+
+    &__image-link {
+        display: block;
+        font-size: 0;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+    }
+
+    &__short-content {
+        font-size: $font_size_m;
+        line-height: 1.4;
+        text-align: justify;
+
+        p {
+            margin: 0;
+        }
+    }
+
+}

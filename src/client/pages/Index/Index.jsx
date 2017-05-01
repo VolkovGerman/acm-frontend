@@ -9,7 +9,7 @@ import './Index.scss';
 export default class Index extends React.Component {
 
     componentDidMount() {
-        this.props.handleInitLang('en');
+        this.props.handleInitLang('ru');
     }
 
     render() {

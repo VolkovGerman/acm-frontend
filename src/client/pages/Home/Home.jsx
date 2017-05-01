@@ -10,8 +10,8 @@ const EVENTS_SIZE = 3;
 class Home extends React.Component {
 
     componentDidMount() {
-        this.props.handleLoadingNews();
-        this.props.handleLoadingEvents(EVENTS_SIZE);
+        !this.props.news.data.length ? this.props.handleLoadingNews() : null;
+        !this.props.events.data.length ? this.props.handleLoadingEvents(EVENTS_SIZE) : null;
     }
 
     render() {

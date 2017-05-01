@@ -3,5 +3,5 @@ export default {
     bsuir: {ru: 'БГУИР', en: 'BSUIR'},
     when: {ru: 'Когда', en: 'When'},
     where: {ru: 'Где', en: 'Where'},
-    more_events: {ru: 'Больше событий', en: 'More events'}
+    all_events: {ru: 'Все события', en: 'All events'}
 }

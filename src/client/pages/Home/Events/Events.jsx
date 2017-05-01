@@ -12,7 +12,7 @@ export default (props) =>
 
         <div className="events">
             <header className="events__header">
-                <Link className="events__title" to={'events'}>{dictionary.events[props.langs.data]}</Link>
+                <Link className="events__title" to={'/events'}>{dictionary.events[props.langs.data]}</Link>
             </header>
             {!props.events.isLoading
                 ?
@@ -39,7 +39,7 @@ export default (props) =>
                     </div>
                     <div className="events__actions actions">
                         <Link className="actions__moreBtn"
-                              to={`events`}>{dictionary.more_events[props.langs.data]}</Link>
+                              to={`events`}>{dictionary.all_events[props.langs.data]}</Link>
                     </div>
                 </div>
                 :

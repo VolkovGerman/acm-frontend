@@ -4,13 +4,15 @@ import { Link } from 'react-router';
 import dateformat from 'dateformat';
 import Transformer from '../../../../core/scripts/transformer';
 
+import dictionary from './LastNews.words';
+
 import './LastNews.scss';            
                             
 export default (props) => {
     return (
         <div className="LastNews last">
             <div className="last__header">
-                Последние новости
+                {dictionary.last_news[props.langs.data]}
             </div>
             <div className="last__content">
                 <div className="newsList">
@@ -28,7 +30,7 @@ export default (props) => {
                             : <div key={index}></div>
                     )}
                 </div>
-                <Link className="last__link" to="/news">Все новости</Link>
+                <Link className="last__link" to="/news">{dictionary.all_news[props.langs.data]}</Link>
             </div>
         </div>
     );
