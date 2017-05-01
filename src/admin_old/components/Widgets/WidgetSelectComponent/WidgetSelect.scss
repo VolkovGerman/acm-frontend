@@ -1,0 +1,55 @@
+@import '../../../../core/styles/variables';
+
+$adding-width: 250px;
+
+.WidgetSelect {
+    .widgetSelect {
+        width: 100%;
+        display: block;
+        padding: 5px 6px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        background-color: $white;
+        border: 1px solid $admin__lightBackground;
+        outline: none;
+        color: $admin__mainColor;
+
+        &_adding {
+            width: $adding-width;
+            display: inline-block;
+        }
+    }
+
+    .adding {
+        display: inline-block;
+        margin-left: 5px;
+        position: relative;
+
+        &__input {
+            width: $adding-width;
+            position: relative;
+        }
+
+        &__icon {
+            background: none;
+            background-size: 12px;
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            border: none;
+            cursor: pointer;
+
+            &_plus {
+                background-image: url('../../../../../static/images/svg/plus_73879C.svg');
+                right: -15px;
+                top: -10px;
+            }
+
+            &_cross {
+                right: -20px;
+                top: 10px;
+                background-image: url('../../../../../static/images/svg/cross_73879C.svg');
+            }
+        }
+    }
+}

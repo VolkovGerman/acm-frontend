@@ -1,0 +1,30 @@
+@import '../../../../core/styles/variables';
+
+.DefaultButton {
+    display: inline-block;
+    margin: 0 2px;
+    .defaultButton {
+        &__button {
+            color: $white;
+            display: inline-block;
+            padding: 8px 13px;
+            font-size: $font_size_s;
+            cursor: pointer;
+            background-color: $admin__blue;
+            border: 1px solid $admin__blueBorder;
+
+            &:hover {
+                background-color: $admin__blueBorder;
+            }
+
+            &_green {
+                border-color: $admin__greenBorder;
+                background-color: $admin__green;
+
+                &:hover {
+                    background-color: $admin__greenBorder;
+                }
+            }
+        }
+    }
+}
