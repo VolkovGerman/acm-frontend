@@ -7,6 +7,7 @@ import NewsContainer from './pages/News/NewsContainer';
 import NewsListContainer from './pages/NewsList/NewsListContainer';
 import EventsListContainer from './pages/EventsList/EventsListContainer';
 import СompetitionsContainer from './pages/Competitions/CompetitionsContainer';
+import СompetitionContainer from './pages/Competition/CompetitionContainer';
 
 export const routes = (
     <div>
@@ -16,6 +17,7 @@ export const routes = (
             <Route path='/news' component={NewsListContainer} />
             <Route path='/events' component={EventsListContainer} />
             <Route path='/competitions' component={СompetitionsContainer} />
+            <Route path='/competitions/:systemName' component={СompetitionContainer} />
         </Route>
     </div>
 );

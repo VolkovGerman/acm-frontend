@@ -27,6 +27,23 @@ export default function handleLoadingCompetitions(state = initialState, action) 
                 error: action.payload
             };
 
+        case actionTypes.FETCH_COMPETITION_SECTIONS_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+
+        case actionTypes.FETCH_COMPETITION_SECTIONS_SUCCESS: {
+            const newData = state.data.slice();
+
+            newData[]
+
+            return {
+                ...state,
+                data: newData
+            }
+        }
+
         default:
             return state;
     }

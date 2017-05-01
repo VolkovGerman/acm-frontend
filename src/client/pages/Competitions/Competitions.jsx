@@ -31,7 +31,7 @@ export default class Competitions extends React.Component {
                             item.status 
                                 ?
                                 <div className="champItem" key={index}>
-                                    <Link className='champItem__link' to={`/competitions/${item.id}`}>
+                                    <Link className='champItem__link' to={`/competitions/${item.systemName}`}>
                                         <div className="champItem__header">
                                             <div
                                                 className="champItem__name">{item.title[this.props.langs.data]}</div>
@@ -42,7 +42,7 @@ export default class Competitions extends React.Component {
                                         </div>
                                     </Link>
                                 </div>
-                                : <div key={index}></div>
+                                : null
                         )}
                     </div>
                     :
