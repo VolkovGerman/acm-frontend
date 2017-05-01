@@ -24,7 +24,8 @@ router
 
     // Competitions
     .get('/competitions', CompetitionsController.getSome)
-    .get('/competitions/:id', CompetitionsController.getOne)
+    // .get('/competitions/:id', CompetitionsController.getOne)
+    .get('/competitions/:id/sections', CompetitionsController.getSections)
 
     // Login
     .get('/login', SecureController.login)
