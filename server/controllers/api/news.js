@@ -26,7 +26,7 @@ module.exports = {
      *           $ref: '#/definitions/News'
      */
     getSome(req, res, next) {
-        const queryParams = buildQueryParams(req, ['size']);
+        const queryParams = buildQueryParams(req, ['size'], { sort: 'lastModifiedAt,desc' });
 
         request({
             method: 'GET',

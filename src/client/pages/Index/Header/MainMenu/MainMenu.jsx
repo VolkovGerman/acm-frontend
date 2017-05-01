@@ -15,7 +15,7 @@ export default class MainMenu extends React.Component {
                     name: dictionary.main
                 },
                 {
-                    link: '/champs',
+                    link: '/competitions',
                     name: dictionary.champBsuir
                 }
             ]

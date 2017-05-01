@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions-types/news';
+import * as actionTypes from '../actions-types/competitions';
 
 const initialState = {
     data: [],
@@ -6,22 +6,22 @@ const initialState = {
     error: false
 };
 
-export default function news(state = initialState, action) {
+export default function handleLoadingCompetitions(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.FETCH_NEWS_REQUEST:
+        case actionTypes.FETCH_COMPETITIONS_REQUEST:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case actionTypes.FETCH_NEWS_SUCCESS:
+        case actionTypes.FETCH_COMPETITIONS_SUCCESS:
             return {
                 ...state,
                 data: action.payload,
                 isLoading: false
             };
 
-        case actionTypes.FETCH_NEWS_FAILURE:
+        case actionTypes.FETCH_COMPETITIONS_FAILURE:
             return {
                 ...state,
                 error: action.payload

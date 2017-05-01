@@ -5,6 +5,7 @@ const SecureController = require('../controllers/secure');
 const ApiController = require('../controllers/api');
 const NewsController = require('../controllers/api/news');
 const EventsController = require('../controllers/api/events');
+const CompetitionsController = require('../controllers/api/competitions');
 
 router
     // API Index
@@ -20,6 +21,10 @@ router
     // Events
     .get('/events', EventsController.getSome)
     .get('/events/:id', EventsController.getOne)
+
+    // Competitions
+    .get('/competitions', CompetitionsController.getSome)
+    .get('/competitions/:id', CompetitionsController.getOne)
 
     // Login
     .get('/login', SecureController.login)
