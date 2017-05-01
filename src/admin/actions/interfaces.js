@@ -1,7 +1,14 @@
-import {TOGGLE_MENU} from '../actions-types/interface';
+import * as actionTypes from '../actions-types/interfaces';
 
-function toggleMenu() {
+export function toggleMenu() {
     return {
-        type: TOGGLE_MENU
+        type: actionTypes.TOGGLE_MENU
+    }
+}
+
+export function setPageTitle(payload) {
+    return {
+        type: actionTypes.SET_PAGE_TITLE,
+        payload
     }
 }

@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router';
 
-require('./WidgetPagination.scss');
+require('./Pagination.scss');
 
-class WidgetPagination extends Component {
+export default class WidgetPagination extends React.Component {
     render() {
         return (
             <div className="WidgetPagination clearfix">
@@ -28,5 +28,3 @@ class WidgetPagination extends Component {
         )
     }
 }
-
-export default WidgetPagination;

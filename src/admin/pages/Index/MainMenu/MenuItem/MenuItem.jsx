@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import MenuSubItem from './MenuSubItemComponent/MenuSubItem';
+import MenuSubItem from './MenuSubItem/MenuSubItem';
 
-require('./MenuItem.scss');
+import './MenuItem.scss';
 
-class MenuItem extends Component {
+export default class MenuItem extends React.Component {
 
     constructor(props) {
         super(props);
@@ -46,5 +46,3 @@ class MenuItem extends Component {
         )
     }
 }
-
-export default MenuItem;

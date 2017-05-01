@@ -1,103 +1,46 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import Block from '../Layouts/BlockComponent/Block';
-import WidgetTable from '../Widgets/WidgetTableComponent/WidgetTable';
+import Block from '../../components/layouts/Block/Block';
+import WidgetTable from '../../components/widgets/Table/Table';
+import Loader from '../../../core/components/loaders/CssSquareLoader/CssSquareLoader';
 import config from '../../../core/config/general.config';
 
-const PUBLISH_STATUS = 1;
-
-class NewsList extends Component {
+export default class NewsList extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            table: {},
-            buttons: [
-                {
-                    action: '/news/create',
-                    name: 'Добавить',
-                    type: 'link',
-                    style: 'green'
+            block: {
+                buttons: [
+                    {
+                        action: '/news/create',
+                        name: 'Добавить',
+                        type: 'link',
+                        style: 'green'
+                    }
+                ],
+                actions: {
+                    delete: config.server + '/news/delete'
                 }
-            ],
-            actions: {
-                delete: config.server + '/news/delete'
             }
         }
     }
 
-    componentDidMount = () => {
-        this.props.updateBlockTitle('Список добавленных новостей');
+    componentWillMount() {
+        this.props.setPageTitle('Список новостей');
+        !this.props.news.tableData.length ? this.props.handleLoadingNews() : null;
+    }
 
-        fetch(`${config.server}/news`, {
-            method: 'get',
-        })
-            .then(_ => _.json())
-            .then(_ => {
-                this.setState({
-                    table: {
-                        fields: [
-                            'Название',
-                            'Просмотры',
-                            'Публикация',
-                            'Добавление'
-                        ],
-                        data: _['_embedded']['news'].map(_ => {
-                                let createdAt = new Date(_.createdAt);
-                                createdAt = `${createdAt.toLocaleDateString()}`;
-                                return {
-                                    id: _.id,
-                                    actions: [
-                                        {
-                                            name: 'Изменить',
-                                            link: `/news/update?id=${_.id}`
-                                        }
-                                    ],
-                                    cells: [
-                                        _.titleRU,
-                                        _.views,
-                                        this.convertStatusToCountryFlag(_.statusRU, _.statusEN),
-                                        createdAt
-                                    ]
-                                }
-                            }
-                        )
-                    }
-                });
-                this.props.updateLoadedStatus(true, 1);
-            });
-    };
-
-    convertStatusToCountryFlag = (statusRU, statusEN) => {
+    render() {
         return (
-            <div className="flagged">
-                {statusRU == PUBLISH_STATUS &&
-                <div className="flagged__item ru"></div>
-                }
-                {statusEN == PUBLISH_STATUS &&
-                <div className="flagged__item en"></div>
-                }
+            <div className="News">
+                <Block title="Список новостей" showButtons buttons={this.state.block.buttons}>
+                    {!this.props.news.isLoading && this.props.news.tableData.length
+                        ? <WidgetTable rows={this.props.news.tableData} fields={this.props.news.tableFields} actions={this.state.block.actions}/>
+                        : <Loader/>
+                    }
+                </Block>
             </div>
         )
-    };
-
-    componentWillUnmount = () => {
-        this.props.setLoader();
-    };
-
-    render = () => {
-        if (this.props.isLoader()) {
-            return (
-                <div className="News">
-                    <Block title="Список новостей" showButtons buttons={this.state.buttons}>
-                        <WidgetTable table={this.state.table} actions={this.state.actions} />
-                    </Block>
-                </div>
-            )
-        } else {
-            return <div></div>
-        }
     }
 }
-
-export default NewsList;

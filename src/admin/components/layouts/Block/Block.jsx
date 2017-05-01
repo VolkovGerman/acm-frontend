@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import DefaultButton from '../../Buttons/DefaultButtonComponent/DefaultButton';
+import DefaultButton from '../../buttons/DefaultButton/DefaultButton';
 
-require('./Block.scss');
+import './Block.scss';
 
-class Block extends Component {
+export default class Block extends React.Component {
     static propTypes = {
         showButtons: React.PropTypes.bool,
         buttons: React.PropTypes.arrayOf(
@@ -30,7 +30,8 @@ class Block extends Component {
                     {this.props.showButtons &&
                     <div className="block__buttons">
                         {this.props.buttons.map((item, index) =>
-                            <DefaultButton action={item.action} name={item.name} type={item.type} style={item.style} key={index}/>
+                            <DefaultButton action={item.action} name={item.name} type={item.type} style={item.style}
+                                           key={index}/>
                         )}
                     </div>
                     }
@@ -39,5 +40,3 @@ class Block extends Component {
         )
     }
 }
-
-export default Block;

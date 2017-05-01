@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-require('./WidgetInput.scss');
+import './Input.scss';
 
-class WidgetInput extends Component {
+export default class Input extends React.Component {
 
     static propTypes = {
         type: React.PropTypes.string,
@@ -30,5 +30,3 @@ class WidgetInput extends Component {
         )
     }
 }
-
-export default WidgetInput;

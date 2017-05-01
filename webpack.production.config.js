@@ -16,7 +16,7 @@ module.exports = {
         admin: [
             'react-hot-loader/patch',
             './src/admin/index.jsx',
-            './src/admin/styles/index.scss'
+            './src/admin/index.scss'
         ],
         client: [
             'react-hot-loader/patch',
@@ -39,6 +39,9 @@ module.exports = {
     },
     module: {
         loaders
+    },
+    customInterpolateName: function (url, name, options) {
+        return url.replace(/\\/g, '/');
     },
     plugins: [
         new WebpackCleanupPlugin(),

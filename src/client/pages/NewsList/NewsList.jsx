@@ -23,7 +23,7 @@ export default class NewsList extends React.Component {
         return (
             <div className="NewsList">
                 <Breadcrumbs breadcrumbs={breadcrumbs} {...this.props} />
-                {!this.props.news.isLoading && this.props.news.data.length
+                {!this.props.news.isLoading && this.props.news.table
                     ?
                     <div className="newsList">
                         <header className="newsList__header">

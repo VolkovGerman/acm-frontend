@@ -1,17 +1,17 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {handleInitLang} from '../../actions/langs';
+import {toggleMenu} from '../../actions/interfaces';
 import Index from './Index';
 
 const mapStateToProps = (state) => {
     return {
-        langs: state.langs
+        interfaces: state.interfaces
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInitLang: bindActionCreators(handleInitLang, dispatch)
+        toggleMenu: bindActionCreators(toggleMenu, dispatch)
     }
 };
 

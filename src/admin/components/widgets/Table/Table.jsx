@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router';
 
-import WidgetInput from '../WidgetInputComponent/WidgetInput';
-import WidgetCheckBox from '../WidgetCheckBoxComponent/WidgetCheckBox';
-import WidgetPagination from '../WidgetPaginationComponent/WidgetPagination';
-import WidgetSelect from '../WidgetSelectComponent/WidgetSelect';
-import AdminApiService from '../../../services/AdminApiService';
+import WidgetInput from '../Input/Input';
+import WidgetCheckBox from '../CheckBox/CheckBox';
+import WidgetPagination from '../Pagination/Pagination';
+import WidgetSelect from '../Select/Select';
+// import AdminApiService from '../../../services/AdminApiService';
 import DropDownCell from './DropDownCell/DropDownCell';
 
-require('./WidgetTable.scss');
+import './Table.scss';
 
-class WidgetTable extends Component {
+export default class Table extends React.Component {
     constructor(props) {
         super(props);
 
@@ -25,7 +25,10 @@ class WidgetTable extends Component {
                     name: '15'
                 }
             ],
-            table: this.props.table,
+            table: {
+                data: this.props.rows,
+                fields: this.props.fields,
+            },
             checkBoxes: {
                 isActiveMain: false,
                 itemsIds: [],
@@ -74,23 +77,23 @@ class WidgetTable extends Component {
     }
 
     deleteRowsByIds() {
-        let state = this.state;
-        let itemsIds = state.checkBoxes.itemsIds;
-        AdminApiService.deleteRowsByIds(this.props.actions.delete, itemsIds)
-            .then(_ => _.json())
-            .then(_ => {
-                state.table.data = state.table.data.filter(function (dataItem) {
-                    return itemsIds.indexOf(dataItem.id) === -1;
-                });
-                state.checkBoxes = {
-                    isActiveMain: false,
-                    itemsIds: [],
-                    isActive: []
-                };
-                this.setState(state);
-            }, _ => {
-                console.log(_);
-            });
+        // let state = this.state;
+        // let itemsIds = state.checkBoxes.itemsIds;
+        // AdminApiService.deleteRowsByIds(this.props.actions.delete, itemsIds)
+        //     .then(_ => _.json())
+        //     .then(_ => {
+        //         state.table.data = state.table.data.filter(function (dataItem) {
+        //             return itemsIds.indexOf(dataItem.id) === -1;
+        //         });
+        //         state.checkBoxes = {
+        //             isActiveMain: false,
+        //             itemsIds: [],
+        //             isActive: []
+        //         };
+        //         this.setState(state);
+        //     }, _ => {
+        //         console.log(_);
+        //     });
     }
 
     render() {
@@ -153,7 +156,8 @@ class WidgetTable extends Component {
                             </td>
                             <td className="number">{dataIndex + 1}</td>
                             {data.cells.map((item, itemIndex) =>
-                                <td key={itemIndex}>{item}</td>
+                                <td key={itemIndex} dangerouslySetInnerHTML={{__html: item}}></td>
+
                             )}
                             {/*<td data-id={data.id} className="actions">*/}
                             {/*/!*<Link to={`${data.actions.update}?id=${data.id}`}*!/*/}
@@ -172,5 +176,3 @@ class WidgetTable extends Component {
         )
     }
 }
-
-export default WidgetTable;
