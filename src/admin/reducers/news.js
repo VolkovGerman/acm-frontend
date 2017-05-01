@@ -3,6 +3,7 @@ import * as actionTypes from '../actions-types/news';
 const initialState = {
     tableData: [],
     tableFields: [],
+    data: false,
     isLoading: false,
     error: false
 };
@@ -18,6 +19,13 @@ export default function news(state = initialState, action) {
         case actionTypes.FETCH_NEWS_SUCCESS:
             return {
                 ...state,
+                isLoading: false
+            };
+
+        case actionTypes.FETCH_CURRENT_NEWS_SUCCESS:
+            return {
+                ...state,
+                data: action.payload,
                 isLoading: false
             };
 

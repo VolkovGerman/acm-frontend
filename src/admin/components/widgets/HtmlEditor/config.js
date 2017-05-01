@@ -1,4 +1,4 @@
-import config from '../../core/config/general.config';
+import config from '../../../../core/config/general.config';
 
 export default {
     placeholderText: '',

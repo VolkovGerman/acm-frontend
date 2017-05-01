@@ -6,6 +6,8 @@ const ApiController = require('../controllers/api');
 const NewsController = require('../controllers/api/news');
 const EventsController = require('../controllers/api/events');
 const CompetitionsController = require('../controllers/api/competitions');
+const TagsController = require('../controllers/api/tags');
+const ThemesController = require('../controllers/api/themes');
 
 router
     // API Index
@@ -26,6 +28,12 @@ router
     .get('/competitions', CompetitionsController.getSome)
     // .get('/competitions/:id', CompetitionsController.getOne)
     .get('/competitions/:id/sections', CompetitionsController.getSections)
+
+    // Tags
+    .get('/tags', TagsController.getSome)
+
+    // Themes
+    .get('/themes', ThemesController.getSome)
 
     // Login
     .get('/login', SecureController.login)

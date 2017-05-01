@@ -8,7 +8,7 @@ require('froala-editor/js/languages/ru.js');
 import config from './config';
 import './HtmlEditor.scss'
 
-export default class HtmlEditor extends Component {
+export default class HtmlEditor extends React.Component {
     constructor(props) {
         super(props);
 
