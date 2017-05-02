@@ -67,8 +67,7 @@ function postNewsFailure(payload) {
 
 function putNewsRequest() {
     return {
-        type: actionTypes.PUT_NEWS_REQUEST,
-        payload
+        type: actionTypes.PUT_NEWS_REQUEST
     }
 }
 
@@ -102,6 +101,12 @@ function deleteNewsFailure(payload) {
     return {
         type: actionTypes.DELETE_NEWS_FAILURE,
         payload
+    }
+}
+
+export function flushNews() {
+    return {
+        type: actionTypes.FLUSH_NEWS
     }
 }
 

@@ -13,8 +13,9 @@
         width: 100%;
         &__link {
             display: block;
-            padding: 10px;
-            background-color: #f9f9f9;
+            padding: 12px 10px;
+            background-color: $admin__mainColor;
+            color: $white;
         }
     }
 }

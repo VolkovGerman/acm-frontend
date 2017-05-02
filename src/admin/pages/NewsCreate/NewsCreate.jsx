@@ -31,18 +31,19 @@ export default class NewsCreate extends React.Component {
     }
 
     handleForm(e) {
-        this.state.currentId
-            ? this.props.handlePutNews(this.state.currentId, parse.parseForm(e.currentTarget))
-            : this.props.handlePostNews(parse.parseForm(e.currentTarget));
-
+        const form = e.currentTarget;
         e.preventDefault();
+
+        this.state.currentId
+            ? this.props.handlePutNews(this.state.currentId, parse.parseForm(form))
+            : this.props.handlePostNews(parse.parseForm(form));
     }
 
     componentWillMount() {
         this.props.setPageTitle(this.state.currentId ? 'Изменение новости' : 'Добавление новости');
+        this.state.currentId ? this.props.handleLoadingCurrentNews(this.state.currentId) : this.props.flushNews();
         !this.props.themes.data.length ? this.props.handleLoadingThemes() : null;
         !this.props.tags.data.length ? this.props.handleLoadingTags() : null;
-        this.state.currentId ? this.props.handleLoadingCurrentNews(this.state.currentId) : null;
     }
 
     render() {

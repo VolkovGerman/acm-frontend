@@ -93,6 +93,13 @@ export default function news(state = initialState, action) {
                 error: action.payload,
             };
 
+        case actionTypes.FLUSH_NEWS:
+            return {
+                ...state,
+                data: initialState.data,
+                error: initialState.error
+            };
+
         default:
             return state;
     }
