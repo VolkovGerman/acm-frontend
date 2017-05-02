@@ -51,7 +51,8 @@
     "request": "^2.81.0",
     "sass-loader": "^4.0.2",
     "serve-favicon": "~2.3.2",
-    "swagger-jsdoc": "^1.9.3"
+    "swagger-jsdoc": "^1.9.3",
+    "universal-cookie": "^2.0.5"
   },
   "devDependencies": {
     "babel-core": "6.22.0",

@@ -13,7 +13,7 @@ import ThemeCreateContainer from './pages/Database/ThemeCreate/ThemeCreateContai
 
 export const routes = (
     <div>
-        <Route path='/' component={IndexContainer}>
+        <Route path='/dashboard' component={IndexContainer}>
             <IndexRoute component={NewsListContainer}/>
             <Route path='/news' component={NewsListContainer}/>
             <Route path='/news/create' component={NewsCreateContainer}/>

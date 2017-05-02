@@ -14,7 +14,7 @@ import { routes } from './routes';
 
 const store = createStore(
     reducer,
-    composeWithDevTools(applyMiddleware(thunk)),
+    composeWithDevTools(applyMiddleware(thunk))
 );
 
 const history = syncHistoryWithStore(browserHistory, store);

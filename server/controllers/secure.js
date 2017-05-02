@@ -35,10 +35,9 @@ module.exports = {
         const secretKey = config.secret;
         const token = jwt.create(claims, secretKey);
 
-        new Cookies(req, res).set('access_token', token.compact());
-
         res.json({
-            status: 'success'
+            status: 'success',
+            access_token: token.compact()
         });
     }
 

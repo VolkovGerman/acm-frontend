@@ -1,5 +1,6 @@
 import React from 'react';
 import parseForm from '../../../core/lib/parseForm';
+import Cookies from 'universal-cookie';
 
 import config from '../../../core/config/general.config';
 
@@ -10,7 +11,8 @@ const bsuirLogo = require('../../../../static/images/logo/bsuir_logo.png')
 class Login extends React.Component {
 
     onFormSubmit(e) {
-        console.log(JSON.stringify(parseForm(e.currentTarget)));
+
+        // REFACTOR THIS TO REDUX ?
         fetch(`${config.server}/api/login`, {
             method: 'POST',
             dataType: 'json',
@@ -22,7 +24,13 @@ class Login extends React.Component {
         })
             .then(_ => _.json())
             .then(data => {
-                console.log(data);
+                if (data.status === 'success') {
+                    new Cookies().set('access_token', data.access_token, { path: '/' });
+
+                    window.location.href = '/dashboard';
+                } else {
+                    window.location.href = '/';
+                }
             });
 
         e.preventDefault();
