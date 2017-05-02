@@ -45,6 +45,12 @@ function setTagsTableFields(payload) {
     }
 }
 
+function fetchTagsTableSuccess() {
+    return {
+        type: actionTypes.FETCH_TAGS_TABLE_SUCCESS
+    }
+}
+
 function postTagRequest() {
     return {
         type: actionTypes.POST_TAG_REQUEST
@@ -158,7 +164,7 @@ export function handleLoadingTagsList() {
                     }
                 });
                 dispatch(setTagsTableData(tableData));
-                dispatch(fetchTagsSuccess())
+                dispatch(fetchTagsTableSuccess())
             })
             .catch(err => dispatch(fetchTagsFailure(err)));
     }

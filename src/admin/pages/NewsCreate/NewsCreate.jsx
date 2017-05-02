@@ -1,4 +1,5 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 
 import Block from '../../components/layouts/Block/Block';
 import WidgetRow from '../../components/layouts/WidgetRow/WidgetRow';

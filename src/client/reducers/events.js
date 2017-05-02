@@ -3,7 +3,7 @@ import * as actionTypes from '../actions-types/events';
 const initialState = {
     tableData: [],
     tableFields: [],
-    data: false,
+    data: [],
     current: {},
     isLoading: false,
     error: false
@@ -47,6 +47,12 @@ export default function tags(state = initialState, action) {
             return {
                 ...state,
                 tableFields: action.payload
+            };
+
+        case actionTypes.FETCH_TAGS_TABLE_SUCCESS:
+            return {
+                ...state,
+                isLoading: false
             };
 
         case actionTypes.POST_TAG_REQUEST:

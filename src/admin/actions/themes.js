@@ -45,6 +45,12 @@ function setThemesTableFields(payload) {
     }
 }
 
+function fetchThemesTableSuccess() {
+    return {
+        type: actionTypes.FETCH_THEMES_TABLE_SUCCESS
+    }
+}
+
 function postThemeRequest() {
     return {
         type: actionTypes.POST_THEME_REQUEST
@@ -158,7 +164,7 @@ export function handleLoadingThemesList() {
                     }
                 });
                 dispatch(setThemesTableData(tableData));
-                dispatch(fetchThemesSuccess())
+                dispatch(fetchThemesTableSuccess())
             })
             .catch(err => dispatch(fetchThemesFailure(err)));
     }
