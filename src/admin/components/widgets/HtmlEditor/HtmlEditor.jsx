@@ -1,9 +1,9 @@
 import React from 'react';
-require('font-awesome/css/font-awesome.css');
+import TinyMCE from 'react-tinymce';
 
+import 'font-awesome/css/font-awesome.css';
 import config from './config';
 import './HtmlEditor.scss'
-import TinyMCE from 'react-tinymce';
 
 export default class HtmlEditor extends React.Component {
     constructor(props) {
@@ -25,13 +25,10 @@ export default class HtmlEditor extends React.Component {
         value: ''
     };
 
-    handleModelChange(model) {
+    handleModelChange = (e) => {
         this.setState({
-            model: model
-        });
-    }
-
-    handleEditorChange = (e) => {
+            model: e.target.getContent()
+        })
     };
 
     render() {
@@ -39,8 +36,9 @@ export default class HtmlEditor extends React.Component {
             <div className="WidgetHtmlEditor">
                 <input type="hidden" name={this.props.name} value={this.state.model}/>
                 <TinyMCE
+                    content={this.state.model}
                     config={config}
-                    onChange={this.handleEditorChange}/>
+                    onChange={this.handleModelChange}/>
             </div>
         )
     }
