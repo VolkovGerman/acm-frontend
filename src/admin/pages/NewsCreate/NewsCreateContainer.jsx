@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {handleLoadingThemes} from '../../actions/themes';
 import {handleLoadingTags} from '../../actions/tags';
-import {handleLoadingCurrentNews} from '../../actions/news';
+import {handleLoadingCurrentNews, handlePostNews, handlePutNews} from '../../actions/news';
 import {setPageTitle} from '../../actions/interfaces';
 import NewsCreate from './NewsCreate';
 
@@ -19,6 +19,8 @@ const mapDispatchToProps = (dispatch) => {
         handleLoadingThemes: bindActionCreators(handleLoadingThemes, dispatch),
         handleLoadingTags: bindActionCreators(handleLoadingTags, dispatch),
         handleLoadingCurrentNews: bindActionCreators(handleLoadingCurrentNews, dispatch),
+        handlePostNews: bindActionCreators(handlePostNews, dispatch),
+        handlePutNews: bindActionCreators(handlePutNews, dispatch),
         setPageTitle: bindActionCreators(setPageTitle, dispatch)
     }
 };

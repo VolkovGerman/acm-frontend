@@ -1,5 +1,6 @@
 import config from '../../core/config/general.config';
 import fetch from 'isomorphic-fetch';
+import {browserHistory} from 'react-router';
 
 import * as actionTypes from '../actions-types/news';
 import transform from '../libs/transform';
@@ -64,6 +65,46 @@ function postNewsFailure(payload) {
     }
 }
 
+function putNewsRequest() {
+    return {
+        type: actionTypes.PUT_NEWS_REQUEST,
+        payload
+    }
+}
+
+function putNewsSuccess(payload) {
+    return {
+        type: actionTypes.PUT_NEWS_SUCCESS,
+        payload
+    }
+}
+
+function putNewsFailure(payload) {
+    return {
+        type: actionTypes.PUT_NEWS_FAILURE,
+        payload
+    }
+}
+
+function deleteNewsRequest() {
+    return {
+        type: actionTypes.DELETE_NEWS_REQUEST,
+    }
+}
+
+function deleteNewsSuccess(payload) {
+    return {
+        type: actionTypes.DELETE_NEWS_SUCCESS
+    }
+}
+
+function deleteNewsFailure(payload) {
+    return {
+        type: actionTypes.DELETE_NEWS_FAILURE,
+        payload
+    }
+}
+
 export function handleLoadingNews() {
     return function (dispatch) {
         dispatch(fetchNewsRequest());
@@ -111,21 +152,67 @@ export function handleLoadingCurrentNews(id) {
     }
 }
 
-export function handlePostNews(id, body) {
+export function handlePostNews(body) {
     return function (dispatch) {
         dispatch(postNewsRequest());
 
-        return fetch(`${config.server}/api/news/add`, {
+        return fetch(`${config.server}/api/news`, {
             method: 'POST',
             dataType: 'json',
             headers: {
-                Accept: 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: body
+            body: JSON.stringify(body)
         })
             .then(response => response.json())
-            .then(json => dispatch(postNewsSuccess(json)))
+            .then(json => {
+                dispatch(postNewsSuccess(json));
+                browserHistory.push('/news');
+            })
             .catch(err => dispatch(postNewsFailure(err)));
+    }
+}
+
+export function handlePutNews(id, body) {
+    return function (dispatch) {
+        dispatch(putNewsRequest());
+
+        return fetch(`${config.server}/api/news/${id}`, {
+            method: 'PUT',
+            dataType: 'json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        })
+            .then(response => response.json())
+            .then(json => {
+                dispatch(putNewsSuccess(json));
+                browserHistory.push('/news');
+            })
+            .catch(err => dispatch(putNewsFailure(err)));
+    }
+}
+
+export function handleDeleteNews(ids) {
+    return function (dispatch) {
+        if (ids.length) {
+            dispatch(deleteNewsRequest());
+
+            return fetch(`${config.server}/api/news`, {
+                method: 'DELETE',
+                dataType: 'json',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ids: ids})
+            })
+                .then(response => response.json())
+                .then(json => dispatch(deleteNewsSuccess(json)))
+                .catch(err => dispatch(deleteNewsFailure(err)));
+        }
     }
 }

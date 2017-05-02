@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {handleLoadingNews} from '../../actions/news';
+import {handleLoadingNews, handleDeleteNews} from '../../actions/news';
 import {setPageTitle} from '../../actions/interfaces';
 import NewsList from './NewsList';
 
@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleLoadingNews: bindActionCreators(handleLoadingNews, dispatch),
+        handleDeleteNews: bindActionCreators(handleDeleteNews, dispatch),
         setPageTitle: bindActionCreators(setPageTitle, dispatch)
     }
 };
