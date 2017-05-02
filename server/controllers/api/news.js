@@ -4,6 +4,7 @@ const config = require('../../config/source');
 const buildQueryParams = require('../../libs/buildQueryParams');
 
 const NewsModel = require('../../models/News');
+const ThemeModel = require('../../models/Theme');
 
 function getPayload(res) {
     return res['_embedded']['news'];
@@ -44,10 +45,23 @@ module.exports = {
             method: 'GET',
             uri: `${config.baseUrl}/news/${req.params.id}`,
             json: true
-        }, (err, status, body) => {
+        }, (err, status, bodyNews) => {
             if (err) { return next(err); }
-            
-            res.json(getPayload(body).map(NewsModel.parseFromBackend));
+
+            let news = NewsModel.parseFromBackend(bodyNews);
+
+            request({
+                method: 'GET',
+                uri: `${config.baseUrl}/news/${news.id}/topic`,
+                json: true
+            }, (err, status, bodyTheme) => {
+                if (err) { return next(err); }
+
+                news.topic = ThemeModel.parseFromBackend(bodyTheme);
+
+                res.json(news);
+            });
+
         });
     },
 

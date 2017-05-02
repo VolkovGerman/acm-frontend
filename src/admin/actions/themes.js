@@ -23,13 +23,21 @@ function fetchThemesFailure(payload) {
     }
 }
 
-export function handleLoadingNews() {
+export function handleLoadingThemes() {
     return function (dispatch) {
         dispatch(fetchThemesRequest());
 
         return fetch(`${config.server}/api/themes`)
             .then(response => response.json())
-            .then(json => dispatch(fetchThemesSuccess()))
+            .then(json => {
+                const themes = json.map(theme => {
+                    return {
+                        id: theme.id,
+                        name: theme.name.ru
+                    }
+                });
+                dispatch(fetchThemesSuccess(themes))
+            })
             .catch(err => dispatch(fetchThemesFailure(err)));
     }
 }

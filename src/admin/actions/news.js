@@ -16,6 +16,13 @@ function fetchNewsSuccess() {
     }
 }
 
+function fetchCurrentNewsSuccess(payload) {
+    return {
+        type: actionTypes.FETCH_CURRENT_NEWS_SUCCESS,
+        payload
+    }
+}
+
 function fetchNewsFailure(payload) {
     return {
         type: actionTypes.FETCH_NEWS_FAILURE,
@@ -33,6 +40,26 @@ function setNewsTableData(payload) {
 function setNewsTableFields(payload) {
     return {
         type: actionTypes.SET_NEWS_TABLE_FIELDS,
+        payload
+    }
+}
+
+function postNewsRequest() {
+    return {
+        type: actionTypes.POST_NEWS_REQUEST
+    }
+}
+
+function postNewsSuccess(payload) {
+    return {
+        type: actionTypes.POST_NEWS_SUCCESS,
+        payload
+    }
+}
+
+function postNewsFailure(payload) {
+    return {
+        type: actionTypes.POST_NEWS_FAILURE,
         payload
     }
 }
@@ -70,5 +97,35 @@ export function handleLoadingNews() {
                 dispatch(fetchNewsSuccess())
             })
             .catch(err => dispatch(fetchNewsFailure(err)));
+    }
+}
+
+export function handleLoadingCurrentNews(id) {
+    return function (dispatch) {
+        dispatch(fetchNewsRequest());
+
+        return fetch(`${config.server}/api/news/${id}`)
+            .then(response => response.json())
+            .then(json => dispatch(fetchCurrentNewsSuccess(json)))
+            .catch(err => dispatch(fetchNewsFailure(err)));
+    }
+}
+
+export function handlePostNews(id, body) {
+    return function (dispatch) {
+        dispatch(postNewsRequest());
+
+        return fetch(`${config.server}/api/news/add`, {
+            method: 'POST',
+            dataType: 'json',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: body
+        })
+            .then(response => response.json())
+            .then(json => dispatch(postNewsSuccess(json)))
+            .catch(err => dispatch(postNewsFailure(err)));
     }
 }

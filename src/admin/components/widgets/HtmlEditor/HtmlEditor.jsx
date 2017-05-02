@@ -1,14 +1,11 @@
 import React from 'react';
-import FroalaEditor from 'react-froala-wysiwyg';
-require("froala-editor/js/froala_editor.pkgd.min.js");
-require("froala-editor/css/froala_editor.pkgd.min.css");
 require('font-awesome/css/font-awesome.css');
-require('froala-editor/js/languages/ru.js');
 
 import config from './config';
 import './HtmlEditor.scss'
+import TinyMCE from 'react-tinymce';
 
-export default class HtmlEditor extends Component {
+export default class HtmlEditor extends React.Component {
     constructor(props) {
         super(props);
 
@@ -34,14 +31,16 @@ export default class HtmlEditor extends Component {
         });
     }
 
+    handleEditorChange = (e) => {
+    };
+
     render() {
         return (
             <div className="WidgetHtmlEditor">
                 <input type="hidden" name={this.props.name} value={this.state.model}/>
-                <FroalaEditor tag='textarea'
-                              config={config}
-                              model={this.state.model}
-                              onModelChange={this.handleModelChange}/>
+                <TinyMCE
+                    config={config}
+                    onChange={this.handleEditorChange}/>
             </div>
         )
     }
