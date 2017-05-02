@@ -15,12 +15,15 @@ module.exports = {
 
     login(req, res, next) {
         const creds = {
-            username: req.query.username,
-            password: req.query.password
+            username: req.body.username,
+            password: req.body.password
         };
 
         if (creds.username !== config.auth.username || creds.password !== config.auth.password) {
-            res.redirect('/#/login');
+            res.json({
+                status: 'failure',
+                error: 'Wrong credentials.'
+            });
             return;
         }
 
@@ -34,12 +37,9 @@ module.exports = {
 
         new Cookies(req, res).set('access_token', token.compact());
 
-        res.redirect('/admin');
-    },
-
-    logout(req, res, next) {
-        res.clearCookie('access_token');
-        res.redirect('/');
+        res.json({
+            status: 'success'
+        });
     }
 
 }

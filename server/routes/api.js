@@ -28,7 +28,6 @@ router
     .get('/competitions/:id/sections', CompetitionsController.getSections)
 
     // Login
-    .get('/login', SecureController.login)
-    .get('/logout', SecureController.logout);
+    .post('/login', SecureController.login);
 
 module.exports = router;
