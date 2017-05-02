@@ -31,7 +31,24 @@ export default function handleLoadingCompetitions(state = initialState, action) 
             return {
                 ...state,
                 isLoading: true
+            };
+
+        case actionTypes.FETCH_COMPETITION_SECTIONS_SUCCESS: {
+            const newStateData = state.data.slice();
+            newStateData.filter(_ => _.id === action.payload.id)[0].sections = action.payload.data;
+
+            return {
+                ...state,
+                isLoading: false,
+                data: newStateData
             }
+        }
+
+        case actionTypes.FETCH_COMPETITION_SECTIONS_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            };
 
         default:
             return state;

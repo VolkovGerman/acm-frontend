@@ -47,7 +47,6 @@ router
     .delete('/themes', ThemesController.delete)
 
     // Login
-    .get('/login', SecureController.login)
-    .get('/logout', SecureController.logout);
+    .post('/login', SecureController.login);
 
 module.exports = router;

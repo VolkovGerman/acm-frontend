@@ -1,0 +1,24 @@
+@import '../../../core/styles/variables';
+
+.CompetitionPage {
+
+    .customPage {
+
+        &__title {
+            margin-bottom: 10px;
+            font-size: $font_size_xxl;
+        }
+
+        .historyBack {
+            margin-bottom: 20px;
+        }
+
+        &__content {
+            font-size: $font_size_l;
+            line-height: $lineHeightCustomPage;
+            text-align: justify;
+        }
+
+    }
+
+}
