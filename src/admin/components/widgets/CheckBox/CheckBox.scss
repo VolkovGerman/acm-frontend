@@ -1,0 +1,33 @@
+@import '../../../../core/styles/variables';
+
+.WidgetCheckBox {
+    .widgetCheckBox {
+        &__outer {
+            width: 20px;
+            height: 20px;
+            display: block;
+            position: relative;
+            cursor: pointer;
+            background: $admin__lightBackground;
+            border-radius: 5px;
+
+            &_active {
+                background: $admin__green;
+            }
+        }
+
+        &__inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            &_active {
+                background: url('../../../../../static/images/svg/checked_ffffff.svg') center no-repeat;
+                background-size: 12px;
+                border: none
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@import '../../../../core/styles/variables';
+
+.LoginMenu {
+    background: $admin__lightBackground;
+    height: 60px;
+    color: #515356;
+    padding: 0 15px;
+
+    .openMenu {
+        background: url('../../../../../static/images/svg/menu_active.svg') no-repeat;
+        background-size: 100% auto;
+        width: 25px;
+        height: 25px;
+        float: left;
+        margin: 18px 0;
+        opacity: .75;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
+
+    .menu {
+        display: block;
+        float: right;
+        list-style: none;
+
+        &__item {
+            float: left;
+        }
+
+        &__link {
+            display: block;
+            padding: 15px;
+            color: #515356;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #D9DEE4;
+            }
+        }
+    }
+
+    .login-item {
+        position: relative;
+
+        &__img {
+            background-image: url('../../../../../static/images/users/girl.svg');
+            background-size: 100% auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 10em;
+            float: left;
+        }
+
+        &__name {
+            margin-left: 45px;
+            line-height: 30px;
+            font-family: RobotoLight;
+            font-size: 14px;
+        }
+    }
+}

@@ -4,6 +4,7 @@ const config = require('../../config/source');
 const buildQueryParams = require('../../libs/buildQueryParams');
 
 const NewsModel = require('../../models/News');
+const ThemeModel = require('../../models/Theme');
 
 function getPayload(res) {
     return res['_embedded']['news'];
@@ -34,7 +35,7 @@ module.exports = {
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }
-            
+
             res.json(getPayload(body).map(NewsModel.parseFromBackend));
         });
     },
@@ -44,19 +45,84 @@ module.exports = {
             method: 'GET',
             uri: `${config.baseUrl}/news/${req.params.id}`,
             json: true
-        }, (err, status, body) => {
+        }, (err, status, bodyNews) => {
             if (err) { return next(err); }
-            
-            res.json(getPayload(body).map(NewsModel.parseFromBackend));
+
+            let news = NewsModel.parseFromBackend(bodyNews);
+
+            request({
+                method: 'GET',
+                uri: `${config.baseUrl}/news/${news.id}/topic`,
+                json: true
+            }, (err, status, bodyTheme) => {
+                if (err) { return next(err); }
+
+                news.topic = ThemeModel.parseFromBackend(bodyTheme);
+
+                res.json(news);
+            });
         });
     },
 
-    add() {
+    add(req, res, next) {
+        request({
+            method: 'POST',
+            uri: `${config.baseUrl}/news`,
+            json: NewsModel.prepareToBackend(req.body)
+        }, (err, status, bodyNews) => {
+            if (err) { return next(err); }
 
+            let news = NewsModel.parseFromBackend(bodyNews);
+
+            request({
+                method: 'POST',
+                uri: `${config.baseUrl}/news/${news.id}/bind/topic`,
+                json: {id: req.body.newsTopic}
+            }, (err, status, bodyTheme) => {
+                if (err) { return next(err); }
+
+                news.topic = ThemeModel.parseFromBackend(bodyTheme);
+
+                res.json(news);
+            });
+        });
     },
 
-    update() {
+    update(req, res, next) {
+        request({
+            method: 'PUT',
+            uri: `${config.baseUrl}/news/${req.params.id}`,
+            json: NewsModel.prepareToBackend(req.body)
+        }, (err, status, bodyNews) => {
+            if (err) { return next(err); }
 
+            let news = NewsModel.parseFromBackend(bodyNews);
+
+            request({
+                method: 'POST',
+                uri: `${config.baseUrl}/news/${news.id}/bind/topic`,
+                json: {id: req.body.newsTopic}
+            }, (err, status, bodyTheme) => {
+                if (err) { return next(err); }
+
+                news.topic = ThemeModel.parseFromBackend(bodyTheme);
+
+                res.json(news);
+            });
+        });
+    },
+
+    delete(req, res, next) {
+        console.log(req.body);
+        request({
+            method: 'DELETE',
+            uri: `${config.baseUrl}/news/delete`,
+            json: req.body
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+            console.log(body);
+            res.json(body);
+        });
     }
 
 };

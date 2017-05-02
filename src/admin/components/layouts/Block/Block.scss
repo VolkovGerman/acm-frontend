@@ -1,0 +1,23 @@
+@import '../../../../core/styles/_variables';
+
+.Block {
+    .block {
+        background-color: $white;
+        padding: 15px;
+
+        &__title {
+            font-size: $font_size_xm;
+            font-family: Roboto;
+            border-bottom: 1px solid $admin__lightBackground;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        &__buttons {
+            text-align: right;
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 1px solid $admin__lightBackground;
+        }
+    }
+}

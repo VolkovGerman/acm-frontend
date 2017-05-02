@@ -20,7 +20,7 @@ module.exports = {
         admin: [
             'react-hot-loader/patch',
             './src/admin/index.jsx',
-            './src/admin/styles/index.scss'
+            './src/admin/index.scss'
         ],
         client: [
             'react-hot-loader/patch',
@@ -47,13 +47,16 @@ module.exports = {
         loaders
     },
     devServer: {
-        contentBase: "./public/client",
+        contentBase: "./public/admin",
         noInfo: true,
         hot: true,
         inline: true,
         historyApiFallback: true,
         port: PORT,
         host: HOST
+    },
+    customInterpolateName: function (url, name, options) {
+        return url.replace(/\\/g, '/');
     },
     plugins: [
         new webpack.NoErrorsPlugin(),

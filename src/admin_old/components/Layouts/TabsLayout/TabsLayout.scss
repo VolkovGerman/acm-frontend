@@ -1,0 +1,25 @@
+@import '../../../../core/styles/variables';
+
+.TabsLayout {
+    .tabsLayout {
+        justify-content: space-between;
+        align-items: stretch;
+
+        &__header {
+            display: flex;
+        }
+
+        .tabHeader {
+            flex-grow: 1;
+            background-color: lighten($admin__mainColor, 10);
+            color: $white;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+
+            &_active {
+                background-color: $admin__mainColor;
+            }
+        }
+    }
+}

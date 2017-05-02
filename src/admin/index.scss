@@ -1,0 +1,10 @@
+@import '../core/styles/variables';
+
+body {
+    background: $admin__background;
+    font-family: Roboto;
+}
+
+a {
+    color: $admin__mainBackground;
+}
