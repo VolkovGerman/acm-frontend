@@ -4,12 +4,11 @@ const initialState = {
     tableData: [],
     tableFields: [],
     data: false,
-    current: {},
     isLoading: false,
     error: false
 };
 
-export default function tags(state = initialState, action) {
+export default function events(state = initialState, action) {
     switch (action.type) {
         case actionTypes.FETCH_EVENTS_REQUEST:
             return {
@@ -20,6 +19,12 @@ export default function tags(state = initialState, action) {
         case actionTypes.FETCH_EVENTS_SUCCESS:
             return {
                 ...state,
+                isLoading: false
+            };
+
+        case actionTypes.FETCH_CURRENT_EVENTS_SUCCESS:
+            return {
+                ...state,
                 data: action.payload,
                 isLoading: false
             };
@@ -27,35 +32,30 @@ export default function tags(state = initialState, action) {
         case actionTypes.FETCH_EVENTS_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
             };
 
-        case actionTypes.FETCH_CURRENT_TAG_SUCCESS:
-            return {
-                ...state,
-                current: action.payload,
-                isLoading: false
-            };
-
-        case actionTypes.SET_TAGS_TABLE_DATA:
+        case actionTypes.SET_EVENTS_TABLE_DATA:
             return {
                 ...state,
                 tableData: action.payload
             };
 
-        case actionTypes.SET_TAGS_TABLE_FIELDS:
+        case actionTypes.SET_EVENTS_TABLE_FIELDS:
             return {
                 ...state,
                 tableFields: action.payload
             };
 
-        case actionTypes.POST_TAG_REQUEST:
+        case actionTypes.POST_EVENT_REQUEST:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case actionTypes.POST_TAG_SUCCESS:
+        case actionTypes.POST_EVENT_SUCCESS:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -63,7 +63,7 @@ export default function tags(state = initialState, action) {
                 isLoading: false
             };
 
-        case actionTypes.POST_TAG_FAILURE:
+        case actionTypes.POST_EVENT_FAILURE:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -71,13 +71,13 @@ export default function tags(state = initialState, action) {
                 error: action.payload,
             };
 
-        case actionTypes.PUT_TAG_REQUEST:
+        case actionTypes.PUT_EVENT_REQUEST:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case actionTypes.PUT_TAG_SUCCESS:
+        case actionTypes.PUT_EVENT_SUCCESS:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -85,7 +85,7 @@ export default function tags(state = initialState, action) {
                 isLoading: false
             };
 
-        case actionTypes.PUT_TAG_FAILURE:
+        case actionTypes.PUT_EVENT_FAILURE:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -93,10 +93,10 @@ export default function tags(state = initialState, action) {
                 error: action.payload,
             };
 
-        case actionTypes.FLUSH_TAG:
+        case actionTypes.FLUSH_EVENT:
             return {
                 ...state,
-                current: initialState.current,
+                data: initialState.data,
                 error: initialState.error
             };
 

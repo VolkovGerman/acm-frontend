@@ -72,11 +72,11 @@ module.exports = class News {
             systemName: Transformer.translit(_.titleEN || _.titleRU),
             contentRU: _.contentRU,
             descriptionRU: _.descriptionRU,
-            statusRU: _.statusRU ? 1 : 0,
+            statusRU: _.statusRU,
             titleEN: _.titleEN,
             contentEN: _.contentEN,
             descriptionEN: _.descriptionEN,
-            statusEN: _.statusEN ? 1 : 0,
+            statusEN: _.statusEN,
         };
     }
 

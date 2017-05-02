@@ -37,12 +37,52 @@ module.exports = {
         });
     },
 
-    add() {
+    getOne(req, res, next) {
+        request({
+            method: 'GET',
+            uri: `${config.baseUrl}/topics/${req.params.id}`,
+            json: true
+        }, (err, status, body) => {
+            if (err) { return next(err); }
 
+            res.json(ThemeModel.parseFromBackend(body));
+        });
     },
 
-    update() {
+    add(req, res, next) {
+        request({
+            method: 'POST',
+            uri: `${config.baseUrl}/topics`,
+            json: ThemeModel.prepareToBackend(req.body)
+        }, (err, status, body) => {
+            if (err) { return next(err); }
 
+            res.json(ThemeModel.parseFromBackend(body));
+        });
+    },
+
+    update(req, res, next) {
+        request({
+            method: 'PUT',
+            uri: `${config.baseUrl}/topics/${req.params.id}`,
+            json: ThemeModel.prepareToBackend(req.body)
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+
+            res.json(ThemeModel.parseFromBackend(body));
+        });
+    },
+
+    delete(req, res, next) {
+        request({
+            method: 'DELETE',
+            uri: `${config.baseUrl}/topics/delete`,
+            json: req.body
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+            console.log(body);
+            res.json(body);
+        });
     }
 
 };

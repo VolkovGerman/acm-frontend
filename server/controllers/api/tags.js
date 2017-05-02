@@ -37,12 +37,52 @@ module.exports = {
         });
     },
 
-    add() {
+    getOne(req, res, next) {
+        request({
+            method: 'GET',
+            uri: `${config.baseUrl}/tags/${req.params.id}`,
+            json: true
+        }, (err, status, body) => {
+            if (err) { return next(err); }
 
+            res.json(TagModel.parseFromBackend(body));
+        });
     },
 
-    update() {
+    add(req, res, next) {
+        request({
+            method: 'POST',
+            uri: `${config.baseUrl}/tags`,
+            json: TagModel.prepareToBackend(req.body)
+        }, (err, status, body) => {
+            if (err) { return next(err); }
 
+            res.json(TagModel.parseFromBackend(body));
+        });
+    },
+
+    update(req, res, next) {
+        request({
+            method: 'PUT',
+            uri: `${config.baseUrl}/tags/${req.params.id}`,
+            json: TagModel.prepareToBackend(req.body)
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+
+            res.json(TagModel.parseFromBackend(body));
+        });
+    },
+
+    delete(req, res, next) {
+        request({
+            method: 'DELETE',
+            uri: `${config.baseUrl}/tags/delete`,
+            json: req.body
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+            console.log(body);
+            res.json(body);
+        });
     }
 
 };
