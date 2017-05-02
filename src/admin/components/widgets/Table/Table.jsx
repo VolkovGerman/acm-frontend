@@ -5,7 +5,6 @@ import WidgetInput from '../Input/Input';
 import WidgetCheckBox from '../CheckBox/CheckBox';
 import WidgetPagination from '../Pagination/Pagination';
 import WidgetSelect from '../Select/Select';
-// import AdminApiService from '../../../services/AdminApiService';
 import DropDownCell from './DropDownCell/DropDownCell';
 
 import './Table.scss';
@@ -77,23 +76,18 @@ export default class Table extends React.Component {
     }
 
     deleteRowsByIds() {
-        // let state = this.state;
-        // let itemsIds = state.checkBoxes.itemsIds;
-        // AdminApiService.deleteRowsByIds(this.props.actions.delete, itemsIds)
-        //     .then(_ => _.json())
-        //     .then(_ => {
-        //         state.table.data = state.table.data.filter(function (dataItem) {
-        //             return itemsIds.indexOf(dataItem.id) === -1;
-        //         });
-        //         state.checkBoxes = {
-        //             isActiveMain: false,
-        //             itemsIds: [],
-        //             isActive: []
-        //         };
-        //         this.setState(state);
-        //     }, _ => {
-        //         console.log(_);
-        //     });
+        let state = this.state;
+        let itemsIds = state.checkBoxes.itemsIds;
+        this.props.delete(itemsIds);
+        state.table.data = state.table.data.filter(function (dataItem) {
+            return itemsIds.indexOf(dataItem.id) === -1;
+        });
+        state.checkBoxes = {
+            isActiveMain: false,
+            itemsIds: [],
+            isActive: []
+        };
+        this.setState(state);
     }
 
     render() {

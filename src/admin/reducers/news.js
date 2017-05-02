@@ -49,6 +49,50 @@ export default function news(state = initialState, action) {
                 tableFields: action.payload
             };
 
+        case actionTypes.POST_NEWS_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+
+        case actionTypes.POST_NEWS_SUCCESS:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                isLoading: false
+            };
+
+        case actionTypes.POST_NEWS_FAILURE:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
+            };
+
+        case actionTypes.PUT_NEWS_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+
+        case actionTypes.PUT_NEWS_SUCCESS:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                isLoading: false
+            };
+
+        case actionTypes.PUT_NEWS_FAILURE:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
+            };
+
         default:
             return state;
     }

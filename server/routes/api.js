@@ -16,9 +16,9 @@ router
     // News
     .get('/news', NewsController.getSome)
     .get('/news/:id', NewsController.getOne)
-    // .post('/news', NewsController.add)
-    // .put('/news/:id', NewsController.update)
-    // .delete('/news/:id', NewsController.delete)
+    .post('/news', NewsController.add)
+    .put('/news/:id', NewsController.update)
+    .delete('/news', NewsController.delete)
 
     // Events
     .get('/events', EventsController.getSome)

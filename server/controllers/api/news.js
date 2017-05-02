@@ -35,7 +35,7 @@ module.exports = {
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }
-            
+
             res.json(getPayload(body).map(NewsModel.parseFromBackend));
         });
     },
@@ -61,16 +61,67 @@ module.exports = {
 
                 res.json(news);
             });
-
         });
     },
 
-    add() {
+    add(req, res, next) {
+        request({
+            method: 'POST',
+            uri: `${config.baseUrl}/news`,
+            json: NewsModel.prepareToBackend(req.body)
+        }, (err, status, bodyNews) => {
+            if (err) { return next(err); }
 
+            let news = NewsModel.parseFromBackend(bodyNews);
+
+            request({
+                method: 'POST',
+                uri: `${config.baseUrl}/news/${news.id}/bind/topic`,
+                json: {id: req.body.newsTopic}
+            }, (err, status, bodyTheme) => {
+                if (err) { return next(err); }
+
+                news.topic = ThemeModel.parseFromBackend(bodyTheme);
+
+                res.json(news);
+            });
+        });
     },
 
-    update() {
+    update(req, res, next) {
+        request({
+            method: 'PUT',
+            uri: `${config.baseUrl}/news/${req.params.id}`,
+            json: NewsModel.prepareToBackend(req.body)
+        }, (err, status, bodyNews) => {
+            if (err) { return next(err); }
 
+            let news = NewsModel.parseFromBackend(bodyNews);
+
+            request({
+                method: 'POST',
+                uri: `${config.baseUrl}/news/${news.id}/bind/topic`,
+                json: {id: req.body.newsTopic}
+            }, (err, status, bodyTheme) => {
+                if (err) { return next(err); }
+
+                news.topic = ThemeModel.parseFromBackend(bodyTheme);
+
+                res.json(news);
+            });
+        });
+    },
+
+    delete(req, res, next) {
+        request({
+            method: 'DELETE',
+            uri: `${config.baseUrl}/news/delete`,
+            json: req.body
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+            console.log(body);
+            res.json(body);
+        });
     }
 
 };
