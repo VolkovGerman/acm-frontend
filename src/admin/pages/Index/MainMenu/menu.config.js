@@ -44,7 +44,7 @@ export default {
             items: [
                 {
                     title: 'Темы новостей',
-                    link: '/db/topics'
+                    link: '/db/themes'
                 },
                 {
                     title: 'Теги',

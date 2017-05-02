@@ -113,6 +113,7 @@ module.exports = {
     },
 
     delete(req, res, next) {
+        console.log(req.body);
         request({
             method: 'DELETE',
             uri: `${config.baseUrl}/news/delete`,

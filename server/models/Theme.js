@@ -35,4 +35,11 @@ module.exports = class Theme {
         };
     }
 
+    static prepareToBackend(_) {
+        return {
+            nameRU: _.nameRU,
+            nameEN: _.nameEN
+        };
+    }
+
 };

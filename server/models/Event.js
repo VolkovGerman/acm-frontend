@@ -1,3 +1,5 @@
+const Transformer = require('../libs/transformer');
+
 module.exports = class Event {
 
     constructor({
@@ -35,6 +37,20 @@ module.exports = class Event {
             date: _.date,
             createdAt: _.createdAt,
             lastModifiedAt: _.lastModifiedAt
+        };
+    }
+
+    static prepareToBackend(_) {
+        return {
+            titleRU: _.titleRU,
+            titleEN: _.titleEN,
+            descriptionRU: _.descriptionRU,
+            descriptionEN: _.descriptionEN,
+            placeRU: _.placeRU,
+            placeEN: _.placeEN,
+            statusRU: _.statusRU,
+            statusEN: _.statusEN,
+            date: _.date,
         };
     }
 

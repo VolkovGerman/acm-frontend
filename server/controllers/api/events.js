@@ -33,16 +33,44 @@ module.exports = {
         }, (err, status, body) => {
             if (err) { return next(err); }
             
-            res.json(getPayload(body).map(EventModel.parseFromBackend));
+            res.json(EventModel.parseFromBackend(body));
         });
     },
 
-    add() {
+    add(req, res, next) {
+        request({
+            method: 'POST',
+            uri: `${config.baseUrl}/events`,
+            json: EventModel.prepareToBackend(req.body)
+        }, (err, status, body) => {
+            if (err) { return next(err); }
 
+            res.json(EventModel.parseFromBackend(body));
+        });
     },
 
-    update() {
+    update(req, res, next) {
+        request({
+            method: 'PUT',
+            uri: `${config.baseUrl}/events/${req.params.id}`,
+            json: EventModel.prepareToBackend(req.body)
+        }, (err, status, body) => {
+            if (err) { return next(err); }
 
+            res.json(EventModel.parseFromBackend(body));
+        });
+    },
+
+    delete(req, res, next) {
+        request({
+            method: 'DELETE',
+            uri: `${config.baseUrl}/events/delete`,
+            json: req.body
+        }, (err, status, body) => {
+            if (err) { return next(err); }
+            console.log(body);
+            res.json(body);
+        });
     }
 
-}
+};

@@ -23,6 +23,9 @@ router
     // Events
     .get('/events', EventsController.getSome)
     .get('/events/:id', EventsController.getOne)
+    .post('/events', EventsController.add)
+    .put('/events/:id', EventsController.update)
+    .delete('/events', EventsController.delete)
 
     // Competitions
     .get('/competitions', CompetitionsController.getSome)
@@ -31,9 +34,17 @@ router
 
     // Tags
     .get('/tags', TagsController.getSome)
+    .get('/tags/:id', TagsController.getOne)
+    .post('/tags', TagsController.add)
+    .put('/tags/:id', TagsController.update)
+    .delete('/tags', TagsController.delete)
 
     // Themes
     .get('/themes', ThemesController.getSome)
+    .get('/themes/:id', ThemesController.getOne)
+    .post('/themes', ThemesController.add)
+    .put('/themes/:id', ThemesController.update)
+    .delete('/themes', ThemesController.delete)
 
     // Login
     .get('/login', SecureController.login)

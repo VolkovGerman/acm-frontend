@@ -35,4 +35,11 @@ module.exports = class Tag {
         };
     }
 
+    static prepareToBackend(_) {
+        return {
+            nameRU: _.nameRU,
+            nameEN: _.nameEN
+        };
+    }
+
 };
