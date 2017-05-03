@@ -26,6 +26,7 @@ class Login extends React.Component {
             .then(data => {
                 if (data.status === 'success') {
                     new Cookies().set('access_token', data.access_token, { path: '/' });
+                    new Cookies().set('user', data.user, { path: '/' });
 
                     window.location.href = '/dashboard';
                 } else {
