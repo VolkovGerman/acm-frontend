@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 
-require('./NotFound404.scss');
+require('./NotFound.scss');
 
-class NotFound404 extends Component {
+export default class NotFound extends Component {
     render() {
         return (
-            <div className="NotFound404">
+            <div className="NotFound">
                 Not found <Link to="/">To Home</Link>
             </div>
         );
     }
 }
-
-export default NotFound404;
