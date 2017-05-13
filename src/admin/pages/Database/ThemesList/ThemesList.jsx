@@ -32,7 +32,7 @@ export default class ThemesList extends React.Component {
         return (
             <div className="Themes">
                 <Block title="Список тем новостей" showButtons buttons={this.state.block.buttons}>
-                    {!this.props.themes.isLoading && this.props.themes.tableData.length
+                    {!this.props.themes.isLoading && this.props.themes.tableFields.length
                         ? <WidgetTable rows={this.props.themes.tableData} delete={this.props.handleDeleteThemes}
                                        fields={this.props.themes.tableFields} actions={this.state.block.actions}/>
                         : <Loader/>

@@ -158,7 +158,7 @@ export default class Table extends React.Component {
                             {/*/!*className="actions__link">Изменить</Link>*!/*/}
                             {/*<DropDownCell/>*/}
                             {/*</td>*/}
-                            <DropDownCell items={data.actions}/>
+                            <DropDownCell id={dataIndex} items={data.actions}/>
                         </tr>
                     )}
                     </tbody>

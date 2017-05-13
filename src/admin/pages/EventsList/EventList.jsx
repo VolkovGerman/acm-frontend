@@ -35,7 +35,7 @@ export default class EventList extends React.Component {
         return (
             <div className="Champs">
                 <Block title="Список событий" showButtons buttons={this.state.block.buttons}>
-                    {!this.props.events.isLoading && this.props.events.tableData.length
+                    {!this.props.events.isLoading && this.props.events.tableFields.length
                         ? <WidgetTable rows={this.props.events.tableData} delete={this.props.handleDeleteEvents}
                                        fields={this.props.events.tableFields} actions={this.state.block.actions}/>
                         : <Loader/>

@@ -32,7 +32,7 @@ export default class TagList extends React.Component {
         return (
             <div className="News">
                 <Block title="Список тегов" showButtons buttons={this.state.block.buttons}>
-                    {!this.props.tags.isLoading && this.props.tags.tableData.length
+                    {!this.props.tags.isLoading && this.props.tags.tableFields.length
                         ? <WidgetTable rows={this.props.tags.tableData} delete={this.props.handleDeleteTags}
                                        fields={this.props.tags.tableFields} actions={this.state.block.actions}/>
                         : <Loader/>

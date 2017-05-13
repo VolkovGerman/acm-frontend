@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import Dom from '../../../../../core/lib/dom';
 
 import './DropDown.scss';
 
@@ -11,7 +12,13 @@ export default class DropDownCell extends React.Component {
 
         this.state = {
             isActive: false
-        }
+        };
+
+        Dom.outerClick(`DropDownCell__link ${this.props.id}`, (e) => {
+            this.setState(_ => ({
+                isActive: false
+            }));
+        });
     }
 
     static propTypes = {
@@ -33,7 +40,7 @@ export default class DropDownCell extends React.Component {
 
     render = () =>
         <td className="DropDownCell">
-            <Link className="DropDownCell__link" to="#" onClick={this.handleClickOpenMenu}>{this.props.gug}</Link>
+            <Link className={`DropDownCell__link ${this.props.id}`} to="#" onClick={this.handleClickOpenMenu}>{this.props.gug}</Link>
             {this.state.isActive &&
             <div className="DropDownCell__dropBox dropBox">
                 {this.props.items.map((item, index) =>

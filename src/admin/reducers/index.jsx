@@ -6,6 +6,9 @@ import news from './news';
 import events from './events';
 import themes from './themes';
 import tags from './tags';
+import competitions from './competitions';
+import competitionSections from './competitionSections';
+import competitionPages from './competitionPages';
 
 export default combineReducers({
     routing: routerReducer,
@@ -13,5 +16,8 @@ export default combineReducers({
     news,
     events,
     themes,
-    tags
+    tags,
+    competitions,
+    competitionSections,
+    competitionPages
 });

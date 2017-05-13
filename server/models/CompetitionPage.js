@@ -1,3 +1,5 @@
+const Transformer = require('../libs/transformer');
+
 /**
  * @swagger
  * definitions:
@@ -43,6 +45,16 @@ module.exports = class CompetitionSections {
             },
             createdAt: _.createdAt,
             lastModifiedAt: _.lastModifiedAt
+        };
+    }
+
+    static prepareToBackend(_) {
+        return {
+            titleRU: _.titleRU,
+            titleEN: _.titleEN,
+            systemName: Transformer.translit(_.titleEN || _.titleRU),
+            contentRU: _.contentRU,
+            contentEN: _.contentEN
         };
     }
 

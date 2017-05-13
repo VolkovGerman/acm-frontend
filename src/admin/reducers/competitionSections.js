@@ -1,67 +1,61 @@
-import * as actionTypes from '../actions-types/events';
+import * as actionTypes from '../actions-types/competitionSections';
 
 const initialState = {
     tableData: [],
     tableFields: [],
-    data: [],
-    current: {},
+    data: false,
     isLoading: false,
     error: false
 };
 
-export default function tags(state = initialState, action) {
+export default function competitionSections(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.FETCH_EVENTS_REQUEST:
+        case actionTypes.FETCH_COMPETITION_SECTIONS_REQUEST:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case actionTypes.FETCH_EVENTS_SUCCESS:
+        case actionTypes.FETCH_COMPETITION_SECTIONS_SUCCESS:
+            return {
+                ...state,
+                isLoading: false
+            };
+
+        case actionTypes.FETCH_CURRENT_COMPETITION_SECTIONS_SUCCESS:
             return {
                 ...state,
                 data: action.payload,
                 isLoading: false
             };
 
-        case actionTypes.FETCH_EVENTS_FAILURE:
+        case actionTypes.FETCH_COMPETITION_SECTIONS_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
             };
 
-        case actionTypes.FETCH_CURRENT_TAG_SUCCESS:
-            return {
-                ...state,
-                current: action.payload,
-                isLoading: false
-            };
-
-        case actionTypes.SET_TAGS_TABLE_DATA:
+        case actionTypes.SET_COMPETITION_SECTIONS_TABLE_DATA:
             return {
                 ...state,
                 tableData: action.payload
             };
 
-        case actionTypes.SET_TAGS_TABLE_FIELDS:
+        case actionTypes.SET_COMPETITION_SECTIONS_TABLE_FIELDS:
             return {
                 ...state,
                 tableFields: action.payload
             };
 
-        case actionTypes.FETCH_TAGS_TABLE_SUCCESS:
-            return {
-                ...state,
-                isLoading: false
-            };
-
-        case actionTypes.POST_TAG_REQUEST:
+        case actionTypes.POST_COMPETITION_SECTION_REQUEST:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case actionTypes.POST_TAG_SUCCESS:
+        case actionTypes.POST_COMPETITION_SECTION_SUCCESS:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -69,7 +63,7 @@ export default function tags(state = initialState, action) {
                 isLoading: false
             };
 
-        case actionTypes.POST_TAG_FAILURE:
+        case actionTypes.POST_COMPETITION_SECTION_FAILURE:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -77,13 +71,13 @@ export default function tags(state = initialState, action) {
                 error: action.payload,
             };
 
-        case actionTypes.PUT_TAG_REQUEST:
+        case actionTypes.PUT_COMPETITION_SECTION_REQUEST:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case actionTypes.PUT_TAG_SUCCESS:
+        case actionTypes.PUT_COMPETITION_SECTION_SUCCESS:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -91,7 +85,7 @@ export default function tags(state = initialState, action) {
                 isLoading: false
             };
 
-        case actionTypes.PUT_TAG_FAILURE:
+        case actionTypes.PUT_COMPETITION_SECTION_FAILURE:
             return {
                 ...state,
                 tableData: initialState.tableData,
@@ -99,10 +93,10 @@ export default function tags(state = initialState, action) {
                 error: action.payload,
             };
 
-        case actionTypes.FLUSH_TAG:
+        case actionTypes.FLUSH_COMPETITION_SECTION:
             return {
                 ...state,
-                current: initialState.current,
+                data: initialState.data,
                 error: initialState.error
             };
 
