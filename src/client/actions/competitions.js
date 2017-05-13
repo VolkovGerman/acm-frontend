@@ -68,7 +68,7 @@ export function handleLoadingCompetitionSections(id) {
     return function (dispatch) {
         dispatch(fetchCompetitionSectionsRequest());
 
-        return fetch(`${config.server}/api/competitions/${id}/sections`)
+        return fetch(`${config.server}/api/competitions/${id}/sections-with-pages`)
             .then(response => response.json())
             .then(json => dispatch(fetchCompetitionSectionsSuccess({ data: json, id })))
             .catch(err => dispatch(fetchCompetitionSectionsFailure(err)));
@@ -87,7 +87,7 @@ export function handleLoadingCompetitionThenSections(systemName) {
                 dispatch(fetchCompetitionSectionsRequest());
 
                 const id = json.filter(_ => _.systemName === systemName)[0].id;
-                fetch(`${config.server}/api/competitions/${id}/sections`)
+                fetch(`${config.server}/api/competitions/${id}/sections-with-pages`)
                     .then(response => response.json())
                     .then(jsonSections => {
                         

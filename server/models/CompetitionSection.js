@@ -35,4 +35,11 @@ module.exports = class CompetitionSection {
         };
     }
 
+    static prepareToBackend(_) {
+        return {
+            titleRU: _.titleRU,
+            titleEN: _.titleEN
+        };
+    }
+
 };

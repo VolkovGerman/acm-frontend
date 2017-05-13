@@ -31,11 +31,11 @@ export default {
             items: [
                 {
                     title: 'Добавить',
-                    link: '/champs/create'
+                    link: '/competitions/create'
                 },
                 {
                     title: 'Список',
-                    link: '/champs'
+                    link: '/competitions'
                 }
             ]
         },

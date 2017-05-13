@@ -6,6 +6,8 @@ const ApiController = require('../controllers/api');
 const NewsController = require('../controllers/api/news');
 const EventsController = require('../controllers/api/events');
 const CompetitionsController = require('../controllers/api/competitions');
+const CompetitionSectionsController = require('../controllers/api/competitionSections');
+const CompetitionPagesController = require('../controllers/api/competitionPages');
 const TagsController = require('../controllers/api/tags');
 const ThemesController = require('../controllers/api/themes');
 
@@ -29,8 +31,25 @@ router
 
     // Competitions
     .get('/competitions', CompetitionsController.getSome)
-    // .get('/competitions/:id', CompetitionsController.getOne)
-    .get('/competitions/:id/sections', CompetitionsController.getSections)
+    .get('/competitions/:id', CompetitionsController.getOne)
+    .post('/competitions', CompetitionsController.add)
+    .put('/competitions/:id', CompetitionsController.update)
+    .delete('/competitions', CompetitionsController.delete)
+
+    // CompetitionSections
+    .get('/competitions/:competition_id/sections', CompetitionSectionsController.getSome)
+    .get('/competitions/:competition_id/sections-with-pages', CompetitionSectionsController.getSomeWithPages)
+    .get('/competitions/:competition_id/sections/:id', CompetitionSectionsController.getOne)
+    .post('/competitions/:competition_id/sections', CompetitionSectionsController.add)
+    .put('/competitions/:competition_id/sections/:id', CompetitionSectionsController.update)
+    .delete('/competitions/:competition_id/sections', CompetitionSectionsController.delete)
+
+    // CompetitionPages
+    .get('/competitions/:competition_id/sections/:section_id/pages', CompetitionPagesController.getSome)
+    .get('/competitions/:competition_id/sections/:section_id/pages/:id', CompetitionPagesController.getOne)
+    .post('/competitions/:competition_id/sections/:section_id/pages', CompetitionPagesController.add)
+    .put('/competitions/:competition_id/sections/:section_id/pages/:id', CompetitionPagesController.update)
+    .delete('/competitions/:competition_id/sections/:section_id/pages', CompetitionPagesController.delete)
 
     // Tags
     .get('/tags', TagsController.getSome)

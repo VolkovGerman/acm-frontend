@@ -35,7 +35,7 @@ export default class NewsList extends React.Component {
         return (
             <div className="News">
                 <Block title="Список новостей" showButtons buttons={this.state.block.buttons}>
-                    {!this.props.news.isLoading && this.props.news.tableData.length
+                    {!this.props.news.isLoading && this.props.news.tableFields.length
                         ? <WidgetTable rows={this.props.news.tableData} delete={this.props.handleDeleteNews} fields={this.props.news.tableFields} actions={this.state.block.actions}/>
                         : <Loader/>
                     }

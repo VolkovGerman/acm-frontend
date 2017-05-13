@@ -3,8 +3,6 @@ const request = require('request');
 const config = require('../../config/source');
 const buildQueryParams = require('../../libs/buildQueryParams');
 
-const CompetitionModel = require('../../models/Competition');
-const CompetitionSectionModel = require('../../models/CompetitionSection');
 const CompetitionPageModel = require('../../models/CompetitionPage');
 
 function getPayload(res, field) {
@@ -17,59 +15,66 @@ function getPayload(res, field) {
 module.exports = {
 
     getSome(req, res, next) {
-        const queryParams = buildQueryParams(req);
-
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/champs${queryParams}`,
+            uri: `${config.baseUrl}/champSections/${req.params.section_id}/pages`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }
 
-            res.json(getPayload(body, 'champs').map(CompetitionModel.parseFromBackend));
+            res.json(getPayload(body, 'pages').map(CompetitionPageModel.parseFromBackend));
         });
     },
 
     getOne(req, res, next) {
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/champs/${req.params.id}`,
+            uri: `${config.baseUrl}/pages/${req.params.id}`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }
 
-            res.json(CompetitionModel.parseFromBackend(body));
+            res.json(CompetitionPageModel.parseFromBackend(body));
         });
     },
 
     add(req, res, next) {
         request({
             method: 'POST',
-            uri: `${config.baseUrl}/champs`,
-            json: CompetitionModel.prepareToBackend(req.body)
+            uri: `${config.baseUrl}/pages`,
+            json: CompetitionPageModel.prepareToBackend(req.body)
         }, (err, status, body) => {
             if (err) { return next(err); }
 
-            res.json(CompetitionModel.parseFromBackend(body));
+            const page = CompetitionPageModel.parseFromBackend(body);
+            request({
+                method: 'POST',
+                uri: `${config.baseUrl}/champSections/${req.params.section_id}/bind/page`,
+                json: {id: page.id}
+            }, (err, status, body) => {
+                if (err) { return next(err); }
+
+                res.json(page);
+            });
         });
     },
 
     update(req, res, next) {
         request({
             method: 'PUT',
-            uri: `${config.baseUrl}/champs/${req.params.id}`,
-            json: CompetitionModel.prepareToBackend(req.body)
+            uri: `${config.baseUrl}/pages/${req.params.id}`,
+            json: CompetitionPageModel.prepareToBackend(req.body)
         }, (err, status, body) => {
             if (err) { return next(err); }
 
-            res.json(CompetitionModel.parseFromBackend(body));
+            res.json(CompetitionPageModel.parseFromBackend(body));
         });
     },
 
     delete(req, res, next) {
         request({
             method: 'DELETE',
-            uri: `${config.baseUrl}/champs/delete`,
+            uri: `${config.baseUrl}/pages/delete`,
             json: req.body
         }, (err, status, body) => {
             if (err) { return next(err); }

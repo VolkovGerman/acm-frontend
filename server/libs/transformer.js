@@ -39,4 +39,4 @@ module.exports  = class Transformer {
         originString = originString.replace(/^-/, '');
         return originString.replace(/-$/, '');
     }
-}
+};
