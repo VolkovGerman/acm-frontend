@@ -154,7 +154,7 @@ export function handleLoadingThemesList() {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/db/themes/update?id=${_.id}`
+                                link: `/dashboard/db/themes/update?id=${_.id}`
                             }
                         ],
                         cells: [
@@ -197,7 +197,7 @@ export function handlePostTheme(body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postThemeSuccess(json));
-                browserHistory.push('/db/themes');
+                browserHistory.push('/dashboard/db/themes');
             })
             .catch(err => dispatch(postThemeFailure(err)));
     }
@@ -219,7 +219,7 @@ export function handlePutTheme(id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putThemeSuccess(json));
-                browserHistory.push('/db/themes');
+                browserHistory.push('/dashboard/db/themes');
             })
             .catch(err => dispatch(putThemeFailure(err)));
     }

@@ -34,6 +34,21 @@
     &__content {
         line-height: 1.6;
         text-align: justify;
+
+        a {
+            color: $mainBlue;
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            padding-left: 30px;
+            list-style-type: disc;
+        }
     }
 
     &__footer {

@@ -12,7 +12,7 @@ export default class ThemesList extends React.Component {
             block: {
                 buttons: [
                     {
-                        action: '/db/themes/create',
+                        action: '/dashboard/db/themes/create',
                         name: 'Добавить',
                         type: 'link',
                         style: 'green'

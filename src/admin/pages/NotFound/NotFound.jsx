@@ -7,7 +7,7 @@ export default class NotFound extends Component {
     render() {
         return (
             <div className="NotFound">
-                Not found <Link to="/">To Home</Link>
+                Not found <Link to="/dashboard">To Home</Link>
             </div>
         );
     }

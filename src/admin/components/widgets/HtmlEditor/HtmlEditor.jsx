@@ -2,6 +2,7 @@ import React from 'react';
 import TinyMCE from 'react-tinymce';
 
 import 'font-awesome/css/font-awesome.css';
+import './ru.lang';
 import config from './config';
 import './HtmlEditor.scss'
 
@@ -33,7 +34,7 @@ export default class HtmlEditor extends React.Component {
 
     render() {
         return (
-            <div className="WidgetHtmlEditor">
+            <div className="HtmlEditor">
                 <input type="hidden" name={this.props.name} value={this.state.model}/>
                 <TinyMCE
                     content={this.state.model}

@@ -130,7 +130,7 @@ export function handleLoadingEvents() {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/events/update?id=${_.id}`
+                                link: `/dashboard/events/update?id=${_.id}`
                             }
                         ],
                         cells: [
@@ -174,7 +174,7 @@ export function handlePostEvent(body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postEventSuccess(json));
-                browserHistory.push('/events');
+                browserHistory.push('/dashboard/events');
             })
             .catch(err => dispatch(postEventFailure(err)));
     }
@@ -196,7 +196,7 @@ export function handlePutEvent(id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putEventSuccess(json));
-                browserHistory.push('/events');
+                browserHistory.push('/dashboard/events');
             })
             .catch(err => dispatch(putEventFailure(err)));
     }

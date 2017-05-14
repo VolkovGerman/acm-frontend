@@ -1,0 +1,48 @@
+@import '../../../../core/styles/variables';
+
+.ImagePicker {
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__pick {
+        position: relative;
+    }
+
+    &__flush {
+        position: absolute;
+        left: 96px;
+        top: 8px;
+        background: url('../../../../../static/images/svg/cross_E95E4F.svg') center no-repeat;
+        background-size: 14px;
+        width: 14px;
+        height: 14px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    &__gag {
+        min-height: 150px;
+    }
+
+    &__btn {
+        color: $white;
+        display: inline-block;
+        padding: 6px 13px;
+        margin-bottom: 10px;
+        font-size: $font_size_s;
+        cursor: pointer;
+        background-color: $admin__blue;
+        border: 1px solid $admin__blueBorder;
+
+        &:hover {
+            background-color: $admin__blueBorder;
+        }
+    }
+}

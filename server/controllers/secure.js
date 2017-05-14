@@ -10,7 +10,7 @@ module.exports = {
         const token = new Cookies(req, res).get('access_token');
 
         jwt.verify(token, config.secret, (err) => {
-            if (err) { return res.redirect('/'); }
+            if (err) { return res.redirect('/login'); }
             next();
         });
     },

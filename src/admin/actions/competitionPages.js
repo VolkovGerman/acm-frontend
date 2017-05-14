@@ -127,7 +127,7 @@ export function handleLoadingCompetitionPages(competition_id, section_id) {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/competitions/${competition_id}/sections/${section_id}/pages/update?id=${_.id}`
+                                link: `/dashboard/competitions/${competition_id}/sections/${section_id}/pages/update?id=${_.id}`
                             }
                         ],
                         cells: [
@@ -169,7 +169,7 @@ export function handlePostCompetitionPage(competition_id, section_id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postCompetitionPageSuccess(json));
-                browserHistory.push(`/competitions/${competition_id}/sections/${section_id}/pages`);
+                browserHistory.push(`/dashboard/competitions/${competition_id}/sections/${section_id}/pages`);
             })
             .catch(err => dispatch(postCompetitionPageFailure(err)));
     }
@@ -191,7 +191,7 @@ export function handlePutCompetitionPage(competition_id, section_id, id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putCompetitionPageSuccess(json));
-                browserHistory.push(`/competitions/${competition_id}/sections/${section_id}/pages`);
+                browserHistory.push(`/dashboard/competitions/${competition_id}/sections/${section_id}/pages`);
             })
             .catch(err => dispatch(putCompetitionPageFailure(err)));
     }

@@ -131,11 +131,11 @@ export function handleLoadingCompetitions() {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/competitions/update?id=${_.id}`
+                                link: `/dashboard/competitions/update?id=${_.id}`
                             },
                             {
                                 name: 'Секции',
-                                link: `/competitions/${_.id}/sections`
+                                link: `/dashboard/competitions/${_.id}/sections`
                             }
                         ],
                         cells: [
@@ -180,7 +180,7 @@ export function handlePostCompetition(body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postCompetitionSuccess(json));
-                browserHistory.push('/competitions');
+                browserHistory.push('/dashboard/competitions');
             })
             .catch(err => dispatch(postCompetitionFailure(err)));
     }
@@ -202,7 +202,7 @@ export function handlePutCompetition(id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putCompetitionSuccess(json));
-                browserHistory.push('/competitions');
+                browserHistory.push('/dashboard/competitions');
             })
             .catch(err => dispatch(putCompetitionFailure(err)));
     }

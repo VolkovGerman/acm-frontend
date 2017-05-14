@@ -5,11 +5,11 @@ export default {
             items: [
                 {
                     title: 'Добавить',
-                    link: '/news/create'
+                    link: '/dashboard/news/create'
                 },
                 {
                     title: 'Список',
-                    link: '/news'
+                    link: '/dashboard/news'
                 }
             ]
         },
@@ -18,11 +18,11 @@ export default {
             items: [
                 {
                     title: 'Добавить',
-                    link: '/events/create'
+                    link: '/dashboard/events/create'
                 },
                 {
                     title: 'Список',
-                    link: '/events'
+                    link: '/dashboard/events'
                 }
             ]
         },
@@ -31,11 +31,11 @@ export default {
             items: [
                 {
                     title: 'Добавить',
-                    link: '/competitions/create'
+                    link: '/dashboard/competitions/create'
                 },
                 {
                     title: 'Список',
-                    link: '/competitions'
+                    link: '/dashboard/competitions'
                 }
             ]
         },
@@ -44,11 +44,11 @@ export default {
             items: [
                 {
                     title: 'Темы новостей',
-                    link: '/db/themes'
+                    link: '/dashboard/db/themes'
                 },
                 {
                     title: 'Теги',
-                    link: '/db/tags'
+                    link: '/dashboard/db/tags'
                 }
             ]
         }

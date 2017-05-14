@@ -9,6 +9,8 @@ const Transformer = require('../libs/transformer');
  *         type: number
  *       title:
  *         type: object
+ *       img:
+ *         type: string
  *       content:
  *         type: object
  *       description:
@@ -27,11 +29,12 @@ const Transformer = require('../libs/transformer');
 module.exports = class News {
 
     constructor({
-        id, title, content, description, systemName, views, status, createdAt, lastModifiedAt
+        id, title, img, content, description, systemName, views, status, createdAt, lastModifiedAt
     }) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.img = img;
         this.description = description;
         this.systemName = systemName;
         this.views = views;
@@ -47,6 +50,7 @@ module.exports = class News {
                 ru: _.titleRU,
                 en: _.titleEN
             },
+            img: _.img,
             content: {
                 ru: _.contentRU,
                 en: _.contentEN
@@ -70,6 +74,7 @@ module.exports = class News {
         return {
             titleRU: _.titleRU,
             systemName: Transformer.translit(_.titleEN || _.titleRU),
+            img: _.img,
             contentRU: _.contentRU,
             descriptionRU: _.descriptionRU,
             statusRU: _.statusRU,

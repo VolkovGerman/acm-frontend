@@ -11,7 +11,7 @@ export default (props) =>
     <div className="newsCard clearfix">
         <div className="newsCard__left">
             <Link to={`/news/${props.news.systemName}`} className="newsCard__image-link">
-                <img className="newsCard__image" src={img}/>
+                <img className="newsCard__image" src={props.news.img || img}/>
             </Link>
         </div>
         <div className="newsCard__right">

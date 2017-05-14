@@ -129,7 +129,7 @@ export function handleLoadingNews() {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/news/update?id=${news.id}`
+                                link: `/dashboard/news/update?id=${news.id}`
                             }
                         ],
                         cells: [
@@ -173,7 +173,7 @@ export function handlePostNews(body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postNewsSuccess(json));
-                browserHistory.push('/news');
+                browserHistory.push('/dashboard/news');
             })
             .catch(err => dispatch(postNewsFailure(err)));
     }
@@ -195,7 +195,7 @@ export function handlePutNews(id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putNewsSuccess(json));
-                browserHistory.push('/news');
+                browserHistory.push('/dashboard/news');
             })
             .catch(err => dispatch(putNewsFailure(err)));
     }

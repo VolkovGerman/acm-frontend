@@ -1,21 +1,25 @@
 @import '../../../../core/styles/variables';
 
-.WidgetHtmlEditor {
-    table {
-        td, th {
-            border: 1px solid $admin__lightBackground;
-        }
-    }
+.htmlEditorArea {
+    display: none!important;
+}
 
-    hr {
-        border: none;
-        color: $admin__lightBackground;
-        background-color: $admin__lightBackground;
-        height: 1px;
-    }
+.myTable {
+    width: 100%;
 
-    blockquote {
-        border-left: 5px solid $admin__lightBackground;
-        padding: 0 15px;
+    td, th {
+        border: 1px solid $admin__lightBackground;
     }
+}
+
+hr {
+    border: none;
+    color: $admin__lightBackground;
+    background-color: $admin__lightBackground;
+    height: 1px;
+}
+
+blockquote {
+    border-left: 5px solid $admin__lightBackground;
+    padding: 0 15px;
 }

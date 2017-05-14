@@ -1,5 +1,4 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
 
 import Block from '../../components/layouts/Block/Block';
 import WidgetRow from '../../components/layouts/WidgetRow/WidgetRow';
@@ -8,8 +7,8 @@ import Tab from '../../components/layouts/Tab/Tab';
 import Input from '../../components/widgets/Input/Input';
 import Switch from '../../components/widgets/Switch/Switch';
 import HtmlEditor from '../../components/widgets/HtmlEditor/HtmlEditor';
+import ImagePicker from '../../components/widgets/ImagePicker/ImagePicker';
 import Select from '../../components/widgets/Select/Select';
-import Chosen from '../../components/widgets/Chosen/Chosen';
 import Loader from '../../../core/components/loaders/CssSquareLoader/CssSquareLoader';
 import parse from '../../libs/parse';
 
@@ -64,9 +63,10 @@ export default class NewsCreate extends React.Component {
                                         <Input name="titleRU"
                                                value={this.props.news.data.title ? this.props.news.data.title.ru : ''}/>
                                     </WidgetRow>
-                                    {/*<WidgetRow title="Изоображение" name="image" isRequired>*/}
-                                    {/*<WidgetImageEditor name="image"/>*/}
-                                    {/*</WidgetRow>*/}
+                                    <WidgetRow title="Изоображение" name="image" isRequired>
+                                        <ImagePicker name="img"
+                                                     value={this.props.news.data.img ? this.props.news.data.img : ''}/>
+                                    </WidgetRow>
                                     <WidgetRow title="Краткое описание" name="descriptionRU">
                                         <HtmlEditor name="descriptionRU"
                                                     value={this.props.news.data.description ? this.props.news.data.description.ru : ''}/>

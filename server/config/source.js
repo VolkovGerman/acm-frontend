@@ -1,8 +1,5 @@
 module.exports = {
     baseUrl: 'https://acm-backend.herokuapp.com',
-    auth: {
-        username: 'admin',
-        password: 'acm2017'
-    },
+    selfUrl: 'http://localhost:3001',
     secret: 'volkov97onewayup'
-}
+};

@@ -22,27 +22,27 @@ export const routes = (
     <div>
         <Route path='/dashboard' component={IndexContainer}>
             <IndexRoute component={NewsListContainer}/>
-            <Route path='/news' component={NewsListContainer}/>
-            <Route path='/news/create' component={NewsCreateContainer}/>
-            <Route path='/news/update' component={NewsCreateContainer} />
-            <Route path='/events' component={EventsListContainer}/>
-            <Route path='/events/create' component={EventCreateContainer}/>
-            <Route path='/events/update' component={EventCreateContainer} />
-            <Route path='/db/tags' component={TagsListContainer}/>
-            <Route path='/db/tags/create' component={TagCreateContainer}/>
-            <Route path='/db/tags/update' component={TagCreateContainer} />
-            <Route path='/db/themes' component={ThemesListContainer}/>
-            <Route path='/db/themes/create' component={ThemeCreateContainer}/>
-            <Route path='/db/themes/update' component={ThemeCreateContainer} />
-            <Route path='/competitions' component={CompetitionsListContainer} />
-            <Route path='/competitions/create' component={CompetitionCreateContainer} />
-            <Route path='/competitions/update' component={CompetitionCreateContainer} />
-            <Route path='/competitions/:competition_id/sections' component={CompetitionSectionsContainer} />
-            <Route path='/competitions/:competition_id/sections/create' component={CompetitionSectionCreateContainer} />
-            <Route path='/competitions/:competition_id/sections/update' component={CompetitionSectionCreateContainer} />
-            <Route path='/competitions/:competition_id/sections/:section_id/pages' component={CompetitionPagesContainer} />
-            <Route path='/competitions/:competition_id/sections/:section_id/pages/create' component={CompetitionPageCreateContainer} />
-            <Route path='/competitions/:competition_id/sections/:section_id/pages/update' component={CompetitionPageCreateContainer} />
+            <Route path='news' component={NewsListContainer}/>
+            <Route path='news/create' component={NewsCreateContainer}/>
+            <Route path='news/update' component={NewsCreateContainer} />
+            <Route path='events' component={EventsListContainer}/>
+            <Route path='events/create' component={EventCreateContainer}/>
+            <Route path='events/update' component={EventCreateContainer} />
+            <Route path='db/tags' component={TagsListContainer}/>
+            <Route path='db/tags/create' component={TagCreateContainer}/>
+            <Route path='db/tags/update' component={TagCreateContainer} />
+            <Route path='db/themes' component={ThemesListContainer}/>
+            <Route path='db/themes/create' component={ThemeCreateContainer}/>
+            <Route path='db/themes/update' component={ThemeCreateContainer} />
+            <Route path='competitions' component={CompetitionsListContainer} />
+            <Route path='competitions/create' component={CompetitionCreateContainer} />
+            <Route path='competitions/update' component={CompetitionCreateContainer} />
+            <Route path='competitions/:competition_id/sections' component={CompetitionSectionsContainer} />
+            <Route path='competitions/:competition_id/sections/create' component={CompetitionSectionCreateContainer} />
+            <Route path='competitions/:competition_id/sections/update' component={CompetitionSectionCreateContainer} />
+            <Route path='competitions/:competition_id/sections/:section_id/pages' component={CompetitionPagesContainer} />
+            <Route path='competitions/:competition_id/sections/:section_id/pages/create' component={CompetitionPageCreateContainer} />
+            <Route path='competitions/:competition_id/sections/:section_id/pages/update' component={CompetitionPageCreateContainer} />
         </Route>
         <Route path='*' component={NotFoundContainer} />
     </div>

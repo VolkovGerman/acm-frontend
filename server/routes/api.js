@@ -1,5 +1,37 @@
 const express = require('express');
 const router = express.Router();
+const config = require('../config/source');
+const path = require('path');
+const multer  = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.resolve(__dirname, '../public/static/images'))
+    },
+    filename: function (req, file, cb) {
+        let ext = '';
+        switch (file.mimetype) {
+            case 'image/jpeg': {
+                ext = 'jpeg';
+                break;
+            }
+            case 'image/png': {
+                ext = 'png';
+                break;
+            }
+            case 'image/gif': {
+                ext = 'gif';
+                break;
+            }
+            case 'image/svg+xml': {
+                ext = 'svg';
+                break;
+            }
+        }
+        const filename = `acm-static-${Date.now()}.${ext}`;
+        cb(null, filename);
+    }
+});
+const upload = multer({storage: storage});
 
 const SecureController = require('../controllers/secure');
 const ApiController = require('../controllers/api');
@@ -10,6 +42,7 @@ const CompetitionSectionsController = require('../controllers/api/competitionSec
 const CompetitionPagesController = require('../controllers/api/competitionPages');
 const TagsController = require('../controllers/api/tags');
 const ThemesController = require('../controllers/api/themes');
+const ImagesController = require('../controllers/api/images');
 
 router
     // API Index
@@ -64,6 +97,9 @@ router
     .post('/themes', ThemesController.add)
     .put('/themes/:id', ThemesController.update)
     .delete('/themes', ThemesController.delete)
+
+    // Images
+    .post('/images/news/upload', upload.single('file'), ImagesController.add)
 
     // Login
     .post('/login', SecureController.login);

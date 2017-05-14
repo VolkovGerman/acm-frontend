@@ -32,7 +32,7 @@ export default (props) => {
                 <div className="article__main">
                     <div className="article__imageBlock">
                         <a href="#" className="article__imageLink">
-                            <img className="article__image" src={img}/>
+                            <img className="article__image" src={props.el.img || img}/>
                         </a>
                     </div>
                     <div className="article__content"

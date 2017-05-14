@@ -154,7 +154,7 @@ export function handleLoadingTagsList() {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/db/tags/update?id=${_.id}`
+                                link: `/dashboard/db/tags/update?id=${_.id}`
                             }
                         ],
                         cells: [
@@ -197,7 +197,7 @@ export function handlePostTag(body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postTagSuccess(json));
-                browserHistory.push('/db/tags');
+                browserHistory.push('/dashboard/db/tags');
             })
             .catch(err => dispatch(postTagFailure(err)));
     }
@@ -219,7 +219,7 @@ export function handlePutTag(id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putTagSuccess(json));
-                browserHistory.push('/db/tags');
+                browserHistory.push('/dashboard/db/tags');
             })
             .catch(err => dispatch(putTagFailure(err)));
     }

@@ -13,14 +13,14 @@ export default class CompetitionPagesList extends React.Component {
             block: {
                 buttons: [
                     {
-                        action: `/competitions/${props.params.competition_id}/sections/${props.params.section_id}/pages/create`,
+                        action: `/dashboard/competitions/${props.params.competition_id}/sections/${props.params.section_id}/pages/create`,
                         name: 'Добавить',
                         type: 'link',
                         style: 'green'
                     }
                 ],
                 actions: {
-                    delete: config.server + `/competitions/${props.params.competition_id}/sections/${props.params.section_id}/pages/delete`
+                    delete: config.server + `/dashboard/competitions/${props.params.competition_id}/sections/${props.params.section_id}/pages/delete`
                 }
             }
         }

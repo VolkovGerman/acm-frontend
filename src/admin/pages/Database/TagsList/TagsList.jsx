@@ -12,7 +12,7 @@ export default class TagList extends React.Component {
             block: {
                 buttons: [
                     {
-                        action: '/db/tags/create',
+                        action: '/dashboard/db/tags/create',
                         name: 'Добавить',
                         type: 'link',
                         style: 'green'

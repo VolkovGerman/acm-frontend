@@ -33,6 +33,7 @@ const options = { index: false };
 app.use(express.static(path.join(__dirname, '../public/admin'), options));
 app.use(express.static(path.join(__dirname, '../public/client'), options));
 app.use(express.static(path.join(__dirname, '../public'), options));
+app.use(express.static(path.join(__dirname, './public'), options));
 
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/api', require('./routes/api'));

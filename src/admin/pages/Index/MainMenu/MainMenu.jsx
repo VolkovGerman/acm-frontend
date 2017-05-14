@@ -1,9 +1,13 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 
 import menuConfig from './menu.config';
 import MenuItem from './MenuItem/MenuItem';
 
 import './MainMenu.scss';
+
+const cookies = new Cookies();
+const user = cookies.get('user');
 
 export default (props) =>
     <div className={`MainMenu ${props.interfaces.activeMenu ? 'active' : 'inactive'}`}>
@@ -15,7 +19,7 @@ export default (props) =>
             <div className="profile__img"/>
             <div className="profile__nameWrap">
                 <div className="profile__rang">Администратор</div>
-                <div className="profile__name">Павел Дуров</div>
+                <div className="profile__name">{`${user.firstName} ${user.secondName}`}</div>
             </div>
         </div>
         <div className="menu">

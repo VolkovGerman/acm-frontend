@@ -13,14 +13,14 @@ export default class EventList extends React.Component {
             block: {
                 buttons: [
                     {
-                        action: '/events/create',
+                        action: '/dashboard/events/create',
                         name: 'Добавить',
                         type: 'link',
                         style: 'green'
                     }
                 ],
                 actions: {
-                    delete: config.server + '/events/delete'
+                    delete: config.server + '/dashboard/events/delete'
                 }
             }
         };

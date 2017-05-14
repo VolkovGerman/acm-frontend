@@ -127,11 +127,11 @@ export function handleLoadingCompetitionSections(competition_id) {
                         actions: [
                             {
                                 name: 'Изменить',
-                                link: `/competitions/${competition_id}/sections/update?id=${_.id}`
+                                link: `/dashboard/competitions/${competition_id}/sections/update?id=${_.id}`
                             },
                             {
                                 name: 'Страницы',
-                                link: `/competitions/${competition_id}/sections/${_.id}/pages`
+                                link: `/dashboard/competitions/${competition_id}/sections/${_.id}/pages`
                             }
                         ],
                         cells: [
@@ -173,7 +173,7 @@ export function handlePostCompetitionSection(competition_id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(postCompetitionSectionSuccess(json));
-                browserHistory.push(`/competitions/${competition_id}/sections`);
+                browserHistory.push(`/dashboard/competitions/${competition_id}/sections`);
             })
             .catch(err => dispatch(postCompetitionSectionFailure(err)));
     }
@@ -195,7 +195,7 @@ export function handlePutCompetitionSection(competition_id, id, body) {
             .then(response => response.json())
             .then(json => {
                 dispatch(putCompetitionSectionSuccess(json));
-                browserHistory.push(`/competitions/${competition_id}/sections`);
+                browserHistory.push(`/dashboard/competitions/${competition_id}/sections`);
             })
             .catch(err => dispatch(putCompetitionSectionFailure(err)));
     }

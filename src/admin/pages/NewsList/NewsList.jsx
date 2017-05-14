@@ -13,14 +13,14 @@ export default class NewsList extends React.Component {
             block: {
                 buttons: [
                     {
-                        action: '/news/create',
+                        action: '/dashboard/news/create',
                         name: 'Добавить',
                         type: 'link',
                         style: 'green'
                     }
                 ],
                 actions: {
-                    delete: config.server + '/news/delete'
+                    delete: config.server + '/dashboard/news/delete'
                 }
             }
         }
