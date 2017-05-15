@@ -5,33 +5,13 @@ const path = require('path');
 const multer  = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '../public/static/images'))
+        cb(null, `${__dirname}/../tmp`)
     },
     filename: function (req, file, cb) {
-        let ext = '';
-        switch (file.mimetype) {
-            case 'image/jpeg': {
-                ext = 'jpeg';
-                break;
-            }
-            case 'image/png': {
-                ext = 'png';
-                break;
-            }
-            case 'image/gif': {
-                ext = 'gif';
-                break;
-            }
-            case 'image/svg+xml': {
-                ext = 'svg';
-                break;
-            }
-        }
-        const filename = `acm-static-${Date.now()}.${ext}`;
-        cb(null, filename);
+        cb(null, Date.now() + file.originalname.substring(file.originalname.lastIndexOf('.')));
     }
 });
-const upload = multer({storage: storage});
+const upload = multer({ storage });
 
 const SecureController = require('../controllers/secure');
 const ApiController = require('../controllers/api');

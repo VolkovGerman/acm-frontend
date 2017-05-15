@@ -10,6 +10,14 @@ const bsuirLogo = require('../../../../static/images/logo/bsuir_logo.png')
 
 class Login extends React.Component {
 
+    constructor(args) {
+        super(args);
+
+        this.state = {
+
+        }
+    }
+
     onFormSubmit(e) {
 
         // REFACTOR THIS TO REDUX ?
@@ -61,6 +69,9 @@ class Login extends React.Component {
                                     <div className="loginForm__field">
                                         <input className="loginForm__input" type="password" name="password" placeholder="Password"/>
                                     </div>
+                                </div>
+                                <div className="loginForm__error-message">
+                                    Wrong credentials...
                                 </div>
                             </div>
                             <footer className="loginForm__footer">
