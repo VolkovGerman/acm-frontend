@@ -75,7 +75,8 @@ export default class Table extends React.Component {
         this.setState(state);
     }
 
-    deleteRowsByIds() {
+    deleteRowsByIds(e) {
+        e.preventDefault();
         let state = this.state;
         let itemsIds = state.checkBoxes.itemsIds;
         this.props.delete(itemsIds);
@@ -94,22 +95,22 @@ export default class Table extends React.Component {
         return (
             <div className="WidgetTable">
                 <div className="bar clearfix">
-                    <div className="bar__amount">
-                        Показать
-                        <div className="bar__select">
-                            <WidgetSelect options={this.state.entityPerPage}/>
-                        </div>
-                        записей
-                    </div>
+                    {/*<div className="bar__amount">*/}
+                        {/*Показать*/}
+                        {/*<div className="bar__select">*/}
+                            {/*<WidgetSelect options={this.state.entityPerPage}/>*/}
+                        {/*</div>*/}
+                        {/*записей*/}
+                    {/*</div>*/}
 
-                    <div className="bar__search">
-                        <div className="bar__searchLabel">
-                            Поиск:
-                        </div>
-                        <div className="bar__searchInput">
-                            <WidgetInput name="search" type="search"/>
-                        </div>
-                    </div>
+                    {/*<div className="bar__search">*/}
+                        {/*<div className="bar__searchLabel">*/}
+                            {/*Поиск:*/}
+                        {/*</div>*/}
+                        {/*<div className="bar__searchInput">*/}
+                            {/*<WidgetInput name="search" type="search"/>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
 
                     {this.props.actions.delete ?
                         <div className="bar__buttons">
