@@ -5,7 +5,7 @@ import dateformat from 'dateformat';
 
 import './NewsCard.scss';
 
-const img = require('../../../../static/images/backgrounds/bg_slider_2.jpg');
+const img = require('../../../../static/images/logo/logo256x150.jpg');
 
 export default (props) =>
     <div className="newsCard clearfix">

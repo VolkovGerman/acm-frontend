@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import dateformat from 'dateformat';
 
-const img = require('../../../../../static/images/backgrounds/bg_slider_2.jpg');
+const img = require('../../../../../static/images/logo/logo1024x512.jpg');
 
 import './Article.scss';            
                             
