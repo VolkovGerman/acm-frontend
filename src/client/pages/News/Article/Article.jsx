@@ -21,11 +21,11 @@ export default (props) => {
                     <div className="news__info info">
                         <div className="info__item">
                             <div className="info__image info__image_views"/>
-                            <div className="info__value">0</div>
+                            <div className="info__value">{props.el.views}</div>
                         </div>
                         <div className="info__item">
                             <div className="info__image info__image_langs"/>
-                            <div className="info__value">{props.langs.data}</div>
+                            <div className="info__value">{props.el.status.ru ? props.el.status.en ? 'рус, eng' : 'рус' : 'eng'}</div>
                         </div>
                     </div>
                 </div>
