@@ -14,13 +14,13 @@ export default class WidgetPagination extends React.Component {
                 <div className="WidgetPagination__pagination">
                     <ul className="WidgetPagination__list clearfix">
                         <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">Previous</Link>
+                            <Link className="WidgetPagination__listLink" >Previous</Link>
                         </li>
                         <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink active" to="/">1</Link>
+                            <Link className="WidgetPagination__listLink active">1</Link>
                         </li>
                         <li className="WidgetPagination__listItem">
-                            <Link className="WidgetPagination__listLink" to="/">Next</Link>
+                            <Link className="WidgetPagination__listLink" >Next</Link>
                         </li>
                     </ul>
                 </div>

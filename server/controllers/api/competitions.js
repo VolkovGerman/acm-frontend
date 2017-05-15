@@ -4,8 +4,6 @@ const config = require('../../config/source');
 const buildQueryParams = require('../../libs/buildQueryParams');
 
 const CompetitionModel = require('../../models/Competition');
-const CompetitionSectionModel = require('../../models/CompetitionSection');
-const CompetitionPageModel = require('../../models/CompetitionPage');
 
 function getPayload(res, field) {
     // Refactor this - it may be not an array!

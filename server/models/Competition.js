@@ -60,7 +60,7 @@ module.exports = class Competition {
         return {
             titleRU: _.titleRU,
             titleEN: _.titleEN,
-            systemName: Transformer.translit(_.titleEN || _.titleRU),
+            systemName: `${Transformer.translit(_.titleEN || _.titleRU)}-${_.year}`,
             isOpen: _.isOpen,
             year: _.year,
             status: _.status

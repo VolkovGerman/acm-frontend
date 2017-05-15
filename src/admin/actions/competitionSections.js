@@ -201,12 +201,12 @@ export function handlePutCompetitionSection(competition_id, id, body) {
     }
 }
 
-export function handleDeleteCompetitionSections(competition_id, ids) {
+export function handleDeleteCompetitionSections(ids) {
     return function (dispatch) {
         if (ids.length) {
             dispatch(deleteCompetitionSectionsRequest());
 
-            return fetch(`${config.server}/api/competitions/${competition_id}/sections`, {
+            return fetch(`${config.server}/api/competitions/competition_id/sections`, {
                 method: 'DELETE',
                 dataType: 'json',
                 headers: {

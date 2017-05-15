@@ -28,8 +28,8 @@ export default class News extends React.Component {
                                 )}
                             </div>
                             <div className="newsList__actions actions">
-                                <a className="actions__moreBtn"
-                                   onClick={this.handleClickLoadNews}>{dictionary.all_news[this.props.langs.data]}</a>
+                                <Link to="news" className="actions__moreBtn"
+                                   onClick={this.handleClickLoadNews}>{dictionary.all_news[this.props.langs.data]}</Link>
                             </div>
                         </div>
                         :

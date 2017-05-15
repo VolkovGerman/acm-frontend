@@ -27,7 +27,7 @@ export default {
     ],
     link_title: false,
     body_class: 'htmlEditorArea',
-    content_style: '.htmlEditorArea table{width: 100%} .htmlEditorArea table td{border: 1px solid #EDEDED}',
+    content_style: '.htmlEditorArea table{width: 100%} .htmlEditorArea table td, .htmlEditorArea table th{border-right: 1px solid #EDEDED; border-bottom: 1px solid #EDEDED ; padding: 0 5px; } .htmlEditorArea table td:first-child, .htmlEditorArea table th:first-child {border-left: 1px solid #EDEDED;} .htmlEditorArea table tr:first-child td {border-top: 1px solid #EDEDED;} .htmlEditorArea blockquote {border-left: 5px solid #EDEDED; padding: 0 15px;}',
     visual: false,
     image_title: true,
     automatic_uploads: true,
