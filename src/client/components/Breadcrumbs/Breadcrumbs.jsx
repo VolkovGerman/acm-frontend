@@ -1,32 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router';
-import {connect} from 'react-redux';
 
-require('./Breadcrumbs.scss');
+import dictionary from './Breadcrumbs.words';
 
-class Breadcrumbs extends Component {
-    render = () => (
-        <div className="Breadcrumbs">
-            <div className="breadcrumbsWrap">
-                <ul className="breadcrumbs clearfix">
-                    <li className="breadcrumbs__item">
-                        <Link className="breadcrumbs__link" to='/'>
-                            {this.props.lang.home}
-                        </Link>
+import './Breadcrumbs.scss';
+
+export default (props) => 
+    <div className="Breadcrumbs">
+        <div className="breadcrumbsWrap">
+            <ul className="breadcrumbs clearfix">
+                <li className="breadcrumbs__item">
+                    <Link className="breadcrumbs__link" to='/'>
+                        {dictionary.home[props.langs.data]}
+                    </Link>
+                </li>
+                {props.breadcrumbs.map((item, index) =>
+                    <li className="breadcrumbs__item" key={index}>
+                        <Link className="breadcrumbs__link" to={item.link}>{item.name[props.langs.data]}</Link>
                     </li>
-                    {this.props.breadcrumbs.map((item, index) =>
-                        <li className="breadcrumbs__item" key={index}>
-                            <Link className="breadcrumbs__link" to={item.link}>{item.name[this.props.lang.currentLangIndex]}</Link>
-                        </li>
-                    )}
-                </ul>
-            </div>
+                )}
+            </ul>
         </div>
-    );
-}
-
-export default connect(
-    state => ({
-        lang: state.lang
-    })
-)(Breadcrumbs);
+    </div>

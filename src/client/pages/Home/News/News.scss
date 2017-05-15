@@ -1,0 +1,39 @@
+@import '../../../../core/styles/variables';
+@import '../../../../core/styles/mixins';
+
+.News {
+    .newsList {
+        &__title {
+            display: block;
+            margin-bottom: 20px;
+
+            font-family: Roboto;
+            font-size: $font_size_xl;
+
+            text-transform: uppercase;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+
+    .actions {
+        text-align: center;
+
+        &__moreBtn {
+            font-size: $font_size_s;
+            font-family: RobotoBold;
+            color: darken($grey, 20%);
+            text-transform: uppercase;
+
+            &:hover {
+                color: darken($grey, 50%);
+            }
+        }
+
+    }
+
+}

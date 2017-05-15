@@ -1,5 +1,7 @@
 const jwt = require('njwt');
 const Cookies = require('cookies');
+const request = require('request');
+const queryString = require('query-string');
 const config = require('../config/source');
 
 module.exports = {
@@ -8,38 +10,50 @@ module.exports = {
         const token = new Cookies(req, res).get('access_token');
 
         jwt.verify(token, config.secret, (err) => {
-            if (err) { return res.redirect('/'); }
+            if (err) { return res.redirect('/login'); }
             next();
         });
     },
 
     login(req, res, next) {
-        const creds = {
-            username: req.query.username,
-            password: req.query.password
-        };
+        const urlParams = queryString.stringify({
+            'userName': req.body.username,
+            'password': req.body.password
+        });
+        
+        request({
+            method: 'GET',
+            url: `${config.baseUrl}/users/check?${urlParams}`,
+            json: true
+        }, (err, status, body) => {
+            if (err) { return res.json({ status: 'server error' })};
 
-        if (creds.username !== config.auth.username || creds.password !== config.auth.password) {
-            res.redirect('/#/login');
-            return;
-        }
+            if (body.success === false) {
+                return res.json({
+                    status: 'failure',
+                    error: 'Wrong credentials.'
+                });
+            }
 
-        const claims = {
-            sub: 'admin',
-            iss: 'acm.bsuir.by',
-            permissions: 'all'
-        };
-        const secretKey = config.secret;
-        const token = jwt.create(claims, secretKey);
+            const claims = {
+                sub: 'admin',
+                iss: 'acm.bsuir.by',
+                permissions: 'all'
+            };
+            const secretKey = config.secret;
+            const token = jwt.create(claims, secretKey);
 
-        new Cookies(req, res).set('access_token', token.compact());
+            res.json({
+                status: 'success',
+                access_token: token.compact(),
+                user: {
+                    firstName: body.firstName,
+                    secondName: body.secondName,
+                    fatherName: body.fatherName
+                }
+            });
 
-        res.redirect('/admin');
-    },
-
-    logout(req, res, next) {
-        res.clearCookie('access_token');
-        res.redirect('/');
+        });
     }
 
 }

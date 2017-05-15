@@ -1,0 +1,26 @@
+@import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
+
+.News {
+
+    .right {
+        margin-left: 70%;
+        padding-left: 25px;
+
+        @media screen and (max-width: $md) {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+
+    .left {
+        float: left;
+        width: 70%;
+
+        @media screen and (max-width: $md) {
+            float: none;
+            width: 100%;
+        }
+    }
+
+}

@@ -5,6 +5,7 @@ var loaders = require('./webpack.loaders');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "3000";
@@ -20,12 +21,12 @@ module.exports = {
         admin: [
             'react-hot-loader/patch',
             './src/admin/index.jsx',
-            './src/admin/styles/index.scss'
+            './src/admin/index.scss'
         ],
         client: [
             'react-hot-loader/patch',
             './src/client/index.jsx',
-            './src/client/styles/index.scss'
+            './src/client/index.scss'
         ],
         core: [
             'react-hot-loader/patch',
@@ -35,7 +36,7 @@ module.exports = {
     devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
     output: {
         publicPath: '/',
-        path: path.join(__dirname, 'public'),
+        path: path.resolve('public'),
         filename: './[name]/index.js',
         library: '[name]'
     },
@@ -54,6 +55,9 @@ module.exports = {
         historyApiFallback: true,
         port: PORT,
         host: HOST
+    },
+    customInterpolateName: function (url, name, options) {
+        return url.replace(/\\/g, '/');
     },
     plugins: [
         new webpack.NoErrorsPlugin(),
@@ -81,6 +85,11 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-        })
+        }),
+        new CopyWebpackPlugin(
+            [
+                {from: './static/images/logo/logo32x32.png', to: './images/logo/logo32x32.png'}
+            ]
+        )
     ]
 };

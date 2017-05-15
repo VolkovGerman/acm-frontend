@@ -1,0 +1,79 @@
+@import '../../../core/styles/variables';
+
+.CompetitionPage {
+
+    a {
+        color: $mainBlue;
+        text-decoration: underline;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    ul {
+        padding-left: 30px;
+        list-style-type: disc;
+    }
+
+    table {
+        width: 100%;
+
+        td, th {
+            border-right: 1px solid $minorColor;
+            border-bottom: 1px solid $minorColor;
+            padding: 0 5px;
+
+            &:first-child {
+                border-left: 1px solid $minorColor;
+            }
+        }
+
+        tr {
+            &:first-child {
+                td {
+                    border-top: 1px solid $minorColor;
+                }
+            }
+        }
+    }
+
+    pre {
+        background-color: #F5F2F0;
+        padding: 15px;
+        font-size: $font_size_s;
+    }
+
+    hr {
+        border: none;
+        color: $minorColor;
+        background-color: $minorColor;
+        height: 1px;
+    }
+
+    blockquote {
+        border-left: 5px solid $minorColor;
+        padding: 0 15px;
+    }
+
+    .customPage {
+
+        &__title {
+            margin-bottom: 10px;
+            font-size: $font_size_xxl;
+        }
+
+        .historyBack {
+            margin-bottom: 20px;
+        }
+
+        &__content {
+            font-size: $font_size_s;
+            line-height: $lineHeightCustomPage;
+            text-align: justify;
+        }
+
+    }
+
+}

@@ -1,21 +1,27 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 import thunk from 'redux-thunk';
-import {Router, browserHistory} from 'react-router';
-import {syncHistoryWithStore} from 'react-router-redux';
 
-import reducer from './reducers'
-import {routes} from './routes'
+import reducer from './reducers';
+import { routes } from './routes';
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(
+    reducer,
+    composeWithDevTools(applyMiddleware(thunk)),
+);
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history} routes={routes}/>
+        <Router history={history} routes={routes} onUpdate={() => window.scrollTo(0, 0)} />
     </Provider>,
     document.getElementById('root')
 );

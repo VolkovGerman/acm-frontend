@@ -4,6 +4,7 @@ var loaders = require('./webpack.loaders');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 loaders.push({
     test: /\.scss$/,
@@ -16,12 +17,12 @@ module.exports = {
         admin: [
             'react-hot-loader/patch',
             './src/admin/index.jsx',
-            './src/admin/styles/index.scss'
+            './src/admin/index.scss'
         ],
         client: [
             'react-hot-loader/patch',
             './src/client/index.jsx',
-            './src/client/styles/index.scss'
+            './src/client/index.scss'
         ],
         core: [
             'react-hot-loader/patch',
@@ -30,7 +31,7 @@ module.exports = {
     },
     output: {
         publicPath: '/',
-        path: path.join(__dirname, 'public'),
+        path: path.resolve('public'),
         filename: './[name]/index.js',
         library: '[name]'
     },
@@ -39,6 +40,9 @@ module.exports = {
     },
     module: {
         loaders
+    },
+    customInterpolateName: function (url, name, options) {
+        return url.replace(/\\/g, '/');
     },
     plugins: [
         new WebpackCleanupPlugin(),
@@ -78,9 +82,12 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
-            jQuery: "jquery",
-            Promise: 'es6-promise',
-            fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-        })
+            jQuery: "jquery"
+        }),
+        new CopyWebpackPlugin(
+            [
+                {from: './static/images/logo/logo32x32.png', to: './images/logo/logo32x32.png'}
+            ]
+        )
     ]
 };

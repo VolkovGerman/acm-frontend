@@ -1,3 +1,4 @@
 export default {
-    'server': 'https://acm-backend.herokuapp.com'
+    server: process.env.PORT || 'http://localhost:3001',
+    java_server: 'http://acm-backend.herokuapp.com'
 }

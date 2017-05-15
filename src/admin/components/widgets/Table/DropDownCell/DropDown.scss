@@ -1,0 +1,22 @@
+@import '../../../../../core/styles/variables';
+
+.DropDownCell {
+    &__link {
+        text-decoration: underline;
+    }
+    position: relative;
+
+    .dropBox {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 99999;
+        &__link {
+            display: block;
+            padding: 12px 10px;
+            background-color: $admin__mainColor;
+            color: $white;
+        }
+    }
+}

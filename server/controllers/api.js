@@ -4,4 +4,4 @@ module.exports = {
         res.send('This is the root of acm.bsuir.by API.');
     }
 
-}
+};
