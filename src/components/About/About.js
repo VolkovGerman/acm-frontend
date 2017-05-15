@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import Menu from '../MenuComponent/Menu';
-import { css } from 'aphrodite/no-important';
+import React, {Component} from 'react';
+import Header from '../Header/Header';
+import {css} from 'aphrodite/no-important';
 import styles from './AboutStyles';
 
 class About extends Component {
     render() {
         return (
             <div>
-                <Menu />
+                <Header />
                 <div className={css(styles.about)}>About</div>
             </div>
         );

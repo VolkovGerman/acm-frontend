@@ -1,21 +1,17 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
 }
 
 a {
-  color: #29a7de;
-  text-decoration: none;
+    color: #29a7de;
+    text-decoration: none;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul>li {
-  list-style: none;
+    margin: 0;
+    padding: 0;
 }
