@@ -48,7 +48,7 @@ module.exports = {
         loaders
     },
     devServer: {
-        contentBase: "./public/admin",
+        contentBase: "./public/client",
         noInfo: true,
         hot: true,
         inline: true,
