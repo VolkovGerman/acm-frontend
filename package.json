@@ -77,7 +77,6 @@
     "react-cookie": "^1.0.4",
     "react-dropzone": "^3.13.1",
     "react-hot-loader": "^3.0.0-beta.6",
-    "react-time-format": "0.0.5",
     "regexp-loader": "0.0.4",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",

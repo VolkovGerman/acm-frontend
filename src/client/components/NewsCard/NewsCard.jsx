@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import Time from 'react-time-format'
+import moment from 'moment';
 
 import './NewsCard.scss';
 
@@ -20,7 +20,7 @@ export default (props) =>
                     {props.news.title[props.lang]}
                 </Link>
                 <div className="newsCard__header-date">
-                    <Time value={props.news.createdAt[props.lang]} format="DD MM YYYY"/>
+                    {moment(props.news.createdAt).format('DD.MM.YYYY, hh:mm')}
                 </div>
             </header>
             <div className="newsCard__main">
