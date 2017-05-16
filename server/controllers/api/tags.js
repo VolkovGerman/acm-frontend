@@ -28,9 +28,11 @@ module.exports = {
      *            $ref: '#/definitions/Tag'
      */
     getSome(req, res, next) {
+        const queryParams = buildQueryParams(req, ['size'], { sort: 'id,desc' });
+
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/tags`,
+            uri: `${config.baseUrl}/tags${queryParams}`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }

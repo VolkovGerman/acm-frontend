@@ -30,7 +30,7 @@ export default (props) => {
                             : <div key={index}></div>
                     )}
                 </div>
-                <Link className="last__link" to="/news">{dictionary.all_news[props.langs.data]}</Link>
+                {/*<Link className="last__link" to="/news">{dictionary.all_news[props.langs.data]}</Link>*/}
             </div>
         </div>
     );

@@ -29,7 +29,7 @@ module.exports = {
      *            $ref: '#/definitions/Event'
      */
     getSome(req, res, next) {
-        const queryParams = buildQueryParams(req, ['size']);
+        const queryParams = buildQueryParams(req, ['size'], { sort: 'id,desc' });
 
         request({
             method: 'GET',

@@ -46,10 +46,10 @@ export default {
                     title: 'Темы новостей',
                     link: '/dashboard/db/themes'
                 },
-                {
-                    title: 'Теги',
-                    link: '/dashboard/db/tags'
-                }
+                // {
+                //     title: 'Теги',
+                //     link: '/dashboard/db/tags'
+                // }
             ]
         }
     ]

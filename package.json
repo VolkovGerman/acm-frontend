@@ -4,7 +4,7 @@
   "description": "ACM BSUIR Website",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
-    "webpack": "webpack-dev-server --progress --profile --colors",
+    "webpack": "set NODE_ENV=development && webpack-dev-server --progress --profile --colors",
     "start": "set NODE_ENV=production && node ./server/bin/www",
     "start-dev": "set NODE_ENV=development && node ./server/bin/www",
     "lint": "eslint --ext js --ext jsx src || exit 0",

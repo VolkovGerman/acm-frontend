@@ -37,9 +37,9 @@ export default class NewsList extends React.Component {
                                         : <div key={index}></div>
                                 )}
                             </div>
-                            <div className="newsList__actions actions">
-                                <a className="actions__moreBtn" onClick={this.handleClickLoadNews}>{dictionary.more_news[this.props.langs.data]}</a>
-                            </div>
+                            {/*<div className="newsList__actions actions">*/}
+                                {/*<a className="actions__moreBtn" onClick={this.handleClickLoadNews}>{dictionary.more_news[this.props.langs.data]}</a>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                     :
