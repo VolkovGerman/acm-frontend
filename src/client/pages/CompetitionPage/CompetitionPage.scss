@@ -17,6 +17,11 @@
         list-style-type: disc;
     }
 
+    div {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
     table {
         width: 100%;
 
@@ -43,6 +48,7 @@
         background-color: #F5F2F0;
         padding: 15px;
         font-size: $font_size_s;
+        overflow-x: auto;
     }
 
     hr {
