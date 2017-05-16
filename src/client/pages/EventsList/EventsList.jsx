@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import dateformat from 'dateformat';
+import Time from 'react-time-format'
 import dictionary from './EventsList.words.js';
 
 import Loader from '../../../core/components/loaders/CssSquareLoader/CssSquareLoader';
@@ -40,14 +40,14 @@ export default class EventsList extends React.Component {
                                         <div className="event__left">
                                             <div className="eventDate">
                                                 <div className="eventDate__day">
-                                                    {dateformat(event.date, "dd")}
+                                                    <Time value={event.date} format="DD"/>
                                                 </div>
                                                 <div className="eventDate__month-year">
                                                     <div className="eventDate__month">
-                                                        {dateformat(event.date, "mmmm")}
+                                                        <Time value={event.date} format="MM"/>
                                                     </div>
                                                     <div className="eventDate__year">
-                                                        {dateformat(event.date, "yyyy")}
+                                                        <Time value={event.date} format="YYYY"/>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';  
+import { Link } from 'react-router';
 
-import dateformat from 'dateformat';
+import Time from 'react-time-format'
 
 const img = require('../../../../../static/images/logo/logo1024x512.jpg');
 
@@ -13,8 +13,8 @@ export default (props) => {
             <div className="article">
                 <div className="article__header article-header">
                     <div className="article-header__date date">
-                        <div className="date__day">{dateformat(props.el.createdAt, "d")}</div>
-                        <div className="date__month">{dateformat(props.el.createdAt, "mmm yyyy")}</div>
+                        <div className="date__day"><Time value={props.el.createdAt} format="DD"/></div>
+                        <div className="date__month"><Time value={props.el.createdAt} format="MM/YYYY"/></div>
                     </div>
                     <Link className="article-header__title"
                         to={`/news/${props.el.systemName}`}>{props.el.title[props.langs.data]}</Link>

@@ -6,21 +6,41 @@ const Transformer = require('../libs/transformer');
  *   News:
  *     properties:
  *       id:
- *         type: number
+ *         type: integer
  *       title:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       img:
  *         type: string
  *       content:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       description:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       systemName:
  *         type: string
  *       views:
- *         type: number
+ *         type: integer
  *       status:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: boolean
+ *           en:
+ *             type: boolean
  *       createdAt:
  *         type: string
  *       lastModifiedAt:

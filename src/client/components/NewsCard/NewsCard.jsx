@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import dateformat from 'dateformat';
+import Time from 'react-time-format'
 
 import './NewsCard.scss';
 
@@ -20,7 +20,7 @@ export default (props) =>
                     {props.news.title[props.lang]}
                 </Link>
                 <div className="newsCard__header-date">
-                    {dateformat(props.news.createdAt[props.lang], "d mmm yyyy")}
+                    <Time value={props.news.createdAt[props.lang]} format="DD MM YYYY"/>
                 </div>
             </header>
             <div className="newsCard__main">

@@ -4,9 +4,14 @@
  *   CompetitionSections:
  *     properties:
  *       id:
- *         type: number
+ *         type: integer
  *       title:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       createdAt:
  *         type: string
  *       lastModifiedAt:

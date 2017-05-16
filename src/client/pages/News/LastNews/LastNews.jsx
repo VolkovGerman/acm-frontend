@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';  
+import { Link } from 'react-router';
 
-import dateformat from 'dateformat';
+import Time from 'react-time-format'
 import Transformer from '../../../../core/scripts/transformer';
 
 import dictionary from './LastNews.words';
@@ -23,7 +23,7 @@ export default (props) => {
                                     <Link className="newsItem__link"
                                         to={`/news/${item.systemName}`}>{item.title[props.langs.data]}</Link>
                                 </div>
-                                <div className="newsItem__date">{dateformat(item.date, "mmmm d, HH:MM")}</div>
+                                <div className="newsItem__date"><Time value={item.date} format="MM DD, hh:mm"/></div>
                                 <div className="newsItem__description"
                                     dangerouslySetInnerHTML={{__html: Transformer.textEllipsis(item.description[props.langs.data], 128)}}/>
                             </div>

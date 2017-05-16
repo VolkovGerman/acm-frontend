@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
+if (process.env.NODE_ENV.indexOf('development') != -1) {
 
-if (process.env.NODE_ENV == 'development') {
   const swaggerJSDoc = require('./libs/swagger');
 
   // serve swagger on /swagger

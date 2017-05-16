@@ -11,6 +11,23 @@ function getPayload(res) {
 
 module.exports = {
 
+    /**
+     * @swagger
+     * /events/:
+     *   get:
+     *     tags:
+     *       - Show list of Events
+     *     description: Get some events.
+     *     produces:
+     *       - application/json
+     *     responses:
+     *       200:
+     *         description: List of acm event models.
+     *         schema:
+     *           type: array
+     *           items:
+     *            $ref: '#/definitions/Event'
+     */
     getSome(req, res, next) {
         const queryParams = buildQueryParams(req, ['size']);
 
@@ -25,6 +42,28 @@ module.exports = {
         });
     },
 
+    /**
+     * @swagger
+     * /events/{eventId}:
+     *   get:
+     *     tags:
+     *       - Show Event
+     *     parameters:
+     *       - in: path
+     *         name: eventId
+     *         required: true
+     *         type: integer
+     *         minimum: 1
+     *         description: The event ID.
+     *     description: Get events by ID.
+     *     produces:
+     *       - application/json
+     *     responses:
+     *       200:
+     *         description: Event model object.
+     *         schema:
+     *           $ref: '#/definitions/Event'
+     */
     getOne(req, res, next) {
         request({
             method: 'GET',

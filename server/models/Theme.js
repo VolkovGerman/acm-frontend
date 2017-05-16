@@ -4,9 +4,14 @@
  *   Theme:
  *     properties:
  *       id:
- *         type: number
+ *         type: integer
  *       name:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       createdAt:
  *         type: string
  *       lastModifiedAt:

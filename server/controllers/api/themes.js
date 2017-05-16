@@ -12,10 +12,10 @@ function getPayload(res) {
 module.exports = {
     /**
      * @swagger
-     * /news/:
+     * /themes/:
      *   get:
      *     tags:
-     *       - Themes
+     *       - Show list of Themes
      *     description: Get some themes.
      *     produces:
      *       - application/json
@@ -23,7 +23,9 @@ module.exports = {
      *       200:
      *         description: Some themes.
      *         schema:
-     *           $ref: '#/definitions/Theme'
+     *           type: array
+     *           items:
+     *            $ref: '#/definitions/Theme'
      */
     getSome(req, res, next) {
         request({

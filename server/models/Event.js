@@ -1,5 +1,45 @@
-const Transformer = require('../libs/transformer');
-
+/**
+ * @swagger
+ * definitions:
+ *   Event:
+ *     properties:
+ *       id:
+ *         type: integer
+ *       title:
+ *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
+ *       description:
+ *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
+ *       place:
+ *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
+ *       date:
+ *         type: string
+ *       status:
+ *         type: object
+ *         properties:
+ *           ru:
+ *             type: boolean
+ *           en:
+ *             type: boolean
+ *       createdAt:
+ *         type: string
+ *       lastModifiedAt:
+ *         type: string
+ */
 module.exports = class Event {
 
     constructor({

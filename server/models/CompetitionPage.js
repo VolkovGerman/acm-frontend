@@ -3,16 +3,26 @@ const Transformer = require('../libs/transformer');
 /**
  * @swagger
  * definitions:
- *   CompetitionSections:
+ *   CompetitionPage:
  *     properties:
  *       id:
- *         type: number
+ *         type: integer
  *       title:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       systemName:
  *         type: string
  *       content:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       createdAt:
  *         type: string
  *       lastModifiedAt:

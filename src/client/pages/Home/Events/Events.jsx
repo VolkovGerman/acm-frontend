@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import dateformat from 'dateformat';
+import Time from 'react-time-format'
 
 import Loader from '../../../../core/components/loaders/CssSquareLoader/CssSquareLoader';
 import dictionary from './Events.words';
@@ -28,7 +28,7 @@ export default (props) =>
                                     className="event__title">{event.title[props.langs.data]}</div>
                                 <div
                                     className="event__date">
-                                    {dictionary.when[props.langs.data]}: {dateformat(event.date[props.langs.data], "mmmm d, HH:MM")}
+                                    {dictionary.when[props.langs.data]}: <Time value={event.date} format="MM.DD.YYYY, hh:mm"/>
                                 </div>
                                 <div
                                     className="event__date">

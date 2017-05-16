@@ -16,7 +16,7 @@ module.exports = {
      * /news/:
      *   get:
      *     tags:
-     *       - News
+     *       - Show list of News
      *     description: Get some news.
      *     produces:
      *       - application/json
@@ -24,7 +24,9 @@ module.exports = {
      *       200:
      *         description: Some acm news.
      *         schema:
-     *           $ref: '#/definitions/News'
+     *           type: array
+     *           items:
+      *            $ref: '#/definitions/News'
      */
     getSome(req, res, next) {
         const queryParams = buildQueryParams(req, ['size'], { sort: 'lastModifiedAt,desc' });
@@ -40,6 +42,28 @@ module.exports = {
         });
     },
 
+    /**
+     * @swagger
+     * /news/{newsId}:
+     *   get:
+     *     tags:
+     *       - Show News
+     *     parameters:
+     *       - in: path
+     *         name: newsId
+     *         required: true
+     *         type: integer
+     *         minimum: 1
+     *         description: The news ID.
+     *     description: Get news by ID.
+     *     produces:
+     *       - application/json
+     *     responses:
+     *       200:
+     *         description: One acm news.
+     *         schema:
+     *           $ref: '#/definitions/News'
+     */
     getOne(req, res, next) {
         request({
             method: 'GET',

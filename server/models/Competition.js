@@ -6,15 +6,20 @@ const Transformer = require('../libs/transformer');
  *   Competition:
  *     properties:
  *       id:
- *         type: number
+ *         type: integer
  *       title:
  *         type: object
+ *         properties:
+ *           ru:
+ *             type: string
+ *           en:
+ *             type: string
  *       isOpen:
  *         type: boolean
  *       year:
- *         type: number
+ *         type: integer
  *       status:
- *         type: number
+ *         type: boolean
  *       systemName:
  *         type: string
  *       createdAt:
