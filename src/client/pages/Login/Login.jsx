@@ -10,12 +10,12 @@ const bsuirLogo = require('../../../../static/images/logo/bsuir_logo.png')
 
 class Login extends React.Component {
 
-    constructor(args) {
-        super(args);
+    constructor(props) {
+        super(props);
 
         this.state = {
-
-        }
+            wrongCredentials: false
+        };
     }
 
     onFormSubmit(e) {
@@ -33,12 +33,18 @@ class Login extends React.Component {
             .then(_ => _.json())
             .then(data => {
                 if (data.status === 'success') {
+                    this.setState(_ => ({
+                        wrongCredentials: false
+                    }));
+
                     new Cookies().set('access_token', data.access_token, { path: '/' });
                     new Cookies().set('user', data.user, { path: '/' });
 
                     window.location.href = '/dashboard';
                 } else {
-                    window.location.href = '/login';
+                    this.setState(_ => ({
+                        wrongCredentials: true
+                    }));
                 }
             });
 
@@ -55,7 +61,7 @@ class Login extends React.Component {
                         </div>
                     </div>
                     <div className="loginPage__right">
-                        <form className="loginForm" onSubmit={this.onFormSubmit}>
+                        <form className="loginForm" onSubmit={this.onFormSubmit.bind(this)}>
                             <header className="loginForm__header">
                                 <div className="loginForm__title">
                                     Login Page
@@ -70,9 +76,8 @@ class Login extends React.Component {
                                         <input className="loginForm__input" type="password" name="password" placeholder="Password"/>
                                     </div>
                                 </div>
-                                <div className="loginForm__error-message">
-                                    Wrong credentials...
-                                </div>
+                                {this.state.wrongCredentials 
+                                    ? <div className="loginForm__error-message">Wrong credentials...</div> : null}
                             </div>
                             <footer className="loginForm__footer">
                                 <div className="loginForm__actions">
