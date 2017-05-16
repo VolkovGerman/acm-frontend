@@ -9,12 +9,12 @@ import './EventsList.scss';
 
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
-const EVENTS_SIZE = 3;
+// const EVENTS_SIZE = 3;
 
 export default class EventsList extends React.Component {
 
     componentDidMount() {
-        !this.props.events.data.length ? this.props.handleLoadingEvents(EVENTS_SIZE) : null;
+        !this.props.events.data.length ? this.props.handleLoadingEvents() : null;
     }
 
     render() {
@@ -73,9 +73,9 @@ export default class EventsList extends React.Component {
                                     : <div key={index}></div>
                             )}
                         </div>
-                        <div className="eventsList__actions actions">
-                            <Link className="actions__moreBtn" to={`events`}>{dictionary.more_events[this.props.langs.data]}</Link>
-                        </div>
+                        {/*<div className="eventsList__actions actions">*/}
+                            {/*<Link className="actions__moreBtn" to={`events`}>{dictionary.more_events[this.props.langs.data]}</Link>*/}
+                        {/*</div>*/}
                     </div>
                     :
                     <Loader />
