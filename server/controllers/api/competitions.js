@@ -15,7 +15,7 @@ function getPayload(res, field) {
 module.exports = {
 
     getSome(req, res, next) {
-        const queryParams = buildQueryParams(req);
+        const queryParams = buildQueryParams(req, [], { sort: 'id,desc' });
 
         request({
             method: 'GET',

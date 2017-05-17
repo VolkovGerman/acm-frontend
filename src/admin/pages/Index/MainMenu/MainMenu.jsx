@@ -19,7 +19,7 @@ export default (props) =>
             <div className="profile__img"/>
             <div className="profile__nameWrap">
                 <div className="profile__rang">Администратор</div>
-                <div className="profile__name">{`${user.firstName} ${user.secondName}`}</div>
+                <div className="profile__name">{`${user ? user.firstName +' '+ user.secondName : 'Разработчик'}`}</div>
             </div>
         </div>
         <div className="menu">

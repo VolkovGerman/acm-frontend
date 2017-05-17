@@ -48,7 +48,7 @@ module.exports = {
         loaders
     },
     devServer: {
-        contentBase: "./public/client",
+        contentBase: "./public/admin",
         noInfo: true,
         hot: true,
         inline: true,
@@ -90,6 +90,9 @@ module.exports = {
             [
                 {from: './static/images/logo/logo32x32.png', to: './images/logo/logo32x32.png'}
             ]
-        )
+        ),
+        new webpack.EnvironmentPlugin([
+            "NODE_ENV"
+        ])
     ]
 };

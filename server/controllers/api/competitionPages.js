@@ -15,9 +15,11 @@ function getPayload(res, field) {
 module.exports = {
 
     getSome(req, res, next) {
+        const queryParams = buildQueryParams(req, [], { sort: 'id,desc' });
+
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/champSections/${req.params.section_id}/pages`,
+            uri: `${config.baseUrl}/champSections/${req.params.section_id}/pages${queryParams}`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }

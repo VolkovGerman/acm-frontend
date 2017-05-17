@@ -28,9 +28,11 @@ module.exports = {
      *            $ref: '#/definitions/Theme'
      */
     getSome(req, res, next) {
+        const queryParams = buildQueryParams(req, ['size'], { sort: 'id,desc' });
+
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/topics`,
+            uri: `${config.baseUrl}/topics${queryParams}`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }

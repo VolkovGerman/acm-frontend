@@ -17,10 +17,11 @@ module.exports = {
 
     getSomeWithPages(req, res, next) {
         let sections = [];
+        const queryParams = buildQueryParams(req, [], { sort: 'id,desc' });
 
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/champs/${req.params.competition_id}/sections`,
+            uri: `${config.baseUrl}/champs/${req.params.competition_id}/sections${queryParams}`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }
@@ -33,7 +34,7 @@ module.exports = {
                 promises.push(new Promise((resolve, reject) => {
                     request({
                         method: 'GET',
-                        uri: `${config.baseUrl}/champSections/${section.id}/pages`,
+                        uri: `${config.baseUrl}/champSections/${section.id}/pages${queryParams}`,
                         json: true
                     }, (err, status, body) => {
                         if (err) { return next(err); }
@@ -58,9 +59,11 @@ module.exports = {
     },
 
     getSome(req, res, next) {
+        const queryParams = buildQueryParams(req, [], { sort: 'id,desc' });
+
         request({
             method: 'GET',
-            uri: `${config.baseUrl}/champs/${req.params.competition_id}/sections`,
+            uri: `${config.baseUrl}/champs/${req.params.competition_id}/sections${queryParams}`,
             json: true
         }, (err, status, body) => {
             if (err) { return next(err); }
